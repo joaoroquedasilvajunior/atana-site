@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not found — Atana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F1EB;
+    --ink: #1A1A1A;
+    --navy: #1F3A5F;
+    --olive: #6B7B3A;
+    --muted: #6B7280;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --serif: 'Spectral', Georgia, serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .wrap { max-width: 480px; text-align: left; }
+  .kicker {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--olive);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(48px, 8vw, 72px);
+    line-height: 1.05;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+  a {
+    color: var(--olive);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--olive);
+  }
+  a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--navy);
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="kicker">404</div>
+    <h1>Not here.</h1>
+    <p>This page does not exist on atana.lat — yet. The site is being built.</p>
+    <p>Start at the <a href="/">homepage</a> for the Atana Index Vol. 1, or write to <a href="mailto:joao@atana.lat">joao@atana.lat</a>.</p>
+    <div class="brand">Atana</div>
+  </div>
+</body>
+</html>
