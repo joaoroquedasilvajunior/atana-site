@@ -1,12 +1,12 @@
-# DEPLOY.md — atana.lat via GitHub Pages
+# DEPLOY.md — atana.studio via GitHub Pages
 
-> Step-by-step to take `atana.lat` from "registered domain" to "live site" in ~10 minutes once the domain is yours.
+> Step-by-step to take `atana.studio` from "registered domain" to "live site" in ~10 minutes once the domain is yours.
 
 ---
 
 ## Prerequisites
 
-- [ ] `atana.lat` registered at a registrar that lets you edit DNS (Cloudflare Registrar recommended, US$ ~12).
+- [ ] `atana.studio` registered at a registrar that lets you edit DNS (Cloudflare Registrar recommended, US$ ~12).
 - [ ] GitHub account (`@joaoroque`-style handle) — you have this.
 - [ ] Local git installed; you've cloned at least one repo before.
 
@@ -123,7 +123,7 @@ Click it. The Atana Index should load. **Verify the "Download full PDF" button w
 
 Still in **Settings → Pages**:
 
-1. **Custom domain:** type `atana.lat` → Save.
+1. **Custom domain:** type `atana.studio` → Save.
 2. GitHub will warn that DNS isn't configured yet — that's expected; configure it in step 5.
 3. Once DNS resolves correctly, GitHub will automatically issue an SSL certificate. Tick **Enforce HTTPS** as soon as it becomes available (usually within an hour of DNS pointing).
 
@@ -133,11 +133,11 @@ GitHub already detects the `CNAME` file in the repo and confirms the domain conf
 
 ## Step 5 — Configure DNS at your registrar  (3 min + propagation)
 
-The fastest setup uses an apex domain (`atana.lat`) plus a `www` redirect.
+The fastest setup uses an apex domain (`atana.studio`) plus a `www` redirect.
 
 ### If you registered at Cloudflare
 
-Open Cloudflare → atana.lat → **DNS → Records**. Add five records:
+Open Cloudflare → atana.studio → **DNS → Records**. Add five records:
 
 | Type | Name | Content | Proxy status |
 |------|------|---------|--------------|
@@ -160,15 +160,15 @@ Same A records (`185.199.108.153` → `.111.153`) for the apex; same CNAME `www`
 DNS propagation can take anywhere from 1 minute to half an hour. To check progress:
 
 ```bash
-dig atana.lat
+dig atana.studio
 # Should eventually return the four 185.199.108-111.153 IPs.
 ```
 
-Or use <https://dnschecker.org/#A/atana.lat>.
+Or use <https://dnschecker.org/#A/atana.studio>.
 
 Once DNS is propagated:
 
-1. Open <https://atana.lat> in incognito mode.
+1. Open <https://atana.studio> in incognito mode.
 2. The Atana Index should load.
 3. Click "Download full PDF" — should download the file.
 4. Test on mobile (phone with Wi-Fi off and 4G/5G on, to bypass router DNS cache).
@@ -180,30 +180,30 @@ Once DNS is propagated:
 
 If you registered at Cloudflare:
 
-1. Open Cloudflare → atana.lat → **Email → Email Routing**.
+1. Open Cloudflare → atana.studio → **Email → Email Routing**.
 2. Enable Email Routing (follow the wizard; it adds MX and TXT records automatically).
 3. Add three forwarders:
-   - `joao@atana.lat` → `joaoroquer@gmail.com`
-   - `hola@atana.lat` → `joaoroquer@gmail.com`
-   - `contact@atana.lat` → `joaoroquer@gmail.com`
+   - `joao@atana.studio` → `joaoroquer@gmail.com`
+   - `hola@atana.studio` → `joaoroquer@gmail.com`
+   - `contact@atana.studio` → `joaoroquer@gmail.com`
 4. Verify each by sending yourself a test email.
 
-Now your email signature's `joao@atana.lat` actually works.
+Now your email signature's `joao@atana.studio` actually works.
 
 ---
 
-## Step 8 — Update Gmail to send AS `joao@atana.lat`  (10 min, optional but recommended)
+## Step 8 — Update Gmail to send AS `joao@atana.studio`  (10 min, optional but recommended)
 
-Cloudflare Email Routing handles **inbound** only — by default you still send from `joaoroquer@gmail.com`. To send *as* `joao@atana.lat`:
+Cloudflare Email Routing handles **inbound** only — by default you still send from `joaoroquer@gmail.com`. To send *as* `joao@atana.studio`:
 
 1. Gmail → Settings → **Accounts and Import** → Send mail as → **Add another email address**.
 2. Name: `João Roque`
-3. Email: `joao@atana.lat`
+3. Email: `joao@atana.studio`
 4. Treat as alias: yes.
 5. SMTP server: `smtp.gmail.com`, port 587, username `joaoroquer@gmail.com`, password = a Google App Password (generate one at <https://myaccount.google.com/apppasswords>).
-6. Gmail will send a verification email to `joao@atana.lat` — Cloudflare forwards it to your Gmail; click the link.
+6. Gmail will send a verification email to `joao@atana.studio` — Cloudflare forwards it to your Gmail; click the link.
 
-Now you can compose emails *from* `joao@atana.lat` in Gmail. This is the v0-good-enough professional setup. Migrating to Workspace/Fastmail/ProtonMail can wait.
+Now you can compose emails *from* `joao@atana.studio` in Gmail. This is the v0-good-enough professional setup. Migrating to Workspace/Fastmail/ProtonMail can wait.
 
 ---
 
@@ -219,7 +219,7 @@ Now you can compose emails *from* `joao@atana.lat` in Gmail. This is the v0-good
 
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
-| `atana.lat` shows GitHub 404 page after DNS resolves | CNAME file missing or wrong | Verify `CNAME` file in the repo contains exactly `atana.lat` |
+| `atana.studio` shows GitHub 404 page after DNS resolves | CNAME file missing or wrong | Verify `CNAME` file in the repo contains exactly `atana.studio` |
 | "Domain's DNS record could not be retrieved" in GitHub | DNS not propagated yet | Wait 15 min, refresh |
 | HTTPS not available after a few hours | Cloudflare proxy is ON | Turn off the proxy (grey cloud) on the A records |
 | Site loads but PDF download fails | Filename mismatch | Verify the PDF file in the repo is exactly `Atana_Index_Vol1_Two_Creative_Time_Zones.pdf` (case-sensitive) |

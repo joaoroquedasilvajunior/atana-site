@@ -1,6 +1,6 @@
-# atana.lat
+# atana.studio
 
-Source for the Atana public site at <https://atana.lat>.
+Source for the Atana public site at <https://atana.studio>.
 
 **Atana** — evidence-based AI policy for creative economies in Latin America.
 
@@ -10,7 +10,7 @@ The current site is a single-page deployment of *Atana Index Vol. 1: Two Creativ
 
 - Static HTML (single self-contained file with base64-inlined charts).
 - Hosted on GitHub Pages.
-- Custom domain: `atana.lat` (DNS via Cloudflare).
+- Custom domain: `atana.studio` (DNS via Cloudflare).
 
 ## Files
 
@@ -18,7 +18,7 @@ The current site is a single-page deployment of *Atana Index Vol. 1: Two Creativ
 |------|---------|
 | `index.html` | Homepage — full Atana Index Vol. 1 |
 | `Atana_Index_Vol1_Two_Creative_Time_Zones.pdf` | Downloadable PDF version |
-| `CNAME` | GitHub Pages custom-domain config (`atana.lat`) |
+| `CNAME` | GitHub Pages custom-domain config (`atana.studio`) |
 | `.nojekyll` | Disables Jekyll processing (we serve raw HTML) |
 | `404.html` | Custom 404 page |
 
@@ -36,4 +36,4 @@ This is a pre-v1 deploy. Future versions will move from this single-page format 
 
 ## Contact
 
-João Roque — `joao@atana.lat` · São Paulo · Buenos Aires
+João Roque — `joao@atana.studio` · São Paulo · Buenos Aires
