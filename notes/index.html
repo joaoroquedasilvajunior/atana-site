@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Notes — short pieces on creative-economy policy in Latin America</title>
+<meta name="description" content="Atana Notes — concise (4–6 min) analyses of creative-economy policy, AI, and cultural trade in Latin America. Published bi-monthly in PT / EN / ES.">
+<meta property="og:title" content="Atana Notes">
+<meta property="og:description" content="Concise analyses of creative-economy policy, AI, and cultural trade in Latin America.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://atana.studio/notes/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A1A;
+    --navy: #1F3A5F;
+    --olive: #6B7B3A;
+    --olive-dim: #8a9a52;
+    --brick: #8C2A2A;
+    --sand: #F4F1EB;
+    --sand-2: #E8DDC8;
+    --rule: #D6CFC0;
+    --muted: #5C5C5C;
+    --serif: 'Spectral', 'Georgia', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--sand);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    background: rgba(244, 241, 235, 0.95);
+  }
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .brand-suffix {
+    color: var(--olive);
+    font-weight: 500;
+    margin-left: 4px;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .header-meta {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    font-size: 14px;
+    color: var(--olive);
+  }
+  .header-meta a {
+    color: var(--olive);
+    text-decoration: none;
+  }
+  .header-meta a:hover {
+    text-decoration: underline;
+  }
+
+  .page-hero {
+    padding: 64px 0 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--olive);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: 44px;
+    line-height: 1.15;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+  .deck {
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.55;
+    max-width: 640px;
+    margin: 0;
+  }
+  .rule {
+    width: 56px;
+    height: 3px;
+    background: var(--olive);
+    margin: 22px 0 0;
+  }
+
+  .meta-row {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .meta-row strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .notes-list {
+    padding: 40px 0 80px;
+  }
+  .section-label {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--olive);
+    font-weight: 700;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .note-card {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .note-card:last-of-type { border-bottom: none; }
+  .note-eyebrow {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--olive);
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+  .note-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--navy);
+    font-weight: 700;
+    margin: 0 0 10px;
+    letter-spacing: -0.005em;
+  }
+  .note-title a {
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .note-title a:hover {
+    color: var(--olive);
+  }
+  .note-deck {
+    font-size: 16px;
+    color: var(--muted);
+    margin: 0 0 12px;
+    line-height: 1.55;
+  }
+  .note-tags {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .note-tags strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .upcoming {
+    margin-top: 56px;
+    padding: 28px 32px;
+    background: var(--sand-2);
+    border-left: 4px solid var(--olive);
+  }
+  .upcoming h3 {
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--olive);
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  .upcoming p {
+    margin: 0 0 8px;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .upcoming p:last-child { margin-bottom: 0; }
+  .upcoming em {
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 0 48px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .site-footer a {
+    color: var(--olive);
+    text-decoration: none;
+  }
+  .site-footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 32px; }
+    .note-title { font-size: 20px; }
+    .deck { font-size: 17px; }
+    .page-hero { padding: 40px 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Atana Notes</div>
+    <h1>Short pieces on creative-economy policy in Latin America</h1>
+    <div class="rule"></div>
+    <p class="deck">Concise analyses (4–6 minutes) that translate findings from Atana's open data corpus into policy implications. Published bi-monthly in Portuguese, English, and Spanish.</p>
+
+    <div class="meta-row">
+      <div><strong>Cadence:</strong> bi-monthly</div>
+      <div><strong>Languages:</strong> PT · EN · ES</div>
+      <div><strong>Data source:</strong> <a href="https://github.com/joaoroquedasilvajunior/atana-data" style="color: var(--olive);">atana-data</a> (CC BY 4.0)</div>
+    </div>
+  </div>
+</section>
+
+<section class="notes-list">
+  <div class="container">
+
+    <div class="section-label">Published</div>
+
+    <article class="note-card">
+      <div class="note-eyebrow">#03 · 16 May 2026 · 5 min read · PT</div>
+      <h2 class="note-title"><a href="/notes/03/">Quando 55,6% vira 5,0%: a "dependência da China" do setor cultural brasileiro depende do que você chama de "cultural"</a></h2>
+      <p class="note-deck">Em 2024, a SECEX/IBGE diz 55,6%. O UNCTAD diz 5,0%. Os dois números são corretos — e a diferença entre eles enquadra dois debates de política pública completamente distintos.</p>
+      <p class="note-tags"><strong>Topic:</strong> Cultural trade · Sino-dependence · Methodology  &nbsp;·&nbsp;  <strong>Related:</strong> Análise 4 §3.bis, Análise 10</p>
+    </article>
+
+    <div class="upcoming">
+      <h3>Coming next</h3>
+      <p><strong>Note #04 — Argentina–Brazil cultural trade trajectory.</strong> <em>Targeted for Week 22 (early June 2026).</em> Why Argentina's share of Brazilian cultural exports fell from 13.5% to 9.1% in 2024 — and what the Milei austerity period reveals about LATAM cultural trade resilience.</p>
+      <p><strong>Note #05 — A genealogia institucional da economia criativa no Brasil.</strong> <em>Targeted for Week 24.</em> A close reading of the LexML corpus: 269 acts, 1998–2026, and what they tell us about how "creative economy" entered Brazilian policy vocabulary.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
