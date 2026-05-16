@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #01 — Atana abre o corpus | Atana</title>
+<meta name="description" content="50 milhões de linhas de dados culturais latino-americanos, agora públicos em CC BY 4.0. Atana Note #01 anuncia o atana-data — corpus integrado de cinco fontes oficiais.">
+<meta property="og:title" content="Atana Note #01 — Atana abre o corpus">
+<meta property="og:description" content="50 milhões de linhas de dados culturais latino-americanos, agora públicos. Atana Note #01.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/01/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A1A;
+    --navy: #1F3A5F;
+    --olive: #6B7B3A;
+    --olive-dim: #8a9a52;
+    --brick: #8C2A2A;
+    --sand: #F4F1EB;
+    --sand-2: #E8DDC8;
+    --rule: #D6CFC0;
+    --muted: #5C5C5C;
+    --serif: 'Spectral', 'Georgia', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--sand);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    background: rgba(244, 241, 235, 0.95);
+  }
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .brand-suffix { color: var(--olive); margin-left: 6px; font-size: 14px; font-family: var(--sans); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: middle; }
+  .header-meta { font-size: 13px; color: var(--muted); letter-spacing: 0.04em; }
+  .header-meta a { color: var(--olive); text-decoration: none; margin-left: 18px; font-weight: 600; }
+  .header-meta a:hover { text-decoration: underline; }
+
+  article { padding: 48px 0 80px; }
+  .note-eyebrow {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--olive);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.18;
+    color: var(--navy);
+    margin: 0 0 16px;
+  }
+  @media (min-width: 700px) { h1 { font-size: 38px; } }
+  .deck {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+  .meta strong { color: var(--ink); font-weight: 600; }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--navy);
+    margin: 44px 0 16px;
+  }
+  p { margin: 0 0 18px; }
+  ul, ol { margin: 0 0 18px; padding-left: 22px; }
+  ul li, ol li { margin-bottom: 8px; }
+  strong { color: var(--ink); }
+  a { color: var(--olive); }
+
+  .schema-table {
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    background: white;
+  }
+  .schema-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 90px;
+    padding: 14px 18px;
+    gap: 16px;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+    font-size: 15px;
+  }
+  .schema-row:last-child { border-bottom: 0; }
+  .schema-name {
+    font-family: var(--sans);
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+  }
+  .schema-desc { color: var(--muted); font-size: 14px; }
+  .schema-tables {
+    color: var(--olive);
+    font-weight: 600;
+    font-size: 13px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 600px) {
+    .schema-row { grid-template-columns: 1fr; gap: 4px; }
+    .schema-tables { text-align: left; }
+  }
+
+  .callout {
+    background: var(--sand-2);
+    border-left: 4px solid var(--olive);
+    padding: 18px 22px;
+    margin: 28px 0;
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .callout strong { color: var(--olive); }
+
+  .citation-box {
+    margin: 28px 0;
+    padding: 18px 22px;
+    border: 1px dashed var(--rule);
+    background: rgba(255,255,255,0.5);
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .citation-box code {
+    background: transparent;
+    color: var(--navy);
+    font-size: 13px;
+  }
+
+  .sources-section {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 15px;
+  }
+  .sources-section h2 { font-size: 18px; margin-top: 0; }
+  .sources-section ul li { font-size: 14px; color: var(--muted); }
+  .sources-section a { color: var(--olive); }
+
+  .footer-cta {
+    margin-top: 48px;
+    padding: 28px;
+    background: var(--navy);
+    color: var(--sand);
+    text-align: center;
+    border-radius: 2px;
+  }
+  .footer-cta h2 {
+    font-family: var(--serif);
+    color: var(--sand);
+    font-size: 22px;
+    margin: 0 0 8px;
+  }
+  .footer-cta p {
+    color: var(--sand-2);
+    margin: 0 0 16px;
+    font-size: 15px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 22px;
+    background: var(--olive);
+    color: var(--sand);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    border-radius: 2px;
+  }
+  .btn:hover { background: var(--olive-dim); }
+
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+  .site-footer a { color: var(--olive); text-decoration: none; }
+  .site-footer p { margin: 6px 0; }
+
+  code {
+    background: var(--sand-2);
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: 'Menlo', 'Monaco', monospace;
+    color: var(--navy);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana</a>
+      <a href="/notes/">Todas as notas</a>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #01 · 16 May 2026 · 5 min read</div>
+    <h1>Atana abre o corpus: 50 milhões de linhas de dados culturais latino-americanos, agora públicos</h1>
+    <p class="deck">Cinco fontes oficiais, trinta e quatro tabelas, uma camada de SQL. Pela primeira vez, perguntas cross-source sobre a economia criativa latino-americana custam cinco linhas de código — não oitenta horas de consultoria.</p>
+
+    <div class="meta">
+      <div><strong>Autor:</strong> João Roque, Atana</div>
+      <div><strong>Tema:</strong> Infraestrutura de dados, transparência analítica</div>
+      <div><strong>Licenças:</strong> CC BY 4.0 (dados) · MIT (código)</div>
+    </div>
+
+    <h2>O sinal</h2>
+    <p>Em 16 de maio de 2026, a Atana publicou — sob licença CC BY 4.0 para os dados e MIT para o código — o <strong><code>atana-data</code></strong>: o primeiro corpus integrado, reproduzível e público das economias criativas da América Latina. Cinco esquemas, trinta e quatro tabelas, aproximadamente cinquenta milhões de linhas. Cinco fontes oficiais que costumavam viver em silos diferentes, unificadas pela primeira vez em uma única camada de SQL.</p>
+
+    <div class="schema-table">
+      <div class="schema-row">
+        <div class="schema-name">unctad</div>
+        <div class="schema-desc">UNCTAD Creative Economy — comércio criativo internacional, 1995–2024</div>
+        <div class="schema-tables">4 tabelas</div>
+      </div>
+      <div class="schema-row">
+        <div class="schema-name">ibge_pnadc</div>
+        <div class="schema-desc">IBGE PNADC — mercado de trabalho cultural brasileiro, 2014–2024</div>
+        <div class="schema-tables">18 tabelas</div>
+      </div>
+      <div class="schema-row">
+        <div class="schema-name">ibge_comex</div>
+        <div class="schema-desc">IBGE Comex — comércio exterior cultural brasileiro, 2014–2024</div>
+        <div class="schema-tables">4 tabelas</div>
+      </div>
+      <div class="schema-row">
+        <div class="schema-name">salic</div>
+        <div class="schema-desc">SALIC — microdados da Lei Rouanet, 26.203 projetos</div>
+        <div class="schema-tables">3 tabelas</div>
+      </div>
+      <div class="schema-row">
+        <div class="schema-name">lexml</div>
+        <div class="schema-desc">LexML — 269 atos normativos sobre economia criativa, 1998–2026</div>
+        <div class="schema-tables">5 tabelas</div>
+      </div>
+    </div>
+
+    <p>O repositório está em <a href="https://github.com/joaoroquedasilvajunior/atana-data"><code>github.com/joaoroquedasilvajunior/atana-data</code></a>. As tabelas também estão acessíveis via MotherDuck cloud (<code>md:atana</code>) e como arquivos Parquet consultáveis sobre HTTPS. Cinco scripts de ETL acompanham os dados — cada tabela pode ser reconstruída integralmente a partir das fontes originais.</p>
+
+    <h2>Por que isso importa para as economias criativas latino-americanas</h2>
+    <p>A pesquisa em economia criativa latino-americana sempre foi fragmentada por fonte. UNCTAD em Genebra. IBGE em Brasília. SALIC dentro do MinC. ECLAC em Santiago. WIPO em Genebra outra vez. Cada uma tem sua classificação, seu período de referência, sua amostra, sua nomenclatura. Pesquisadores e gestores públicos passam mais tempo alinhando fontes do que analisando o que elas dizem.</p>
+    <p>A consequência prática é severa: perguntas cross-source — <em>quanto da força de trabalho cultural brasileira está em ocupações que também aparecem nas exportações?</em>, <em>quais estados captam mais via Lei Rouanet e quais mais aparecem nas exportações culturais?</em>, <em>como o vocabulário legal da "economia criativa" evolui em paralelo com os dados macro de comércio?</em> — são tecnicamente simples e operacionalmente impossíveis. Cada uma exige semanas de preparação só para chegar à pergunta.</p>
+
+    <div class="callout">
+      <strong>Esse é o gap que o atana-data fecha.</strong> Uma consulta cross-source agora custa cinco linhas de SQL — não oitenta horas de consultoria. O ganho não é incremental; é estrutural.
+    </div>
+
+    <p>Ele transforma o que uma prática especializada de política cultural pode oferecer: deixa de ser opinião sobre fontes secundárias e passa a ser análise direta sobre microdados integrados.</p>
+
+    <h2>O que a primeira consulta cruzada já revelou</h2>
+    <p>A consulta inaugural — feita no mesmo dia em que o corpus ficou pronto — comparou as importações culturais brasileiras de 2024 segundo duas fontes diferentes do próprio corpus: SECEX/IBGE (sob a rubrica "cultural" oficial brasileira) e UNCTAD (sob a classificação criativa internacional).</p>
+    <p>A SECEX diz que <strong>55,6%</strong> das importações culturais brasileiras vieram da China em 2024. O UNCTAD diz <strong>5,0%</strong>. Os dois números são corretos.</p>
+    <p>O gap de 50 pontos é metodológico, não erro de medida. A IBGE classifica como "cultural" porções substanciais de equipamentos (câmeras, projetores, eletro-AV, consoles); o UNCTAD não. Essa diferença reescreve a narrativa pública sobre dependência chinesa do setor cultural brasileiro — e nenhuma das duas instituições publicou o cruzamento, porque cada uma trabalha dentro do seu próprio recorte. <strong>A consulta só foi possível porque as duas tabelas viviam, pela primeira vez, na mesma camada de SQL.</strong></p>
+    <p>Esse achado virou a <a href="/notes/03/">Atana Note #03</a>, publicada em paralelo a esta nota. Ela é a <strong>prova de existência</strong> de que vale a pena ter um corpus integrado: ele torna visíveis perguntas que antes ninguém tinha como formular.</p>
+
+    <h2>O que fazer com isso</h2>
+    <p><strong>Para pesquisadores em economia criativa:</strong> clone o repositório, consulte <code>md:atana</code>, cite conforme o README. As licenças são permissivas; o objetivo é o uso, não a defesa de propriedade. Se você adicionar uma tabela ou enriquecer uma fonte, considere abrir um PR — a infraestrutura ganha com cada contribuição.</p>
+    <p><strong>Para gestores públicos e equipes de política cultural:</strong> peça à sua equipe técnica para validar afirmações sobre o setor cultural contra o corpus. A reprodutibilidade está garantida; cada número que a Atana publica é uma query auditável. Se uma estatística é citada sem possibilidade de reprodução, vale perguntar de onde ela vem.</p>
+    <p><strong>Para a Atana:</strong> este é o motor que sustenta as entregas da consultoria. Cada relatório, cada diagnóstico, cada nota é agora uma consulta sobre o corpus — auditável e reproduzível. A defensibilidade analítica deixa de depender de planilhas privadas e passa a depender da arquitetura pública.</p>
+
+    <h2>O que vem a seguir</h2>
+    <p>A próxima Nota — <strong>#02</strong>, prevista para a semana 21 — usa exatamente esse corpus para revisitar o framework <em>Dois Fusos Criativos Latino-Americanos</em> com os dados de música de 2025 (IFPI Global Music Report + Spotify Loud &amp; Clear). A <strong>#04</strong> revisita a genealogia institucional do termo "economia criativa" no Brasil contra o corpus LexML (269 atos, 1998–2026). A versão 2 do <em>Atana Index</em>, prevista para outubro de 2026, será inteiramente reconstruída sobre o <code>atana-data</code>.</p>
+    <p>A próxima fase de expansão do corpus, já planejada, integra Argentina (INDEC + INCAA), México (INEGI + Imcine) e Colômbia (DANE + MinCultura). O objetivo é ter uma camada LATAM completa antes de outubro de 2026.</p>
+
+    <h2>Como citar</h2>
+    <div class="citation-box">
+      <p style="margin:0 0 6px;"><code>atana-data</code> (2026). github.com/joaoroquedasilvajunior/atana-data. CC BY 4.0 (dados) · MIT (código).</p>
+      <p style="margin:0; color: var(--muted); font-size: 13px;">Se for usado em pesquisa, política pública ou jornalismo, citação é a única reciprocidade pedida.</p>
+    </div>
+
+    <div class="sources-section">
+      <h2>Implementação técnica</h2>
+      <ul>
+        <li>Repositório: <a href="https://github.com/joaoroquedasilvajunior/atana-data">github.com/joaoroquedasilvajunior/atana-data</a></li>
+        <li>Banco de dados cloud: <code>md:atana</code> (MotherDuck)</li>
+        <li>Esquemas: <code>unctad</code>, <code>ibge_pnadc</code>, <code>ibge_comex</code>, <code>salic</code>, <code>lexml</code></li>
+        <li>ETL: 5 scripts Python, reproduzíveis a partir das fontes originais</li>
+        <li>Volume: ~370 MB em Parquet, ~50 milhões de linhas</li>
+      </ul>
+    </div>
+
+    <div class="footer-cta">
+      <h2>Dados abertos. Análises reproduzíveis.</h2>
+      <p>Cada número publicado pela Atana é uma query auditável sobre o <code>md:atana</code>.</p>
+      <a href="https://github.com/joaoroquedasilvajunior/atana-data" class="btn">Explorar atana-data →</a>
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — <a href="https://atana.studio">atana.studio</a> — <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a></p>
+    <p>Conteúdo licenciado CC BY 4.0 · Código MIT</p>
+  </div>
+</footer>
+
+</body>
+</html>
