@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atana Note #01 — Atana abre o corpus | Atana</title>
-<meta name="description" content="50 milhões de linhas de dados culturais latino-americanos, agora públicos em CC BY 4.0. Atana Note #01 anuncia o atana-data — corpus integrado de cinco fontes oficiais.">
+<meta name="description" content="65 milhões de linhas de dados culturais latino-americanos, agora públicos em CC BY 4.0. Atana Note #01 anuncia o atana-data — corpus integrado de seis fontes oficiais.">
 <meta property="og:title" content="Atana Note #01 — Atana abre o corpus">
-<meta property="og:description" content="50 milhões de linhas de dados culturais latino-americanos, agora públicos. Atana Note #01.">
+<meta property="og:description" content="65 milhões de linhas de dados culturais latino-americanos, agora públicos. Atana Note #01.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://atana.studio/notes/01/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -258,8 +258,8 @@
 <article>
   <div class="container">
     <div class="note-eyebrow">Atana Note #01 · 16 May 2026 · 5 min read</div>
-    <h1>Atana abre o corpus: 50 milhões de linhas de dados culturais latino-americanos, agora públicos</h1>
-    <p class="deck">Cinco fontes oficiais, trinta e quatro tabelas, uma camada de SQL. Pela primeira vez, perguntas cross-source sobre a economia criativa latino-americana custam cinco linhas de código — não oitenta horas de consultoria.</p>
+    <h1>Atana abre o corpus: 65 milhões de linhas de dados culturais latino-americanos, agora públicos</h1>
+    <p class="deck">Seis fontes oficiais, trinta e sete tabelas, uma camada de SQL. Pela primeira vez, perguntas cross-source sobre a economia criativa latino-americana custam cinco linhas de código — não oitenta horas de consultoria.</p>
 
     <div class="meta">
       <div><strong>Autor:</strong> João Roque, Atana</div>
@@ -268,7 +268,7 @@
     </div>
 
     <h2>O sinal</h2>
-    <p>Em 16 de maio de 2026, a Atana publicou — sob licença CC BY 4.0 para os dados e MIT para o código — o <strong><code>atana-data</code></strong>: o primeiro corpus integrado, reproduzível e público das economias criativas da América Latina. Cinco esquemas, trinta e quatro tabelas, aproximadamente cinquenta milhões de linhas. Cinco fontes oficiais que costumavam viver em silos diferentes, unificadas pela primeira vez em uma única camada de SQL.</p>
+    <p>Em 16 de maio de 2026, a Atana publicou — sob licença CC BY 4.0 para os dados e MIT para o código — o <strong><code>atana-data</code></strong>: o primeiro corpus integrado, reproduzível e público das economias criativas da América Latina. Seis esquemas, trinta e sete tabelas, aproximadamente sessenta e cinco milhões de linhas. Seis fontes oficiais que costumavam viver em silos diferentes, unificadas pela primeira vez em uma única camada de SQL. <em style="font-size: 0.92em; color: var(--muted);">(Esquema RAIS adicionado em 2026-05-18; conteúdo desta nota atualizado retroativamente.)</em></p>
 
     <div class="schema-table">
       <div class="schema-row">
@@ -296,9 +296,14 @@
         <div class="schema-desc">LexML — 269 atos normativos sobre economia criativa, 1998–2026</div>
         <div class="schema-tables">5 tabelas</div>
       </div>
+      <div class="schema-row">
+        <div class="schema-name">rais</div>
+        <div class="schema-desc">RAIS — vínculos formais e estabelecimentos culturais brasileiros, 2014–2023 <em style="color: var(--olive); font-size: 0.85em;">(adicionado 2026-05-18)</em></div>
+        <div class="schema-tables">3 tabelas</div>
+      </div>
     </div>
 
-    <p>O repositório está em <a href="https://github.com/joaoroquedasilvajunior/atana-data"><code>github.com/joaoroquedasilvajunior/atana-data</code></a>. As tabelas também estão acessíveis via MotherDuck cloud (<code>md:atana</code>) e como arquivos Parquet consultáveis sobre HTTPS. Cinco scripts de ETL acompanham os dados — cada tabela pode ser reconstruída integralmente a partir das fontes originais.</p>
+    <p>O repositório está em <a href="https://github.com/joaoroquedasilvajunior/atana-data"><code>github.com/joaoroquedasilvajunior/atana-data</code></a>. As tabelas também estão acessíveis via MotherDuck cloud (<code>md:atana</code>) e como arquivos Parquet consultáveis sobre HTTPS. Seis scripts de ETL acompanham os dados — cada tabela pode ser reconstruída integralmente a partir das fontes originais.</p>
 
     <h2>Por que isso importa para as economias criativas latino-americanas</h2>
     <p>A pesquisa em economia criativa latino-americana sempre foi fragmentada por fonte. UNCTAD em Genebra. IBGE em Brasília. SALIC dentro do MinC. ECLAC em Santiago. WIPO em Genebra outra vez. Cada uma tem sua classificação, seu período de referência, sua amostra, sua nomenclatura. Pesquisadores e gestores públicos passam mais tempo alinhando fontes do que analisando o que elas dizem.</p>
@@ -336,9 +341,9 @@
       <ul>
         <li>Repositório: <a href="https://github.com/joaoroquedasilvajunior/atana-data">github.com/joaoroquedasilvajunior/atana-data</a></li>
         <li>Banco de dados cloud: <code>md:atana</code> (MotherDuck)</li>
-        <li>Esquemas: <code>unctad</code>, <code>ibge_pnadc</code>, <code>ibge_comex</code>, <code>salic</code>, <code>lexml</code></li>
+        <li>Esquemas: <code>unctad</code>, <code>ibge_pnadc</code>, <code>ibge_comex</code>, <code>salic</code>, <code>lexml</code>, <code>rais</code></li>
         <li>ETL: 5 scripts Python, reproduzíveis a partir das fontes originais</li>
-        <li>Volume: ~370 MB em Parquet, ~50 milhões de linhas</li>
+        <li>Volume: ~770 MB em Parquet, ~65 milhões de linhas (com esquema RAIS adicionado em 2026-05-18)</li>
       </ul>
     </div>
 
