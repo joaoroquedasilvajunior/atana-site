@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Atana">
+  <rect width="512" height="512" rx="96" fill="#1F3A5F"/>
+  <path fill="#F4F1EB" fill-rule="evenodd"
+        d="M256 104 L394 408 L118 408 Z
+           M256 190 L300 290 L212 290 Z
+           M256 332 L320 408 L192 408 Z"/>
+</svg>

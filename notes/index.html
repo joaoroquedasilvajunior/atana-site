@@ -246,13 +246,98 @@
     color: var(--navy);
   }
 
+  .subscribe {
+    padding: 8px 0 64px;
+  }
+  .subscribe-card {
+    background: var(--navy);
+    color: var(--sand);
+    padding: 40px 36px;
+    border-radius: 3px;
+  }
+  .subscribe-card h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--sand);
+    margin: 0 0 10px;
+  }
+  .subscribe-card p {
+    color: var(--sand-2);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 22px;
+    max-width: 560px;
+  }
+  .subscribe-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .subscribe-form input[type="email"] {
+    flex: 1 1 280px;
+    min-width: 0;
+    padding: 13px 16px;
+    border: 1px solid #3a5170;
+    border-radius: 2px;
+    background: #16293f;
+    color: var(--sand);
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+  .subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+  .subscribe-form input[type="email"]:focus {
+    outline: 2px solid var(--olive);
+    outline-offset: 1px;
+  }
+  .subscribe-form button {
+    padding: 13px 28px;
+    background: var(--olive);
+    color: var(--sand);
+    border: 0;
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+  }
+  .subscribe-form button:hover { background: var(--olive-dim); }
+  .subscribe-fine {
+    margin: 16px 0 0;
+    font-size: 13px;
+    color: #8a99ad;
+    letter-spacing: 0.03em;
+  }
+
   @media (max-width: 640px) {
     h1 { font-size: 32px; }
     .note-title { font-size: 20px; }
     .deck { font-size: 17px; }
     .page-hero { padding: 40px 0 24px; }
+    .subscribe-card { padding: 32px 24px; }
   }
 </style>
+<!-- atana:seo -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Notes">
+<meta name="twitter:description" content="Atana Notes — concise (4–6 min) analyses of creative-economy policy, AI, and cultural trade in Latin America. Published bi-monthly in PT / EN / ES.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Atana Notes","description":"Atana Notes — concise (4–6 min) analyses of creative-economy policy, AI, and cultural trade in Latin America. Published bi-monthly in PT / EN / ES.","url":"https://atana.studio/notes/","isPartOf":{"@id":"https://atana.studio/#website"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
 </head>
 <body>
 
@@ -263,6 +348,7 @@
       <a href="/">← Atana Index</a>
       <a href="/notes/">All notes</a>
       <a href="/data/">Data</a>
+      <a href="#subscribe">Subscribe</a>
     </div>
   </div>
 </header>
@@ -315,6 +401,27 @@
       <p><strong>Note #06 — Brazilian Funk and the Authenticity Paradox.</strong> <em>Targeted for Week 26.</em></p>
     </div>
 
+  </div>
+</section>
+
+<section class="subscribe" id="subscribe">
+  <div class="container">
+    <div class="subscribe-card">
+      <h2>Receive the Notes</h2>
+      <p>Each new Atana Note — a concise read on creative-economy policy, AI, and cultural trade in Latin America — sent to you when it publishes. Roughly two a month. No noise, no tracking pixels.</p>
+      <!-- ATANA: the Buttondown username below is "atana" (used 2x). Confirm or replace it
+           after creating the account at buttondown.com — see the launch guide. -->
+      <form class="subscribe-form"
+            action="https://buttondown.com/api/emails/embed-subscribe/atana"
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open('https://buttondown.com/atana', 'popupwindow')">
+        <input type="email" name="email" placeholder="you@organization.org" aria-label="Email address" required>
+        <input type="hidden" name="embed" value="1">
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="subscribe-fine">Free · Unsubscribe anytime · Published in PT / EN / ES</p>
+    </div>
   </div>
 </section>
 
