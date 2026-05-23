@@ -1,0 +1,5 @@
+# macOS Finder metadata
+.DS_Store
+
+# Local deploy helper scripts — kept out of the published site repo
+_push_*.sh

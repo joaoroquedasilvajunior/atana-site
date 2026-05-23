@@ -13,312 +13,368 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #1A1A1A;
-    --navy: #1F3A5F;
-    --olive: #6B7B3A;
-    --olive-dim: #8a9a52;
-    --brick: #8C2A2A;
-    --sand: #F4F1EB;
-    --sand-2: #E8DDC8;
-    --rule: #D6CFC0;
-    --muted: #5C5C5C;
-    --serif: 'Spectral', 'Georgia', serif;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--sand);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
 
-  .site-header {
-    border-bottom: 1px solid var(--rule);
-    padding: 18px 0;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(8px);
-    background: rgba(244, 241, 235, 0.95);
-  }
-  .site-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .brand {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--navy);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-  }
-  .brand-suffix {
-    color: var(--olive);
-    font-weight: 500;
-    margin-left: 4px;
-    font-family: var(--sans);
-    font-size: 14px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .header-meta {
-    display: flex;
-    gap: 22px;
-    align-items: center;
-    font-size: 14px;
-    color: var(--olive);
-  }
-  .header-meta a {
-    color: var(--olive);
-    text-decoration: none;
-  }
-  .header-meta a:hover {
-    text-decoration: underline;
-  }
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-  .page-hero {
-    padding: 64px 0 32px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .eyebrow {
-    font-family: var(--sans);
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--olive);
-    font-weight: 600;
-    margin-bottom: 14px;
-  }
-  h1 {
-    font-family: var(--serif);
-    font-size: 44px;
-    line-height: 1.15;
-    color: var(--navy);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin: 0 0 16px;
-  }
-  .deck {
-    font-family: var(--serif);
-    font-size: 19px;
-    color: var(--muted);
-    font-style: italic;
-    line-height: 1.55;
-    max-width: 640px;
-    margin: 0;
-  }
-  .rule {
-    width: 56px;
-    height: 3px;
-    background: var(--olive);
-    margin: 22px 0 0;
-  }
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
 
-  .meta-row {
-    margin-top: 32px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    font-size: 14px;
-    color: var(--muted);
-  }
-  .meta-row strong {
-    color: var(--ink);
-    font-weight: 600;
-  }
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
 
-  .notes-list {
-    padding: 40px 0 80px;
-  }
-  .section-label {
-    font-family: var(--sans);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--olive);
-    font-weight: 700;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--rule);
-  }
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
 
-  .note-card {
-    padding: 28px 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .note-card:last-of-type { border-bottom: none; }
-  .note-eyebrow {
-    font-family: var(--sans);
-    font-size: 13px;
-    color: var(--olive);
-    font-weight: 600;
-    margin-bottom: 8px;
-    letter-spacing: 0.02em;
-  }
-  .note-title {
-    font-family: var(--serif);
-    font-size: 24px;
-    line-height: 1.25;
-    color: var(--navy);
-    font-weight: 700;
-    margin: 0 0 10px;
-    letter-spacing: -0.005em;
-  }
-  .note-title a {
-    color: var(--navy);
-    text-decoration: none;
-  }
-  .note-title a:hover {
-    color: var(--olive);
-  }
-  .note-deck {
-    font-size: 16px;
-    color: var(--muted);
-    margin: 0 0 12px;
-    line-height: 1.55;
-  }
-  .note-tags {
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .note-tags strong {
-    color: var(--ink);
-    font-weight: 600;
-  }
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
 
-  .upcoming {
-    margin-top: 56px;
-    padding: 28px 32px;
-    background: var(--sand-2);
-    border-left: 4px solid var(--olive);
-  }
-  .upcoming h3 {
-    font-family: var(--sans);
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--olive);
-    font-weight: 700;
-    margin: 0 0 12px;
-  }
-  .upcoming p {
-    margin: 0 0 8px;
-    font-size: 15px;
-    color: var(--ink);
-  }
-  .upcoming p:last-child { margin-bottom: 0; }
-  .upcoming em {
-    color: var(--muted);
-    font-style: italic;
-  }
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
 
-  .site-footer {
-    border-top: 1px solid var(--rule);
-    padding: 32px 0 48px;
-    color: var(--muted);
-    font-size: 14px;
-  }
-  .site-footer a {
-    color: var(--olive);
-    text-decoration: none;
-  }
-  .site-footer a:hover {
-    text-decoration: underline;
-  }
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
 
-  code {
-    background: var(--sand-2);
-    padding: 1px 6px;
-    border-radius: 2px;
-    font-size: 13px;
-    font-family: 'Menlo', 'Monaco', monospace;
-    color: var(--navy);
-  }
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
 
-  .subscribe {
-    padding: 8px 0 64px;
-  }
-  .subscribe-card {
-    background: var(--navy);
-    color: var(--sand);
-    padding: 40px 36px;
-    border-radius: 3px;
-  }
-  .subscribe-card h2 {
-    font-family: var(--serif);
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--sand);
-    margin: 0 0 10px;
-  }
-  .subscribe-card p {
-    color: var(--sand-2);
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0 0 22px;
-    max-width: 560px;
-  }
-  .subscribe-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .subscribe-form input[type="email"] {
-    flex: 1 1 280px;
-    min-width: 0;
-    padding: 13px 16px;
-    border: 1px solid #3a5170;
-    border-radius: 2px;
-    background: #16293f;
-    color: var(--sand);
-    font-family: var(--sans);
-    font-size: 15px;
-  }
-  .subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
-  .subscribe-form input[type="email"]:focus {
-    outline: 2px solid var(--olive);
-    outline-offset: 1px;
-  }
-  .subscribe-form button {
-    padding: 13px 28px;
-    background: var(--olive);
-    color: var(--sand);
-    border: 0;
-    border-radius: 2px;
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-  }
-  .subscribe-form button:hover { background: var(--olive-dim); }
-  .subscribe-fine {
-    margin: 16px 0 0;
-    font-size: 13px;
-    color: #8a99ad;
-    letter-spacing: 0.03em;
-  }
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
 
-  @media (max-width: 640px) {
-    h1 { font-size: 32px; }
-    .note-title { font-size: 20px; }
-    .deck { font-size: 17px; }
-    .page-hero { padding: 40px 0 24px; }
-    .subscribe-card { padding: 32px 24px; }
-  }
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
 </style>
-<!-- atana:seo -->
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -335,7 +391,7 @@
 <meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Atana Notes">
-<meta name="twitter:description" content="Atana Notes — concise (4–6 min) analyses of creative-economy policy, AI, and cultural trade in Latin America. Published bi-monthly in PT / EN / ES.">
+<meta name="twitter:description" content="Concise analyses of creative-economy policy, AI, and cultural trade in Latin America.">
 <meta name="twitter:image" content="https://atana.studio/og-image.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Atana Notes","description":"Atana Notes — concise (4–6 min) analyses of creative-economy policy, AI, and cultural trade in Latin America. Published bi-monthly in PT / EN / ES.","url":"https://atana.studio/notes/","isPartOf":{"@id":"https://atana.studio/#website"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
 </head>
@@ -348,10 +404,11 @@
       <a href="/">← Atana Index</a>
       <a href="/notes/">All notes</a>
       <a href="/data/">Data</a>
-      <a href="#subscribe">Subscribe</a>
+      <a href="/notes/#subscribe">Subscribe</a>
     </div>
   </div>
 </header>
+
 
 <section class="page-hero">
   <div class="container">
@@ -363,7 +420,7 @@
     <div class="meta-row">
       <div><strong>Cadence:</strong> bi-monthly</div>
       <div><strong>Languages:</strong> PT · EN · ES</div>
-      <div><strong>Data source:</strong> <a href="https://github.com/joaoroquedasilvajunior/atana-data" style="color: var(--olive);">atana-data</a> (CC BY 4.0)</div>
+      <div><strong>Data source:</strong> <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data</a> (CC BY 4.0)</div>
     </div>
   </div>
 </section>
@@ -373,32 +430,54 @@
 
     <div class="section-label">Published</div>
 
+    
     <article class="note-card">
       <div class="note-eyebrow">#01 · 16 May 2026 · 5 min read · PT</div>
-      <h2 class="note-title"><a href="/notes/01/">Atana abre o corpus: 50 milhões de linhas de dados culturais latino-americanos, agora públicos</a></h2>
-      <p class="note-deck">Cinco fontes oficiais, trinta e quatro tabelas, uma camada de SQL. Pela primeira vez, perguntas cross-source sobre a economia criativa latino-americana custam cinco linhas de código — não oitenta horas de consultoria.</p>
-      <p class="note-tags"><strong>Topic:</strong> Data infrastructure · Open data · Methodology  &nbsp;·&nbsp;  <strong>Repo:</strong> <a href="https://github.com/joaoroquedasilvajunior/atana-data" style="color: var(--olive);">atana-data</a></p>
+      <h2 class="note-title"><a href="/notes/01/">Atana abre o corpus: 65 milhões de linhas de dados culturais latino-americanos, agora públicos</a></h2>
+      <p class="note-deck">Seis fontes oficiais, trinta e sete tabelas, uma camada de SQL. Pela primeira vez, perguntas cross-source sobre a economia criativa latino-americana custam cinco linhas de código — não oitenta horas de consultoria.</p>
+      <p class="note-tags"><strong>Topic:</strong> Data infrastructure · Open data · Methodology  &nbsp;·&nbsp;  <strong>Repo:</strong> <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data</a></p>
     </article>
-
+    
     <article class="note-card">
       <div class="note-eyebrow">#02 · 25 May 2026 · 6 min read · EN</div>
       <h2 class="note-title"><a href="/notes/02/">The Two Creative Time Zones: a primer for the agentic era</a></h2>
       <p class="note-deck">Latin America was the fastest-growing recorded-music region on Earth in 2025. That was not a surprise — it was the empirical confirmation of a framework Atana published a year ago. A primer on the two zones, re-derived from the UNCTAD 2024 corpus.</p>
-      <p class="note-tags"><strong>Topic:</strong> AI exposure · Music · Creative trade  &nbsp;·&nbsp;  <strong>Related:</strong> <a href="/" style="color: var(--olive);">Atana Index Vol. 1</a> §3, §6</p>
+      <p class="note-tags"><strong>Topic:</strong> AI exposure · Music · Creative trade  &nbsp;·&nbsp;  <strong>Related:</strong> <a href="/">Atana Index Vol. 1</a> §3, §6</p>
     </article>
-
+    
     <article class="note-card">
       <div class="note-eyebrow">#03 · 16 May 2026 · 5 min read · PT</div>
-      <h2 class="note-title"><a href="/notes/03/">Quando 55,6% vira 5,0%: a "dependência da China" do setor cultural brasileiro depende do que você chama de "cultural"</a></h2>
+      <h2 class="note-title"><a href="/notes/03/">Quando 55,6% vira 5,0%: a &#34;dependência da China&#34; do setor cultural brasileiro depende do que você chama de &#34;cultural&#34;</a></h2>
       <p class="note-deck">Em 2024, a SECEX/IBGE diz 55,6%. O UNCTAD diz 5,0%. Os dois números são corretos — e a diferença entre eles enquadra dois debates de política pública completamente distintos.</p>
       <p class="note-tags"><strong>Topic:</strong> Cultural trade · Sino-dependence · Methodology  &nbsp;·&nbsp;  <strong>Related:</strong> Análise 4 §3.bis, Análise 10</p>
     </article>
+    
+    <article class="note-card">
+      <div class="note-eyebrow">#04 · 23 May 2026 · 7 min read · PT</div>
+      <h2 class="note-title"><a href="/notes/04/">A genealogia institucional da economia criativa no Brasil</a></h2>
+      <p class="note-deck">269 atos normativos, 1998–2026: como a &#34;economia criativa&#34; entrou no vocabulário de política pública brasileiro como rebatismo administrativo — e por que apenas 4,1% do corpus é juridicamente normativo.</p>
+      <p class="note-tags"><strong>Topic:</strong> Cultural policy · Legislative analysis · LexML  &nbsp;·&nbsp;  Síntese executiva da Análise 9</p>
+    </article>
+    
+    <article class="note-card">
+      <div class="note-eyebrow">#05 · 23 May 2026 · 8 min read · EN</div>
+      <h2 class="note-title"><a href="/notes/05/">Mapping the atana-data corpus to the 2025 UNESCO Framework for Cultural Statistics</a></h2>
+      <p class="note-deck">A national-implementation cross-walk: how the six-source cultural-economy corpus maintained by Atana maps to UNESCO&#39;s new global standard.</p>
+      <p class="note-tags"><strong>Topic:</strong> Cultural statistics · UNESCO FCS 2025 · Methodology  &nbsp;·&nbsp;  Companion to the internal Atana FCS Consulting Playbook</p>
+    </article>
+    
+    <article class="note-card">
+      <div class="note-eyebrow">#06 · 23 May 2026 · 6 min read · PT</div>
+      <h2 class="note-title"><a href="/notes/06/">Spotify × IFPI × UNCTAD: o Funk brasileiro e o Paradoxo da Autenticidade</a></h2>
+      <p class="note-deck">O gênero de música de crescimento mais rápido do planeta nasceu nas periferias brasileiras e é cantado em português. O que o boom não responde é a pergunta distributiva: quem captura o valor.</p>
+      <p class="note-tags"><strong>Topic:</strong> Music · Authenticity Paradox · Creative labour  &nbsp;·&nbsp;  Cruza Análises 1, 2 e 6</p>
+    </article>
+    
 
     <div class="upcoming">
       <h3>Coming next</h3>
-      <p><strong>Note #04 — A genealogia institucional da economia criativa no Brasil.</strong> <em>Targeted for Week 22 (early June 2026).</em> A close reading of the LexML corpus: 269 acts, 1998–2026, and what they tell us about how "creative economy" entered Brazilian policy vocabulary — without producing structural reform.</p>
-      <p><strong>Note #05 — Mexico, the dormant giant of LATAM creative trade.</strong> <em>Targeted for Week 24.</em></p>
-      <p><strong>Note #06 — Brazilian Funk and the Authenticity Paradox.</strong> <em>Targeted for Week 26.</em></p>
+      
+      <p><em>Notes on Mexico and Argentina will follow later in 2026, once their national data is integrated into the corpus.</em></p>
     </div>
 
   </div>
@@ -423,6 +502,7 @@
     </div>
   </div>
 </section>
+
 
 <footer class="site-footer">
   <div class="container">

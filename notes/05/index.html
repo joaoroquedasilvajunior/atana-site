@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #05 — Mapping the atana-data corpus to the 2025 UNESCO Framework for Cultural Statistics | Atana</title>
+<meta name="description" content="A national-implementation cross-walk: how the six-source cultural-economy corpus maintained by Atana maps to UNESCO&#39;s new global standard.">
+<meta property="og:title" content="Atana Note #05 — Mapping the atana-data corpus to the 2025 UNESCO Framework for Cultural Statistics">
+<meta property="og:description" content="A national-implementation cross-walk: how the six-source cultural-economy corpus maintained by Atana maps to UNESCO&#39;s new global standard.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/05/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/05/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Note #05 — Mapping the atana-data corpus to the 2025 UNESCO Framework for Cultural Statistics">
+<meta name="twitter:description" content="A national-implementation cross-walk: how the six-source cultural-economy corpus maintained by Atana maps to UNESCO&#39;s new global standard.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #05 — Mapping the atana-data corpus to the 2025 UNESCO Framework for Cultural Statistics","description":"A national-implementation cross-walk: how the six-source cultural-economy corpus maintained by Atana maps to UNESCO's new global standard.","url":"https://atana.studio/notes/05/","mainEntityOfPage":"https://atana.studio/notes/05/","datePublished":"2026-05-23","dateModified":"2026-05-23","inLanguage":"en","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #05 · 23 May 2026 · 8 min read · EN</div>
+    <h1>Mapping the atana-data corpus to the 2025 UNESCO Framework for Cultural Statistics</h1>
+    <p class="deck">A national-implementation cross-walk: how the six-source cultural-economy corpus maintained by Atana maps to UNESCO&#39;s new global standard.</p>
+    <div class="meta">
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Cultural statistics · UNESCO FCS 2025 · Methodology</div>
+      <div><strong>Languages:</strong> EN · PT / ES to follow</div>
+    </div>
+
+    <h2>Why this cross-walk</h2>
+<p>In September 2025, UNESCO's Institute for Statistics launched at MONDIACULT Barcelona the <em>2025 Framework for Cultural Statistics</em> — the first major update to the international standard since 2009. The new framework introduces three conceptual shifts: it replaces the "cultural industries" framing with the <strong>Cultural and Creative Ecosystem (CCE)</strong> concept; it adopts a <strong>praxeological lens</strong> focused on cultural practices rather than just industrial outputs; and it introduces an updated <strong>value-generation model</strong> that captures economic, natural, human, and social capitals across three stages (Creation/Production, Dissemination/Consumption, Preservation/Transmission). The framework explicitly orients toward platform economies, AI-mediated cultural production, informal cultural work, and the digital infrastructures that have grown over the past 15 years.</p>
+<p>National statistical offices will take several years to migrate their cultural-statistics systems to the 2025 framework. Brazilian IBGE has not yet announced a SIIC migration; comparable timelines elsewhere in Latin America are equally indefinite. In the interim, the framework operates as a conceptual anchor that researchers and analysts can use to organize existing data sources even before national classifications formally align.</p>
+<p>This note documents how the Atana research practice's open data corpus — six integrated sources covering Brazilian and Latin American cultural economies, totaling approximately sixty-five million rows queryable in a single SQL session at <code>md:atana</code> — maps to the 2025 framework. The mapping has three purposes: to identify the framework dimensions where the corpus already provides operational coverage; to mark the gaps where future Atana work could extend; and to make the corpus citable in policy and research dialogues that increasingly use the 2025 framework's vocabulary.</p>
+<p>The cross-walk should be read as a working document. As Atana adds sources, expands geographic scope, and as the 2025 framework's Part II classification guide updates with each ISIC/ISCO revision cycle, the mapping will need revision. The repository at <code>github.com/joaoroquedasilvajunior/atana-data</code> is the canonical reference for current corpus state; this note is the conceptual companion.</p>
+<hr>
+<h2>The 2025 framework, abridged</h2>
+<p>The 2025 framework's architecture rests on two interacting structures.</p>
+<p><strong>The Cultural and Creative Ecosystem (CCE)</strong> — the substantive scope — is defined as a complex environment in which artists, social groups, cultural communities, audiences, creative producers, and a broad spectrum of public and private intermediaries engage in relationships that generate diverse forms of cultural and economic value. The CCE is first divided into fourteen domains: seven cultural domains (cultural and natural heritage; performing arts; visual arts and crafts; books and press; audiovisual; design; music) and seven transversal domains (education in culture; archives; cultural and creative goods manufacturing; information and communication technology and digital infrastructure; intangible cultural heritage; social participation; intellectual property). The transversal domains in particular capture activities that support cultural production without being culturally exclusive — categories that the older 2009 industry-centric frame treated as edge cases.</p>
+<p><strong>The value-generation model</strong> — the analytical mechanism — describes how cultural value is created through three stages: Creation/Production, Dissemination/Consumption, and Preservation/Transmission. Each stage involves multiple agents (producers, intermediaries, audiences, communities, public actors, informal participants) and generates four kinds of capital (economic, natural, human, social). The 2025 framework departs from the 2009 framework's universal value chain by acknowledging that the model is <em>domain-specific</em>: a different operationalization for each cultural and creative category, allowing music's value chain to differ from heritage's, which differs from design's.</p>
+<p>The cross-walk that follows organizes the atana-data corpus along both axes: which framework domains each Atana source contributes to, and which value-generation stages each Atana source operates at.</p>
+<hr>
+<h2>The corpus, abridged</h2>
+<p>The atana-data corpus integrates six administrative and statistical sources, all queryable in a single SQL session via MotherDuck and downloadable as Parquet from GitHub.</p>
+<p>The first source, <strong>UNCTAD creative-economy trade statistics</strong> (schema <code>atana.unctad</code>), provides bilateral exports and imports of cultural and creative goods and services for every country with international-trade reporting, annually since 2002. This is the data that makes cross-country comparisons of creative-economy trade possible — for example, the bifurcation between Mexico's goods-intensive creative trade and Brazil's services-intensive trade that Atana Index Vol. 1 documented.</p>
+<p>The second source, <strong>IBGE Comex bilateral cultural trade</strong> (<code>atana.ibge_comex</code>), drills further into Brazilian cultural-sector trade flows with NCM-level (8-digit harmonized-system) detail by year and trading-partner country. This is what made the documentation of Brazilian sino-dependence (China's share of cultural-goods imports rising from 41% to 56% between 2014 and 2024) possible at the resolution needed for policy-relevant claims.</p>
+<p>The third source, <strong>IBGE PNADC cultural-sector tables</strong> (<code>atana.ibge_pnadc</code>), captures the household-survey perspective on cultural employment — workers in formally constituted firms, workers without formal contracts, workers operating as conta-própria, and workers in cultural occupations regardless of employer. PNADC is the only source that captures the informal cultural workforce.</p>
+<p>The fourth source, <strong>MinC SALIC funding microdata</strong> (<code>atana.salic</code>), traces every Lei Rouanet project from proposal through approval through fundraising through execution: approximately 26,000 unique projects between 2019 and 2026, with another approximately thirty-three years of historical aggregates for the law's full cumulative footprint of approximately R$ 35.1 billion in renunciated federal revenue.</p>
+<p>The fifth source, <strong>RAIS administrative labor records</strong> (<code>atana.rais</code>, added May 2026), provides per-vínculo administrative records for the formal cultural workforce 2014–2023 — establishment-attribute records, worker-level vínculos with cultural CNAE or cultural CBO classification, and an aggregated panel at the município × CNAE-class × year grain. Per-vínculo records are anonymized (no CNPJ, no PIS) under the basedosdados open-data project's LGPD compliance posture.</p>
+<p>The sixth source, the <strong>LexML normative corpus</strong> (<code>atana.lexml</code>), tracks the legal and regulatory framework that surrounds cultural-sector activity — 269 normative acts of various ranks between 1998 and 2026. While LexML is not labor or trade data, it provides the institutional backdrop against which the other sources' trends operate, and the cross-walk matrix below treats it as a peer source alongside the other five.</p>
+<hr>
+<h2>The cross-walk matrix</h2>
+<p>The table below maps each Atana source to the 2025 framework's domains and value-generation stages. A bullet (●) indicates substantial coverage; a hollow circle (○) indicates partial or incidental coverage; a blank cell indicates no current coverage.</p>
+<h3>Cultural domains</h3>
+<table>
+<thead>
+<tr>
+<th>2025 FCS Cultural Domain</th>
+<th style="text-align: center;">UNCTAD</th>
+<th style="text-align: center;">IBGE Comex</th>
+<th style="text-align: center;">PNADC</th>
+<th style="text-align: center;">SALIC</th>
+<th style="text-align: center;">RAIS</th>
+<th style="text-align: center;">LexML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cultural and natural heritage</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Performing arts</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Visual arts and crafts</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Books and press</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Audiovisual</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Design</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Music</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+</tbody>
+</table>
+<h3>Transversal domains</h3>
+<table>
+<thead>
+<tr>
+<th>2025 FCS Transversal Domain</th>
+<th style="text-align: center;">UNCTAD</th>
+<th style="text-align: center;">IBGE Comex</th>
+<th style="text-align: center;">PNADC</th>
+<th style="text-align: center;">SALIC</th>
+<th style="text-align: center;">RAIS</th>
+<th style="text-align: center;">LexML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Education in culture</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Archives</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>Cultural and creative goods manufacturing</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>ICT and digital infrastructure</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Intangible cultural heritage</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Social participation</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>Intellectual property</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">●</td>
+</tr>
+</tbody>
+</table>
+<h3>Value-generation stages</h3>
+<table>
+<thead>
+<tr>
+<th>2025 FCS Value Stage</th>
+<th style="text-align: center;">UNCTAD</th>
+<th style="text-align: center;">IBGE Comex</th>
+<th style="text-align: center;">PNADC</th>
+<th style="text-align: center;">SALIC</th>
+<th style="text-align: center;">RAIS</th>
+<th style="text-align: center;">LexML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creation / Production</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>Dissemination / Consumption</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>Preservation / Transmission</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>What the matrix reveals</h2>
+<p>Three structural observations follow from this cross-walk.</p>
+<p>The cultural domains are <strong>well-covered, the transversal domains less so</strong>. All seven cultural domains find at least three Atana sources providing substantial coverage; most have four to five. The transversal domains have generally lighter coverage — particularly social participation, intellectual property, and ICT and digital infrastructure. This reflects the historical orientation of Brazilian cultural statistics, which the IBGE SIIC framework and most prior Atana analytical work have organized around the older "cultural industries" frame rather than around the transversal-supportive activities the 2025 framework now treats as constitutive of the ecosystem.</p>
+<p>The corpus is <strong>strongest at Dissemination/Consumption and Creation/Production, weakest at Preservation/Transmission</strong>. The international-trade sources (UNCTAD, IBGE Comex) and SALIC capture flows of cultural goods and services moving between producers and consumers; PNADC and RAIS capture the labor side of production. Preservation/Transmission — heritage maintenance, archives, intergenerational practice transfer, intangible-heritage communities — has thinner administrative-data coverage in Brazil, partly because the activities are less commercially mediated and partly because preservation tends to be funded through public budgets that the SIIC framework treats as inputs rather than outputs.</p>
+<p>The corpus is <strong>structurally well-positioned to support the 2025 framework's praxeological emphasis</strong>. The 2025 framework asks researchers to focus on cultural practices — what artists, intermediaries, audiences, and communities actually do — rather than only on industrial outputs. Three Atana sources directly enable this practice-level view: PNADC captures self-employed and informally-employed cultural workers (the conta-própria expansion from 31.5% to 43% between 2014 and 2024); SALIC captures the project-level grain of cultural production (each Rouanet project is a discrete creative practice with specified objectives, agents, and outcomes); and RAIS captures the establishment-and-occupation grain that lets practice be located in specific firms and municipalities. None of these is a complete picture of practice in the 2025 framework's sense, but together they reach further into practice than industry-level aggregates.</p>
+<hr>
+<h2>Specific framework alignments worth flagging</h2>
+<p>Several findings already documented in Atana research take on richer meaning when read through the 2025 framework's lens.</p>
+<p>The H0 paper currently in preparation — with submission to a peer-reviewed cultural-economics journal targeted for late 2026 / early 2027 — documents, on a panel of RAIS administrative employment records counting all formal contracts recorded within each year, a 22.6% decline in formal cultural employment between 2014 and 2020 in Brazil, alongside a 21% fall in median real wages across the decade and the growth of trabalho intermitente from 1.6% to 11.7% of the formal cultural workforce. (The measurement convention matters: counting instead only the contracts active on 31 December yields a directionally identical but smaller employment decline — the two are complementary administrative-data measures of the same contraction, not rival estimates.) Under the 2009 framework these findings would be characterized as cultural-industry contraction; under the 2025 framework they describe an ecosystem reorganization in which formal cultural employment shrinks while the informal subset (also part of the same CCE) expands, with the value-generation model's "human capital" dimension contracting and "social capital" potentially expanding through community-based informal cultural production.</p>
+<p>The methodological-gap finding documented in Atana Note #03 (2026-05-16) — that Brazilian cultural trade has become structurally sino-dependent at a magnitude that is invisible at the aggregate UNCTAD level — sits naturally within the 2025 framework's value-generation model. Sino-dependence is a Dissemination/Consumption phenomenon (which countries' goods are consumed by Brazilian cultural-sector intermediaries) that has Creation/Production consequences (which domestic cultural production capacities atrophy when imported intermediates dominate). The 2025 framework provides vocabulary for what was already an empirical claim.</p>
+<p>The Analise 6 finding from Atana Index Vol. 1 — that Latin American countries split into a Q1 "Transformation Race" cluster and a Q4 "Specialized Tangible Cluster" cluster based on their CCE composition — pre-figured the 2025 framework's recognition that the CCE is not uniform across countries but reflects different stages of digital and creative-economy development. The framework's domain-specific value-generation models would let this LATAM segmentation be re-articulated in framework-native terms.</p>
+<hr>
+<h2>Coverage gaps and the implied research agenda</h2>
+<p>Three gap categories follow from the matrix.</p>
+<p><strong>Transversal-domain coverage gaps.</strong> Three transversal domains — social participation, intellectual property, and ICT and digital infrastructure — have less than two-source coverage. Social participation is measurable through cultural-participation household surveys that the IBGE has periodically run (the <em>Pesquisa de Orçamentos Familiares</em> cultural module, the <em>PNAD Cultura</em> one-off surveys) but does not yet maintain as a continuous corpus. Intellectual property is measurable through INPI (Instituto Nacional da Propriedade Industrial) registrations, ECAD royalty distributions, and AGU (Advocacia-Geral da União) records — none currently in atana-data. ICT and digital infrastructure intersects with Análise 6's existing work on AI exposure but lacks a dedicated source. Future Atana work could prioritize one of these gaps based on the 2025 framework's emphasis on transversal categories as constitutive.</p>
+<p><strong>Preservation/Transmission value-stage gaps.</strong> Heritage maintenance, archival activity, and intergenerational practice transfer are under-represented in the current corpus. IPHAN (Instituto do Patrimônio Histórico e Artístico Nacional) registries, state-level cultural-heritage inventories, and intangible-cultural-heritage UNESCO listings would extend the corpus here. The PEC/British Council "Global AI Agenda for Cultural and Creative Industries" framework (already cross-walked in Atana Index Vol. 1 v1.2) addresses preservation through the heritage-protection lens and could be re-integrated under the 2025 framework's Preservation/Transmission stage.</p>
+<p><strong>Domain-specific value-generation model elaboration.</strong> The 2025 framework asks for domain-specific value-generation models rather than a single universal chain. Atana's existing work implicitly applies different models to different domains (the SALIC funding-flow model for performing arts and visual arts; the UNCTAD/Comex trade model for audiovisual and books; the RAIS labor model for design and architecture) but does not yet articulate these as systematic domain-specific elaborations. The forthcoming Atana Index Vol. 2 (target October 2026 publication) provides the natural venue for this systematic articulation.</p>
+<hr>
+<h2>How this cross-walk supports policy and research dialogue</h2>
+<p>Three practical uses of the cross-walk follow.</p>
+<p>For <strong>policy dialogue with multilaterals</strong> (UNESCO, BID, OEI, CAF), the cross-walk lets Atana propose evidence-based contributions in framework-native language. When UNESCO's Sustainable Development Goals monitoring asks "what data does Brazil have on cultural and creative ecosystem participation?" Atana can answer with a specific cell in the matrix above rather than with a tour of available data sources. The 2025 framework's adoption by national governments will be uneven; corpus-aware researchers who can speak both framework-language and national-data-language are positioned to translate between them.</p>
+<p>For <strong>research collaborations</strong> (FGV-EAESP, USP, IPEA, ENCATC member institutions, regional cultural observatories), the cross-walk identifies where collaboration adds value. An Atana-FGV co-authorship on the H1 causal paper, for example, would draw on RAIS records that fill the RAIS column of the matrix; a partnership with a heritage-focused institution would fill the Preservation/Transmission stage gaps. The cross-walk lets potential collaborators see the corpus's structure at a glance rather than having to investigate source-by-source.</p>
+<p>For <strong>client engagements</strong> (ministries, foundations, multilaterals procuring cultural-sector analytical work), the cross-walk anchors Atana's service offerings in the 2025 framework. The five productized Atana offerings (AI Exposure Diagnostic, Creative Workforce Equity Audit, Public Funding Architecture Review, Creative Trade Positioning Brief, AI Readiness Workshop &amp; Roadmap) all operate on subsets of the matrix and can be presented as framework-aligned diagnostics. This is the subject of the companion Atana FCS Consulting Playbook (forthcoming).</p>
+<hr>
+<h2>Next steps</h2>
+<p>This cross-walk will be revised on the following triggers. When IBGE announces a SIIC migration to the 2025 framework, the cross-walk's CNAE and CBO references will need re-mapping to whatever new classification IBGE adopts. When Atana adds sources to the corpus, the matrix will gain rows. When UNESCO publishes the next revision of Part II (planned roughly every five years to track ISIC and ISCO revision cycles), the framework column structure may shift. The latest version of this note will always live at <code>notes/atana_note_2025_fcs_crosswalk.md</code> in the project repository and at <code>atana.studio/notes/05/</code> once deployed.</p>
+<p>A companion piece, the <strong>Atana FCS Consulting Playbook</strong>, translates this cross-walk into operational client-engagement structure. It is being drafted in parallel with this note and will live at <code>notes/atana_fcs_consulting_playbook.md</code>.</p>
+<hr>
+<h2>Sources</h2>
+<ul>
+<li>UNESCO Institute for Statistics. <em>2025 UNESCO Framework for Cultural Statistics — Part I: Concepts and Definitions</em>. UNESCO, 2025. <a href="https://unesdoc.unesco.org/ark:/48223/pf0000395490">https://unesdoc.unesco.org/ark:/48223/pf0000395490</a></li>
+<li>UNESCO Institute for Statistics. <em>2025 UNESCO Framework for Cultural Statistics — Part II: A Classification Guide</em>. UNESCO, 2025. <a href="https://unesdoc.unesco.org/ark:/48223/pf0000395491">https://unesdoc.unesco.org/ark:/48223/pf0000395491</a></li>
+<li>Raevskikh, E. and Di Mauro, G. <em>Some insights from MONDIACULT 2025 and beyond: cultural measurement, policies, and the SDGs</em>. Springer Nature Research Communities, 13 Oct 2025. <a href="https://communities.springernature.com/posts/culture-in-a-changing-world-some-insights-from-mondiacult-2025">https://communities.springernature.com/posts/culture-in-a-changing-world-some-insights-from-mondiacult-2025</a></li>
+<li>Deloumeaux, L. <em>2025 UNESCO Framework for culture statistics: a vision for the future</em>. Presentation, NIPOS Culture Statistics 2030 Conference, Czech Republic, 26 February 2025. <a href="https://konference.nipos.cz/2025-statistika/Lydia_Deloumeaux_UNESCO.pdf">https://konference.nipos.cz/2025-statistika/Lydia_Deloumeaux_UNESCO.pdf</a></li>
+<li>atana-data corpus. <a href="https://github.com/joaoroquedasilvajunior/atana-data">https://github.com/joaoroquedasilvajunior/atana-data</a>. CC BY 4.0.</li>
+</ul>
+<hr>
+<h2>Citation</h2>
+<blockquote>
+<p>ROQUE, João. <em>Mapping the atana-data corpus to the 2025 UNESCO Framework for Cultural Statistics</em>. Atana Note #05, May 2026. <a href="https://atana.studio/notes/05/">https://atana.studio/notes/05/</a></p>
+</blockquote>
+
+    <div class="footer-cta">
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
+    </div>
+  </div>
+</article>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
