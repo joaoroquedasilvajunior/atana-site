@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #04-EN — The institutional genealogy of the creative economy in Brazil | Atana</title>
+<meta name="description" content="269 normative acts, 1998–2026: how &#34;creative economy&#34; entered Brazilian policy vocabulary as administrative re-branding — and why only 4.1% of the corpus is juridically normative. English version of Note #04.">
+<meta property="og:title" content="Atana Note #04-EN — The institutional genealogy of the creative economy in Brazil">
+<meta property="og:description" content="269 normative acts, 1998–2026: how &#34;creative economy&#34; entered Brazilian policy vocabulary as administrative re-branding — and why only 4.1% of the corpus is juridically normative. English version of Note #04.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/04-EN/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/04-EN/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Note #04-EN — The institutional genealogy of the creative economy in Brazil">
+<meta name="twitter:description" content="269 normative acts, 1998–2026: how &#34;creative economy&#34; entered Brazilian policy vocabulary as administrative re-branding — and why only 4.1% of the corpus is juridically normative. English version of Note #04.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #04-EN — The institutional genealogy of the creative economy in Brazil","description":"269 normative acts, 1998–2026: how \"creative economy\" entered Brazilian policy vocabulary as administrative re-branding — and why only 4.1% of the corpus is juridically normative. English version of Note #04.","url":"https://atana.studio/notes/04-EN/","mainEntityOfPage":"https://atana.studio/notes/04-EN/","datePublished":"2026-06-09","dateModified":"2026-06-09","inLanguage":"en","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #04-EN · 9 Jun 2026 · 7 min read · EN</div>
+    <h1>The institutional genealogy of the creative economy in Brazil</h1>
+    <p class="deck">269 normative acts, 1998–2026: how &#34;creative economy&#34; entered Brazilian policy vocabulary as administrative re-branding — and why only 4.1% of the corpus is juridically normative. English version of Note #04.</p>
+    <div class="meta">
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Cultural policy · Legislative analysis · LexML</div>
+      <div><strong>Languages:</strong> EN · PT canonical · ES</div>
+    </div>
+
+    <blockquote>
+<p><em>"Across the board, there is growing recognition for the creative economy as a driver of economic transformation, particularly for increasing employment for women and youth."</em>
+— UNESCO Global Report on Cultural Policies, 2022</p>
+</blockquote>
+<p>The international promise of the creative economy is specific: to reduce structural inequalities — especially those of gender and generation. The Brazilian data, however, show that this promise <strong>was not fulfilled because it was never properly implemented</strong>. And the problem is subtler than it seemed.</p>
+<h2>The research question</h2>
+<p>We systematically mapped, between 1998 and 2026, the presence of eight terms from the international vocabulary of the creative economy in the Brazilian normative apparatus. Corpus: <strong>269 acts</strong> indexed in LexML/Senado Federal + <strong>217 enriched abstracts</strong> from the two most represented jurisdictions (DF and SP) + <strong>10 Senado Federal matters</strong> + <strong>a sample of 1,100 municipal gazettes</strong> (Querido Diário/OKBR).</p>
+<p>The question: if the category was institutionally absorbed by the Brazilian State, did this produce structural reform — or merely nominal change?</p>
+<h2>The decisive finding: 4.1%</h2>
+<p>When we apply the rigorous doctrine of Brazilian administrative law (Bandeira de Mello, Justen Filho, Di Pietro) to the 217 acts of the DF+SP corpus, distinguishing the <strong>normative act</strong> (general abstract rule) from the <strong>administrative act with concrete effect</strong> (a decision on a determined situation), the landscape is reorganized:</p>
+<table>
+<thead>
+<tr>
+<th>Juridical category</th>
+<th style="text-align: right;">Acts</th>
+<th style="text-align: right;">%</th>
+<th>Nature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General programmatic normative</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.8%</td>
+<td>Creates a general abstract rule</td>
+</tr>
+<tr>
+<td>Concrete institutional (creates a new body)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2.3%</td>
+<td>New facility or unit</td>
+</tr>
+<tr>
+<td><strong>Total juridically normative</strong></td>
+<td style="text-align: right;"><strong>9</strong></td>
+<td style="text-align: right;"><strong>4.1%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Internal administrative structure</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">10.6%</td>
+<td>Reorganizes a Secretariat</td>
+</tr>
+<tr>
+<td><strong>Concrete administrative act — budgetary</strong></td>
+<td style="text-align: right;"><strong>171</strong></td>
+<td style="text-align: right;"><strong>78.8%</strong></td>
+<td>Supplementary credit</td>
+</tr>
+<tr>
+<td>Patrimonial / contractual / subjective</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">5.1%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Other unclassified</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.4%</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Only 9 acts out of 217 — 4.1% — create a normative rule properly speaking.</strong> The other 205 (94.5%) are administrative acts that do not create objective law. Of the 9, only <strong>a single one</strong> is programmatic in the full sense: <strong>Decreto 6833/2021 of the Distrito Federal</strong> (the District Policy for Incentivizing the Creative Economy, signed by Ibaneis Rocha). The remaining 8 either create one-off facilities (Museu da Favela, Museu das Culturas Indígenas, Escola de Dança Ismael Ivo — all in SP) or regulate preexisting laws.</p>
+<p>LexML, as a bibliographic database, indexes <strong>all decrees</strong> under "Legislation," regardless of their actual juridical nature. The bibliographic taxonomy is defensible for documentary research, but misleading if interpreted as a measure of <strong>normative production</strong> in the proper sense.</p>
+<h2>The mechanics of renaming</h2>
+<p>Why, then, do 269 acts appear indexed? The answer lies in the bureaucratic mechanics: the state and district Secretariats were <strong>renamed</strong> to include the term "Creative Economy" in their names. Every subsequent budgetary movement — supplementary credit opening, reallocation, appropriation reinforcement — automatically inherits the new designation in the corresponding decree.</p>
+<p><strong>A single substantive act of renaming</strong> (the renaming of the Secretariat) <strong>generates hundreds of routine decrees</strong> that mention the term. The documentary inflation is a linguistic artifact, not evidence of intense normative production.</p>
+<p>Concretely, in the Distrito Federal: Ibaneis Rocha signs 123 of the 126 acts in the DF corpus — 98%. Re-elected in 2022, he issues only 3 acts in his second term. The singular renaming generates the initial spike; then it exhausts itself. In São Paulo: three consecutive administrations (Dória, Garcia, Tarcísio) span the term, with Tarcísio (Republicanos, conservative right) issuing more acts (51) than the PSDB administrations combined (40). In 2023, Tarcísio <strong>re-renames</strong> the Secretariat to "Culture, Economy and <em>Creative Industry</em>" — incorporating industrial vocabulary into the mix.</p>
+<h2>The temporal profile: a paradoxical peak</h2>
+<p>The absorption of the vocabulary was late and paradoxical:</p>
+<ul>
+<li><strong>Zero legal acts between 1998 and 2014</strong> — empirically refutes the hypothesis, dominant in the Brazilian critical literature (Calabre, Botelho), that the creative economy entered through the Gilberto Gil administration (2003–2008) or through Marta Suplicy's Plano Brasil Criativo (2012–2014). The first subnational LexML acts appear in <strong>2015</strong>.</li>
+<li><strong>72% of the subnational corpus in 2019–2022</strong> — a paradoxical peak <em>during the federal dismantling of the MinC under Bolsonaro</em>. The international vocabulary is absorbed subnationally <em>while</em> the federal structure is hollowed out.</li>
+<li><strong>Federal: 62 propositions in 28 years, zero laws enacted.</strong> Independent collection via the Senado and the Câmara dos Deputados APIs (complete coverage 1998–2026 of the 8 vocabulary terms) confirms the central thesis through a second source. Of the 62, <strong>38 (61%) are procedural requests with no normative weight</strong>, <strong>13 (21%) are bills</strong> (6 PLS + 5 PL + 2 PEC) and <strong>3 are MPVs</strong> — none enacted as law. The Lei Rouanet (Lei 8.313/1991) <strong>has never been amended</strong> to mention the term.</li>
+<li><strong>94% of the subnational corpus concentrated in the Distrito Federal and São Paulo</strong> — the "Brazilian absorption" is, in practice, the absorption of two executive jurisdictions.</li>
+</ul>
+<p>When we apply the rigorous juridical criterion, this "peak of normative production" practically disappears. The 9 truly normative acts are distributed between 2019 and 2024 with no discernible peak.</p>
+<h2>The Rio de Janeiro gap</h2>
+<p>LexML returns only 1 act from RJ — a municipal resolution from Mangaratiba. But cross-verification shows that SECEC-RJ exists and produces substantive acts (Lei 7.035/2015, Lei 8.266/2018, Decreto 46.570/2019, Resoluções 89/2020 e 273/2023). The apparent absence is a <strong>LexML indexing gap</strong>, not an institutional absence.</p>
+<p>Querido Diário confirms this: <strong>11% of the municipal gazettes with the term are from RJ</strong> (Niterói, Campos, Arraial do Cabo, Angra dos Reis), against less than 1% in the LexML corpus. The municipal circulation of the vocabulary is far more distributed than the formal normative record suggests — confirming that even the semantic absorption is, in some territories, invisible in the canonical indexing.</p>
+<h2>Why DF and SP, and not other culturally strong states?</h2>
+<p>A natural question arises when reading the data: why do DF and SP concentrate 94% of the normative corpus, while states with robust cultural sectors — RJ, MG, RS — appear with few or no acts? Three factors explain this pattern, and together they <strong>reinforce, rather than weaken, the central thesis</strong> of this paper.</p>
+<p><strong>First, the tracked vocabulary is that of the international program, not that of the Brazilian tradition.</strong> The eight terms searched ("creative economy," "creative industries," "creative sector," "creative class," etc.) are categories from the international literature (DCMS UK 1998, Howkins 2001, UNCTAD, UNESCO). The Brazilian normative tradition operates predominantly under its own vocabulary — prior to the entry of the international term and still operative in parallel: "cultural fiscal incentive," "cultural promotion," "state cultural system," "cultural heritage," "cultural policy," "cultural fiscal renunciation." States that continue to use the Brazilian vocabulary do not appear in the corpus, even while producing robust cultural normativization.</p>
+<p>Concretely: <strong>Rio de Janeiro</strong> produces substantive cultural normativization under traditional vocabulary — Lei 7.035/2015 (State Cultural System), Lei 8.266/2018 (cultural fiscal incentive), Decreto 46.570/2019 (regulates SECEC-RJ), Resoluções 89/2020 e 273/2023 (the state-level Lei Aldir Blanc). <strong>Minas Gerais</strong> maintains the "cultural promotion" framework via the Fundação Clóvis Salgado and the State Cultural Incentive Law. <strong>Rio Grande do Sul</strong> operates under a "State Cultural System" created in 2014. Northeastern states such as <strong>Ceará</strong> and <strong>Bahia</strong> have produced recent state cultural laws without incorporating the international vocabulary.</p>
+<p><strong>Second, LexML coverage is uneven across federative units.</strong> The database is canonical for federal legislation and has good coverage for SP and DF (whose administrative production is integrated into the Senado's database). Other states — particularly RJ, MG, BA and the Northeastern states — depend more on their own Official Gazettes, whose indexing in LexML is partial. Querido Diário (Open Knowledge Brasil), which indexes municipal gazettes, confirms the unevenness: 11% of the gazettes with the term are from RJ, against less than 1% in LexML.</p>
+<p><strong>Third, DF and SP made specific administrative decisions to adopt the vocabulary.</strong> Ibaneis Rocha (DF, 2019) renamed the Secretariat of Culture to "Secretariat of Culture and Creative Economy." Dória (SP, 2019) did the equivalent. Garcia (SP, 2022) maintained the nomenclature. Tarcísio (SP, 2023) re-renamed it to "Culture, Economy and Creative Industry." These decisions mechanically generated hundreds of subsequent budgetary decrees that inherit the name. <strong>They were not decisions reflecting the strength of the cultural sector</strong> — they were <em>administrative branding</em> decisions specific to these two jurisdictions.</p>
+<p><strong>The analytical conclusion is important:</strong> if the international vocabulary were <em>necessary</em> to operate cultural policy in Brazil, we would expect to see it in every state with relevant cultural infrastructure. We do not. States that produced substantive recent cultural normativization (RJ, MG, BA, CE, RS) did so without needing the term. States that adopted the term (DF, SP) produced, in the great majority of cases, routine administrative acts — not substantive reform. <strong>In both cases, the international vocabulary is decorative, not constitutive of the operational work of cultural policy.</strong></p>
+<h2>The central paradox</h2>
+<p>Cross-referencing these normative findings with the material reality of the Brazilian cultural sector — measured by the official statistics of the IBGE/PNADC between 2014 and 2024 on 5.86 million cultural workers (5.79% of the country's labor force):</p>
+<table>
+<thead>
+<tr>
+<th>THE ABSORBED NORMATIVE DISCOURSE</th>
+<th>THE REALITY OF THE CULTURAL SECTOR (IBGE/PNADC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>269 LexML acts + 62 federal propositions with "creative economy"</td>
+<td>Gender wage gap <strong>34%</strong> (men R$ 3,898 / women R$ 2,560, Table 6.6)</td>
+</tr>
+<tr>
+<td><strong>Only 9 (4.1%) DF+SP acts are properly normative</strong></td>
+<td>Racial wage gap <strong>41%</strong> (whites R$ 4,081 / Black and brown R$ 2,410, Table 6.6)</td>
+</tr>
+<tr>
+<td><strong>Only 13 federal PL/PLS/PEC in 28 years</strong> (61% are requests)</td>
+<td>Black/brown people underrepresented <strong>−7.4 p.p.</strong> in the cultural sector (Table 6.1b)</td>
+</tr>
+<tr>
+<td>72% of the subnational corpus in 2019–2022 (Bolsonaro era)</td>
+<td>The Southeast concentrates <strong>51.5%</strong> of cultural workers (LQ = 1.16, Table 6.4)</td>
+</tr>
+<tr>
+<td>94% subnational concentrated in DF + SP</td>
+<td>Self-employment: 31.5% (2014) → <strong>43.0%</strong> (2024); formally employed: 46% → 34% (Table 6.10)</td>
+</tr>
+<tr>
+<td>90% executive decrees</td>
+<td>Cultural sector: 55.4% formal vs 59.4% general economy (deficit −4.0 p.p., Table 6.4)</td>
+</tr>
+<tr>
+<td>79% of the subnational corpus are routine budgetary transfers</td>
+<td>Short part-time: 6.1% in the sector vs 3.7% general economy (Table 6.12)</td>
+</tr>
+<tr>
+<td><strong>Zero federal laws enacted</strong> (confirmed by a second source)</td>
+<td><strong>Zero retreat of structural inequalities between 2014 and 2024</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The two registers operate disconnected.</strong> The category enters the normative apparatus as administrative vocabulary without having altered the material structure of Brazilian cultural labor. In some dimensions (precarization), conditions worsened during the period of discourse absorption. In no dimension was the international promise of "increasing employment for women and youth" (UNESCO, 2022) delivered.</p>
+<p>Preliminary work by the author on administrative microdata from the Lei Rouanet (the SALIC/MinC API, 48,189 projects analyzed; paper in preparation) suggests that the principal federal financing instrument reproduces and amplifies the same inequalities — corporate, regional and aesthetic concentration. This line of evidence converges with the PNADC picture, but the central argument of this paper rests on the official statistics of the IBGE, a primary source that requires no intermediation.</p>
+<h2>Implication for theory</h2>
+<p>The international critical literature (Hesmondhalgh &amp; Pratt 2005; Banks 2017; Oakley 2009) characterizes the neoliberal capture of the creative economy mainly via <strong>distorted implementation</strong> — programs that privilege large companies and exclude small producers. The Brazilian case adds a specific form of capture, perhaps subtler: <strong>nominal inscription without substantive implementation</strong>.</p>
+<p>In the context of a peripheral State undergoing definancing (the MinC dismantled 2019–2022), the international vocabulary can be <strong>incorporated without implying policy</strong>: it is enough to rename a Secretariat. Institutional renaming as a singular act generates, through the bureaucratic mechanics of routine budgetary transfers, a <strong>documentary inflation</strong> that appears to be substantive absorption but is, in reality, a mere linguistic effect.</p>
+<p>This form of discursive capture is <strong>functional for local administrative elites</strong> (especially DF and SP) because it offers <strong>modern legitimation without requirements of transformation</strong>. And it is <strong>simultaneously dysfunctional for the cultural sector</strong> because it leaves intact the real instrument of redistribution (the Lei Rouanet), with its documented patterns of concentration and exclusion.</p>
+<p>The novelty of Análise 9 v1.1 is to show that even "semantic absorption" needs to be disaggregated: <strong>the part that counts as absorption properly speaking — the production of a normative rule — is a minority at best (4.1%)</strong>. The rest is administrative routine indexed under a new label.</p>
+<h2>Implications for public policy</h2>
+<ol>
+<li>
+<p><strong>Renaming is not enough.</strong> Renaming Secretariats does not produce transformation. Semantic absorption must be distinguished from — and audited against — operational transformation. It falls to the TCU to assess whether there is proportion between the vocabulary used in administrative structures and the effective regulatory content.</p>
+</li>
+<li>
+<p><strong>Reform must be instrumental, not discursive.</strong> The appropriate indicators are not the frequency of the term in normative acts, but: the geographic coverage of the Lei Rouanet, the concentration index by proponent (Gini), the participation of grassroots segments in the Art. 18 portfolio, the representation by gender/race among the beneficiaries.</p>
+</li>
+<li>
+<p><strong>The Lei Rouanet remains untouched.</strong> All the subnational "absorption" of 2019–2022 — including the 171 supplementary credit openings making up 78.8% of the corpus — did not produce <strong>a single amendment</strong> to Lei 8.313/1991 mentioning the term. The architecture of the principal federal cultural policy instrument was not touched by the discursive wave.</p>
+</li>
+<li>
+<p><strong>Research in political science and cultural policy needs a juridical criterion when measuring "institutionalization."</strong> So that discourse-adoption indicators (presence in a bibliographic database) cease to inflate substantive analyses, cross-referencing with rigorous juridical classification is recommended — distinguishing the normative act from the administrative act with concrete effect — before drawing conclusions about the real normative presence of a vocabulary.</p>
+</li>
+<li>
+<p><strong>The re-creation of the federal Secretariat of Creative Economy in August 2024</strong> (the Margareth Menezes administration, Lula 3) reopens the possibility of substantive federal institutionalization. The paper will follow this new phase in future versions — particularly attentive to the distinction between <em>normative production</em> (an enacted law, a regulatory decree) and <em>administrative activity</em> (budget, agreements).</p>
+</li>
+</ol>
+<hr>
+<p><strong>About this study.</strong> Análise 9 of the project <em>Dados da Economia Cultural no Brasil</em>. Version 1.1 — 17 May 2026 (this Note incorporates the juridical re-classification from §4.7 of the paper). Complete corpus and reproduction code available at <code>md:atana.lexml.*</code> (MotherDuck) and github.com/joaoroquedasilvajunior/atana-data. Full academic paper (485+ lines, 15 findings, 9 EC figures) in <code>analise_09_genealogia_economia_criativa.md</code>.</p>
+<p><strong>Author.</strong> João Roque, independent researcher in cultural economics, founder of Atana — Cultural Policy Consultancy for Latin America.</p>
+<p><strong>Suggested citation.</strong> ROQUE, João. <em>The institutional genealogy of the creative economy in Brazil (1998–2026): legislative mapping, federative distribution, and the paradox of nominal inscription without substantive implementation</em>. Atana Note #04, v1.1, May 2026.</p>
+
+    <div class="footer-cta">
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
+    </div>
+  </div>
+</article>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

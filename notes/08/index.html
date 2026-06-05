@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #08 — Luminate × IFPI × CISAC × ECAD: Brasil e México em quatro lentes do dinheiro da música | Atana</title>
+<meta name="description" content="Quatro lentes sobre a mesma cadeia da música em 2024–2025: o que o ouvinte tocou (Luminate), o que a gravadora recebeu (IFPI), o que o compositor arrecadou via CMO (CISAC) e o que o titular brasileiro recebeu (ECAD). Brasil mostra divergência entre as lentes; México mostra convergência. A divergência é o Paradoxo da Autenticidade quantificado; a convergência é o caso de robustez metodológica máxima do corpus.">
+<meta property="og:title" content="Atana Note #08 — Luminate × IFPI × CISAC × ECAD: Brasil e México em quatro lentes do dinheiro da música">
+<meta property="og:description" content="Quatro lentes sobre a mesma cadeia da música em 2024–2025: o que o ouvinte tocou (Luminate), o que a gravadora recebeu (IFPI), o que o compositor arrecadou via CMO (CISAC) e o que o titular brasileiro recebeu (ECAD). Brasil mostra divergência entre as lentes; México mostra convergência. A divergência é o Paradoxo da Autenticidade quantificado; a convergência é o caso de robustez metodológica máxima do corpus.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/08/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/08/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Note #08 — Luminate × IFPI × CISAC × ECAD: Brasil e México em quatro lentes do dinheiro da música">
+<meta name="twitter:description" content="Quatro lentes sobre a mesma cadeia da música em 2024–2025: o que o ouvinte tocou (Luminate), o que a gravadora recebeu (IFPI), o que o compositor arrecadou via CMO (CISAC) e o que o titular brasileiro recebeu (ECAD). Brasil mostra divergência entre as lentes; México mostra convergência. A divergência é o Paradoxo da Autenticidade quantificado; a convergência é o caso de robustez metodológica máxima do corpus.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #08 — Luminate × IFPI × CISAC × ECAD: Brasil e México em quatro lentes do dinheiro da música","description":"Quatro lentes sobre a mesma cadeia da música em 2024–2025: o que o ouvinte tocou (Luminate), o que a gravadora recebeu (IFPI), o que o compositor arrecadou via CMO (CISAC) e o que o titular brasileiro recebeu (ECAD). Brasil mostra divergência entre as lentes; México mostra convergência. A divergência é o Paradoxo da Autenticidade quantificado; a convergência é o caso de robustez metodológica máxima do corpus.","url":"https://atana.studio/notes/08/","mainEntityOfPage":"https://atana.studio/notes/08/","datePublished":"2026-06-16","dateModified":"2026-06-16","inLanguage":"pt","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #08 · 16 Jun 2026 · 8 min read · PT</div>
+    <h1>Luminate × IFPI × CISAC × ECAD: Brasil e México em quatro lentes do dinheiro da música</h1>
+    <p class="deck">Quatro lentes sobre a mesma cadeia da música em 2024–2025: o que o ouvinte tocou (Luminate), o que a gravadora recebeu (IFPI), o que o compositor arrecadou via CMO (CISAC) e o que o titular brasileiro recebeu (ECAD). Brasil mostra divergência entre as lentes; México mostra convergência. A divergência é o Paradoxo da Autenticidade quantificado; a convergência é o caso de robustez metodológica máxima do corpus.</p>
+    <div class="meta">
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Music · Authenticity Paradox · Methodological pluralism</div>
+      <div><strong>Languages:</strong> PT · EN / ES to follow</div>
+    </div>
+
+    <h2>O sinal expandido</h2>
+<p>A Atana Note #08, publicada em maio, documentou um gap de +17,7 pontos percentuais entre o IFPI LATAM 2025 (+17,1% na receita de gravadora) e a CISAC LATAM 2024 (−0,6% na arrecadação autoral via CMO). A peça argumentou que <strong>alguém entre as duas estações da cadeia da música ficou com a diferença</strong> — e tomou esse gap como a primeira evidência quantitativa, em escala continental, do Paradoxo da Autenticidade que a Note #06 havia formulado.</p>
+<p>Em 4 de junho de 2026, o corpus <code>atana-data</code> ganhou uma quarta lente. O schema <code>atana.luminate</code>, ingerido a partir do <em>Year-End 2025 Music Industry Report</em> da Luminate (a empresa de dados por trás dos charts Billboard), mede a estação 1 da cadeia da música: <strong>o que o ouvinte realmente toca, em escala de plataforma, com geografia confiável</strong>. Não mede dinheiro — mede streams. Mas streams são o que vira dinheiro nas estações 2 e 3 da cadeia, então a lente da Luminate é a verificação consumer-side independente do que IFPI, CISAC, ECAD e satellite accounts nacionais reportam de outras posições da cadeia.</p>
+<p>Esta extensão da Note #08 faz três coisas que a versão original não fazia. <strong>Primeira</strong>, mostra Brasil em 4 lentes — três apontam para cima, a quarta (CISAC LATAM regional) mostra a divergência. <strong>Segunda</strong>, mostra México em 4 lentes que apontam todas na mesma direção — o caso de robustez metodológica máxima no corpus. <strong>Terceira</strong>, traz à mesa um achado-bônus que o Luminate carrega e que a Note #06 ainda não tinha: <strong>47,6% das 253 milhões de tracks no streaming global receberam menos de 10 streams em 2025</strong>. É a face supply-side do Paradoxo da Autenticidade — metade do catálogo existe formalmente mas é economicamente nula.</p>
+<h2>O que muda</h2>
+<p>A Note #08 original tinha 3 lentes para LATAM: IFPI (label-side global), CISAC (autor/CMO global) e ECAD (autor Brasil). A extensão adiciona Luminate (consumer-side global) e mantém INEGI CSCM (production-side nacional, para o México). O resultado é a tabela de cruzamento abaixo:</p>
+<table>
+<thead>
+<tr>
+<th>Lente</th>
+<th>Estação da cadeia</th>
+<th>Brasil 2025</th>
+<th>México 2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Luminate YE 2025</td>
+<td>Consumidor (plataforma)</td>
+<td>#3 absoluto, +38,6 bi YoY</td>
+<td>#2 absoluto, +50,9 bi YoY</td>
+</tr>
+<tr>
+<td>IFPI GMR 2026</td>
+<td>Gravadora (label)</td>
+<td>#8 global, +14,1%</td>
+<td>#10 global, +13,3%</td>
+</tr>
+<tr>
+<td>CISAC GCR 2025</td>
+<td>Autor via CMO</td>
+<td>(LATAM −0,6% regional; Brasil ≈ 1/3)</td>
+<td>65,1% digital share (top-10)</td>
+</tr>
+<tr>
+<td>ECAD 2024</td>
+<td>Autor (BR-only)</td>
+<td>distribuição +12,8% BRL ≈ +4% EUR</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>INEGI CSCM 2024</td>
+<td>Produção nacional</td>
+<td>n/a</td>
+<td>Música y conciertos +14,9% real</td>
+</tr>
+</tbody>
+</table>
+<p>O Brasil aparece com <strong>4 lentes</strong> (Luminate + IFPI + CISAC LATAM regional + ECAD). O México aparece com <strong>4 lentes</strong> (Luminate + IFPI + CISAC sub-line + INEGI). Cada país tem sua quadrilha completa, mas as quadrilhas têm composições ligeiramente diferentes — Brasil entra na CISAC como peso regional, México entra na CISAC pela linha de leading smaller markets.</p>
+<h2>Brasil em 4 lentes</h2>
+<p>A figura 1 desempacota o caso brasileiro.</p>
+<p><img alt="figNN08ext_1" src="Graficos%20produzidos/figNN08ext_1_brasil_4_lentes.png"></p>
+<p><strong>Estação 1 — Luminate.</strong> O Brasil é o terceiro mercado do mundo em crescimento absoluto de streams pagos em 2025, atrás apenas dos EUA e do México. O número é +38,6 bilhões de streams pagos a mais em 2025 do que em 2024. Para perspectiva: o crescimento brasileiro sozinho representa cerca de 60% do crescimento de toda a fatia LATAM da IFPI, embora o Brasil seja apenas 1/3 do total regional CISAC. A população escutou mais e pagou mais por streaming musical neste último ano.</p>
+<p><strong>Estação 3 — IFPI.</strong> O Brasil subiu uma posição no ranking global de receita de gravadora, saindo do #9 para o #8. A receita label-side cresceu +14,1% YoY em 2025 — acima da média global (+6,4%) e na faixa que caracterizou a região LATAM como a região que mais cresceu no mundo (+17,1%). As gravadoras locais e as subsidiárias Universal/Sony/Warner Brasil tiveram, em 2025, o melhor ano da década.</p>
+<p><strong>Estação 5 — ECAD (autor Brasil).</strong> A distribuição ECAD aos titulares brasileiros foi de R\$ 1,569 bilhão em 2024 — crescimento de +12,8% em BRL versus 2023. Em EUR, à câmbio médio anual (~6,03 BRL/EUR em 2024 vs ~5,40 em 2023), o crescimento real fica em torno de +4% — positivo mas mais modesto, porque uma parte do crescimento BRL foi absorvida pela depreciação do real contra o euro.</p>
+<p><strong>Estação 5 — CISAC LATAM regional.</strong> A CISAC GCR 2025 (que cobre 2024) reporta o agregado regional de coleta autoral em € 786 milhões, <strong>−0,6% YoY</strong> — única região do mundo contraindo. O Brasil, com seus ~€ 260 milhões, é aproximadamente 1/3 desse total. <strong>Como o Brasil cresceu enquanto o total LATAM caiu, o "não-Brasil LATAM" precisa ter contraído mais agressivamente</strong> — algo em torno de −3% em EUR, por simples decomposição algébrica (analítica detalhada na Análise 24 §5).</p>
+<p><strong>O achado da figura 1:</strong> três lentes apontam para cima no Brasil. A quarta (CISAC LATAM regional) aponta de lado — não porque o Brasil dentro do agregado tenha caído, mas porque o agregado regional inclui países onde a coleta autoral está em queda mais aguda. <strong>A divergência da Note #08 original não é um efeito de medição; é um efeito de composição regional, e o Brasil é o polo positivo, não o negativo, dessa composição.</strong></p>
+<h2>México em 4 lentes — o caso de convergência</h2>
+<p>A figura 2 desempacota o caso mexicano.</p>
+<p><img alt="figNN08ext_2" src="Graficos%20produzidos/figNN08ext_2_mexico_4_lentes.png"></p>
+<p><strong>Estação 1 — Luminate.</strong> O México é o segundo mercado do mundo em crescimento absoluto de streams pagos em 2025, atrás apenas dos EUA. O +50,9 bilhões de streams pagos é maior do que o crescimento brasileiro e maior do que o crescimento alemão. O México não tem a escala absoluta de mercado dos EUA, mas tem velocidade comparável.</p>
+<p><strong>Estação 3 — IFPI.</strong> O México subiu para a #10 posição global no ranking de receita de gravadora em 2025, com +13,3% YoY. Pela primeira vez na década, dois países LATAM estão no top-10 mundial (Brasil #8, México #10).</p>
+<p><strong>Estação 5 — CISAC.</strong> A CISAC GCR 2025 lista o México na sua tabela de "leading smaller markets" por digital share — 65,1% das coletas autorais já são digitais, fazendo do México o único país LATAM no top-10 dessa lista. Aqui a CISAC mede o México como entrada granular, não como peso de agregado regional, então o sinal não está contaminado pelo declínio agregado LATAM.</p>
+<p><strong>Produção nacional — INEGI CSCM 2024.</strong> A INEGI publica, via Cuenta Satélite de la Cultura de México, a contabilidade de produção cultural mexicana por 10 áreas. Em 2024, <strong>Música y conciertos</strong> foi a área cultural <strong>mais rápida</strong> do país — crescimento real de <strong>+14,9%</strong>. Mais rápida não só do que as outras áreas culturais (artes visuais, artes escénicas, audiovisual, etc.) como também acima da economia mexicana em geral.</p>
+<p><strong>O achado da figura 2: convergência quádrupla.</strong> Quatro metodologias diferentes (produção nacional + receita label + arrecadação autoral CMO + consumo plataforma), quatro ângulos diferentes da economia musical, e <strong>todas as quatro apontam na mesma direção positiva</strong>. Quando isso acontece, o achado não tem caveat metodológico — é fato. O México viveu um boom musical robusto em 2024-2025, e o boom é capturado consistentemente em cada uma das estações que conseguimos medir. Isso é raro no corpus; geralmente as lentes divergem em algum ponto. O México é o caso de robustez máxima.</p>
+<h2>A geografia do paradoxo da autenticidade — Brasil 75,2% local repertoire</h2>
+<p>Há outra coisa que a Luminate revela e que reforça a tese da Note #06 (Paradoxo da Autenticidade). Na tabela <code>ye2025_most_local_markets</code>, o Brasil aparece como <strong>o segundo país do mundo onde o repertório local mais domina o streaming</strong>: <strong>75,2% das streams brasileiras em 2025 são de repertório em português brasileiro</strong> — sertanejo, funk, MPB, pagode, gospel.</p>
+<p>Só a Índia está à frente (79,2%). Turquia (69,9%) e Nigéria (62,2%) completam o top-4.</p>
+<p>Esse número fecha um arco que a Note #06 começou. Em 2025:
+- 3 em cada 4 streams no Brasil são de repertório nacional brasileiro
+- O mesmo Brasil é o #3 do mundo em crescimento absoluto de streams pagos (Luminate)
+- O mesmo Brasil é o #8 do mundo em receita de gravadora (IFPI)
+- O mesmo Brasil distribui via ECAD R\$ 1,57 bilhão a 345 mil titulares (média R\$ 383/mês por titular)
+- O mesmo Brasil está dentro do agregado LATAM CISAC que contrai 0,6% no ano</p>
+<p><strong>O Funk brasileiro, o sertanejo, o pagode, o gospel — os gêneros que constituem essa hegemonia de 75,2% no streaming brasileiro — são exatamente os gêneros que a Análise 19 mostrou capturando 0% (Funk, Pagode, Axé), 0,1% (Hip-Hop), 5,8% (Sertanejo) da Lei Rouanet, enquanto a Música Erudita capta 49,9%.</strong> A face plataforma do sucesso é total; a face fomento é nula; a face autoral nacional cresce em BRL mas perde para a depreciação cambial; a face autoral regional contrai. O Paradoxo da Autenticidade não é mais hipótese — é um sistema de medições convergentes em quatro lentes.</p>
+<h2>A face supply-side — 47,6% do catálogo não é ouvido</h2>
+<p>A figura 3 traz um achado bônus do Luminate Year-End 2025 que não estava na Note #06 nem na Note #08 original.</p>
+<p><img alt="figNN08ext_3" src="Graficos%20produzidos/figNN08ext_3_saturacao_catalogo.png"></p>
+<p>A Luminate reporta que, ao fim de 2025, havia <strong>253 milhões de tracks disponíveis nas plataformas de streaming global</strong>. Em 2025 sozinho, <strong>+37,9 milhões de tracks novas</strong> foram adicionadas — uma média de <strong>106 mil tracks uploadeadas por dia</strong>.</p>
+<p>Desse catálogo de 253 milhões de tracks, <strong>120,5 milhões (47,6%) receberam menos de 10 streams em 2025</strong>. Quase metade do catálogo é, na expressão da própria Luminate, "the long tail of almost-zero" — a longa cauda quase-zero.</p>
+<p>Esse achado é a face oferta do Paradoxo da Autenticidade que as Notes #06 e #08 documentaram pela ótica da demanda e da remuneração. A retórica de plataforma — "qualquer um pode publicar, a democratização chegou" — convive com o fato estatístico de que metade do catálogo existe formalmente mas é economicamente nula. O dinheiro não está distribuído na cauda; está concentrado no topo. <strong>"Qualquer um pode publicar" e "quase ninguém é ouvido" são duas faces da mesma estrutura de distribuição.</strong></p>
+<p>Para política pública, esse achado tem dois usos. <strong>Primeiro</strong>, contextualiza a leitura da Note #06: o Funk brasileiro que explode no Spotify, o sertanejo que enche playlists — esses são, comparativamente, <strong>tracks na cauda superior</strong> do catálogo de 253 milhões. A categoria "música nova publicada" não se traduz mecanicamente em "música ouvida". <strong>Segundo</strong>, abre questão regulatória: como tratar o catálogo nulo? Os 120 milhões de tracks com &lt;10 streams pagam licenciamento por consumo (porque o consumo é ~zero), ocupam armazenamento e indexação das plataformas, e contribuem para o ruído algorítmico que dificulta a descoberta do que é ouvido — o que é a outra metade da estrutura.</p>
+<h2>Implicações</h2>
+<p>Para o Ministério da Cultura do Brasil: o achado da convergência tripla Brasil (Luminate + IFPI + ECAD) confirma que a economia musical brasileira viveu um ciclo positivo robusto em 2024-2025. A divergência só aparece quando se olha o agregado LATAM CISAC, que carrega o peso de outros países regionais. <strong>A política pública brasileira de fomento musical (Lei Rouanet, Aldir Blanc, editais setoriais) opera, hoje, sobre um setor em crescimento de demanda interna — não sobre um setor em contração</strong>. A justificativa para reforma da política não pode ser "a música brasileira está em crise"; precisa ser "a captura de valor não chega aos criadores periféricos" (achado da Análise 19) e "a estrutura de distribuição tem cauda zero" (achado desta extensão).</p>
+<p>Para o Ministério da Cultura do México: a convergência quádrupla é uma vitória de comunicação institucional. Quatro lentes independentes apontam para o boom musical mexicano. Para órgãos internacionais (BID, UNESCO, OEI) que avaliam políticas culturais comparativas, o México de 2024-2025 é o caso mais robustamente positivo do continente.</p>
+<p>Para multilaterais: a extensão da Note #08 com Luminate dá um instrumento adicional para análise comparativa LATAM. UNCTAD reporta comércio de bens criativos; UNESCO FCS reporta domínios culturais; CISAC reporta arrecadação autoral; IFPI reporta receita label; Luminate reporta consumo de plataforma. Cinco fontes globais sobre o mesmo fenômeno musical, com calendários de publicação distintos. A leitura cross-source é a contribuição metodológica que a Atana entrega.</p>
+<p>Para regulação de IA generativa: o achado do catálogo saturado (47,6% das tracks &lt;10 streams) tem implicação direta. Os datasets de treinamento de Suno, Udio e similares vêm de catálogos comerciais — e o catálogo comercial é dominado pela cauda inferior em volume e pelo topo em escuta. <strong>O catálogo que treina IA é predominantemente música pouco ouvida</strong>, o que pode produzir modelos que reproduzem mediania por construção. Tese verificável; não a verificamos aqui.</p>
+<h2>O que estamos olhando a seguir</h2>
+<ul>
+<li><strong>Luminate State of the Industry 2026</strong> (deck de maio 2026, PDF auth-walled) — Tier 2 da Luminate. Extensão da série para H1 2026.</li>
+<li><strong>Luminate Brazil report dedicado</strong> — se existir publicação específica BR, ela teria detalhe gênero × país que o Year-End global não traz, e poderia dar a fatia Funk × Sertanejo × Pagode × Gospel × MPB × Outros que ainda falta no corpus.</li>
+<li><strong>CISAC GCR 2026</strong> (previsto novembro 2026) — quando estiver no ar, podemos comparar a janela LATAM-2025 na mesma fonte com IFPI-2025 e Luminate-2025; se a divergência persiste, o achado se consolida.</li>
+<li><strong>OECD AI Papers 59 + 60</strong> (já ingeridos em <code>atana.oecd_ai</code> na mesma Phase 5c) — moldura metodológica do Atana Index Vol. 2. A extensão desta Note #08 com Luminate pode informar o capítulo musical do Vol. 2.</li>
+</ul>
+<hr>
+<h2>Fontes</h2>
+<ol>
+<li>Luminate. <em>Year-End 2025 Music Industry Report</em>, January 2026. <a href="https://luminatedata.com/reports/yearend-music-industry-report-2025">https://luminatedata.com/reports/yearend-music-industry-report-2025</a>. Ingerido em <code>atana.luminate.ye2025_*</code> em junho 2026 (Phase 5c).</li>
+<li>Music Business Worldwide. Coverage of the Luminate Year-End 2025 Report, 22 January 2026. <a href="https://www.musicbusinessworldwide.com">https://www.musicbusinessworldwide.com</a>.</li>
+<li>IFPI. <em>Global Music Report 2026</em>, March 2026. Cobre dados 2025. Ingerido em <code>atana.ifpi.gmr_2026_*</code> (Phase 5b, maio 2026).</li>
+<li>CISAC. <em>Global Collections Report 2025</em>, November 2025. Cobre dados 2024. Ingerido em <code>atana.cisac.gcr_2025_*</code> (Phase 5a, maio 2026).</li>
+<li>ECAD. <em>Relatório Anual 2024 (versão-mercado)</em> e <em>Relatório Anual 2025</em>. Ingerido em <code>atana.ecad.*</code> (Phase 4c, maio 2026).</li>
+<li>INEGI. <em>Cuenta Satélite de la Cultura de México (CSCM), boletín 2024</em>. Ingerido em <code>atana.inegi.*</code> (Phase 3a + Phase 5b expansão).</li>
+<li>Atana Note #06 — <em>Spotify × IFPI × UNCTAD: o Funk brasileiro e o Paradoxo da Autenticidade</em> (maio 2026).</li>
+<li>Atana Note #08 — <em>As duas lentes do dinheiro da música em LATAM 2025</em> (maio 2026). A peça original que esta extensão estende.</li>
+<li>Atana Análise 19 — <em>Funk e sertanejo: a geografia da captura</em> (maio 2026).</li>
+<li>Atana Análise 24 — <em>Brasil no mapa global da renda autoral</em> (maio 2026).</li>
+</ol>
+
+    <div class="footer-cta">
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
+    </div>
+  </div>
+</article>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

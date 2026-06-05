@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #07 — UNCTAD × satellite accounts: pluralismo metodológico em ação (4 países LATAM) | Atana</title>
+<meta name="description" content="México, Argentina, Colômbia e Costa Rica cruzados contra o UNCTAD via suas contas-satélite nacionais. Duas correções para cima, uma confirmação, uma correção para baixo. O pluralismo metodológico cuta nos dois sentidos — e quando os dois sentidos cutam, isso é o achado.">
+<meta property="og:title" content="Atana Note #07 — UNCTAD × satellite accounts: pluralismo metodológico em ação (4 países LATAM)">
+<meta property="og:description" content="México, Argentina, Colômbia e Costa Rica cruzados contra o UNCTAD via suas contas-satélite nacionais. Duas correções para cima, uma confirmação, uma correção para baixo. O pluralismo metodológico cuta nos dois sentidos — e quando os dois sentidos cutam, isso é o achado.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/07/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/07/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Note #07 — UNCTAD × satellite accounts: pluralismo metodológico em ação (4 países LATAM)">
+<meta name="twitter:description" content="México, Argentina, Colômbia e Costa Rica cruzados contra o UNCTAD via suas contas-satélite nacionais. Duas correções para cima, uma confirmação, uma correção para baixo. O pluralismo metodológico cuta nos dois sentidos — e quando os dois sentidos cutam, isso é o achado.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #07 — UNCTAD × satellite accounts: pluralismo metodológico em ação (4 países LATAM)","description":"México, Argentina, Colômbia e Costa Rica cruzados contra o UNCTAD via suas contas-satélite nacionais. Duas correções para cima, uma confirmação, uma correção para baixo. O pluralismo metodológico cuta nos dois sentidos — e quando os dois sentidos cutam, isso é o achado.","url":"https://atana.studio/notes/07/","mainEntityOfPage":"https://atana.studio/notes/07/","datePublished":"2026-06-11","dateModified":"2026-06-11","inLanguage":"pt","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #07 · 11 Jun 2026 · 7 min read · PT</div>
+    <h1>UNCTAD × satellite accounts: pluralismo metodológico em ação (4 países LATAM)</h1>
+    <p class="deck">México, Argentina, Colômbia e Costa Rica cruzados contra o UNCTAD via suas contas-satélite nacionais. Duas correções para cima, uma confirmação, uma correção para baixo. O pluralismo metodológico cuta nos dois sentidos — e quando os dois sentidos cutam, isso é o achado.</p>
+    <div class="meta">
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Methodological pluralism · LATAM · Cultural statistics</div>
+      <div><strong>Languages:</strong> PT · EN / ES to follow</div>
+    </div>
+
+    <h2>O sinal</h2>
+<p>O UNCTAD Creative Economy Outlook 2024 — fonte âncora dos índices internacionais de comércio criativo — tem <strong>cobertura desigual de serviços</strong> entre os países LATAM. Brasil aparece com US\$ 7,2 bi em exportações de serviços criativos em 2024, Colômbia com US\$ 1,3 bi, Costa Rica com US\$ 1,6 bi. Mas para o <strong>México e a Argentina</strong>, o arquivo <code>services_countries.parquet</code> (UNCTADstat, julho 2025) retorna <strong>zero linhas</strong> em qualquer ano da série 2010-2024.</p>
+<p>Essa ausência não é "valor baixo" — é <strong>ausência estrutural</strong>. E tem consequência prática: na primeira edição do Atana Index Vol 1 (publicado em maio de 2026), México apareceu no quadrante "Q3 — Data Gap Zone" com índice de exposição de apenas 21,1%, e Argentina caiu no Q2 "Digital Fracture" com 59,1% — ambos calculados, na falta de serviços, sobre o universo de <strong>bens</strong> criativos. Números formalmente corretos mas substancialmente enganosos: tratam duas das maiores economias culturais da região como se fossem economias exportadoras de bens.</p>
+<p>A v1.7 do Atana Index corrige isso, e vai além: aplica o mesmo cross-source aos dois países que <strong>já têm</strong> serviços no UNCTAD (Colômbia e Costa Rica), apenas para verificar. O resultado é instrutivo — o pluralismo metodológico cuta nos dois sentidos: UNCTAD sub-conta MX/AR, mas super-conta CR. A defesa da fonte internacional única é mais frágil do que aparenta.</p>
+<h2>Por que importa para as economias criativas da LATAM</h2>
+<p>O Atana Index opera sobre uma classificação UNCTAD cuja cobertura é desigual. Para política pública, a confusão entre "baixa exposição" e "baixa medição" é cara. Um ministério da cultura do México que use o Atana Index original poderia inferir que não há urgência regulatória sobre IA generativa — porque seu país aparece em zona de "data gap". A realidade é o contrário: o México é tão exposto quanto o Brasil; ele apenas não é visto pelo UNCTAD na lente de serviços. O mesmo vale para a Argentina.</p>
+<p>Mas a v1.7 mostra que o problema não é só o sub-conto. <strong>A super-conto também é problema.</strong> Costa Rica aparece em UNCTAD com 97% dos seus exports culturais sendo serviços; via CSCCR, esse número desce para ~86% (banda 83-91%). A diferença é o quão concentrada está a economia de Costa Rica em um único produto (Publicidad), o que muda a leitura estratégica de "país de serviços diversos" para "país de publicidade exportadora".</p>
+<p>O ponto metodológico se mantém: <strong>sempre que houver uma base nacional do país, ela deve ser cruzada com a fonte internacional — e a leitura do gap entre as duas é uma das contribuições analíticas mais singulares que a Atana pode oferecer</strong>. Não é "validação" da fonte internacional; é triangulação que produz um número mais defensável em ambas as direções.</p>
+<h2>O que os dados Atana dizem — quatro países</h2>
+<h3>México (CSCM)</h3>
+<p>A INEGI publica desde 2008 a <strong>Cuenta Satélite de la Cultura de México (CSCM)</strong>, satellite account culturally-anchored no Sistema de Cuentas Nacionales mexicano. Foi ingerida no corpus <code>atana-data</code> em maio de 2026 (Phase 3a) como <code>atana.inegi.csc_comercio</code> — 5.984 linhas, 2008-2024, em pesos mexicanos com câmbio anual para USD.</p>
+<p>As exportações culturais mexicanas em 2024 totalizaram <strong>US\$ 5,66 bilhões</strong> (CSCM Cuadro 31), distribuídas em 10 áreas generales. Classificando rigorosamente pelas definições SCIAN 2018 internas à CSCM, a fração de serviços resulta numa <strong>faixa defensável de 36% a 90%, com ponto estimado de 78%</strong>:</p>
+<ul>
+<li><em>Contenidos digitales e internet</em> (US\$ 1.043 mi), <em>Diseño y servicios creativos</em> (US\$ 934 mi), <em>Artes escénicas</em> (US\$ 12 mi), <em>Formación cultural</em> (US\$ 36 mi), <em>Patrimonio cultural</em> (US\$ 0,5 mi) — puros serviços</li>
+<li><em>Medios audiovisuales</em> (US\$ 2.358 mi) e <em>Música y conciertos</em> (US\$ 708 mi) — mistos (75-85% serviços por SCIAN)</li>
+<li><em>Libros y prensa</em> (US\$ 518 mi), <em>Artes visuales</em> (US\$ 46 mi), <em>Artesanías</em> (NA) — puros bens</li>
+</ul>
+<p>A trajetória 2020-2024 confirma a estrutura: <em>Contenidos digitales</em> +154%, <em>Música y conciertos</em> +146%, <em>Diseño</em> +75%. O México é uma economia cultural cuja <strong>dinâmica recente</strong> é dominada por exportações de serviços. <strong>Combinando com o Índice de Prontidão (70, acima do threshold 65), a posição corrigida é Q1 — Transformation Race, ao lado do Brasil, Colômbia, Costa Rica e Uruguai. Não Q3.</strong></p>
+<h3>Argentina (SInCA)</h3>
+<p>A SInCA + INDEC publica a <strong>Cuenta Satélite de Cultura</strong> argentina (csc23), ingerida em <code>atana-data</code> em maio de 2026 (Phase 3c) como <code>atana.sinca.csc_comercio</code> — 228 linhas, 2004-2022, em pesos argentinos. A SInCA tem o split mais limpo de todos os 4 países: distingue diretamente <strong>bienes_culturales</strong> de <strong>servicios_culturales</strong>, sem precisar de classificação por área ou aplicação de coeficientes.</p>
+<p>As exportações culturais argentinas em 2022 (último ano disponível, preços constantes 2004) somaram ARS 984 mil milhões, divididas em ARS 913 mi de serviços (<strong>92,7%</strong>) e ARS 72 mi de bens (7,3%). O 3-year average 2020-2022 dá um <strong>ponto de 81% com banda 64-93%</strong>.</p>
+<p>UNCTAD, em comparação, reporta para a Argentina apenas US\$ 24 mi em comércio criativo total — só bens, sem qualquer serviço. A discrepância de escala é gigante: SInCA enxerga uma economia cultural de exports ~US\$ 300 mi (estimativa via câmbio livre); UNCTAD enxerga US\$ 24 mi. Aplicando o índice de prontidão argentino (65, exatamente no threshold), Argentina passa do <strong>Q2 'Digital Fracture' (UNCTAD-only) para Q1 'Transformation Race' limítrofe (cross-source)</strong>. O movimento é o segundo maior da v1.7.</p>
+<blockquote>
+<p><strong>Caveat Argentina:</strong> SInCA não publica valor em USD. O regime cambial argentino (brecha entre câmbio oficial, MEP, contado-con-liqui, blue) torna qualquer conversão ARS→USD ambígua, e a SInCA evitou o tema. A análise da v1.7 usa preços constantes 2004 em ARS para a fração de serviços (regime-independente). Estimativas em USD são indicativas, não calibradas.</p>
+</blockquote>
+<h3>Colômbia (DANE)</h3>
+<p>O DANE publica a <strong>Cuenta Satélite de Economía Cultural y Creativa (CSECC)</strong>, ingerida em <code>atana-data</code> em maio de 2026 (Phase 3b) como <code>atana.dane.csecc_comercio</code> — 484 linhas, 2014-2024, em pesos colombianos + USD via câmbio World Bank. A CSECC classifica os 22 produtos comerciais culturais entre 4 puros bens (juegos, instrumentos, joyas, diarios) e 18 "Servicios de..." — uma taxonomia mais granular que a CSCM.</p>
+<p>As exportações culturais colombianas em 2024 (último ano disponível) somaram <strong>US\$ 265 mi</strong>, com US\$ 218 mi (82,1%) em serviços e US\$ 47 mi (17,9%) em bens. A média 2022-2024 dá um <strong>ponto de 80,6% com banda 78,6-82,1%</strong>.</p>
+<p>UNCTAD, que <strong>já reporta serviços para a Colômbia</strong>, dá 82,5%. O DANE confirma com -1,9 pp de refinamento (-2 pp, dentro do erro). Esse é o caso mais interessante metodologicamente: <strong>a satellite account confirma quase perfeitamente a fonte internacional</strong>. Para a Colômbia, o pluralismo metodológico funciona como validação positiva — a posição UNCTAD (Q1, exposure 82,5%) é confirmada, com a vantagem de poder agora cruzar produto a produto para análises setoriais que UNCTAD não permite.</p>
+<h3>Costa Rica (CSCCR)</h3>
+<p>O consórcio CICSC (MCJ + BCCR + INEC + PEN + CONARE) publica a <strong>Cuenta Satélite de Cultura de Costa Rica (CSCCR)</strong>, ingerida em <code>atana-data</code> em maio de 2026 (Phase 3d) como <code>atana.cr_bccr.csc_comercio</code> — 150 linhas, 2010-2024, em colones costarriquenhos + USD. A CSCCR tem 4 setores ao invés de produtos: Publicidad, Editorial, Audiovisual, Música.</p>
+<p>Há uma quebra de cobertura em 2022: a partir desse ano apenas o setor Editorial é reportado. Usando o último ano com cobertura completa (2021), as exportações culturais somaram <strong>US\$ 36,2 mi</strong>, distribuídas assim: Publicidad 78,7%, Editorial 17,9%, Audiovisual 3,3%, Música 0,1%.</p>
+<p>Aplicando coeficientes setoriais (Publicidad 100% serviço, Audiovisual 60-95%, Música 50-90%, Editorial 10-50% — o livro é predominantemente um bem, mas há serviços editoriais), a fração de serviços resulta num <strong>ponto de 85,9% com banda 82,5-90,9%</strong>.</p>
+<p>UNCTAD, que reporta serviços para Costa Rica, dá 96,9%. CSCCR refina <strong>para baixo em -11 pp</strong>. Esse é o caso oposto da Colômbia: a satellite account <strong>corrige a fonte internacional na direção oposta</strong>, sugerindo que UNCTAD pode estar superestimando a fração de serviços porque trata Publicidad como serviço puro quando uma parcela editorial-impressa do setor é mais bem caracterizada como bem. A Costa Rica permanece em Q1 (a correção -11 pp ainda a deixa bem acima do threshold 50%), mas a leitura estrutural muda: o país é mais concentrado em Publicidad do que UNCTAD sugere, e menos diversificado em outros serviços criativos.</p>
+<h2>Síntese — duas direções, quatro países</h2>
+<table>
+<thead>
+<tr>
+<th>País</th>
+<th style="text-align: right;">UNCTAD</th>
+<th style="text-align: right;">Satellite (point)</th>
+<th>Banda</th>
+<th style="text-align: right;">Δ</th>
+<th>Movimento no quadrante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>México</strong> (CSCM)</td>
+<td style="text-align: right;">21,1%</td>
+<td style="text-align: right;"><strong>77,7%</strong></td>
+<td>36-90%</td>
+<td style="text-align: right;">+56,6 pp</td>
+<td>Q3 Data Gap Zone → <strong>Q1 Transformation Race</strong></td>
+</tr>
+<tr>
+<td><strong>Argentina</strong> (SInCA)</td>
+<td style="text-align: right;">59,1%</td>
+<td style="text-align: right;"><strong>81,4%</strong></td>
+<td>64-93%</td>
+<td style="text-align: right;">+22,3 pp</td>
+<td>Q2 Digital Fracture → <strong>Q1 limítrofe</strong></td>
+</tr>
+<tr>
+<td><strong>Colômbia</strong> (DANE)</td>
+<td style="text-align: right;">82,5%</td>
+<td style="text-align: right;">80,6%</td>
+<td>79-82%</td>
+<td style="text-align: right;">−1,9 pp</td>
+<td>Q1 → Q1 (confirma)</td>
+</tr>
+<tr>
+<td><strong>Costa Rica</strong> (CSCCR)</td>
+<td style="text-align: right;">96,9%</td>
+<td style="text-align: right;">85,9%</td>
+<td>83-91%</td>
+<td style="text-align: right;">−11,0 pp</td>
+<td>Q1 → Q1 (refina)</td>
+</tr>
+</tbody>
+</table>
+<p>Dois movimentos importam para a leitura estratégica do Atana Index:</p>
+<ol>
+<li>
+<p><strong>A v1.7 mostra cinco países LATAM em Q1 Transformation Race</strong> — Brasil, Colômbia, Costa Rica, Uruguai, México (cross-source), Argentina (cross-source limítrofe). A v1.6 mostrava apenas 4. A fragmentação aparente do LATAM era artefato da cobertura UNCTAD, não realidade.</p>
+</li>
+<li>
+<p><strong>A correção é bidirecional</strong> — UNCTAD sub-conta MX/AR mas super-conta CR. Não é uma crítica "UNCTAD é cego e satélite vê tudo"; é uma constatação de que cada fonte tem viés sistemático, e só a triangulação produz números defensáveis.</p>
+</li>
+</ol>
+<h2>Implicações para política</h2>
+<p>Para os <strong>Ministérios de Cultura do México e da Argentina</strong>: os dois países têm <strong>alta exposição</strong> à transformação agêntica em curso na economia criativa — comparável ao Brasil. A janela regulatória brasileira de 18-24 meses para constituir posição sobre IA generativa também se aplica a ambos. Inscrever CSCM e SInCA como fontes principais (em vez de UNCTAD) para análises de exposição setorial é decisão técnica imediata.</p>
+<p>Para o <strong>Ministério de Cultura de Costa Rica</strong>: a quebra de cobertura CSCCR pós-2022 é problema institucional — três anos sem reportar Audiovisual, Música e Publicidad limita análise setorial. Restaurar a cobertura completa do CSCCR é prioridade para manter Costa Rica no campo de visão dos índices internacionais.</p>
+<p>Para o <strong>DANE colombiano</strong>: o CSECC é uma referência de qualidade — granular, com USD, taxonomia clara. É o modelo metodológico que outros países LATAM podem adotar.</p>
+<p>Para <strong>multilaterais (BID, UNESCO, OEI, CAF)</strong>: qualquer análise comparativa LATAM que use UNCTAD como única âncora subestima sistematicamente MX e AR e superestima parcialmente CR. Triangulação com fontes nacionais é necessária — não como controle de qualidade, mas como produção de número defensável.</p>
+<p>Para a <strong>Atana</strong>: a v1.7 do Atana Index é a primeira aplicação operacional em escala da prática de pluralismo metodológico. Vol 2 (previsto out 2026 - jan 2027) ampliará a cobertura para Chile (se CSC ingerida) e potencialmente Caribe via CARICOM Statistics.</p>
+<h2>O que estamos olhando a seguir</h2>
+<ul>
+<li>A publicação da CSCM 2025 (prevista nov 2026) — atualização do ponto-estimado e validação da trajetória de serviços.</li>
+<li>Continuidade do SInCA argentino — incerteza sobre release 2023+ sob governo Milei (cortes ao INDEC documentados).</li>
+<li>A reabertura da cobertura completa do CSCCR a partir de 2025 — gate institucional para análises pré-Vol 2.</li>
+<li>Inscrição do Chile no escopo Phase 3+ — se houver acesso a CSC chilena (o país aparece com † no Index porque UNCTAD não publica serviços e nenhuma CSC chilena foi ingerida ainda).</li>
+<li>A potencial extensão para Caribe via CARICOM Statistics (Trinidad, Jamaica, Barbados) — se os dados nacionais estiverem disponíveis.</li>
+</ul>
+<hr>
+<h2>Fontes</h2>
+<ol>
+<li>UNCTAD. <em>Creative Economy Outlook 2024 — Trade in Services Detailed Data</em> (UNCTADstat services_countries dataset, atualizado julho 2025). <a href="https://unctadstat.unctad.org/">unctadstat.unctad.org</a> — verificado: zero linhas para México e Argentina em qualquer ano.</li>
+<li>INEGI. <em>Cuenta Satélite de la Cultura de México (CSCM)</em>, base 2018, ano 2024 preliminar. Cuadros 31 e 75 (Comercio cultural). <a href="https://www.inegi.org.mx/programas/cultura/2018/">inegi.org.mx/programas/cultura/2018</a></li>
+<li>SInCA + INDEC. <em>Cuenta Satélite de Cultura — Comercio exterior cultural</em> (csc22/csc23, 2004-2022). datos.cultura.gob.ar — CC BY 4.0.</li>
+<li>DANE. <em>Cuenta Satélite de Economía Cultural y Creativa (CSECC), release 2022-2024pr</em>. dane.gov.co.</li>
+<li>CICSC (MCJ + BCCR + INEC + PEN + CONARE). <em>Cuenta Satélite de Cultura de Costa Rica (CSCCR), 2010-2024</em>. Hospedada no BCCR. bccr.fi.cr.</li>
+<li>Atana Index Vol 1 v1.7 — versão de lançamento desta extensão. <a href="https://atana.studio/data/">atana.studio/data</a></li>
+<li>SCIAN 2018 (Sistema de Clasificación Industrial de América del Norte) — INEGI/Statistics Canada/US Census Bureau. Marco operacional para classificação serviços/bens em áreas mistas culturais.</li>
+<li>Bounds JSON: <code>_atana_intel/index_v17_cross_source_bounds.json</code> em <code>atana-data</code>. Replicação completa em <code>gen_atana_index_v17_fig8.py</code>.</li>
+</ol>
+
+    <div class="footer-cta">
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
+    </div>
+  </div>
+</article>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

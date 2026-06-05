@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #06-ES — Spotify × IFPI × UNCTAD: el funk brasileño y la Paradoja de la Autenticidad | Atana</title>
+<meta name="description" content="El género musical de crecimiento más rápido del planeta nació en las favelas cariocas y se canta en portugués. Lo que el auge no responde es la pregunta distributiva: quién, exactamente, captura el valor. Versión española de la Note #06.">
+<meta property="og:title" content="Atana Note #06-ES — Spotify × IFPI × UNCTAD: el funk brasileño y la Paradoja de la Autenticidad">
+<meta property="og:description" content="El género musical de crecimiento más rápido del planeta nació en las favelas cariocas y se canta en portugués. Lo que el auge no responde es la pregunta distributiva: quién, exactamente, captura el valor. Versión española de la Note #06.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/06-ES/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/06-ES/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Note #06-ES — Spotify × IFPI × UNCTAD: el funk brasileño y la Paradoja de la Autenticidad">
+<meta name="twitter:description" content="El género musical de crecimiento más rápido del planeta nació en las favelas cariocas y se canta en portugués. Lo que el auge no responde es la pregunta distributiva: quién, exactamente, captura el valor. Versión española de la Note #06.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #06-ES — Spotify × IFPI × UNCTAD: el funk brasileño y la Paradoja de la Autenticidad","description":"El género musical de crecimiento más rápido del planeta nació en las favelas cariocas y se canta en portugués. Lo que el auge no responde es la pregunta distributiva: quién, exactamente, captura el valor. Versión española de la Note #06.","url":"https://atana.studio/notes/06-ES/","mainEntityOfPage":"https://atana.studio/notes/06-ES/","datePublished":"2026-06-10","dateModified":"2026-06-10","inLanguage":"es","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #06-ES · 10 Jun 2026 · 6 min read · ES</div>
+    <h1>Spotify × IFPI × UNCTAD: el funk brasileño y la Paradoja de la Autenticidad</h1>
+    <p class="deck">El género musical de crecimiento más rápido del planeta nació en las favelas cariocas y se canta en portugués. Lo que el auge no responde es la pregunta distributiva: quién, exactamente, captura el valor. Versión española de la Note #06.</p>
+    <div class="meta">
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Música · Paradoja de la Autenticidad · Trabajo creativo</div>
+      <div><strong>Languages:</strong> ES · PT canónico · EN</div>
+    </div>
+
+    <blockquote>
+<p><em>El género musical de crecimiento más rápido del planeta nació en las favelas cariocas, se extendió por las periferias de todo Brasil y se canta en portugués. Esto no es una curiosidad: es la Paradoja de la Autenticidad en estado puro. Lo que el auge no responde es la pregunta distributiva: quién, exactamente, captura el valor.</em></p>
+</blockquote>
+<h2>La señal</h2>
+<p>En marzo de 2026, dos informes anuales de la industria musical se publicaron con pocos días de diferencia. El <em>IFPI Global Music Report 2026</em> mostró a América Latina como la región de crecimiento más rápido del planeta en música grabada: <strong>+17,1% en 2025</strong>, el decimosexto año consecutivo de expansión, con el streaming representando el <strong>88,1% de los ingresos regionales</strong> — la mayor dependencia del streaming de cualquier región del mundo. Brasil subió del 9.º al <strong>8.º puesto global</strong> (+14,1%); México, del 11.º al 10.º (+13,3%).</p>
+<p>El <em>Spotify Loud &amp; Clear 2026</em> trajo el dato más específico. Entre los géneros de escala US$ 50 millones o más en la plataforma, el <strong>funk brasileño fue el de crecimiento más rápido del mundo: +36% interanual</strong> — por delante del Latin Trap (+29%), del Latin Urban (+27%) y del Reggaeton (+24%). En el mismo informe: el 85% de los nuevos artistas que pasaron a facturar US$ 100 mil o más están fuera de los Estados Unidos, y el Spotify Global Top 50 hoy contiene canciones en 16 idiomas — el doble de las 8 de 2020.</p>
+<p>Un género nacido en las favelas de Río de Janeiro, hoy tan fuerte en las periferias de São Paulo como en su origen y presente en escenas de varios estados, cantado en portugués brasileño, es el género musical de crecimiento más rápido del mundo. Esta Nota sostiene que esto no es un accidente: es la confirmación empírica de un mecanismo que Atana nombró hace un año — la <strong>Paradoja de la Autenticidad</strong>. Y sostiene que confirmar el mecanismo es la parte fácil. La parte difícil es la pregunta que el auge, por sí solo, no responde.</p>
+<h2>Por qué esto importa: la Paradoja de la Autenticidad</h2>
+<p>El Atana Index Vol. 1 (§4) formuló la tesis así: a medida que los agentes de IA producen contenido creativo genérico a un costo marginal próximo a cero, la escasez se desplaza <strong>del contenido a la autenticidad</strong>. La OCDE estima ganancias de productividad del 8–9% en diez años en los sectores de publicación y audiovisual — lo que, en un mercado competitivo, se traduce en una compresión de precio equivalente para el contenido funcional, estandarizado, sustituible. Lo que <em>no</em> puede ser sintetizado por un algoritmo pasa a valer más, no menos: identidad territorial específica, memoria viva, el cuerpo como instrumento, la lengua como marca.</p>
+<p>El funk es el caso límite de esa lógica. Un género anclado en una comunidad territorial y lingüística específica — la periferia urbana brasileña, desde Río de Janeiro donde nació hasta las periferias de São Paulo y escenas en varios otros estados, el portugués brasileño, la gramática rítmica del <em>baile</em> — es, por construcción, difícil de sintetizar de manera convincente. Y la especificidad no se debilita al extenderse: la periferia brasileña es toda una geografía social, no un único barrio — una comunidad específica y amplia a la vez. Un agente de IA puede generar una pista genérica "estilo funk"; no puede generar la procedencia. Y a medida que el contenido genérico se mercantiliza, es precisamente la procedencia la que adquiere valor de escasez.</p>
+<p>Esta es la lectura que la convención de tres lentes de esta serie hace visible. La lente <strong>Spotify Loud &amp; Clear</strong> muestra el micro: un género específico, identificable, creciendo +36%. La lente <strong>IFPI</strong> muestra el agregado: una región entera creciendo +17,1%, impulsada por la especificidad cultural que viaja. La lente <strong>UNCTAD</strong> muestra la estructura: Brasil exporta el 84% de su canasta creativa en servicios, es el país con el mayor Índice de Preparación (Readiness) de la región (87/100) y está, por lo tanto, en el extremo más expuesto de la economía creativa latinoamericana. Las tres lentes convergen: <strong>la alta exposición digital de Brasil — la Zona 1 del marco de los Dos Husos Horarios Creativos — es también el motor del crecimiento.</strong> La exposición que parecía riesgo es, para un género auténtico, protección.</p>
+<h2>Lo que dicen los datos de Atana</h2>
+<p>El marco de los Dos Husos Horarios Creativos, publicado en mayo de 2025, hizo una predicción explícita: las economías de la Zona 1 — lideradas por servicios, altamente expuestas a la IA — <em>acelerarían o quedarían rezagadas</em>, según lograran o no convertir la exposición en captura. El ciclo musical de 2026 entregó el tipo de confirmación que cualquier marco rara vez recibe: validación empírica dentro de su propia ventana de publicación. Brasil ocupa la cima del Índice de Preparación de Atana (87, recalculado en mayo de 2026 sobre el corpus UNCTAD 2024); el desempeño musical de 2025 puso a prueba el ranking, y el ranking pasó la prueba.</p>
+<p>Pero el corpus de Atana añade un contraste que el auge aislado oculta. El artista de funk en Spotify está indexado por más de 200 campos de metadatos — género, BPM, idioma, colaboradores, territorio, estado de ánimo. <strong>Es esa indexación la que lo hace descubrible por agentes de recomendación; es la indexación la que es el mecanismo de captura.</strong> El artesano boliviano en Sucre no está en el índice — y esa es exactamente la frontera entre la Zona 1 y la Zona 2 del marco. Para el funk, la era agéntica abre un canal; para el textil andino, amenaza con cerrar uno.</p>
+<p>El auge, sin embargo, es un auge de <em>género</em> y de <em>plataforma</em>. El corpus PNADC/IBGE de Atana describe la condición del <em>trabajador</em> que produce ese género — y el retrato es menos eufórico. Entre 2014 y 2024, la proporción de trabajadores culturales por cuenta propia en Brasil subió del 31,5% al <strong>43,0%</strong>. La brecha salarial de género en el sector cultural es del 34% (hombres R$ 3.898, mujeres R$ 2.560); la racial, del 41% (blancos R$ 4.081, negros y pardos R$ 2.410). Son 5,86 millones de trabajadores culturales — el 5,79% de la fuerza de trabajo del país — y la curva de precarización avanzó justamente durante los años en que el género despegaba.</p>
+<h2>La pregunta que el auge no responde: quién captura el valor</h2>
+<p>La Paradoja de la Autenticidad explica por qué el valor del funk <em>sube</em>. No explica <em>adónde</em> va. Esas son dos preguntas distintas, y confundirlas es el error de política más probable ante un dato tan favorable.</p>
+<p>La indexación que hace al funk descubrible es operada por la plataforma. La plataforma indexa al artista — y también administra los términos por los cuales se reparten los ingresos por escucha. "La autenticidad tiene valor de escasez" y "el creador de la autenticidad captura ese valor" no son la misma proposición. La primera es sobre el activo; la segunda es sobre la posición de negociación de quien posee el activo dentro de un ecosistema mediado por agentes.</p>
+<p>Y la posición de negociación del creador brasileño de funk es estructuralmente frágil. Es un sector en el que el 43% trabaja por cuenta propia, sin cobertura previsional estable y sin acceso a crédito formal — por lo tanto sin capacidad de invertir en la recapacitación de complementariedad humano-IA que la propia transición agéntica premia. Brasil está en la situación paradójica de ser el país con el <strong>mayor potencial de captura de la prima agéntica en la región y, simultáneamente, la estructura social menos preparada para sostener la transición</strong>. Un auge de género medido en ingresos de plataforma puede coexistir, sin contradicción, con creadores que no ven esos ingresos — y con las desigualdades de género y raza del sector intactas. Fue lo que ocurrió entre 2014 y 2024: el género creció, la precarización también.</p>
+<h2>Implicación para la política</h2>
+<p>Para un ministerio de cultura de la Zona 1 — y Brasil es el caso central —, la lectura correcta del auge del funk no es "está funcionando, no lo toques". Es: <em>el activo se está valorizando; la política debe garantizar que el creador ocupe la posición de captura.</em> Tres movimientos se derivan de esto.</p>
+<p>Primero, <strong>protección de la PI y de los datos del creador que viaje con la obra hacia los mercados internacionales.</strong> El valor del funk se realiza en ecosistemas de plataforma transfronterizos; la protección que se agota en la frontera nacional no protege al creador donde se genera el ingreso. Este es el punto número uno, porque es lo que convierte el valor de activo en valor capturado.</p>
+<p>Segundo, <strong>un piso de protección social para el trabajador creativo.</strong> Mientras el 43% del sector siga en el trabajo por cuenta propia sin red, la prima de complementariedad humano-IA será capturada por quienes pueden invertir — y reproducirá, dentro del sector creativo, las desigualdades de raza, género y región que el corpus de Atana documenta. Competitividad externa y protección social no son agendas separadas; son lados del mismo problema.</p>
+<p>Tercero, <strong>regulación del uso de expresiones culturales tradicionales en el entrenamiento de modelos de IA, con un mecanismo de compensación</strong> para las comunidades que las detentan. El funk es territorio y comunidad antes de ser catálogo. Si un modelo se entrena en su gramática sin compensación, la autenticidad se extrae sin que el valor de escasez retorne al origen. Existen marcos de la UNESCO y de la OMPI como punto de partida; ningún país latinoamericano los ha transpuesto a una ley nacional vinculante.</p>
+<p>La política cultural que ve el auge solo como una buena noticia protege el género. La que ve la pregunta distributiva protege al creador. Son cosas diferentes.</p>
+<h2>Lo que estamos observando</h2>
+<ul>
+<li><strong>PNADC 1.er trimestre de 2026</strong> (divulgación prevista para fines de mayo / principios de junio): ¿la formalidad del sector cultural brasileño se recupera junto con el auge musical, o la curva de precarización continúa?</li>
+<li><strong>OBITEL Anuario Iberoamericano 2026</strong> (divulgación pendiente): ¿el audiovisual muestra el mismo patrón de Zona 1 que la música, con la coproducción acelerando?</li>
+<li><strong>Litigio y regulación de IA-música a escala global</strong>: las disputas sobre el entrenamiento de modelos en catálogos musicales — en curso en los EE. UU. y la UE — definen precedentes que llegarán a América Latina; vale la pena seguir quién fija las reglas antes de la consolidación.</li>
+<li><strong>Sostenimiento del +36%</strong>: un año de crecimiento excepcional es una señal; dos años es una tendencia. El ciclo de 2027 (IFPI + Spotify) dirá si la Paradoja de la Autenticidad es estructural o si 2025 fue un pico.</li>
+</ul>
+<hr>
+<h2>Fuentes</h2>
+<ol>
+<li><em>IFPI Global Music Report 2026</em>, International Federation of the Phonographic Industry, marzo de 2026. Crecimiento regional de América Latina, dependencia del streaming, rankings nacionales. <a href="https://www.ifpi.org/global-music-report-2026/">https://www.ifpi.org/global-music-report-2026/</a></li>
+<li><em>Spotify Loud &amp; Clear 2026</em>, Spotify Newsroom, marzo de 2026. Crecimiento del funk brasileño (+36%), distribución de nuevos artistas de altos ingresos, idiomas en el Global Top 50. <a href="https://newsroom.spotify.com/2026-03-11/loud-and-clear-music-economics-highlights/">https://newsroom.spotify.com/2026-03-11/loud-and-clear-music-economics-highlights/</a></li>
+<li><em>Atana Index Vol. 1 — Two Creative Time Zones: Latin America's Cultural Economies in the Agentic Era</em>, mayo de 2026. §4 (Paradoja de la Autenticidad) y §5 (validación empírica por la música). <a href="https://atana.studio">https://atana.studio</a></li>
+<li>UNCTADstat, flujos de Bienes y Servicios Creativos, ciclo 2024. Base de los Índices de Exposición a la IA y de Preparación de Atana. Brasil: 84% de servicios en la canasta creativa; Índice de Preparación = 87.</li>
+<li>Atana, Análise 6 — <em>La Economía Creativa de América Latina en la Era Agéntica</em>. §4 (autenticidad), §5 (Dos Husos Horarios Creativos), §6.bis.5 (precarización como amplificador de riesgo).</li>
+<li>Atana, Análises 1 y 2 (microdatos PNADC/IBGE, 2014–2024). Brechas salariales de género (34%) y raza (41%); cuenta propia 31,5% → 43,0%; 5,86 millones de trabajadores culturales.</li>
+<li>Filippucci, F. et al. (2026), "AI meets trade", OECD AI Papers No. 57. Ganancias de productividad del 8–9% en publicación y audiovisual.</li>
+</ol>
+<hr>
+<h2>Cita sugerida</h2>
+<blockquote>
+<p>ROQUE, João. <em>Spotify × IFPI × UNCTAD: el funk brasileño y la Paradoja de la Autenticidad</em>. Atana Note #06, julio de 2026. <a href="https://atana.studio/notes/06/">https://atana.studio/notes/06/</a></p>
+</blockquote>
+
+    <div class="footer-cta">
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
+    </div>
+  </div>
+</article>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
