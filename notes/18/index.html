@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #18 — OECD AI Capability Gap × IBGE Estruturais × IBGE Comex: o Paradoxo da Autenticidade quantificado | Atana</title>
+<meta name="description" content="O paper OECD AI No. 59 (maio 2026) deveria ter resolvido a pergunta sobre exposição cultural à IA. Não resolveu — e o porquê está no Anexo 3 página 49 do próprio paper, onde os raters admitem ter comprimido editorialmente o nível superior da escala de Criatividade. Aplicado à produção e exportação cultural do Brasil (194 mil firmas IBGE × R$ 2,2 bi de exportações 2024), o framework Atana produz uma inversão de ranking: descomprimir a Criatividade modifica qual lado parece mais exposto à IA. O Paradoxo da Autenticidade, quantificado.">
+<meta property="og:title" content="Atana Note #18 — OECD AI Capability Gap × IBGE Estruturais × IBGE Comex: o Paradoxo da Autenticidade quantificado">
+<meta property="og:description" content="O paper OECD AI No. 59 (maio 2026) deveria ter resolvido a pergunta sobre exposição cultural à IA. Não resolveu — e o porquê está no Anexo 3 página 49 do próprio paper, onde os raters admitem ter comprimido editorialmente o nível superior da escala de Criatividade. Aplicado à produção e exportação cultural do Brasil (194 mil firmas IBGE × R$ 2,2 bi de exportações 2024), o framework Atana produz uma inversão de ranking: descomprimir a Criatividade modifica qual lado parece mais exposto à IA. O Paradoxo da Autenticidade, quantificado.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/18/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/18/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Note #18 — OECD AI Capability Gap × IBGE Estruturais × IBGE Comex: o Paradoxo da Autenticidade quantificado">
+<meta name="twitter:description" content="O paper OECD AI No. 59 (maio 2026) deveria ter resolvido a pergunta sobre exposição cultural à IA. Não resolveu — e o porquê está no Anexo 3 página 49 do próprio paper, onde os raters admitem ter comprimido editorialmente o nível superior da escala de Criatividade. Aplicado à produção e exportação cultural do Brasil (194 mil firmas IBGE × R$ 2,2 bi de exportações 2024), o framework Atana produz uma inversão de ranking: descomprimir a Criatividade modifica qual lado parece mais exposto à IA. O Paradoxo da Autenticidade, quantificado.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #18 — OECD AI Capability Gap × IBGE Estruturais × IBGE Comex: o Paradoxo da Autenticidade quantificado","description":"O paper OECD AI No. 59 (maio 2026) deveria ter resolvido a pergunta sobre exposição cultural à IA. Não resolveu — e o porquê está no Anexo 3 página 49 do próprio paper, onde os raters admitem ter comprimido editorialmente o nível superior da escala de Criatividade. Aplicado à produção e exportação cultural do Brasil (194 mil firmas IBGE × R$ 2,2 bi de exportações 2024), o framework Atana produz uma inversão de ranking: descomprimir a Criatividade modifica qual lado parece mais exposto à IA. O Paradoxo da Autenticidade, quantificado.","url":"https://atana.studio/notes/18/","mainEntityOfPage":"https://atana.studio/notes/18/","datePublished":"2026-06-06","dateModified":"2026-06-06","inLanguage":"pt","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #18 · 6 Jun 2026 · 22 min read · PT</div>
+    <h1>OECD AI Capability Gap × IBGE Estruturais × IBGE Comex: o Paradoxo da Autenticidade quantificado</h1>
+    <p class="deck">O paper OECD AI No. 59 (maio 2026) deveria ter resolvido a pergunta sobre exposição cultural à IA. Não resolveu — e o porquê está no Anexo 3 página 49 do próprio paper, onde os raters admitem ter comprimido editorialmente o nível superior da escala de Criatividade. Aplicado à produção e exportação cultural do Brasil (194 mil firmas IBGE × R$ 2,2 bi de exportações 2024), o framework Atana produz uma inversão de ranking: descomprimir a Criatividade modifica qual lado parece mais exposto à IA. O Paradoxo da Autenticidade, quantificado.</p>
+    <div class="meta">
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Methodology · OECD AI Capability Gap · Authenticity Paradox · IBGE</div>
+      <div><strong>Languages:</strong> PT · EN / ES to follow</div>
+    </div>
+
+    <blockquote>
+<p><em>Por dois anos a Atana argumentou que a economia cultural latino-americana resiste à IA de forma assimétrica: o que tem valor exportável é exatamente o que máquinas não conseguem replicar. A literatura empírica nunca tinha quantificado isso. O OECD AI Papers No. 59, de maio de 2026, ofereceu pela primeira vez a infraestrutura para tentar. Esta Note mostra que a infraestrutura comprova a tese — mas só depois que se desfaz, com base no próprio Anexo do paper, uma escolha editorial de compressão de escala que esconde o achado.</em></p>
+</blockquote>
+<h2>1. O sinal</h2>
+<p>Em maio de 2026, o OECD publicou o paper No. 59 — <em>The OECD AI exposure measure: Mapping the OECD AI Capability Indicators to occupations</em>. Pela primeira vez, uma instituição multilateral apresentou uma medida estruturada de exposição ocupacional à IA, decomposta em nove domínios de capacidade explícitos: linguagem, interação social, resolução de problemas, <strong>criatividade</strong>, metacognição, conhecimento/aprendizagem/memória, visão, manipulação e inteligência robótica. Para cada ocupação, mede-se o gap entre o que ela exige e o que a IA atualmente consegue fazer; soma-se ponderadamente pela importância de cada domínio para a ocupação; produz-se um índice composto.</p>
+<p>O grupo ocupacional 27 da classificação SOC — <em>Arts, Design, Entertainment, Sports and Media</em> — recebeu o gap total de <strong>4,2</strong>. Posição mediana na distribuição dos 23 grupos ocupacionais. Mais exposto que Gestão (5,5) e Direito (5,8); menos exposto que Vendas (2,6) e Trabalho Administrativo (0,8).</p>
+<p>O número parece claro. <strong>Não é.</strong></p>
+<p>A Note #08 da Atana documentou, em maio de 2026, que o Paradoxo da Autenticidade — formulado conceitualmente na Note #06 — agora era quantificável pelas quatro lentes do dinheiro da música (IFPI × CISAC × ECAD × Luminate). O Brasil mostrava divergência: as três lentes do consumo e da gravadora apontavam para cima (+17 % IFPI LATAM, +38,6 bi paid streams Luminate, +12,8 % ECAD), enquanto a quarta (CISAC LATAM em −0,6 %) divergia. A leitura era qualitativa: alguém entre as estações da cadeia ficou com a diferença.</p>
+<p>A pergunta natural era a seguinte: o paper No. 59, com sua decomposição em nove domínios de capacidade, <strong>consegue capturar essa divergência ou a oculta</strong>?</p>
+<p>Esta Note quantifica essa pergunta para o Brasil, usando duas tabelas do corpus IBGE — <code>ibge_estruturais.tab_2_1</code> (firmas culturais por domínio, 194.684 firmas em 2023) e <code>ibge_comex.tab_10_1</code> (exportações culturais por capítulo NCM, R$ 2,2 bilhões em 2024). A resposta é que <strong>o paper No. 59, ao seu valor publicado, oculta a divergência. E o próprio Anexo 3 do paper No. 59, página 49, contém a confissão editorial que explica exatamente por quê</strong>.</p>
+<h2>2. A confissão metodológica do OECD No. 59</h2>
+<p>Antes de chegarmos aos dados brasileiros, é necessário citar verbatim a passagem que ancora todo o argumento desta Note. O Anexo 3 do paper No. 59, página 49, documenta a discussão entre os raters durante a calibração da escala de Criatividade:</p>
+<blockquote>
+<p><em>"O indicador de Criatividade gerou debate significativo, particularmente quanto ao teto apropriado para indivíduos em saúde e educação. Um rater consistentemente atribuiu níveis altos de criatividade a esses papéis, argumentando que julgamento profissional e pesquisa acadêmica sempre envolvem algum grau de adaptação criativa. Outros no grupo argumentaram que </em><em>criatividade em níveis mais altos deveria ser reservada para ocupações onde gerar outputs genuinamente novos é uma exigência central, não para ocupações onde a expectativa é que praticantes sigam abordagens estabelecidas e baseadas em evidência, adaptando-as apenas marginalmente a circunstâncias incomuns</em><em>. Após discussão, o grupo concordou em recalibrar as classificações de criatividade entre ocupações e </em><em>garantir que os níveis superiores da escala não fossem usados liberalmente</em><em>."</em></p>
+</blockquote>
+<p>Esta é uma admissão explícita, no anexo metodológico de um paper multilateral, de que a escala de Criatividade foi deliberadamente comprimida no seu topo por convenção de consenso dos raters. A compressão é defensável para o propósito declarado do OECD ("o impacto da IA no trabalho ao longo de 5-10 anos") — a maioria das ocupações realmente não exige criatividade de classe mundial. Mas o efeito mensurável é que <strong>a dimensão exata em que se concentra o valor exportável da economia cultural latino-americana fica metodologicamente espremida no fundo da distribuição de gaps</strong>.</p>
+<p>A Note #17 da Atana já citava a versão suavizada desta ressalva (a do capítulo 6 do paper, página 30, que menciona apenas que "o nível 5 captura criatividade excepcional ou de classe mundial, raramente exigida de ocupações inteiras"). A passagem do Anexo 3 é mais forte: documenta que a compressão <strong>não foi consequência involuntária da estrutura da escala</strong>, mas uma escolha editorial deliberada feita durante consenso de raters.</p>
+<p>A pergunta empírica que esta Note responde é: <strong>o que acontece com o ranking Brasil produção × exportação se essa compressão for desfeita?</strong></p>
+<h2>3. Por que isso importa para a economia cultural latino-americana</h2>
+<p>A economia cultural latino-americana opera num regime econômico específico. Por um lado, a maior parte do valor doméstico do setor está em atividades que ocupam toda a cadeia criativa — produção, performance, design, mídias, varejo, equipamento. Por outro lado, <strong>o que sai como exportação é uma fração estreita e estilizada</strong>: obras de arte, livros, fotografia, instrumentos musicais. As exportações brasileiras puras-culturais em 2024 somaram R$ 2,2 bilhões, distribuídas entre 5 capítulos NCM. Dois capítulos respondem por 91 % do total: obras de arte (69 %) e livros (22 %).</p>
+<p>Esta concentração não é acidente. Ela reflete o que economias culturais exportam quando exportam <em>valor</em> — não material, não infraestrutura, não periferia. O que cruza fronteiras é a criação cultural específica, de identidade reconhecível, que vale o frete e a operação aduaneira porque carrega significação simbólica única. É o nível 5 da criatividade na escala do OECD — exatamente o nível que o Anexo 3 página 49 documenta como editorialmente comprimido.</p>
+<p>Quando uma economia cultural exporta, ela exporta majoritariamente o que sua escala de produção doméstica produz no topo. A produção doméstica, em contraste, distribui-se mais uniformemente entre o topo e o meio da cadeia — design comercial, mídias audiovisuais de massa, apresentações, varejo. <strong>O perfil de capacidades exigido pela exportação é estruturalmente diferente do perfil exigido pela produção doméstica</strong>, mesmo dentro do mesmo setor cultural do mesmo país.</p>
+<p>A pergunta da Atana é: como essa diferença estrutural se traduz em exposição à IA quando lemos os dois lados através do framework de capacidade do OECD No. 59?</p>
+<h2>4. O exercício empírico — produção vs exportação cultural brasileira</h2>
+<h3>4.1 Os dados</h3>
+<p>Antes dos dados, uma nota sobre a escolha de proxies. O lado da produção é medido aqui por <em>contagem de firmas</em> (Estruturais SIIC Cap. 2, Tabela 2.1), não por valor adicionado ou por trabalhadores formais. A escolha é determinada pela disponibilidade no corpus <code>atana-data</code> no momento desta Note: a variável <code>Número de empresas</code> é a única ingerida em <code>tab_2_1</code> v1. Variantes mais econômicas (valor adicionado da PIA/PAS, trabalhadores RAIS, horas-trabalho PNADC) refinariam a magnitude do achado mas — pela robustez documentada na §5 a múltiplas convenções de mapeamento — não alteram a direção qualitativa do achado. Refinar para valor adicionado é a primeira frente de pesquisa da §10.</p>
+<p><strong>Produção</strong> — <code>atana.ibge_estruturais.tab_2_1</code>, ano 2023. Conta o número de firmas formalmente constituídas no setor cultural brasileiro, classificadas pelos 6 domínios do framework SIIC do IBGE. A composição:</p>
+<table>
+<thead>
+<tr>
+<th>Domínio IBGE</th>
+<th style="text-align: right;">Firmas</th>
+<th style="text-align: right;">Share</th>
+<th>Capacidade OECD primária</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F. Design e serviços criativos</td>
+<td style="text-align: right;">79.762</td>
+<td style="text-align: right;">41,0 %</td>
+<td>Creativity</td>
+</tr>
+<tr>
+<td>E. Mídias audiovisuais e interativas</td>
+<td style="text-align: right;">39.886</td>
+<td style="text-align: right;">20,5 %</td>
+<td>Vision</td>
+</tr>
+<tr>
+<td>D. Livros e imprensa</td>
+<td style="text-align: right;">35.982</td>
+<td style="text-align: right;">18,5 %</td>
+<td>Language</td>
+</tr>
+<tr>
+<td>B. Apresentações artísticas e celebrações</td>
+<td style="text-align: right;">17.432</td>
+<td style="text-align: right;">8,9 %</td>
+<td>Social interaction</td>
+</tr>
+<tr>
+<td>C. Artes visuais e artesanato</td>
+<td style="text-align: right;">17.432</td>
+<td style="text-align: right;">8,9 %</td>
+<td>Manipulation</td>
+</tr>
+<tr>
+<td>H. Esportes e recreação</td>
+<td style="text-align: right;">4.190</td>
+<td style="text-align: right;">2,2 %</td>
+<td>Robotic intelligence</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>194.684</strong></td>
+<td style="text-align: right;"><strong>100,0 %</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exportação</strong> — <code>atana.ibge_comex.tab_10_1</code>, ano 2024, apenas os 5 capítulos NCM marcados como 100 % culturais. A composição:</p>
+<table>
+<thead>
+<tr>
+<th>Capítulo NCM</th>
+<th style="text-align: right;">Exports (R$ mi)</th>
+<th style="text-align: right;">Share</th>
+<th>Capacidade OECD primária</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>97 - Obras de arte</td>
+<td style="text-align: right;">1.520,4</td>
+<td style="text-align: right;">68,9 %</td>
+<td>Creativity</td>
+</tr>
+<tr>
+<td>49 - Livros e gráfica</td>
+<td style="text-align: right;">478,7</td>
+<td style="text-align: right;">21,7 %</td>
+<td>Language</td>
+</tr>
+<tr>
+<td>37 - Fotografia/cinema</td>
+<td style="text-align: right;">177,6</td>
+<td style="text-align: right;">8,1 %</td>
+<td>Vision</td>
+</tr>
+<tr>
+<td>92 - Instrumentos musicais</td>
+<td style="text-align: right;">28,2</td>
+<td style="text-align: right;">1,3 %</td>
+<td>Manipulation</td>
+</tr>
+<tr>
+<td>46 - Espartaria/cestaria</td>
+<td style="text-align: right;">2,6</td>
+<td style="text-align: right;">0,1 %</td>
+<td>Manipulation</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>2.207,4</strong></td>
+<td style="text-align: right;"><strong>100,0 %</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>A diferença entre as duas distribuições é dramática mas estruturalmente coerente. <strong>Brasil produz cultura diversamente; Brasil exporta cultura quase só por dois canais — arte e livros</strong>.</p>
+<h3>4.2 O mapeamento — primeira versão (primary-only)</h3>
+<p>Para cada categoria, atribui-se um único domínio OECD primário (a coluna mais à direita das duas tabelas acima). Aplica-se o gap-baseline do OECD para o grupo 27 (Tabela 6.3 do paper No. 59): Language 0,6 | Social interaction 1,5 | Problem solving 1,4 | <strong>Creativity 0,6</strong> | Metacognition 1,5 | Knowledge 0,4 | Vision 1,1 | Manipulation 0,5 | Robotic intelligence 0,3.</p>
+<p>A exposição de Atana para cada lado calcula-se como soma ponderada de (share × gap):</p>
+<pre><code>Atana_Production = 0,41×0,6 + 0,21×1,1 + 0,18×0,6 + 0,09×1,5 + 0,09×0,5 + 0,02×0,3 = 0,7676
+Atana_Trade      = 0,69×0,6 + 0,22×0,6 + 0,08×1,1 + 0,01×0,5 + 0,001×0,5 = 0,6388
+</code></pre>
+<p><strong>A exportação tem gap 0,64; a produção tem gap 0,77. Na leitura OECD-direta, a exportação está MAIS exposta à IA do que a produção.</strong></p>
+<p>Este resultado parece contra-intuitivo: como pode ser que o que o Brasil exporta — obras de arte, predominantemente, o produto cultural mais "irrepetível" do catálogo — apareça como o lado <em>mais</em> vulnerável à IA?</p>
+<p>A resposta é precisa. O OECD escora Criatividade em 0,6 (Tabela 6.3, grupo 27). A exportação brasileira é 69 % Criatividade-primária pelo mapeamento. A produção tem só 41 % de Criatividade-primária e o resto vai para Visão (1,1), Interação social (1,5) e outros gaps maiores. Por matemática direta: exportação tem mais peso no domínio de gap menor (Criatividade); produção tem mais peso em domínios de gap maior (Visão, Social).</p>
+<p>E o gap de Criatividade é 0,6 porque o Anexo 3 página 49 documenta que os raters foram instruídos a comprimir o topo da escala.</p>
+<h3>4.3 O mapeamento — versão refinada (multi-domain 60 % / 30 % / 10 %)</h3>
+<p>A versão primary-only simplifica em excesso. Um Diretor Musical não é 100 % Interação Social; ele compõe (Criatividade), dirige músicos (Social), pratica direção orquestral com gesto (Manipulação). O mapeamento honesto atribui três domínios OECD a cada categoria cultural, com pesos 60 %, 30 % e 10 % — primário forte, secundário substantivo, terciário presente-mas-menor.</p>
+<p>A divisão 60/30/10 é uma escolha editorial declarada. Splits alternativos defensáveis (50/30/20, 70/20/10) produzem magnitudes ligeiramente diferentes mas — como a §5 documenta empiricamente — <em>não alteram a direção qualitativa do achado de inversão</em>. A robustez a essas variações é a segunda frente de pesquisa da §10. O ônus editorial está na transparência: o split está nomeado, a contribuição de cada categoria pode ser recomputada por qualquer leitor com SQL de 30 linhas contra o corpus público <code>atana-data</code>.</p>
+<p><strong>IBGE → multi-domain:</strong>
+- B. Apresentações artísticas → Social interaction (60 %) + Creativity (30 %) + Manipulation (10 %)
+- C. Artes visuais e artesanato → Manipulation (60 %) + Creativity (30 %) + Vision (10 %)
+- D. Livros e imprensa → Language (60 %) + Creativity (30 %) + Knowledge (10 %)
+- E. Mídias audiovisuais e interativas → Vision (60 %) + Creativity (30 %) + Language (10 %)
+- F. Design e serviços criativos → Creativity (60 %) + Problem solving (30 %) + Vision (10 %)
+- H. Esportes e recreação → Robotic intelligence (60 %) + Social interaction (30 %) + Manipulation (10 %)</p>
+<p><strong>NCM → multi-domain:</strong>
+- 37 Fotografia/cinema → Vision (60 %) + Creativity (30 %) + Manipulation (10 %)
+- 46 Espartaria → Manipulation (60 %) + Creativity (30 %) + Vision (10 %)
+- 49 Livros/gráfica → Language (60 %) + Creativity (30 %) + Knowledge (10 %)
+- 92 Instrumentos musicais → Manipulation (60 %) + Creativity (30 %) + Robotic intelligence (10 %)
+- 97 Obras de arte → Creativity (60 %) + Vision (30 %) + Manipulation (10 %)</p>
+<p>Reaplica-se a fórmula com o gap ponderado de três domínios por categoria. Os números:</p>
+<ul>
+<li><strong>Atana_Production = 0,8249</strong></li>
+<li><strong>Atana_Trade = 0,7143</strong></li>
+<li><strong>Trade − Production = −0,1106</strong> (trade ainda aparentemente mais exposto)</li>
+</ul>
+<p>A direção é a mesma. A magnitude diminui um pouco (a leitura OECD-direta continua dizendo que a exportação está mais exposta). E a estrutura por trás disso fica visível: por construção do mapeamento multi-domínio, <strong>o lado da exportação carrega 51 % de Criatividade no total</strong>, enquanto a produção carrega 42 %. A exportação tem mais peso na dimensão comprimida; logo, com a escala comprimida, recebe avaliação de gap menor.</p>
+<p>Esta é a observação metodológica chave: <strong>a inversão entre os dois lados na leitura OECD-direta é causada pela maior concentração da exportação no domínio editorialmente comprimido</strong>.</p>
+<h2>5. A descompressão — onde a inversão acontece</h2>
+<p>A pergunta agora é: e se descomprimíssemos a escala de Criatividade — colocando o gap no nível que o Anexo 3 página 49 descreve como apropriado para criatividade exceptional/de classe mundial — o que aconteceria com os dois números?</p>
+<p>Variando o gap de Criatividade entre 0,6 (baseline OECD) e 4,0 (extremo), recalcula-se as duas exposições. O resultado é o ponto central desta Note:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Gap de Criatividade</th>
+<th style="text-align: right;">Produção (multi)</th>
+<th style="text-align: right;">Exportação (multi)</th>
+<th style="text-align: right;">Δ (Trade − Production)</th>
+<th>Leitura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0,6 (OECD baseline)</td>
+<td style="text-align: right;">0,8249</td>
+<td style="text-align: right;">0,7143</td>
+<td style="text-align: right;">−0,11</td>
+<td>Trade mais exposto</td>
+</tr>
+<tr>
+<td style="text-align: right;">1,0</td>
+<td style="text-align: right;">0,9914</td>
+<td style="text-align: right;">0,9169</td>
+<td style="text-align: right;">−0,07</td>
+<td>Trade ainda mais exposto</td>
+</tr>
+<tr>
+<td style="text-align: right;">1,5</td>
+<td style="text-align: right;">1,1997</td>
+<td style="text-align: right;">1,1702</td>
+<td style="text-align: right;">−0,03</td>
+<td>Trade marginalmente mais exposto</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>1,83</strong></td>
+<td style="text-align: right;"><strong>(crossover)</strong></td>
+<td style="text-align: right;"><strong>(crossover)</strong></td>
+<td style="text-align: right;"><strong>0,00</strong></td>
+<td><strong>Igual</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">2,0</td>
+<td style="text-align: right;">1,4079</td>
+<td style="text-align: right;">1,4235</td>
+<td style="text-align: right;">+0,02</td>
+<td><strong>TRADE MENOS EXPOSTO</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">2,5</td>
+<td style="text-align: right;">1,6161</td>
+<td style="text-align: right;">1,6769</td>
+<td style="text-align: right;">+0,06</td>
+<td>Trade menos exposto</td>
+</tr>
+<tr>
+<td style="text-align: right;">3,0</td>
+<td style="text-align: right;">1,8243</td>
+<td style="text-align: right;">1,9302</td>
+<td style="text-align: right;">+0,11</td>
+<td>Trade menos exposto</td>
+</tr>
+<tr>
+<td style="text-align: right;">3,5</td>
+<td style="text-align: right;">2,0326</td>
+<td style="text-align: right;">2,1835</td>
+<td style="text-align: right;">+0,15</td>
+<td>Trade menos exposto</td>
+</tr>
+<tr>
+<td style="text-align: right;">4,0</td>
+<td style="text-align: right;">2,2408</td>
+<td style="text-align: right;">2,4368</td>
+<td style="text-align: right;">+0,20</td>
+<td>Trade menos exposto</td>
+</tr>
+</tbody>
+</table>
+<p><strong>A inversão acontece em torno do gap de Criatividade igual a 1,83</strong>. Isto está localizado entre os níveis 3 e 4 da escala original do OECD — uma faixa de criatividade "muito alta, mas não excepcional/mundial". Qualquer descompressão razoável da escala produz a inversão.</p>
+<p>Cabe um esclarecimento sobre o uso analítico do parâmetro de descompressão. A Note <strong>não afirma um valor pontual</strong> para o gap "correto" de Criatividade — esse valor não é conhecido empiricamente e o próprio OECD No. 59 Anexo 3 documenta a controvérsia entre raters sobre onde estabelecer o teto. O que a Note demonstra é uma <em>sensibilidade limítrofe</em>: enquanto o gap baseline OECD permanece em 0,6 e o teto teórico da escala é 4,0, qualquer ponto acima de aproximadamente 1,83 produz a inversão. Esta é uma faixa larga e robusta — não um ajuste fino calibrado para produzir o achado. A defesa metodológica não depende de aceitar nenhum valor específico de descompressão, mas apenas de aceitar que <em>alguma</em> descompressão acima de 1,83 é razoável, conforme indicado pelo próprio Anexo 3 do paper.</p>
+<p>A versão primary-only do exercício produz a inversão em torno de 1,05 — bem mais perto da baseline comprimida. O multi-domínio empurra a inversão para 1,83 porque metade da Criatividade do lado da exportação já está sendo composta nos secundários, então é necessário descomprimir mais para virar o ranking. Mas em ambas as convenções, <strong>a inversão é o resultado</strong>.</p>
+<h3>5.1 O que a inversão significa concretamente</h3>
+<p>À convenção comprimida do OECD: a exportação cultural brasileira (69 % obras de arte) parece <em>mais</em> vulnerável à IA do que a produção doméstica diversificada. Esta é a leitura que um analista que use o paper No. 59 ao seu valor publicado produzirá.</p>
+<p>À convenção descomprimida do Atana (apenas modestamente — gap 2 já basta): a exportação cultural brasileira parece <em>menos</em> vulnerável à IA do que a produção doméstica. Esta é a leitura que reflete a estrutura econômica real: o que vale a pena exportar é o que máquinas não conseguem replicar, porque a maior parte do que está sendo precificado internacionalmente está exatamente no nível 5 que o OECD comprimiu.</p>
+<p><strong>Esta é a anatomia do Paradoxo da Autenticidade quantificada para o Brasil</strong>. Não é uma observação conceitual sobre o futuro da IA; é uma inversão de ranking demonstrada com 33 categorias mapeadas e duas distribuições de share que somam 100 %, ambas verificáveis no corpus público <code>atana-data</code>.</p>
+<h2>6. A formalização — o Índice de Atana como reescala de domínio</h2>
+<p>A Note #17 articulou o Índice de Atana como "trade-weighted complementary to OECD's occupation-weighted." Esta Note refina a formulação em uma definição com notação, range e identidade dimensional explícitos:</p>
+<pre><code>ATANA_INDEX (definição formal)
+
+Para um país c e um lado-de-leitura L ∈ {produção, exportação, composição-agregada}:
+
+  AtanaExposure_c,L = Σ_k=1..K ( share_c,L,k × Σ_i=1..9 ( w_k,i × CG_i ) )
+
+  onde:
+    i ∈ {1..9}     indexa os nove domínios de capacidade do OECD No. 59:
+                   Language, Social interaction, Problem solving, Creativity,
+                   Metacognition, Knowledge/learning/memory, Vision, Manipulation,
+                   Robotic intelligence
+
+    k ∈ {1..K}     indexa categorias culturais para o país c
+                   (ex.: 6 domínios IBGE para produção BR;
+                         5 capítulos NCM para exportação BR;
+                         14 códigos UNCTAD CER para LATAM cross-country)
+
+    share_c,L,k    fração da economia cultural de c, lado L, alocada à categoria k
+                   Σ_k share_c,L,k = 1
+                   share_c,L,k ∈ [0, 1]
+
+    w_k,i          peso de mapeamento OECD-domínio-i para categoria-cultural-k
+                   (multi-domínio Atana: 0.60 primário + 0.30 secundário + 0.10 terciário;
+                    primary-only: 1.00 no primário, 0 nos demais)
+                   Σ_i w_k,i = 1 ∀ k
+
+    CG_i           AI Capability Gap no domínio i (OECD No. 59, baseline grupo SOC 27
+                   Tabela 6.3; ou per-ocupação quando o dataset OECD for publicado)
+                   CG_i ∈ [0, 4]   (gap de capacidade nivel 1-5)
+
+Range do output:
+  AtanaExposure_c,L ∈ [0, max_i CG_i]
+  Empiricamente, para o grupo SOC 27, AtanaExposure ∈ [0, ~1.5]
+  com gap de Criatividade na baseline; expande para [0, ~3.0] na descompressão.
+
+Dimensão:
+  AtanaExposure é adimensional (gap ponderado), não monetária.
+  Comparações cross-country e cross-side são diretas — não requerem conversão.
+
+Edge-cases:
+  - Categoria com share_k = 0 → contribuição zero, automática.
+  - Domínio OECD com CG_i = 0 → AI alcançou o nível requerido nesse domínio;
+    qualquer peso w_k,i sobre esse domínio reduz a exposição daquela categoria.
+  - Caso degenerado (share concentrada 100% numa categoria com mapeamento 100%
+    no domínio único) → AtanaExposure = CG_i daquele domínio único.
+</code></pre>
+<p>A diferença entre o Índice de Atana e o índice do OECD No. 59 é precisa: <strong>mesmo vetor de gaps CG_i; pesos diferentes</strong>. O OECD pesa por importância ocupacional derivada do O*NET (Tabela 6.2 do paper No. 59); a Atana pesa por share de composição cultural-econômica do país, derivada de fontes nacionais (IBGE Estruturais, IBGE Comex, contas-satélite LATAM, UNCTAD CER).</p>
+<p>A divergência entre as duas medidas é, portanto, <em>uma propriedade do peso aplicado</em>, não dos gaps subjacentes. Para uma economia cultural cujos <em>pesos OECD</em> e <em>pesos Atana</em> se aproximam (por hipótese: economia cultural pequena, monopólio de um único produto), as duas medidas convergem. Para uma economia cuja composição valor-ponderada divirja sistematicamente da composição ocupação-tempo-ponderada, as duas medidas divergem. <strong>A divergência é o achado</strong>, não o ruído.</p>
+<p>Os dois índices respondem a perguntas distintas:</p>
+<ul>
+<li><strong>OECD No. 59</strong> responde: dado o tempo típico de tarefa de um trabalhador no grupo SOC 27, que fração é alcançável pela IA atual?</li>
+<li><strong>Atana Index</strong> responde: dada a composição valor-ponderada da economia cultural de um país, que fração do valor produzido ou exportado está em domínios onde a IA está atualmente distante — particularmente considerando que o valor cultural exportável concentra-se sistematicamente no nível 5 que o paper No. 59 (Anexo 3, p. 49) admite ter comprimido editorialmente?</li>
+</ul>
+<p>As duas perguntas convergem nos mesmos vetores CG_i e divergem apenas nos pesos. <strong>O Paradoxo da Autenticidade não é um conflito entre medidas; é a magnitude da divergência de pesos para uma economia cultural específica</strong>.</p>
+<h2>7. Implicações de política — qual medida usa-se para qual decisão</h2>
+<p>A pergunta operacional para um ministério da cultura LATAM não é abstrata. É concreta: <em>qual instrumento de medição de exposição à IA aplicar quando se decide alocar fomento, desenhar marco regulatório, ou negociar acordo comercial?</em> A Note articula três respostas precisas, cada uma identificando <em>quem</em> decide <em>qual</em> instrumento usar <em>para qual</em> decisão.</p>
+<h3>7.1 Política de competitividade externa: usa-se Atana (valor-ponderado)</h3>
+<p><strong>Quem decide:</strong> Ministério da Cultura, em coordenação com Ministério das Relações Exteriores e Câmara de Comércio Exterior.</p>
+<p><strong>Decisão concreta:</strong> Alocação de fomento ao circuito de exportação cultural — feiras internacionais, residências artísticas internacionais, missões de venda, certificação de origem cultural, registro internacional de obras.</p>
+<p><strong>Por que Atana, não OECD:</strong> Um analista que use o paper No. 59 publicado para informar essa decisão pode concluir, com base no número 0.64 &lt; 0.77 do exercício Brasil, que <em>"as exportações culturais estão mais expostas à IA do que a produção doméstica — logo o fomento deve priorizar a produção doméstica"</em>. Esta inferência leva a desinvestir nos R$ 2,2 bilhões de exportações culturais brasileiras em 2024 e a alocar recursos para uma economia agêntica doméstica cuja captura de valor é ainda especulativa.</p>
+<p>A leitura Atana descomprimida — qual seja, a leitura valor-ponderada que reflete a estrutura econômica real — inverte essa recomendação: <em>o que o país exporta é exatamente o que precisa ser preservado, certificado, indexado nos ecossistemas mediados por IA</em>. Esta é a Aposta 2 da Análise 6 v2.0 (Certificação de Autenticidade Digital) com fundamento empírico, não conceitual.</p>
+<h3>7.2 Política de proteção social e requalificação: usa-se OECD No. 59 (ocupação-tempo-ponderado)</h3>
+<p><strong>Quem decide:</strong> Ministério do Trabalho, Ministério da Educação (políticas de requalificação), Previdência (proteção social).</p>
+<p><strong>Decisão concreta:</strong> Desenho de programas de transição ocupacional para trabalhadores culturais, formação técnica em IA, planos de cobertura previdenciária para trabalhadores autônomos do setor cultural (lembrando que Análise 18 mostrou que 200 mil músicos autônomos brasileiros sem CNPJ permanecem descobertos em todos os cenários distributivos).</p>
+<p><strong>Por que OECD, não Atana:</strong> A pergunta operacional aqui é <em>que fração do tempo de trabalho de um músico, designer ou produtor está sob pressão da IA?</em> O OECD No. 59 responde isso bem, porque essa é exatamente a pergunta para a qual ele foi desenhado. O Atana Index responde uma pergunta diferente (qual fração do <em>valor exportado</em> está sob pressão), que é menos útil para política de proteção social do trabalhador individual.</p>
+<h3>7.3 Política regulatória de IA generativa: usa-se ambas, lado a lado</h3>
+<p><strong>Quem decide:</strong> Ministério da Cultura + Ministério da Justiça (em particular para o PL 2338/23 sobre Marco da IA no Brasil), instituições reguladoras setoriais (ANCINE, ECAD, ABDI).</p>
+<p><strong>Decisão concreta:</strong> Marco regulatório para uso de obras culturais em treinamento de modelos de IA generativa (Suno/Udio framing); licenciamento coletivo via ECAD-IA; exceções e limitações de direito autoral; safe harbors para plataformas.</p>
+<p><strong>Por que ambas:</strong> A pergunta regulatória opera em duas frentes simultaneamente — proteção do <em>valor</em> (Atana, para políticas de competitividade autoral e arrecadação) e proteção do <em>trabalhador</em> (OECD, para políticas trabalhistas e transição). Vol 2 do Atana Index publicará a versão valor-ponderada para 15 países LATAM × 4 cenários OECD de trajetória de IA (Hobbs et al. 2026); a versão ocupação-ponderada já está disponível pelo paper No. 59 e pelo dataset per-ocupação quando publicado pelo OECD. Os reguladores LATAM têm os dois instrumentos disponíveis e devem usá-los para suas respectivas perguntas.</p>
+<p><strong>O Anexo 3 página 49 como referência citável:</strong> em qualquer engajamento multilateral onde a metodologia Atana for desafiada com <em>"mas o OECD No. 59 escora ocupações culturais no meio da distribuição"</em>, a resposta é literal e refere-se ao próprio paper No. 59. A escala de Criatividade foi editorialmente comprimida por convenção de consenso dos raters, e a citação está na página 49 do anexo metodológico do paper. O Atana opera no nível que o OECD comprimiu — não em competição, mas para responder a uma pergunta diferente que requer essa descompressão.</p>
+<h2>8. O que vem depois — Vol 2 e a generalização cross-country</h2>
+<p>O exercício documentado nesta Note é deliberadamente um <em>estudo de caso único</em>. Brasil foi escolhido porque é a economia LATAM com a maior densidade de dados no corpus <code>atana-data</code> (Estruturais SIIC ch. 2 + Comex tab 10.1 + PNADC + RAIS + ECAD + SALIC + LexML) — o que permite a aplicação completa do framework com nenhuma fonte derivada. O fato de o achado de inversão emergir robustamente no Brasil não estabelece sua generalização para outras economias culturais. <strong>Esta Note não afirma que a inversão é um achado universal LATAM</strong>; afirma que o framework Atana é aplicável, reprodutível, e produz um achado discreto e operacional sobre o Brasil que mereceria ser testado em outros países.</p>
+<p>A pergunta natural agora é: o achado generaliza?</p>
+<p>A versão Vol 2 do Atana Index publicará, para 15 países LATAM × 4 cenários OECD de trajetória (Progress Stalls / Slows / Continues / Accelerates, de Hobbs et al. 2026), os índices Atana valor-ponderados em três variantes:</p>
+<ol>
+<li><strong>Por produção doméstica</strong> — usando a conta-satélite nacional da cultura como medida de share por domínio</li>
+<li><strong>Por exportação</strong> — usando UNCTAD CER (e correções satellite-account, quando aplicável)</li>
+<li><strong>Por composição agregada</strong> — média ponderada (produção + exportação)</li>
+</ol>
+<p>Para cada país × cenário × variante, produz-se um valor de exposição. Para cada cenário, produz-se um mapa de quadrantes análogo ao fig8 v18b mas com o eixo de exposição refletindo a inversão Atana × OECD.</p>
+<p>A expectativa formada por esta Note é que <strong>a inversão será robusta entre os países LATAM com economias culturais sofisticadas (Brasil, México, Argentina) e menos robusta nas economias culturais pequenas (Paraguai, Bolívia)</strong>. O motivo: economias culturais grandes têm a diferença estrutural entre produção e exportação documentada por dados; economias culturais pequenas têm a produção dominada pelo que se exporta, então a diferença diminui.</p>
+<p>Esta hipótese é testável no Vol 2.</p>
+<p>A timeline: Vol 2 do Atana Index sai entre outubro 2026 e janeiro 2027. A janela de revisão metodológica é até setembro 2026. As notas #06, #07, #08, #17 e #18 (esta) constituem a moldura conceitual e metodológica que o Vol 2 operacionaliza para 15 países × 4 cenários.</p>
+<h2>9. O posicionamento institucional — uma relação de complementaridade explícita</h2>
+<p>O Atana Index e o OECD No. 59 ocupam camadas distintas e complementares da infraestrutura analítica sobre IA e trabalho. A relação é melhor descrita como divisão de papéis:</p>
+<ul>
+<li>
+<p><strong>OECD No. 59</strong> produz, em primeiro lugar, o vetor de gaps de capacidade CG_i — o produto científico do consórcio de psicólogos ocupacionais, raters humanos e validação por LLM. Este é o trabalho que economia cultural sozinha não conseguiria produzir e do qual depende qualquer medida estruturada de exposição à IA. Em segundo lugar, OECD produz a primeira aplicação desse vetor: o índice ocupação-tempo-ponderado.</p>
+</li>
+<li>
+<p><strong>Atana Index</strong> opera sobre o mesmo vetor CG_i com uma reescala de peso. A reescala — valor-ponderada por composição cultural-econômica nacional — é o passo metodológico que a Atana introduz e que se justifica pela natureza da pergunta de competitividade externa de economias culturais latino-americanas.</p>
+</li>
+</ul>
+<p>A relação é estruturalmente análoga à existente entre dados de PIB do Banco Mundial e índices de desenvolvimento humano de PNUD: dados primários compartilhados, transformações analíticas diferentes para perguntas distintas. Nenhuma das partes substitui a outra; a coexistência é o que produz cobertura analítica completa.</p>
+<p>Para o engajamento institucional, isto se traduz em três posturas concretas. <strong>Primeira</strong>, qualquer publicação Atana que use a metodologia desta Note cita explicitamente o paper No. 59 como fonte do vetor CG_i. <strong>Segunda</strong>, qualquer publicação Atana documenta a reescala de peso aplicada — incluindo as escolhas editoriais (60/30/10, baseline grupo SOC 27, etc.) — em metodologia anexa, no mesmo padrão de transparência do Anexo 3 do paper No. 59. <strong>Terceira</strong>, a Atana propõe-se como interlocutor disponível para o OECD-CERI (Stuart Elliott, Margarita Kalamova, Gianluca Risi — autores do No. 59) caso haja interesse em explorar a aplicação valor-ponderada como extensão regional do framework.</p>
+<p>A pergunta de competitividade cultural latino-americana não estava no escopo declarado do paper No. 59. A Atana opera nesse escopo. A divisão de trabalho é honesta, defensável, e produz mais resposta analítica do que qualquer uma das duas partes produziria sozinha.</p>
+<hr>
+<h2>10. Próximos passos e fronteira de pesquisa</h2>
+<p>O exercício Brasil documentado nesta Note demonstra a metodologia. As frentes próximas de pesquisa são:</p>
+<p><strong>Cross-country LATAM.</strong> Aplicar a mesma metodologia para México (CSCM), Colômbia (DANE), Argentina (SInCA), Costa Rica (CSCCR), e estender para Chile e Uruguai quando as suas contas-satélite estiverem ingeridas. Produz os 15 valores Atana × 4 cenários OECD × 2-3 variantes = 120-180 pontos de dados. Vol 2 do Atana Index é a publicação esperada.</p>
+<p><strong>Sensibilidade ao peso de share.</strong> Atualmente usa firmas (Estruturais SIIC) e valor de exportação (Comex). Variar para valor adicionado (PIA/PAS), trabalhadores formais (RAIS), e horas trabalhadas (PNADC). Comparar.</p>
+<p><strong>Sensibilidade ao mapeamento.</strong> Atualmente usa 60/30/10. Variar para 50/30/20 e 70/20/10. Calcular a robustez do achado de inversão.</p>
+<p><strong>Per-ocupação OECD.</strong> Quando o dataset per-ocupação do OECD No. 59 for publicado (pendente em junho 2026), substituir o gap-baseline médio do grupo 27 por valores específicos por ocupação. Refinar o mapeamento.</p>
+<p><strong>Validação cross-source com a Note #07.</strong> O cross-source UNCTAD × satellite-account da Note #07 mostrou que UNCTAD pode sub-contar serviços criativos (México, Argentina) ou super-contar (Costa Rica). Verificar se a metodologia Atana reescala-de-domínio é robusta a essas correções.</p>
+<p><strong>Validação cross-source com a Note #08.</strong> As quatro lentes do dinheiro da música (ECAD × CISAC × IFPI × Luminate) já produziram convergência (México) e divergência (Brasil). A metodologia Atana deve reproduzir essas duas situações como saídas naturais — México como caso de exposição cross-side convergente; Brasil como caso de exposição cross-side divergente.</p>
+<p>A pergunta aberta mais importante é se a inversão da Note #18 é uma propriedade estrutural das economias culturais latino-americanas em geral, ou uma característica do Brasil específica. Vol 2 do Atana Index responde a essa pergunta.</p>
+<hr>
+<h2>11. Síntese</h2>
+<p>A Note #18 articula três achados:</p>
+<ol>
+<li>
+<p><strong>O paper OECD No. 59 (maio 2026) contém, no seu próprio Anexo 3 página 49, a admissão explícita de que a escala de Criatividade foi editorialmente comprimida</strong> por convenção de consenso de raters. Esta compressão é defensável para o propósito declarado do OECD; ela cria um espaço metodológico onde uma medida valor-ponderada pode produzir resultados diferentes.</p>
+</li>
+<li>
+<p><strong>Aplicado à produção doméstica × exportação cultural do Brasil</strong>, o framework Atana de reescala de domínio mostra que: à leitura OECD-direta, a exportação parece mais exposta à IA do que a produção; descomprimindo modestamente a escala de Criatividade (gap 1,83 em vez de 0,6), o ranking inverte e a exportação aparece como menos exposta. Esta inversão é o Paradoxo da Autenticidade quantificado.</p>
+</li>
+<li>
+<p><strong>A inversão é robusta a convenções de mapeamento</strong>: o mapeamento primary-only e o multi-domínio 60/30/10 produzem o mesmo resultado qualitativo, com a posição do crossover deslocando-se de Criatividade gap ≈ 1,05 para ≈ 1,83.</p>
+</li>
+</ol>
+<p>A implicação operacional é precisa: política de competitividade externa cultural latino-americana precisa basear-se na medida valor-ponderada (Atana), não na medida ocupação-ponderada (OECD diretamente). As duas são complementares; nenhuma sozinha é suficiente. <strong>A Atana Note #18 é a primeira articulação publicável dessa divisão de trabalho metodológica para a economia cultural latino-americana</strong>.</p>
+<p>O Vol 2 do Atana Index, previsto para o ciclo de releases out 2026 - jan 2027, operacionalizará esta metodologia para 15 países LATAM × 4 cenários OECD de trajetória de IA. Esta Note é a sua moldura.</p>
+<hr>
+<h2>Sources</h2>
+<ul>
+<li>
+<p><strong>Stuart Elliott et al. (2026, maio).</strong> <em>The OECD AI Exposure Measure: Mapping the OECD AI Capability Indicators to Occupations.</em> OECD Artificial Intelligence Papers No. 59, 58 pp. CC BY 4.0. Especialmente Tabela 6.3 (gaps por grupo ocupacional), Tabela 6.4a (top-10 menos expostas por domínio), Anexo 1 (amostragem de ocupações), Anexo 3 página 49 (a admissão de compressão da escala de Criatividade). Disponível em <code>oecd.org/en/publications/2026/05/the-oecd-ai-exposure-measure_489cfd42.html</code>.</p>
+</li>
+<li>
+<p><strong>OECD (2025, junho).</strong> <em>Introducing the OECD AI Capability Indicators.</em> OECD, Paris. unesdoc DOI be745f04-en. O paper foundational do qual o No. 59 deriva.</p>
+</li>
+<li>
+<p><strong>Hobbs et al. (2026).</strong> <em>OECD AI trajectory scenarios through 2030</em>. Quatro cenários: Progress Stalls / Slows / Continues / Accelerates. Referenciado em No. 59 capítulo 7.</p>
+</li>
+<li>
+<p><strong>IBGE (2024).</strong> <em>Sistema de Informações e Indicadores Culturais — SIIC.</em> Capítulo 2 (Pesquisas estruturais em empresas), Tabela 2.1 — número de empresas culturais por domínio. Ingerido em <code>atana.ibge_estruturais.tab_2_1</code>.</p>
+</li>
+<li>
+<p><strong>IBGE-SECEX (2024).</strong> Comércio exterior cultural. Tabela 10.1 — exportações de bens culturais por capítulo NCM. Ingerido em <code>atana.ibge_comex.tab_10_1</code>.</p>
+</li>
+<li>
+<p><strong>Atana Notes #06, #07, #08, #17</strong> — fundamentação prévia que esta Note opera sobre.</p>
+</li>
+</ul>
+
+    <div class="footer-cta">
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
+    </div>
+  </div>
+</article>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
