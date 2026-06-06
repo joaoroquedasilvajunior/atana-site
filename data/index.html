@@ -4,107 +4,421 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>atana-data — corpus público de dados da economia criativa latino-americana | Atana</title>
-<meta name="description" content="Seis esquemas, 37 tabelas, ~65 milhões de linhas. CC BY 4.0. Explore o corpus integrado de dados da economia criativa latino-americana — atana.studio/data.">
+<meta name="description" content="Vinte e três esquemas, ~195 tabelas, 13 dos 14 domínios FCS 2025 da UNESCO cobertos. CC BY 4.0. Explore o corpus integrado da economia criativa latino-americana — atana.studio/data.">
 <meta property="og:title" content="atana-data — explorer">
-<meta property="og:description" content="Corpus público integrado de dados da economia criativa latino-americana. 6 esquemas, 37 tabelas, ~65M linhas. CC BY 4.0.">
+<meta property="og:description" content="Twenty-three schemas, ~195 tables, 13 of UNESCO&#39;s 14 FCS 2025 cultural domains covered. CC BY 4.0. Explore the integrated Latin American creative-economy corpus — atana.studio/data.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://atana.studio/data/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.plot.ly/plotly-basic-2.35.2.min.js" defer></script>
 <style>
-  :root {
-    --ink: #1A1A1A;
-    --navy: #1F3A5F;
-    --olive: #6B7B3A;
-    --olive-dim: #8a9a52;
-    --brick: #8C2A2A;
-    --sand: #F4F1EB;
-    --sand-2: #E8DDC8;
-    --rule: #D6CFC0;
-    --muted: #5C5C5C;
-    --serif: 'Spectral', 'Georgia', serif;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--sand);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-  .container--narrow { max-width: 900px; }
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
 
-  /* Site header — matches main atana.studio */
-  .site-header {
-    border-bottom: 1px solid var(--rule);
-    padding: 16px 0;
-    background: rgba(244, 241, 235, 0.98);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(8px);
-  }
-  .site-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .brand {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--navy);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-  }
-  .brand-suffix {
-    color: var(--olive);
-    margin-left: 6px;
-    font-size: 14px;
-    font-family: var(--sans);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; }
-  .nav-links a { color: var(--olive); text-decoration: none; font-weight: 600; }
-  .nav-links a:hover { text-decoration: underline; }
-  .nav-links .lang-switcher {
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 2px 4px;
-    display: inline-flex;
-    gap: 2px;
-  }
-  .nav-links .lang-switcher button {
-    background: none;
-    border: 0;
-    padding: 3px 8px;
-    cursor: pointer;
-    font: inherit;
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    border-radius: 2px;
-    text-transform: uppercase;
-  }
-  .nav-links .lang-switcher button.active {
-    background: var(--navy);
-    color: var(--sand);
-  }
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-  /* Hero region */
-  .hero {
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/data/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="atana-data — explorer">
+<meta name="twitter:description" content="Twenty-three schemas, ~195 tables, 13 of UNESCO&#39;s 14 FCS 2025 cultural domains covered. CC BY 4.0. Explore the integrated Latin American creative-economy corpus — atana.studio/data.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"atana-data","description":"Twenty-three schemas, ~195 tables, 13 of UNESCO's 14 FCS 2025 cultural domains covered. CC BY 4.0. Explore the integrated Latin American creative-economy corpus — atana.studio/data.","url":"https://atana.studio/data/","license":"https://creativecommons.org/licenses/by/4.0/","creator":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}},"isAccessibleForFree":true,"sameAs":"https://github.com/joaoroquedasilvajunior/atana-data"}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Data</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+
+
+<style>
+  /* Override base container width — /data/ needs more horizontal space than notes */
+  .container.container--data { max-width: 1200px; padding: 0 32px; }
+  .container.container--data-narrow { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+
+  /* Hero */
+  .data-hero {
     padding: 48px 0 32px;
     border-bottom: 1px solid var(--rule);
   }
@@ -137,10 +451,7 @@
   @media (min-width: 900px) {
     .hero-claim { font-size: 34px; }
   }
-  .hero-source {
-    font-size: 13px;
-    color: var(--muted);
-  }
+  .hero-source { font-size: 13px; color: var(--muted); }
   .hero-source a { color: var(--olive); }
   .hero-chart {
     background: white;
@@ -151,13 +462,13 @@
   }
   #fig8-plot { width: 100%; height: 460px; }
 
-  /* Sub-hero strip — counters + badges */
+  /* Sub-hero strip */
   .sub-hero-strip {
     background: var(--sand-2);
     padding: 18px 0;
     border-bottom: 1px solid var(--rule);
   }
-  .sub-hero-strip .container {
+  .sub-hero-strip .container--data {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -171,10 +482,7 @@
     letter-spacing: 0.01em;
   }
   .corpus-stats strong { color: var(--navy); }
-  .refresh-badge {
-    color: var(--muted);
-    font-style: italic;
-  }
+  .refresh-badge { color: var(--muted); font-style: italic; }
   .corpus-badges { display: flex; gap: 12px; }
   .corpus-badge {
     background: white;
@@ -190,7 +498,45 @@
   .corpus-badge:hover { background: var(--sand); }
   .corpus-badge.github::before { content: "↗ "; }
 
-  /* Methodology + What is this stripe */
+  /* Local language switcher (lives in content, not header) */
+  .lang-bar {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    background: var(--sand);
+  }
+  .lang-bar .container--data {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+  }
+  .lang-switcher {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 2px 4px;
+    display: inline-flex;
+    gap: 2px;
+    background: white;
+  }
+  .lang-switcher button {
+    background: none;
+    border: 0;
+    padding: 3px 10px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .lang-switcher button.active {
+    background: var(--navy);
+    color: var(--sand);
+  }
+
+  /* What-is-this */
   .what-section {
     padding: 48px 0;
     background: white;
@@ -217,22 +563,42 @@
   }
   .what-section .links a:hover { text-decoration: underline; }
 
-  /* Schema cards */
+  /* Schema groups + cards */
   .schemas-section {
     padding: 48px 0;
     border-top: 1px solid var(--rule);
+    background: var(--sand);
   }
   .schemas-section h3 {
     font-family: var(--serif);
     font-size: 22px;
     color: var(--navy);
-    margin: 0 0 24px;
+    margin: 0 0 8px;
     font-weight: 700;
+  }
+  .schemas-intro {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 32px;
+    max-width: 720px;
+  }
+  .schema-group { margin-top: 36px; }
+  .schema-group:first-of-type { margin-top: 0; }
+  .schema-group-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--olive);
+    font-weight: 700;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
   }
   .schema-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
+    gap: 14px;
   }
   .schema-card {
     background: white;
@@ -249,14 +615,14 @@
     transform: translateY(-1px);
   }
   .schema-card .name {
-    font-family: var(--sans);
+    font-family: 'Menlo', 'Monaco', monospace;
     font-weight: 700;
     color: var(--navy);
-    font-size: 15px;
-    margin-bottom: 4px;
-    letter-spacing: 0.01em;
+    font-size: 14px;
+    margin-bottom: 6px;
+    letter-spacing: 0;
   }
-  .schema-card .desc { font-size: 13px; color: var(--muted); line-height: 1.45; margin-bottom: 12px; }
+  .schema-card .desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
   .schema-card .meta {
     font-size: 11px;
     color: var(--olive);
@@ -268,7 +634,7 @@
   /* Methodology block */
   .method-section {
     padding: 48px 0;
-    background: var(--sand);
+    background: white;
     border-top: 1px solid var(--rule);
   }
   .method-section h3 {
@@ -301,7 +667,7 @@
   .method-section .audit-note {
     margin-top: 24px;
     padding: 16px 20px;
-    background: white;
+    background: var(--sand);
     border-left: 4px solid var(--olive);
     font-size: 14px;
     color: var(--ink);
@@ -343,22 +709,12 @@
     display: block;
   }
 
-  /* Footer */
-  .site-footer {
-    padding: 32px 0 48px;
-    color: var(--muted);
-    font-size: 13px;
-    text-align: center;
-    border-top: 1px solid var(--rule);
-  }
-  .site-footer a { color: var(--olive); text-decoration: none; }
-  .site-footer p { margin: 6px 0; }
-
-  /* Language-switching: hide non-active language blocks */
+  /* Language-block visibility */
   .lang-block { display: none; }
   .lang-block.active { display: block; }
+  /* Allow inline lang-blocks (for spans inside <p> / .desc / .audit-note) */
+  span.lang-block.active, em.lang-block.active, strong.lang-block.active { display: inline; }
 
-  /* Plotly chart no-js fallback */
   .noscript-fallback {
     padding: 24px;
     text-align: center;
@@ -366,48 +722,24 @@
     font-style: italic;
   }
 </style>
-<!-- atana:seo -->
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#1F3A5F">
-<meta name="author" content="João Roque · Atana">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://atana.studio/data/">
-<meta property="og:site_name" content="Atana">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://atana.studio/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="atana-data — explorer">
-<meta name="twitter:description" content="Seis esquemas, 37 tabelas, ~65 milhões de linhas. CC BY 4.0. Explore o corpus integrado de dados da economia criativa latino-americana — atana.studio/data.">
-<meta name="twitter:image" content="https://atana.studio/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"atana-data","description":"Seis esquemas, 37 tabelas, ~65 milhões de linhas. CC BY 4.0. Explore o corpus integrado de dados da economia criativa latino-americana — atana.studio/data.","url":"https://atana.studio/data/","license":"https://creativecommons.org/licenses/by/4.0/","creator":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}},"isAccessibleForFree":true,"sameAs":"https://github.com/joaoroquedasilvajunior/atana-data"}</script>
-</head>
-<body>
 
-<header class="site-header">
-  <div class="container">
-    <a href="/" class="brand">Atana <span class="brand-suffix">Data</span></a>
-    <nav class="nav-links">
-      <a href="/">Index</a>
-      <a href="/notes/">Notes</a>
-      <a href="/data/" style="color: var(--navy);">Data</a>
-      <span class="lang-switcher" role="group" aria-label="Language">
-        <button data-lang="pt" class="active">PT</button>
-        <button data-lang="en">EN</button>
-        <button data-lang="es">ES</button>
-      </span>
-    </nav>
+
+<script src="https://cdn.plot.ly/plotly-basic-2.35.2.min.js" defer></script>
+
+
+<section class="lang-bar">
+  <div class="container container--data">
+    <span class="lang-switcher" role="group" aria-label="Language">
+      <button data-lang="pt" class="active">PT</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="es">ES</button>
+    </span>
   </div>
-</header>
+</section>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
+
+<section class="data-hero">
+  <div class="container container--data">
     <div class="hero-grid">
       <div class="hero-text">
         <div class="hero-eyebrow" id="hero-eyebrow">Atana · Data Explorer</div>
@@ -426,13 +758,13 @@
   </div>
 </section>
 
-<!-- SUB-HERO STRIP -->
+
 <section class="sub-hero-strip">
-  <div class="container">
+  <div class="container container--data">
     <div class="corpus-stats">
-      <strong>6 schemas</strong> · <strong>37 tables</strong> · <strong>~65M rows</strong>
+      <strong>23 schemas</strong> · <strong>~195 tables</strong> · <strong>FCS 2025 13 / 14</strong>
     </div>
-    <div class="refresh-badge" id="refresh-badge">Data refreshed May 2026 — next UNCTAD cycle October 2026</div>
+    <div class="refresh-badge" id="refresh-badge">Dados atualizados em junho de 2026 — próximo ciclo UNCTAD outubro de 2026</div>
     <div class="corpus-badges">
       <a class="corpus-badge github" href="https://github.com/joaoroquedasilvajunior/atana-data" target="_blank" rel="noopener">github.com/atana-data</a>
       <span class="corpus-badge" title="Creative Commons Attribution 4.0 / MIT for code">CC BY 4.0 · MIT</span>
@@ -440,256 +772,772 @@
   </div>
 </section>
 
-<!-- WHAT IS THIS -->
-<section class="what-section">
-  <div class="container container--narrow">
 
+<section class="what-section">
+  <div class="container container--data-narrow">
+    
     <div class="lang-block lang-pt active">
       <h2>O que é o atana-data?</h2>
-      <p>O <strong>atana-data</strong> é o primeiro corpus integrado, reproduzível e público das economias criativas da América Latina. Seis esquemas, trinta e sete tabelas, aproximadamente sessenta e cinco milhões de linhas. Seis fontes oficiais — UNCTAD Creative Economy, IBGE PNADC, IBGE Comex, SALIC, LexML, RAIS — unificadas pela primeira vez em uma única camada de SQL.</p>
+      <p>O <strong>atana-data</strong> é o primeiro corpus integrado, reproduzível e público das economias criativas da América Latina. Vinte e três esquemas, aproximadamente cento e noventa e cinco tabelas, cobrindo treze dos quatorze domínios culturais do <em>Framework for Cultural Statistics</em> da UNESCO (FCS 2025). Cinco países com Contas Satélite de Cultura nacionais (Brasil, México, Colômbia, Argentina, Costa Rica) + quatro lentes globais sobre o dinheiro da música (IFPI · CISAC · Luminate · ECAD) + uma primeira lente de governança (TCU).</p>
       <p>Esta página é o explorador interativo do corpus. O mapa estratégico à direita é uma consulta ao vivo contra <code>md:atana.unctad.*</code>; passe o cursor sobre qualquer país para ver suas métricas subjacentes. Cada número publicado pela Atana é, em última instância, uma consulta auditável sobre este corpus.</p>
       <div class="links">
         <a href="#methodology">↓ Metodologia</a>
         <a href="https://github.com/joaoroquedasilvajunior/atana-data" target="_blank" rel="noopener">↗ Repositório no GitHub</a>
         <a href="/notes/">↓ Notas publicadas</a>
-        <a href="/">↗ Atana Index Vol. 1.6</a>
+        <a href="/">↗ Atana Index Vol. 1.7</a>
       </div>
     </div>
-
+    
     <div class="lang-block lang-en">
       <h2>What is atana-data?</h2>
-      <p><strong>atana-data</strong> is the first integrated, reproducible, public corpus of Latin American creative economies. Six schemas, thirty-seven tables, approximately sixty-five million rows. Six official sources — UNCTAD Creative Economy, IBGE PNADC, IBGE Comex, SALIC, LexML, RAIS — unified for the first time in a single SQL layer.</p>
+      <p><strong>atana-data</strong> is the first integrated, reproducible, public corpus of Latin American creative economies. Twenty-three schemas, approximately one hundred and ninety-five tables, covering thirteen of the fourteen cultural domains in UNESCO's <em>Framework for Cultural Statistics</em> (FCS 2025). Five countries with national Satellite Accounts of Culture (Brazil, Mexico, Colombia, Argentina, Costa Rica) + four global lenses on the music economy (IFPI · CISAC · Luminate · ECAD) + a first governance lens (TCU).</p>
       <p>This page is the interactive explorer for the corpus. The strategic map on the right is a live query against <code>md:atana.unctad.*</code>; hover any country to see its underlying metrics. Every number Atana publishes is, ultimately, an auditable query against this corpus.</p>
       <div class="links">
         <a href="#methodology">↓ Methodology</a>
         <a href="https://github.com/joaoroquedasilvajunior/atana-data" target="_blank" rel="noopener">↗ GitHub repository</a>
         <a href="/notes/">↓ Published Notes</a>
-        <a href="/">↗ Atana Index Vol. 1.6</a>
+        <a href="/">↗ Atana Index Vol. 1.7</a>
       </div>
     </div>
-
+    
     <div class="lang-block lang-es">
       <h2>¿Qué es atana-data?</h2>
-      <p><strong>atana-data</strong> es el primer corpus integrado, reproducible y público de las economías creativas de América Latina. Seis esquemas, treinta y siete tablas, aproximadamente sesenta y cinco millones de filas. Seis fuentes oficiales — UNCTAD Creative Economy, IBGE PNADC, IBGE Comex, SALIC, LexML, RAIS — unificadas por primera vez en una sola capa de SQL.</p>
+      <p><strong>atana-data</strong> es el primer corpus integrado, reproducible y público de las economías creativas de América Latina. Veintitrés esquemas, aproximadamente ciento noventa y cinco tablas, que cubren trece de los catorce dominios culturales del <em>Framework for Cultural Statistics</em> de la UNESCO (FCS 2025). Cinco países con Cuentas Satélite de Cultura nacionales (Brasil, México, Colombia, Argentina, Costa Rica) + cuatro lentes globales sobre el dinero de la música (IFPI · CISAC · Luminate · ECAD) + una primera lente de gobernanza (TCU).</p>
       <p>Esta página es el explorador interactivo del corpus. El mapa estratégico de la derecha es una consulta en vivo contra <code>md:atana.unctad.*</code>; pase el cursor sobre cualquier país para ver sus métricas subyacentes. Cada número publicado por Atana es, en última instancia, una consulta auditable sobre este corpus.</p>
       <div class="links">
         <a href="#methodology">↓ Metodología</a>
         <a href="https://github.com/joaoroquedasilvajunior/atana-data" target="_blank" rel="noopener">↗ Repositorio en GitHub</a>
         <a href="/notes/">↓ Notas publicadas</a>
-        <a href="/">↗ Atana Index Vol. 1.6</a>
+        <a href="/">↗ Atana Index Vol. 1.7</a>
       </div>
     </div>
-
+    
   </div>
 </section>
 
-<!-- SCHEMA CARDS -->
+
 <section class="schemas-section">
-  <div class="container">
-    <h3 class="lang-block lang-pt active">Os seis esquemas</h3>
-    <h3 class="lang-block lang-en">The six schemas</h3>
-    <h3 class="lang-block lang-es">Los seis esquemas</h3>
-
-    <div class="schema-grid">
-      <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/unctad" target="_blank" rel="noopener">
-        <div class="name">unctad</div>
-        <div class="desc">
-          <span class="lang-block lang-pt active">UNCTAD Creative Economy — comércio criativo internacional, 1995–2024.</span>
-          <span class="lang-block lang-en">UNCTAD Creative Economy — international creative trade, 1995–2024.</span>
-          <span class="lang-block lang-es">UNCTAD Creative Economy — comercio creativo internacional, 1995–2024.</span>
-        </div>
-        <div class="meta">4 tables</div>
-      </a>
-      <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ibge_pnadc" target="_blank" rel="noopener">
-        <div class="name">ibge_pnadc</div>
-        <div class="desc">
-          <span class="lang-block lang-pt active">IBGE PNADC — mercado de trabalho cultural brasileiro, 2014–2024.</span>
-          <span class="lang-block lang-en">IBGE PNADC — Brazilian cultural workforce, 2014–2024.</span>
-          <span class="lang-block lang-es">IBGE PNADC — mercado laboral cultural brasileño, 2014–2024.</span>
-        </div>
-        <div class="meta">18 tables</div>
-      </a>
-      <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ibge_comex" target="_blank" rel="noopener">
-        <div class="name">ibge_comex</div>
-        <div class="desc">
-          <span class="lang-block lang-pt active">IBGE Comex — comércio exterior cultural brasileiro, 2014–2024.</span>
-          <span class="lang-block lang-en">IBGE Comex — Brazilian cultural foreign trade, 2014–2024.</span>
-          <span class="lang-block lang-es">IBGE Comex — comercio exterior cultural brasileño, 2014–2024.</span>
-        </div>
-        <div class="meta">4 tables</div>
-      </a>
-      <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/salic" target="_blank" rel="noopener">
-        <div class="name">salic</div>
-        <div class="desc">
-          <span class="lang-block lang-pt active">SALIC — microdados da Lei Rouanet, 26.203 projetos.</span>
-          <span class="lang-block lang-en">SALIC — Lei Rouanet microdata, 26,203 projects.</span>
-          <span class="lang-block lang-es">SALIC — microdatos de la Ley Rouanet, 26.203 proyectos.</span>
-        </div>
-        <div class="meta">3 tables</div>
-      </a>
-      <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/lexml" target="_blank" rel="noopener">
-        <div class="name">lexml</div>
-        <div class="desc">
-          <span class="lang-block lang-pt active">LexML — 269 atos normativos sobre economia criativa, 1998–2026.</span>
-          <span class="lang-block lang-en">LexML — 269 normative acts on creative economy, 1998–2026.</span>
-          <span class="lang-block lang-es">LexML — 269 actos normativos sobre economía creativa, 1998–2026.</span>
-        </div>
-        <div class="meta">5 tables</div>
-      </a>
-      <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/rais" target="_blank" rel="noopener">
-        <div class="name">rais</div>
-        <div class="desc">
-          <span class="lang-block lang-pt active">RAIS — vínculos formais e estabelecimentos culturais brasileiros, 2014–2023. ~14M vínculos + 2,4M estabelecimentos + painel CNAE × município × ano. <em style="color: var(--olive); font-size: 0.85em;">Novo (2026-05-18)</em></span>
-          <span class="lang-block lang-en">RAIS — formal cultural employment and establishments in Brazil, 2014–2023. ~14M employment records + 2.4M establishments + CNAE × municipality × year panel. <em style="color: var(--olive); font-size: 0.85em;">New (2026-05-18)</em></span>
-          <span class="lang-block lang-es">RAIS — vínculos formales y establecimientos culturales brasileños, 2014–2023. ~14M vínculos + 2,4M establecimientos + panel CNAE × municipio × año. <em style="color: var(--olive); font-size: 0.85em;">Nuevo (2026-05-18)</em></span>
-        </div>
-        <div class="meta">3 tables</div>
-      </a>
+  <div class="container container--data">
+    
+    <div class="lang-block lang-pt active">
+      <h3>Os esquemas do corpus</h3>
+      <p class="schemas-intro">Vinte e três esquemas organizados em cinco grupos: Brasil (núcleo), América Latina (contas satélite nacionais), comércio global (UNCTAD), o dinheiro da música em quatro lentes, e governança/IA.</p>
     </div>
+    
+    <div class="lang-block lang-en">
+      <h3>Corpus schemas</h3>
+      <p class="schemas-intro">Twenty-three schemas organized in five groups: Brazil (core), Latin America (national satellite accounts), global trade (UNCTAD), the music economy through four lenses, and governance/AI.</p>
+    </div>
+    
+    <div class="lang-block lang-es">
+      <h3>Los esquemas del corpus</h3>
+      <p class="schemas-intro">Veintitrés esquemas organizados en cinco grupos: Brasil (núcleo), América Latina (cuentas satélite nacionales), comercio global (UNCTAD), el dinero de la música en cuatro lentes, y gobernanza/IA.</p>
+    </div>
+    
+
+    
+    <div class="schema-group">
+      
+      <div class="schema-group-label lang-block lang-pt active">
+        Brasil — núcleo do corpus
+      </div>
+      
+      <div class="schema-group-label lang-block lang-en">
+        Brazil — corpus core
+      </div>
+      
+      <div class="schema-group-label lang-block lang-es">
+        Brasil — núcleo del corpus
+      </div>
+      
+
+      <div class="schema-grid">
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ibge_pnadc" target="_blank" rel="noopener">
+          <div class="name">ibge_pnadc</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">PNADC — mercado de trabalho cultural brasileiro, 2014–2024.</span>
+            
+            <span class="lang-block lang-en">PNADC — Brazilian cultural workforce, 2014–2024.</span>
+            
+            <span class="lang-block lang-es">PNADC — mercado laboral cultural brasileño, 2014–2024.</span>
+            
+          </div>
+          <div class="meta">18 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/rais" target="_blank" rel="noopener">
+          <div class="name">rais</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">RAIS — vínculos formais e estabelecimentos culturais brasileiros, 2014–2025. ~17M vínculos-ano + painel CNAE × município × ano.</span>
+            
+            <span class="lang-block lang-en">RAIS — formal cultural employment and establishments in Brazil, 2014–2025. ~17M employment-year records + CNAE × municipality × year panel.</span>
+            
+            <span class="lang-block lang-es">RAIS — vínculos formales y establecimientos culturales brasileños, 2014–2025. ~17M vínculos-año + panel CNAE × municipio × año.</span>
+            
+          </div>
+          <div class="meta">3 tables · extended to 2025</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ibge_cempre" target="_blank" rel="noopener">
+          <div class="name">ibge_cempre</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">CEMPRE + Demografia das Empresas + Cadastro MEIs (SIIC Cap. 1) — sobrevivência empresarial + salto dos MEIs.</span>
+            
+            <span class="lang-block lang-en">CEMPRE + Firm Demography + MEI Registry (SIIC Ch. 1) — firm survival + MEI surge.</span>
+            
+            <span class="lang-block lang-es">CEMPRE + Demografía de Empresas + Registro MEIs (SIIC Cap. 1) — supervivencia empresarial + salto de los MEIs.</span>
+            
+          </div>
+          <div class="meta">23 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ibge_estruturais" target="_blank" rel="noopener">
+          <div class="name">ibge_estruturais</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">PIA / PAS / PAC (SIIC Cap. 2) — conta de produção, valor adicionado cultural, 2013 + 2019–2023.</span>
+            
+            <span class="lang-block lang-en">PIA / PAS / PAC (SIIC Ch. 2) — production account, cultural value added, 2013 + 2019–2023.</span>
+            
+            <span class="lang-block lang-es">PIA / PAS / PAC (SIIC Cap. 2) — cuenta de producción, valor agregado cultural, 2013 + 2019–2023.</span>
+            
+          </div>
+          <div class="meta">8 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ibge_comex" target="_blank" rel="noopener">
+          <div class="name">ibge_comex</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Comércio exterior cultural brasileiro (SECEX/IBGE), 2014–2024.</span>
+            
+            <span class="lang-block lang-en">Brazilian cultural foreign trade (SECEX/IBGE), 2014–2024.</span>
+            
+            <span class="lang-block lang-es">Comercio exterior cultural brasileño (SECEX/IBGE), 2014–2024.</span>
+            
+          </div>
+          <div class="meta">4 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ibge_tic" target="_blank" rel="noopener">
+          <div class="name">ibge_tic</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">PNADC TIC (SIIC Cap. 7) — acesso à internet e práticas culturais digitais, 2016–2024.</span>
+            
+            <span class="lang-block lang-en">PNADC TIC (SIIC Ch. 7) — internet access and digital cultural practices, 2016–2024.</span>
+            
+            <span class="lang-block lang-es">PNADC TIC (SIIC Cap. 7) — acceso a internet y prácticas culturales digitales, 2016–2024.</span>
+            
+          </div>
+          <div class="meta">8 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ibge_turismo" target="_blank" rel="noopener">
+          <div class="name">ibge_turismo</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">PNADC Turismo (SIIC Cap. 9) — turismo de lazer, cultura e natureza, 2021/2023/2024.</span>
+            
+            <span class="lang-block lang-en">PNADC Tourism (SIIC Ch. 9) — leisure, cultural, and nature tourism, 2021/2023/2024.</span>
+            
+            <span class="lang-block lang-es">PNADC Turismo (SIIC Cap. 9) — turismo de ocio, cultural y de naturaleza, 2021/2023/2024.</span>
+            
+          </div>
+          <div class="meta">5 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/salic" target="_blank" rel="noopener">
+          <div class="name">salic</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Microdados da Lei Rouanet — 26.203 projetos coletados via API SALIC.</span>
+            
+            <span class="lang-block lang-en">Lei Rouanet microdata — 26,203 projects collected via SALIC API.</span>
+            
+            <span class="lang-block lang-es">Microdatos de la Ley Rouanet — 26.203 proyectos vía API SALIC.</span>
+            
+          </div>
+          <div class="meta">3 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/lexml" target="_blank" rel="noopener">
+          <div class="name">lexml</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Genealogia institucional — 269 atos normativos sobre economia criativa, 1998–2026.</span>
+            
+            <span class="lang-block lang-en">Institutional genealogy — 269 normative acts on creative economy, 1998–2026.</span>
+            
+            <span class="lang-block lang-es">Genealogía institucional — 269 actos normativos sobre economía creativa, 1998–2026.</span>
+            
+          </div>
+          <div class="meta">5 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/inpi" target="_blank" rel="noopener">
+          <div class="name">inpi</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Indicadores de Propriedade Industrial — estoque de PI cultural (marcas, desenhos, software, IGs), 2000–2024.</span>
+            
+            <span class="lang-block lang-en">Industrial Property Indicators — cultural IP stock (trademarks, designs, software, GIs), 2000–2024.</span>
+            
+            <span class="lang-block lang-es">Indicadores de Propiedad Industrial — stock de PI cultural (marcas, diseños, software, IGs), 2000–2024.</span>
+            
+          </div>
+          <div class="meta">68 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ecad" target="_blank" rel="noopener">
+          <div class="name">ecad</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Direitos autorais de execução pública musical — arrecadação + distribuição, 2018–2025.</span>
+            
+            <span class="lang-block lang-en">Public music performance royalties — collection + distribution, 2018–2025.</span>
+            
+            <span class="lang-block lang-es">Derechos de ejecución pública musical — recaudación + distribución, 2018–2025.</span>
+            
+          </div>
+          <div class="meta">4 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/bcb" target="_blank" rel="noopener">
+          <div class="name">bcb</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Royalties de propriedade intelectual na balança de pagamentos (BCB SGS 22777/22778), 1995–2026.</span>
+            
+            <span class="lang-block lang-en">Intellectual property royalties in balance of payments (BCB SGS 22777/22778), 1995–2026.</span>
+            
+            <span class="lang-block lang-es">Regalías de propiedad intelectual en la balanza de pagos (BCB SGS 22777/22778), 1995–2026.</span>
+            
+          </div>
+          <div class="meta">1 table · 750 rows</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/tcu" target="_blank" rel="noopener">
+          <div class="name">tcu</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Acórdão 1709/2025 do TCU sobre auditoria da PNAB — primeira lente de governança do corpus.</span>
+            
+            <span class="lang-block lang-en">TCU Decision 1709/2025 on PNAB audit — first governance lens in the corpus.</span>
+            
+            <span class="lang-block lang-es">Sentencia 1709/2025 del TCU sobre auditoría de la PNAB — primera lente de gobernanza del corpus.</span>
+            
+          </div>
+          <div class="meta">2 tables</div>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="schema-group">
+      
+      <div class="schema-group-label lang-block lang-pt active">
+        América Latina — contas satélite nacionais
+      </div>
+      
+      <div class="schema-group-label lang-block lang-en">
+        Latin America — national satellite accounts
+      </div>
+      
+      <div class="schema-group-label lang-block lang-es">
+        América Latina — cuentas satélite nacionales
+      </div>
+      
+
+      <div class="schema-grid">
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/inegi" target="_blank" rel="noopener">
+          <div class="name">inegi</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Cuenta Satélite de la Cultura de México (CSCM 2024) — PIB cultural 2,8% × 10 áreas + módulo comércio.</span>
+            
+            <span class="lang-block lang-en">Mexico's Satellite Account of Culture (CSCM 2024) — cultural GDP 2.8% × 10 areas + trade module.</span>
+            
+            <span class="lang-block lang-es">Cuenta Satélite de la Cultura de México (CSCM 2024) — PIB cultural 2,8% × 10 áreas + módulo comercio.</span>
+            
+          </div>
+          <div class="meta">8 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/dane" target="_blank" rel="noopener">
+          <div class="name">dane</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Cuenta Satélite de Economía Cultural y Creativa da Colômbia (DANE CSECC), 2014–2024.</span>
+            
+            <span class="lang-block lang-en">Colombia's Cultural and Creative Economy Satellite Account (DANE CSECC), 2014–2024.</span>
+            
+            <span class="lang-block lang-es">Cuenta Satélite de Economía Cultural y Creativa de Colombia (DANE CSECC), 2014–2024.</span>
+            
+          </div>
+          <div class="meta">1 table · 484 rows</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/sinca" target="_blank" rel="noopener">
+          <div class="name">sinca</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Cuenta Satélite de Cultura da Argentina (SInCA/INDEC) — comércio cultural 2004–2022.</span>
+            
+            <span class="lang-block lang-en">Argentina's Satellite Account of Culture (SInCA/INDEC) — cultural trade 2004–2022.</span>
+            
+            <span class="lang-block lang-es">Cuenta Satélite de Cultura de Argentina (SInCA/INDEC) — comercio cultural 2004–2022.</span>
+            
+          </div>
+          <div class="meta">2 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/cr_bccr" target="_blank" rel="noopener">
+          <div class="name">cr_bccr</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Cuenta Satélite de Cultura da Costa Rica (CSCCR/BCCR) — comércio cultural 2010–2024.</span>
+            
+            <span class="lang-block lang-en">Costa Rica's Satellite Account of Culture (CSCCR/BCCR) — cultural trade 2010–2024.</span>
+            
+            <span class="lang-block lang-es">Cuenta Satélite de Cultura de Costa Rica (CSCCR/BCCR) — comercio cultural 2010–2024.</span>
+            
+          </div>
+          <div class="meta">2 tables</div>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="schema-group">
+      
+      <div class="schema-group-label lang-block lang-pt active">
+        Lentes globais — UNCTAD, IA, e o dinheiro da música
+      </div>
+      
+      <div class="schema-group-label lang-block lang-en">
+        Global lenses — UNCTAD, AI, and music money
+      </div>
+      
+      <div class="schema-group-label lang-block lang-es">
+        Lentes globales — UNCTAD, IA, y el dinero de la música
+      </div>
+      
+
+      <div class="schema-grid">
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/unctad" target="_blank" rel="noopener">
+          <div class="name">unctad</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">UNCTAD Creative Economy — comércio criativo internacional, 1995–2024.</span>
+            
+            <span class="lang-block lang-en">UNCTAD Creative Economy — international creative trade, 1995–2024.</span>
+            
+            <span class="lang-block lang-es">UNCTAD Creative Economy — comercio creativo internacional, 1995–2024.</span>
+            
+          </div>
+          <div class="meta">4 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ifpi" target="_blank" rel="noopener">
+          <div class="name">ifpi</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">IFPI Global Music Report 2026 — lente label-side global da música gravada, US$ 31,7 bi (+6,4%).</span>
+            
+            <span class="lang-block lang-en">IFPI Global Music Report 2026 — global label-side lens on recorded music, US$ 31.7B (+6.4%).</span>
+            
+            <span class="lang-block lang-es">IFPI Global Music Report 2026 — lente global label-side de música grabada, US$ 31,7B (+6,4%).</span>
+            
+          </div>
+          <div class="meta">4 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/cisac" target="_blank" rel="noopener">
+          <div class="name">cisac</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">CISAC Global Collections Report 2025 — lente author-side global, €13,97 bi recolhidos por CMOs.</span>
+            
+            <span class="lang-block lang-en">CISAC Global Collections Report 2025 — global author-side lens, €13.97B collected by CMOs.</span>
+            
+            <span class="lang-block lang-es">CISAC Global Collections Report 2025 — lente author-side global, €13,97B recaudados por CMOs.</span>
+            
+          </div>
+          <div class="meta">4 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/luminate" target="_blank" rel="noopener">
+          <div class="name">luminate</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Luminate Year-End 2025 — lente consumer-side: 253 mi de tracks, das quais 47,6% receberam <10 streams ("cauda quase-zero").</span>
+            
+            <span class="lang-block lang-en">Luminate Year-End 2025 — consumer-side lens: 253M tracks, 47.6% with <10 streams ("the almost-zero tail").</span>
+            
+            <span class="lang-block lang-es">Luminate Year-End 2025 — lente consumer-side: 253M tracks, 47,6% con <10 streams ("la cola casi-cero").</span>
+            
+          </div>
+          <div class="meta">4 tables</div>
+        </a>
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/oecd_ai" target="_blank" rel="noopener">
+          <div class="name">oecd_ai</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">OECD AI Papers No. 59 (Capability Gap) + No. 60 — moldura metodológica do Atana Index Vol. 2.</span>
+            
+            <span class="lang-block lang-en">OECD AI Papers No. 59 (Capability Gap) + No. 60 — methodological frame for Atana Index Vol. 2.</span>
+            
+            <span class="lang-block lang-es">OECD AI Papers No. 59 (Capability Gap) + No. 60 — marco metodológico del Atana Index Vol. 2.</span>
+            
+          </div>
+          <div class="meta">2 tables</div>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="schema-group">
+      
+      <div class="schema-group-label lang-block lang-pt active">
+        Camada canônica — harmonização cross-source
+      </div>
+      
+      <div class="schema-group-label lang-block lang-en">
+        Canonical layer — cross-source harmonisation
+      </div>
+      
+      <div class="schema-group-label lang-block lang-es">
+        Capa canónica — armonización cross-source
+      </div>
+      
+
+      <div class="schema-grid">
+        
+        <a class="schema-card" href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/curated" target="_blank" rel="noopener">
+          <div class="name">canonical.domain_crosswalk</div>
+          <div class="desc">
+            
+            <span class="lang-block lang-pt active">Harmonização das classificações de cada fonte (INEGI, DANE, SInCA, CSCCR, IBGE, UNCTAD…) contra o spine de 14 domínios do UNESCO FCS 2025 — 90 linhas, cobertura 13/14.</span>
+            
+            <span class="lang-block lang-en">Harmonisation of each source's classification (INEGI, DANE, SInCA, CSCCR, IBGE, UNCTAD…) against the 14-domain UNESCO FCS 2025 spine — 90 rows, coverage 13/14.</span>
+            
+            <span class="lang-block lang-es">Armonización de las clasificaciones de cada fuente (INEGI, DANE, SInCA, CSCCR, IBGE, UNCTAD…) contra el spine de 14 dominios del UNESCO FCS 2025 — 90 filas, cobertura 13/14.</span>
+            
+          </div>
+          <div class="meta">1 table · 90 rows · FCS 13/14</div>
+        </a>
+        
+      </div>
+    </div>
+    
   </div>
 </section>
 
-<!-- METHODOLOGY BLOCK -->
+
 <section class="method-section" id="methodology">
-  <div class="container container--narrow">
-    <h3 class="lang-block lang-pt active">Metodologia & transparência</h3>
-    <h3 class="lang-block lang-en">Methodology & transparency</h3>
+  <div class="container container--data-narrow">
+    
+    <h3 class="lang-block lang-pt active">Metodologia e transparência</h3>
+    
+    <h3 class="lang-block lang-en">Methodology &amp; transparency</h3>
+    
     <h3 class="lang-block lang-es">Metodología y transparencia</h3>
+    
 
     <ul>
-      <li><strong>AI Exposure Index:</strong> <code>(serviços criativos + bens digitais [CER010+CER060] + publicações [CER030]) ÷ total de exportações criativas</code>. Para países sem serviços reportados (México, Chile, Argentina), o índice é calculado apenas sobre bens digitais como limite inferior.</li>
-      <li><strong>Readiness Index:</strong> <code>0.40 × participação de serviços + 0.40 × escala log-normalizada + 0.20 × (1 − HHI) × 100</code>. Sem serviços: <code>0.50 × escala + 0.50 × diversificação</code>.</li>
-      <li><strong>HHI:</strong> calculado sobre 13 categorias-folha do UNCTAD (CER010, CER021–CER027, CER030, CER040, CER050, CER060, CER070), não sobre os 7 agregados de topo. Captura concentração a nível de produto individual.</li>
-      <li><strong>Definição "criativo":</strong> herda a definição UNCTAD CER000. Há divergência metodológica relevante com a definição IBGE para alguns capítulos (especialmente CER023 / NCM 84/85/95) — documentada em <a href="/notes/03/">Atana Note #03</a>.</li>
-      <li><strong>Licença:</strong> dados sob CC BY 4.0; código sob MIT. Cite como: <em>atana-data (2026). github.com/joaoroquedasilvajunior/atana-data</em>.</li>
+      
+      <li>
+        
+        <span class="lang-block lang-pt active"><strong>AI Exposure Index:</strong> <code>(serviços criativos + bens digitais [CER010+CER060] + publicações [CER030]) ÷ total de exportações criativas</code>. Para países sem serviços reportados (México, Chile, Argentina), o índice é calculado apenas sobre bens digitais como limite inferior.</span>
+        
+        <span class="lang-block lang-en"><strong>AI Exposure Index:</strong> <code>(creative services + digital goods [CER010+CER060] + publishing [CER030]) ÷ total creative exports</code>. For countries without services reported (Mexico, Chile, Argentina), the index is computed on digital goods only as a lower bound.</span>
+        
+        <span class="lang-block lang-es"><strong>AI Exposure Index:</strong> <code>(servicios creativos + bienes digitales [CER010+CER060] + publicaciones [CER030]) ÷ total de exportaciones creativas</code>. Para países sin servicios reportados (México, Chile, Argentina), el índice se calcula solo sobre bienes digitales como límite inferior.</span>
+        
+      </li>
+      
+      <li>
+        
+        <span class="lang-block lang-pt active"><strong>Readiness Index:</strong> <code>0.40 × participação de serviços + 0.40 × escala log-normalizada + 0.20 × (1 − HHI) × 100</code>. Sem serviços: <code>0.50 × escala + 0.50 × diversificação</code>.</span>
+        
+        <span class="lang-block lang-en"><strong>Readiness Index:</strong> <code>0.40 × services share + 0.40 × log-normalized scale + 0.20 × (1 − HHI) × 100</code>. Without services: <code>0.50 × scale + 0.50 × diversification</code>.</span>
+        
+        <span class="lang-block lang-es"><strong>Readiness Index:</strong> <code>0.40 × participación de servicios + 0.40 × escala log-normalizada + 0.20 × (1 − HHI) × 100</code>. Sin servicios: <code>0.50 × escala + 0.50 × diversificación</code>.</span>
+        
+      </li>
+      
+      <li>
+        
+        <span class="lang-block lang-pt active"><strong>HHI:</strong> calculado sobre 13 categorias-folha do UNCTAD (CER010, CER021–CER027, CER030, CER040, CER050, CER060, CER070), não sobre os 7 agregados de topo.</span>
+        
+        <span class="lang-block lang-en"><strong>HHI:</strong> computed over 13 UNCTAD leaf categories (CER010, CER021–CER027, CER030, CER040, CER050, CER060, CER070), not over the 7 top aggregates.</span>
+        
+        <span class="lang-block lang-es"><strong>HHI:</strong> calculado sobre 13 categorías hoja del UNCTAD (CER010, CER021–CER027, CER030, CER040, CER050, CER060, CER070), no sobre los 7 agregados de cabecera.</span>
+        
+      </li>
+      
+      <li>
+        
+        <span class="lang-block lang-pt active"><strong>Cobertura FCS 2025:</strong> 13 dos 14 domínios culturais e transversais cobertos. Só <em>Intangible cultural heritage</em> permanece fora, por decisão de escopo. Mapeamento auditável em <code>canonical.domain_crosswalk</code>.</span>
+        
+        <span class="lang-block lang-en"><strong>FCS 2025 coverage:</strong> 13 of 14 cultural and transversal domains covered. Only <em>Intangible cultural heritage</em> remains out of scope by decision. Auditable mapping in <code>canonical.domain_crosswalk</code>.</span>
+        
+        <span class="lang-block lang-es"><strong>Cobertura FCS 2025:</strong> 13 de 14 dominios culturales y transversales cubiertos. Solo <em>Intangible cultural heritage</em> queda fuera por decisión de alcance. Mapeo auditable en <code>canonical.domain_crosswalk</code>.</span>
+        
+      </li>
+      
+      <li>
+        
+        <span class="lang-block lang-pt active"><strong>Pluralismo metodológico:</strong> a Atana lê os mesmos dados por múltiplas lentes — UNCTAD × IBGE Comex (Nota #03), IFPI × CISAC (Nota #08), UNCTAD × CSCM (Nota #07), OECD AI × IBGE (Nota #18). O gap entre lentes é o achado.</span>
+        
+        <span class="lang-block lang-en"><strong>Methodological pluralism:</strong> Atana reads the same data through multiple lenses — UNCTAD × IBGE Comex (Note #03), IFPI × CISAC (Note #08), UNCTAD × CSCM (Note #07), OECD AI × IBGE (Note #18). The gap between lenses is the finding.</span>
+        
+        <span class="lang-block lang-es"><strong>Pluralismo metodológico:</strong> Atana lee los mismos datos a través de múltiples lentes — UNCTAD × IBGE Comex (Nota #03), IFPI × CISAC (Nota #08), UNCTAD × CSCM (Nota #07), OECD AI × IBGE (Nota #18). La brecha entre lentes es el hallazgo.</span>
+        
+      </li>
+      
+      <li>
+        
+        <span class="lang-block lang-pt active"><strong>Licença:</strong> dados sob CC BY 4.0; código sob MIT. Cite como: <em>atana-data (2026). github.com/joaoroquedasilvajunior/atana-data</em>.</span>
+        
+        <span class="lang-block lang-en"><strong>License:</strong> data under CC BY 4.0; code under MIT. Cite as: <em>atana-data (2026). github.com/joaoroquedasilvajunior/atana-data</em>.</span>
+        
+        <span class="lang-block lang-es"><strong>Licencia:</strong> datos bajo CC BY 4.0; código bajo MIT. Citar como: <em>atana-data (2026). github.com/joaoroquedasilvajunior/atana-data</em>.</span>
+        
+      </li>
+      
     </ul>
 
     <div class="audit-note">
+      
       <strong class="lang-block lang-pt active">Auditoria interna do fig8 (2026-05-16):</strong>
+      <span class="lang-block lang-pt active"> O quadrante Q3 foi rebatizado de &#34;Latent Power&#34; para &#34;Data Gap Zone&#34; — o quadrante nomeia uma lacuna de cobertura UNCTAD, não um achado positivo. O Q4 foi rebatizado de &#34;Artisanal Trap&#34; para &#34;Specialized Tangible Cluster&#34; — o rótulo anterior carregava viés normativo que contradizia o §4 (Paradoxo da Autenticidade) do Atana Index.</span>
+      
       <strong class="lang-block lang-en">Internal fig8 audit (2026-05-16):</strong>
+      <span class="lang-block lang-en"> Quadrant Q3 was relabeled from &#34;Latent Power&#34; to &#34;Data Gap Zone&#34; — the quadrant names a UNCTAD coverage gap, not a positive finding. Q4 was relabeled from &#34;Artisanal Trap&#34; to &#34;Specialized Tangible Cluster&#34; — the prior label carried a normative load that contradicted §4 (Authenticity Paradox) of the Atana Index.</span>
+      
       <strong class="lang-block lang-es">Auditoría interna del fig8 (2026-05-16):</strong>
-      <span class="lang-block lang-pt active">O quadrante Q3 foi rebatizado de "Latent Power" para "Data Gap Zone" — o quadrante nomeia uma lacuna de cobertura UNCTAD, não um achado positivo. O Q4 foi rebatizado de "Artisanal Trap" para "Specialized Tangible Cluster" — o rótulo anterior carregava viés normativo que contradizia o §4 (Paradoxo da Autenticidade) do Atana Index. Detalhes em revisão crítica interna.</span>
-      <span class="lang-block lang-en">Quadrant Q3 was relabeled from "Latent Power" to "Data Gap Zone" — the quadrant names a UNCTAD coverage gap, not a positive finding. Q4 was relabeled from "Artisanal Trap" to "Specialized Tangible Cluster" — the prior label carried a normative load that contradicted §4 (Authenticity Paradox) of the Atana Index. Detailed in an internal critical review.</span>
-      <span class="lang-block lang-es">El cuadrante Q3 fue renombrado de "Latent Power" a "Data Gap Zone" — el cuadrante nombra una brecha de cobertura UNCTAD, no un hallazgo positivo. El Q4 fue renombrado de "Artisanal Trap" a "Specialized Tangible Cluster" — la etiqueta anterior tenía una carga normativa que contradecía el §4 (Paradoja de la Autenticidad) del Atana Index. Detalles en revisión crítica interna.</span>
+      <span class="lang-block lang-es"> El cuadrante Q3 fue renombrado de &#34;Latent Power&#34; a &#34;Data Gap Zone&#34; — el cuadrante nombra una brecha de cobertura UNCTAD, no un hallazgo positivo. El Q4 fue renombrado de &#34;Artisanal Trap&#34; a &#34;Specialized Tangible Cluster&#34; — la etiqueta anterior tenía una carga normativa que contradecía el §4 (Paradoja de la Autenticidad) del Atana Index.</span>
+      
     </div>
   </div>
 </section>
 
-<!-- CITATION BLOCK -->
-<section class="cite-section">
-  <div class="container container--narrow">
-    <h3 class="lang-block lang-pt active">Como citar</h3>
-    <h3 class="lang-block lang-en">How to cite</h3>
-    <h3 class="lang-block lang-es">Cómo citar</h3>
 
+<section class="cite-section">
+  <div class="container container--data-narrow">
+    
+    <h3 class="lang-block lang-pt active">Como citar</h3>
+    
+    <h3 class="lang-block lang-en">How to cite</h3>
+    
+    <h3 class="lang-block lang-es">Cómo citar</h3>
+    
+
+    
     <div class="cite-box">
       <span class="label">Corpus</span>
       atana-data (2026). github.com/joaoroquedasilvajunior/atana-data. CC BY 4.0 (data) · MIT (code).
     </div>
-
+    
     <div class="cite-box">
-      <span class="label">Atana Index Vol. 1.6</span>
+      <span class="label">Atana Index Vol. 1.7</span>
       Atana (2026). <em>Two Creative Time Zones — Latin America's Cultural Economies in the Agentic Era</em>. atana.studio.
     </div>
+    
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>Atana — <a href="/">atana.studio</a> — <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a></p>
-    <p>Conteúdo licenciado CC BY 4.0 · Código MIT</p>
-  </div>
-</footer>
 
-<!-- INLINE DATASET -->
 <script id="atana-data" type="application/json">
 {
-  "Argentina": {"display": "Argentina†", "exposure_pct": 59.09, "total_creative": 24.2, "services": null, "svc_share_pct": null, "hhi": 0.413, "has_services": false, "dom_label": "Publications"},
-  "Bolivia (Plurinational State of)": {"display": "Bolivia", "exposure_pct": 9.94, "total_creative": 213.0, "services": 22.0, "svc_share_pct": 10.33, "hhi": 0.952, "has_services": true, "dom_label": "Jewelry"},
-  "Brazil": {"display": "Brazil", "exposure_pct": 85.83, "total_creative": 8546.0, "services": 7186.0, "svc_share_pct": 84.08, "hhi": 0.312, "has_services": true, "dom_label": "Interior (furniture)"},
-  "Chile": {"display": "Chile†", "exposure_pct": 9.39, "total_creative": 125.7, "services": null, "svc_share_pct": null, "hhi": 0.214, "has_services": false, "dom_label": "Toys"},
-  "Colombia": {"display": "Colombia", "exposure_pct": 82.59, "total_creative": 1697.0, "services": 1276.0, "svc_share_pct": 75.19, "hhi": 0.211, "has_services": true, "dom_label": "Interior"},
-  "Costa Rica": {"display": "Costa Rica", "exposure_pct": 96.87, "total_creative": 1650.0, "services": 1584.0, "svc_share_pct": 96.0, "hhi": 0.275, "has_services": true, "dom_label": "Interior"},
-  "Dominican Republic": {"display": "Dominican Rep.", "exposure_pct": 20.41, "total_creative": 912.0, "services": 182.0, "svc_share_pct": 19.96, "hhi": 0.822, "has_services": true, "dom_label": "Jewelry"},
-  "Ecuador": {"display": "Ecuador", "exposure_pct": 44.06, "total_creative": 53.4, "services": 14.0, "svc_share_pct": 26.22, "hhi": 0.263, "has_services": true, "dom_label": "Interior"},
-  "El Salvador": {"display": "El Salvador", "exposure_pct": 21.66, "total_creative": 182.0, "services": 2.0, "svc_share_pct": 1.1, "hhi": 0.226, "has_services": true, "dom_label": "Yarns/Textiles"},
-  "Guatemala": {"display": "Guatemala", "exposure_pct": 48.51, "total_creative": 218.0, "services": 72.0, "svc_share_pct": 33.03, "hhi": 0.208, "has_services": true, "dom_label": "Fashion accessories"},
-  "Honduras": {"display": "Honduras", "exposure_pct": 57.46, "total_creative": 51.4, "services": 7.0, "svc_share_pct": 13.62, "hhi": 0.325, "has_services": true, "dom_label": "Interior"},
-  "Mexico": {"display": "Mexico†", "exposure_pct": 21.13, "total_creative": 6451.0, "services": null, "svc_share_pct": null, "hhi": 0.182, "has_services": false, "dom_label": "Interior"},
-  "Paraguay": {"display": "Paraguay", "exposure_pct": 3.46, "total_creative": 52.6, "services": 0.5, "svc_share_pct": 0.95, "hhi": 0.309, "has_services": true, "dom_label": "Carpets"},
-  "Peru": {"display": "Peru", "exposure_pct": 21.39, "total_creative": 345.0, "services": 38.0, "svc_share_pct": 11.01, "hhi": 0.443, "has_services": true, "dom_label": "Jewelry"},
-  "Uruguay": {"display": "Uruguay", "exposure_pct": 98.5, "total_creative": 615.0, "services": 602.0, "svc_share_pct": 97.89, "hhi": 0.174, "has_services": true, "dom_label": "Jewelry"}
+  "Argentina": {
+    "display": "Argentina†",
+    "exposure_pct": 59.09,
+    "total_creative": 24.2,
+    "services": null,
+    "svc_share_pct": null,
+    "hhi": 0.413,
+    "has_services": false,
+    "dom_label": "Publications"
+  },
+  "Bolivia (Plurinational State of)": {
+    "display": "Bolivia",
+    "exposure_pct": 9.94,
+    "total_creative": 213.0,
+    "services": 22.0,
+    "svc_share_pct": 10.33,
+    "hhi": 0.952,
+    "has_services": true,
+    "dom_label": "Jewelry"
+  },
+  "Brazil": {
+    "display": "Brazil",
+    "exposure_pct": 85.83,
+    "total_creative": 8546.0,
+    "services": 7186.0,
+    "svc_share_pct": 84.08,
+    "hhi": 0.312,
+    "has_services": true,
+    "dom_label": "Interior (furniture)"
+  },
+  "Chile": {
+    "display": "Chile†",
+    "exposure_pct": 9.39,
+    "total_creative": 125.7,
+    "services": null,
+    "svc_share_pct": null,
+    "hhi": 0.214,
+    "has_services": false,
+    "dom_label": "Toys"
+  },
+  "Colombia": {
+    "display": "Colombia",
+    "exposure_pct": 82.59,
+    "total_creative": 1697.0,
+    "services": 1276.0,
+    "svc_share_pct": 75.19,
+    "hhi": 0.211,
+    "has_services": true,
+    "dom_label": "Interior"
+  },
+  "Costa Rica": {
+    "display": "Costa Rica",
+    "exposure_pct": 96.87,
+    "total_creative": 1650.0,
+    "services": 1584.0,
+    "svc_share_pct": 96.0,
+    "hhi": 0.275,
+    "has_services": true,
+    "dom_label": "Interior"
+  },
+  "Dominican Republic": {
+    "display": "Dominican Rep.",
+    "exposure_pct": 20.41,
+    "total_creative": 912.0,
+    "services": 182.0,
+    "svc_share_pct": 19.96,
+    "hhi": 0.822,
+    "has_services": true,
+    "dom_label": "Jewelry"
+  },
+  "Ecuador": {
+    "display": "Ecuador",
+    "exposure_pct": 44.06,
+    "total_creative": 53.4,
+    "services": 14.0,
+    "svc_share_pct": 26.22,
+    "hhi": 0.263,
+    "has_services": true,
+    "dom_label": "Interior"
+  },
+  "El Salvador": {
+    "display": "El Salvador",
+    "exposure_pct": 21.66,
+    "total_creative": 182.0,
+    "services": 2.0,
+    "svc_share_pct": 1.1,
+    "hhi": 0.226,
+    "has_services": true,
+    "dom_label": "Yarns/Textiles"
+  },
+  "Guatemala": {
+    "display": "Guatemala",
+    "exposure_pct": 48.51,
+    "total_creative": 218.0,
+    "services": 72.0,
+    "svc_share_pct": 33.03,
+    "hhi": 0.208,
+    "has_services": true,
+    "dom_label": "Fashion accessories"
+  },
+  "Honduras": {
+    "display": "Honduras",
+    "exposure_pct": 57.46,
+    "total_creative": 51.4,
+    "services": 7.0,
+    "svc_share_pct": 13.62,
+    "hhi": 0.325,
+    "has_services": true,
+    "dom_label": "Interior"
+  },
+  "Mexico": {
+    "display": "Mexico†",
+    "exposure_pct": 21.13,
+    "total_creative": 6451.0,
+    "services": null,
+    "svc_share_pct": null,
+    "hhi": 0.182,
+    "has_services": false,
+    "dom_label": "Interior"
+  },
+  "Paraguay": {
+    "display": "Paraguay",
+    "exposure_pct": 3.46,
+    "total_creative": 52.6,
+    "services": 0.5,
+    "svc_share_pct": 0.95,
+    "hhi": 0.309,
+    "has_services": true,
+    "dom_label": "Carpets"
+  },
+  "Peru": {
+    "display": "Peru",
+    "exposure_pct": 21.39,
+    "total_creative": 345.0,
+    "services": 38.0,
+    "svc_share_pct": 11.01,
+    "hhi": 0.443,
+    "has_services": true,
+    "dom_label": "Jewelry"
+  },
+  "Uruguay": {
+    "display": "Uruguay",
+    "exposure_pct": 98.5,
+    "total_creative": 615.0,
+    "services": 602.0,
+    "svc_share_pct": 97.89,
+    "hhi": 0.174,
+    "has_services": true,
+    "dom_label": "Jewelry"
+  }
 }
 </script>
 
-<!-- BEHAVIOR -->
+
+<script id="atana-claims" type="application/json">
+[{"pt": {"eyebrow": "Quantificação metodológica · Nota #18", "claim": "O OECD AI Capability Gap (No. 59, mai/2026) deveria ter resolvido a pergunta sobre exposição cultural à IA. Não resolveu — e o porquê está no Anexo 3, página 49 do próprio paper.", "source": "Fonte: <a href=\"/notes/18/\">Atana Note #18</a> · OECD AI Papers No. 59 × IBGE Estruturais × IBGE Comex"}, "en": {"eyebrow": "Methodological quantification · Note #18", "claim": "OECD AI Capability Gap (No. 59, May 2026) should have settled the question of cultural exposure to AI. It didn't — and the reason sits in Annex 3, page 49 of the paper itself.", "source": "Source: <a href=\"/notes/18/\">Atana Note #18</a> · OECD AI Papers No. 59 × IBGE Estruturais × IBGE Comex"}, "es": {"eyebrow": "Cuantificación metodológica · Nota #18", "claim": "El OECD AI Capability Gap (No. 59, may/2026) debería haber resuelto la pregunta sobre la exposición cultural a la IA. No lo hizo — y la razón está en el Anexo 3, página 49 del propio paper.", "source": "Fuente: <a href=\"/notes/18/\">Atana Note #18</a> · OECD AI Papers No. 59 × IBGE Estruturais × IBGE Comex"}}, {"pt": {"eyebrow": "As duas lentes do dinheiro da música · Nota #08", "claim": "IFPI vê LATAM +17% em 2024 (label-side). CISAC vê LATAM −0,6% (author-side). Mesma região, mesma janela, direções opostas — gap de +17,7 pp entre as duas lentes.", "source": "Fonte: <a href=\"/notes/08/\">Atana Note #08</a> · IFPI GMR 2026 × CISAC GCR 2025 × INEGI CSCM 2024"}, "en": {"eyebrow": "Two music-money lenses · Note #08", "claim": "IFPI sees LATAM +17% in 2024 (label-side). CISAC sees LATAM −0.6% (author-side). Same region, same window, opposite directions — a +17.7 pp gap between two lenses.", "source": "Source: <a href=\"/notes/08/\">Atana Note #08</a> · IFPI GMR 2026 × CISAC GCR 2025 × INEGI CSCM 2024"}, "es": {"eyebrow": "Las dos lentes del dinero de la música · Nota #08", "claim": "IFPI ve LATAM +17% en 2024 (label-side). CISAC ve LATAM −0,6% (author-side). Misma región, misma ventana, direcciones opuestas — brecha de +17,7 pp entre las dos lentes.", "source": "Fuente: <a href=\"/notes/08/\">Atana Note #08</a> · IFPI GMR 2026 × CISAC GCR 2025 × INEGI CSCM 2024"}}, {"pt": {"eyebrow": "Pluralismo metodológico · Nota #07", "claim": "UNCTAD não vê o México em serviços criativos. A Cuenta Satélite da Cultura mexicana sim — e o reposiciona de \"Data Gap Zone\" para \"Transformation Race\". Quatro países LATAM corrigidos.", "source": "Fonte: <a href=\"/notes/07/\">Atana Note #07</a> · UNCTAD 2024 × CSCM (MX) × SInCA (AR) × DANE (CO) × CSCCR (CR)"}, "en": {"eyebrow": "Methodological pluralism · Note #07", "claim": "UNCTAD does not see Mexico in creative services. Mexico's own Satellite Account of Culture does — and reposiciones it from \"Data Gap Zone\" to \"Transformation Race.\" Four LATAM countries corrected.", "source": "Source: <a href=\"/notes/07/\">Atana Note #07</a> · UNCTAD 2024 × CSCM (MX) × SInCA (AR) × DANE (CO) × CSCCR (CR)"}, "es": {"eyebrow": "Pluralismo metodológico · Nota #07", "claim": "UNCTAD no ve a México en servicios creativos. La Cuenta Satélite de la Cultura mexicana sí — y lo reposiciona de \"Data Gap Zone\" a \"Transformation Race.\" Cuatro países LATAM corregidos.", "source": "Fuente: <a href=\"/notes/07/\">Atana Note #07</a> · UNCTAD 2024 × CSCM (MX) × SInCA (AR) × DANE (CO) × CSCCR (CR)"}}]
+</script>
+
 <script>
 (function() {
-  // ---------------- ROTATING HERO CLAIMS ----------------
-  const claims = {
-    pt: [
-      {
-        eyebrow: 'Achado metodológico · Nota #03',
-        claim: '55,6% vs 5,0% — a dependência sino-cultural do Brasil depende de qual definição você adota. Os dois números são corretos.',
-        source: 'Fonte: <a href="/notes/03/">Atana Note #03 — Quando 55,6% vira 5,0%</a> · cruzamento SECEX/IBGE × UNCTAD'
-      },
-      {
-        eyebrow: 'Validação empírica · Atana Index §5',
-        claim: 'Funk brasileiro cresceu 36% no nicho de US$ 50 mi+ no Spotify em 2025 — o gênero que mais cresceu globalmente.',
-        source: 'Fonte: Spotify Loud &amp; Clear 2026 · IFPI Global Music Report 2026 · <a href="/">Atana Index Vol. 1.6 §5</a>'
-      },
-      {
-        eyebrow: 'Genealogia institucional · Análise 9',
-        claim: 'Zero leis federais brasileiras incluíram "economia criativa" em 33 anos de Lei Rouanet.',
-        source: 'Fonte: corpus LexML — 269 atos, 1998–2026 · <a href="/notes/">Nota #04 (em breve)</a>'
-      }
-    ],
-    en: [
-      {
-        eyebrow: 'Methodological finding · Note #03',
-        claim: '55.6% vs 5.0% — Brazil\'s cultural sino-dependence depends on which definition you adopt. Both numbers are correct.',
-        source: 'Source: <a href="/notes/03/">Atana Note #03 — When 55.6% becomes 5.0%</a> · SECEX/IBGE × UNCTAD cross-walk'
-      },
-      {
-        eyebrow: 'Empirical validation · Atana Index §5',
-        claim: 'Brazilian Funk grew 36% on Spotify\'s $50M+ tier in 2025 — the single fastest-growing genre globally.',
-        source: 'Source: Spotify Loud &amp; Clear 2026 · IFPI Global Music Report 2026 · <a href="/">Atana Index Vol. 1.6 §5</a>'
-      },
-      {
-        eyebrow: 'Institutional genealogy · Analysis 9',
-        claim: 'Zero federal Brazilian laws have ever been amended to include "economia criativa" in 33 years of the Lei Rouanet.',
-        source: 'Source: LexML corpus — 269 acts, 1998–2026 · <a href="/notes/">Note #04 (forthcoming)</a>'
-      }
-    ],
-    es: [
-      {
-        eyebrow: 'Hallazgo metodológico · Nota #03',
-        claim: '55,6% vs 5,0% — la dependencia sino-cultural de Brasil depende de qué definición se adopte. Ambos números son correctos.',
-        source: 'Fuente: <a href="/notes/03/">Atana Note #03 — Cuando 55,6% se vuelve 5,0%</a> · cruce SECEX/IBGE × UNCTAD'
-      },
-      {
-        eyebrow: 'Validación empírica · Atana Index §5',
-        claim: 'Funk brasileño creció 36% en el tier de US$ 50M+ de Spotify en 2025 — el género de mayor crecimiento global.',
-        source: 'Fuente: Spotify Loud &amp; Clear 2026 · IFPI Global Music Report 2026 · <a href="/">Atana Index Vol. 1.6 §5</a>'
-      },
-      {
-        eyebrow: 'Genealogía institucional · Análisis 9',
-        claim: 'Cero leyes federales brasileñas han incluido "economía creativa" en 33 años de la Ley Rouanet.',
-        source: 'Fuente: corpus LexML — 269 actos, 1998–2026 · <a href="/notes/">Nota #04 (próximamente)</a>'
-      }
-    ]
-  };
+  // ── Hero rotating claims (one picked at random per page load) ──
+  const claims = JSON.parse(document.getElementById('atana-claims').textContent);
+  const heroIndex = Math.floor(Math.random() * claims.length);
 
-  // Pick a random hero claim once per page load (no auto-rotate)
-  const heroIndex = Math.floor(Math.random() * 3);
   function applyHero(lang) {
-    const c = claims[lang][heroIndex];
+    const c = claims[heroIndex][lang];
     document.getElementById('hero-eyebrow').textContent = c.eyebrow;
     document.getElementById('hero-claim').innerHTML = c.claim;
     document.getElementById('hero-source').innerHTML = c.source;
   }
 
-  // ---------------- LANGUAGE SWITCHER ----------------
+  // ── Refresh-badge i18n ──
+  const refreshBadges = {
+    pt: "Dados atualizados em junho de 2026 \u2014 pr\u00f3ximo ciclo UNCTAD outubro de 2026",
+    en: "Data refreshed June 2026 \u2014 next UNCTAD cycle October 2026",
+    es: "Datos actualizados en junio de 2026 \u2014 pr\u00f3ximo ciclo UNCTAD octubre de 2026"
+  };
+
+  // ── Language switching ──
   function setLang(lang) {
     document.documentElement.lang = (lang === 'pt') ? 'pt-br' : lang;
     document.querySelectorAll('.lang-block').forEach(el => {
@@ -698,6 +1546,7 @@
     document.querySelectorAll('.lang-switcher button').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
+    document.getElementById('refresh-badge').textContent = refreshBadges[lang];
     applyHero(lang);
     try { localStorage.setItem('atana_lang', lang); } catch(e) {}
   }
@@ -705,7 +1554,6 @@
     btn.addEventListener('click', () => setLang(btn.dataset.lang));
   });
 
-  // Persist preference; default PT
   let initialLang = 'pt';
   try {
     const stored = localStorage.getItem('atana_lang');
@@ -713,17 +1561,15 @@
   } catch(e) {}
   setLang(initialLang);
 
-  // ---------------- INTERACTIVE FIG8 ----------------
+  // ── Interactive fig8 ──
   function buildFig8() {
     if (typeof Plotly === 'undefined') {
-      // Plotly didn't load (offline / blocked); show fallback message
       document.getElementById('fig8-plot').innerHTML =
         '<div class="noscript-fallback">Chart library unavailable. Static version at <a href="/" style="color: var(--olive);">atana.studio</a>.</div>';
       return;
     }
     const data = JSON.parse(document.getElementById('atana-data').textContent);
 
-    // Compute Readiness Index for each country
     const totals = Object.values(data).map(d => d.total_creative);
     const minScale = Math.min(...totals);
     const maxScale = Math.max(...totals);
@@ -740,9 +1586,8 @@
     });
 
     const NAVY = '#1F3A5F', OLIVE = '#6B7B3A', BRICK = '#8C2A2A',
-          SAND = '#F4F1EB', SAND2 = '#E8DDC8', RULE = '#D6CFC0';
+          SAND = '#F4F1EB', RULE = '#D6CFC0';
 
-    // Two traces: full data (circles) and goods-only (squares)
     const fullData = Object.values(data).filter(d => d.has_services);
     const goodsOnly = Object.values(data).filter(d => !d.has_services);
 
@@ -762,10 +1607,10 @@
           sizemode: 'diameter',
           color: rows.map(d => {
             const e = d.exposure_pct, r = d.readiness;
-            if (e >= 40 && r >= 40) return OLIVE;        // Q1
-            if (e >= 40 && r < 40)  return BRICK;        // Q2
-            if (e < 40  && r >= 40) return '#C9B27A';    // Q3 (sand-gold)
-            return '#8C7A8C';                            // Q4
+            if (e >= 40 && r >= 40) return OLIVE;
+            if (e >= 40 && r < 40)  return BRICK;
+            if (e < 40  && r >= 40) return '#C9B27A';
+            return '#8C7A8C';
           }),
           opacity: 0.85,
           line: { color: 'rgba(255,255,255,0.6)', width: 1 }
@@ -791,46 +1636,25 @@
 
     const layout = {
       shapes: [
-        // Q1 — Transformation Race (top-right, olive tint)
-        { type: 'rect', x0: 40, y0: 40, x1: 100, y1: 100, fillcolor: OLIVE, opacity: 0.06, line: { width: 0 }, layer: 'below' },
-        // Q2 — Digital Fracture (bottom-right, brick tint)
-        { type: 'rect', x0: 40, y0: 0, x1: 100, y1: 40, fillcolor: BRICK, opacity: 0.06, line: { width: 0 }, layer: 'below' },
-        // Q3 — Data Gap Zone (top-left, sand tint)
-        { type: 'rect', x0: 0, y0: 40, x1: 40, y1: 100, fillcolor: '#C9B27A', opacity: 0.10, line: { width: 0 }, layer: 'below' },
-        // Q4 — Specialized Tangible Cluster (bottom-left, muted)
-        { type: 'rect', x0: 0, y0: 0, x1: 40, y1: 40, fillcolor: '#8C7A8C', opacity: 0.06, line: { width: 0 }, layer: 'below' },
-        // Cut-point lines
-        { type: 'line', x0: 40, y0: 0, x1: 40, y1: 100, line: { color: RULE, width: 1, dash: 'dot' } },
-        { type: 'line', x0: 0, y0: 40, x1: 100, y1: 40, line: { color: RULE, width: 1, dash: 'dot' } }
+        { type: 'rect', x0: 40, y0: 40, x1: 100, y1: 100, fillcolor: OLIVE,   opacity: 0.06, line: { width: 0 }, layer: 'below' },
+        { type: 'rect', x0: 40, y0: 0,  x1: 100, y1: 40,  fillcolor: BRICK,   opacity: 0.06, line: { width: 0 }, layer: 'below' },
+        { type: 'rect', x0: 0,  y0: 40, x1: 40,  y1: 100, fillcolor: '#C9B27A', opacity: 0.10, line: { width: 0 }, layer: 'below' },
+        { type: 'rect', x0: 0,  y0: 0,  x1: 40,  y1: 40,  fillcolor: '#8C7A8C', opacity: 0.06, line: { width: 0 }, layer: 'below' },
+        { type: 'line', x0: 40, y0: 0,  x1: 40,  y1: 100, line: { color: RULE, width: 1, dash: 'dot' } },
+        { type: 'line', x0: 0,  y0: 40, x1: 100, y1: 40,  line: { color: RULE, width: 1, dash: 'dot' } }
       ],
       annotations: [
-        { x: 98, y: 97, text: '<b>Q1 — Transformation Race</b>', showarrow: false, font: { size: 10, color: OLIVE }, xanchor: 'right' },
-        { x: 98, y: 3,  text: '<b>Q2 — Digital Fracture</b>',    showarrow: false, font: { size: 10, color: BRICK }, xanchor: 'right' },
-        { x: 2,  y: 97, text: '<b>Q3 — Data Gap Zone</b>',       showarrow: false, font: { size: 10, color: '#9C7E1B' }, xanchor: 'left' },
-        { x: 2,  y: 3,  text: '<b>Q4 — Specialized Tangible Cluster</b>', showarrow: false, font: { size: 10, color: '#5C4D5C' }, xanchor: 'left' }
+        { x: 98, y: 97, text: '<b>Q1 — Transformation Race</b>',          showarrow: false, font: { size: 10, color: OLIVE },     xanchor: 'right' },
+        { x: 98, y: 3,  text: '<b>Q2 — Digital Fracture</b>',             showarrow: false, font: { size: 10, color: BRICK },     xanchor: 'right' },
+        { x: 2,  y: 97, text: '<b>Q3 — Data Gap Zone</b>',                showarrow: false, font: { size: 10, color: '#9C7E1B' }, xanchor: 'left'  },
+        { x: 2,  y: 3,  text: '<b>Q4 — Specialized Tangible Cluster</b>', showarrow: false, font: { size: 10, color: '#5C4D5C' }, xanchor: 'left'  }
       ],
-      xaxis: {
-        title: { text: 'AI Exposure Index (%)', font: { size: 11, color: '#555' } },
-        range: [-3, 103],
-        showgrid: false,
-        zeroline: false,
-        tickfont: { size: 10, color: '#666' }
-      },
-      yaxis: {
-        title: { text: 'Readiness Index', font: { size: 11, color: '#555' } },
-        range: [-3, 103],
-        showgrid: false,
-        zeroline: false,
-        tickfont: { size: 10, color: '#666' }
-      },
+      xaxis: { title: { text: 'AI Exposure Index (%)', font: { size: 11, color: '#555' } }, range: [-3, 103], showgrid: false, zeroline: false, tickfont: { size: 10, color: '#666' } },
+      yaxis: { title: { text: 'Readiness Index',      font: { size: 11, color: '#555' } }, range: [-3, 103], showgrid: false, zeroline: false, tickfont: { size: 10, color: '#666' } },
       paper_bgcolor: 'white',
       plot_bgcolor: 'white',
       margin: { l: 60, r: 30, t: 30, b: 60 },
-      hoverlabel: {
-        bgcolor: SAND,
-        bordercolor: NAVY,
-        font: { family: 'Inter, sans-serif', size: 12, color: NAVY }
-      },
+      hoverlabel: { bgcolor: SAND, bordercolor: NAVY, font: { family: 'Inter, sans-serif', size: 12, color: NAVY } },
       showlegend: false,
       autosize: true
     };
@@ -848,10 +1672,18 @@
   } else {
     buildFig8();
   }
-  // Also retry after a delay in case Plotly script loads slowly
   window.addEventListener('load', () => setTimeout(buildFig8, 500));
 })();
 </script>
+
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
 
 </body>
 </html>
