@@ -1,242 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atana Note #02 — The Two Creative Time Zones | Atana</title>
-<meta name="description" content="A primer for the agentic era. Latin America was the fastest-growing recorded-music region on Earth in 2025 — the empirical confirmation of Atana's Two Creative Time Zones framework, re-derived from the UNCTAD 2024 corpus.">
-<meta property="og:title" content="Atana Note #02 — The Two Creative Time Zones">
-<meta property="og:description" content="A primer for the agentic era. The 2026 IFPI and Spotify data confirms Atana's Two Creative Time Zones framework.">
+<title>Atana Note #02 — The Two Creative Time Zones: a primer for the agentic era | Atana</title>
+<meta name="description" content="Latin America was the fastest-growing recorded-music region on Earth in 2025. That was not a surprise — it was the empirical confirmation of a framework Atana published a year ago. A primer on the two zones, re-derived from the UNCTAD 2024 corpus.">
+<meta property="og:title" content="Atana Note #02 — The Two Creative Time Zones: a primer for the agentic era">
+<meta property="og:description" content="Latin America was the fastest-growing recorded-music region on Earth in 2025. That was not a surprise — it was the empirical confirmation of a framework Atana published a year ago. A primer on the two zones, re-derived from the UNCTAD 2024 corpus.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://atana.studio/notes/02/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #1A1A1A;
-    --navy: #1F3A5F;
-    --olive: #6B7B3A;
-    --olive-dim: #8a9a52;
-    --brick: #8C2A2A;
-    --sand: #F4F1EB;
-    --sand-2: #E8DDC8;
-    --rule: #D6CFC0;
-    --muted: #5C5C5C;
-    --serif: 'Spectral', 'Georgia', serif;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--sand);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
 
-  .site-header {
-    border-bottom: 1px solid var(--rule);
-    padding: 18px 0;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(8px);
-    background: rgba(244, 241, 235, 0.95);
-  }
-  .site-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .brand {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--navy);
-    letter-spacing: 0.02em;
-    text-decoration: none;
-  }
-  .brand-suffix { color: var(--olive); margin-left: 6px; font-size: 14px; font-family: var(--sans); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: middle; }
-  .header-meta { font-size: 13px; color: var(--muted); letter-spacing: 0.04em; }
-  .header-meta a { color: var(--olive); text-decoration: none; margin-left: 18px; font-weight: 600; }
-  .header-meta a:hover { text-decoration: underline; }
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-  article { padding: 48px 0 80px; }
-  .note-eyebrow {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--olive);
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  h1 {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 1.18;
-    color: var(--navy);
-    margin: 0 0 16px;
-  }
-  @media (min-width: 700px) { h1 { font-size: 38px; } }
-  .deck {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 21px;
-    line-height: 1.45;
-    color: var(--muted);
-    margin: 0 0 28px;
-  }
-  .meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 24px;
-    padding: 14px 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 36px;
-  }
-  .meta strong { color: var(--ink); font-weight: 600; }
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
 
-  h2 {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: 26px;
-    color: var(--navy);
-    margin: 44px 0 16px;
-  }
-  p { margin: 0 0 18px; }
-  ul, ol { margin: 0 0 18px; padding-left: 22px; }
-  ul li, ol li { margin-bottom: 8px; }
-  strong { color: var(--ink); }
-  a { color: var(--olive); }
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
 
-  .zone-table {
-    border: 1px solid var(--rule);
-    margin: 24px 0;
-    background: white;
-  }
-  .zone-row {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    padding: 16px 18px;
-    gap: 18px;
-    border-bottom: 1px solid var(--rule);
-    align-items: baseline;
-    font-size: 15px;
-  }
-  .zone-row:last-child { border-bottom: 0; }
-  .zone-name {
-    font-family: var(--sans);
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: 0.01em;
-  }
-  .zone-name span { display: block; font-weight: 500; font-size: 12px; color: var(--muted); margin-top: 3px; letter-spacing: 0.04em; }
-  .zone-desc { color: var(--muted); font-size: 14.5px; }
-  .zone-desc strong { color: var(--ink); }
-  @media (max-width: 600px) {
-    .zone-row { grid-template-columns: 1fr; gap: 6px; }
-  }
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
 
-  .callout {
-    background: var(--sand-2);
-    border-left: 4px solid var(--olive);
-    padding: 18px 22px;
-    margin: 28px 0;
-    font-family: var(--serif);
-    font-size: 19px;
-    line-height: 1.5;
-    color: var(--ink);
-  }
-  .callout strong { color: var(--olive); }
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
 
-  .citation-box {
-    margin: 28px 0;
-    padding: 18px 22px;
-    border: 1px dashed var(--rule);
-    background: rgba(255,255,255,0.5);
-    font-family: var(--sans);
-    font-size: 14px;
-    color: var(--ink);
-  }
-  .citation-box code {
-    background: transparent;
-    color: var(--navy);
-    font-size: 13px;
-  }
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
 
-  .sources-section {
-    margin-top: 48px;
-    padding-top: 24px;
-    border-top: 1px solid var(--rule);
-    font-size: 15px;
-  }
-  .sources-section h2 { font-size: 18px; margin-top: 0; }
-  .sources-section ol li { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
-  .sources-section a { color: var(--olive); }
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
 
-  .footer-cta {
-    margin-top: 48px;
-    padding: 28px;
-    background: var(--navy);
-    color: var(--sand);
-    text-align: center;
-    border-radius: 2px;
-  }
-  .footer-cta h2 {
-    font-family: var(--serif);
-    color: var(--sand);
-    font-size: 22px;
-    margin: 0 0 8px;
-  }
-  .footer-cta p {
-    color: var(--sand-2);
-    margin: 0 0 16px;
-    font-size: 15px;
-  }
-  .btn {
-    display: inline-block;
-    padding: 10px 22px;
-    background: var(--olive);
-    color: var(--sand);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.03em;
-    border-radius: 2px;
-  }
-  .btn:hover { background: var(--olive-dim); }
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
 
-  .site-footer {
-    border-top: 1px solid var(--rule);
-    padding: 32px 0;
-    font-size: 13px;
-    color: var(--muted);
-    text-align: center;
-  }
-  .site-footer a { color: var(--olive); text-decoration: none; }
-  .site-footer p { margin: 6px 0; }
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
 
-  code {
-    background: var(--sand-2);
-    padding: 1px 6px;
-    border-radius: 2px;
-    font-size: 14px;
-    font-family: 'Menlo', 'Monaco', monospace;
-    color: var(--navy);
-  }
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
 </style>
-<!-- atana:seo -->
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -252,10 +390,10 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Atana Note #02 — The Two Creative Time Zones">
-<meta name="twitter:description" content="A primer for the agentic era. Latin America was the fastest-growing recorded-music region on Earth in 2025 — the empirical confirmation of Atana's Two Creative Time Zones framework, re-derived from the UNCTAD 2024 corpus.">
+<meta name="twitter:title" content="Atana Note #02 — The Two Creative Time Zones: a primer for the agentic era">
+<meta name="twitter:description" content="Latin America was the fastest-growing recorded-music region on Earth in 2025. That was not a surprise — it was the empirical confirmation of a framework Atana published a year ago. A primer on the two zones, re-derived from the UNCTAD 2024 corpus.">
 <meta name="twitter:image" content="https://atana.studio/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #02 — The Two Creative Time Zones","description":"A primer for the agentic era. Latin America was the fastest-growing recorded-music region on Earth in 2025 — the empirical confirmation of Atana's Two Creative Time Zones framework, re-derived from the UNCTAD 2024 corpus.","url":"https://atana.studio/notes/02/","mainEntityOfPage":"https://atana.studio/notes/02/","datePublished":"2026-05-25","dateModified":"2026-05-25","inLanguage":"en","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #02 — The Two Creative Time Zones: a primer for the agentic era","description":"Latin America was the fastest-growing recorded-music region on Earth in 2025. That was not a surprise — it was the empirical confirmation of a framework Atana published a year ago. A primer on the two zones, re-derived from the UNCTAD 2024 corpus.","url":"https://atana.studio/notes/02/","mainEntityOfPage":"https://atana.studio/notes/02/","datePublished":"2026-05-25","dateModified":"2026-05-25","inLanguage":"en-us","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
 </head>
 <body>
 
@@ -271,95 +409,77 @@
   </div>
 </header>
 
+
 <article>
   <div class="container">
     <div class="note-eyebrow">Atana Note #02 · 25 May 2026 · 6 min read · EN</div>
     <h1>The Two Creative Time Zones: a primer for the agentic era</h1>
-    <p class="deck">Latin America was the fastest-growing recorded-music region on Earth in 2025. That was not a surprise — it was the empirical confirmation of a framework Atana published a year ago.</p>
-
+    <p class="deck">Latin America was the fastest-growing recorded-music region on Earth in 2025. That was not a surprise — it was the empirical confirmation of a framework Atana published a year ago. A primer on the two zones, re-derived from the UNCTAD 2024 corpus.</p>
     <div class="meta">
-      <div><strong>Author:</strong> João Roque, Atana</div>
-      <div><strong>Topic:</strong> AI exposure · Creative trade · Music</div>
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> AI exposure · Music · Creative trade</div>
       <div><strong>Languages:</strong> EN · PT / ES to follow</div>
     </div>
 
     <h2>The signal</h2>
-    <p>Latin America was the fastest-growing recorded-music region on Earth in 2025, at <strong>+17.1%</strong> — for the sixteenth consecutive year. Streaming now accounts for <strong>88.1% of LATAM recorded-music revenue</strong>, the highest share of any region. Brazil moved from #9 to #8 in the global rankings; Mexico from #11 to #10. And on Spotify, the single fastest-growing $50-million-plus genre on the planet was Brazilian Funk, at <strong>+36% year-on-year</strong>, with Latin Trap (+29%), Latin Urban (+27%), and Reggaeton (+24%) close behind.</p>
-    <p>These figures, from the <em>IFPI Global Music Report 2026</em> and <em>Spotify Loud &amp; Clear 2026</em>, did not surprise us. They are the empirical confirmation of a framework Atana published one year ago — the <a href="/">Two Creative Time Zones</a> thesis — which predicted that Latin America's creative economy would split into two structurally distinct trajectories under the pressure of the agentic era, and that the digital-services bloc would accelerate before everyone else noticed. This primer explains the framework and shows what the data now says about where each LATAM country actually sits.</p>
-
-    <h2>Why it matters for LATAM creative economies</h2>
-    <p>The Two Creative Time Zones framework reads the region's fifteen mapped creative economies along two axes. <strong>AI Exposure</strong> measures how much of a country's creative-export basket sits in categories that AI agents can produce, distribute, or substitute — services, publications, digital goods. <strong>Readiness</strong> measures whether the country has the structural capacity to capture productivity gains from that same exposure — services share, scale, and diversification combined into a single index. Two indices, one map, four positions.</p>
-
-    <div class="zone-table">
-      <div class="zone-row">
-        <div class="zone-name">Zone 1<span>High digital exposure</span></div>
-        <div class="zone-desc">Brazil, Costa Rica, Uruguay, Colombia. <strong>Services-led creative exports, high exposure, high readiness.</strong> The agentic era hits them first, but they have the capacity to convert exposure into capture.</div>
-      </div>
-      <div class="zone-row">
-        <div class="zone-name">Zone 2<span>Concentrated artisanal goods</span></div>
-        <div class="zone-desc">Bolivia, Peru, Honduras, Guatemala, El Salvador, Paraguay, the Dominican Republic. <strong>Physical-goods-led creative exports, low direct AI exposure, low readiness.</strong> A Bolivian silver necklace cannot be generated by an algorithm — but if global buyers use AI agents to discover, evaluate, and acquire cultural products, and those agents work from databases in which Bolivian artisans are not present, verified, or ranked, the physical product simply ceases to be findable.</div>
-      </div>
-    </div>
-
-    <p>The same agentic-era event has opposite implications in each zone. That asymmetry is the diagnostic value of the framework.</p>
-
-    <h2>What Atana data says</h2>
-    <p>The IFPI and Spotify cycles validate Zone 1 with unusual precision.</p>
-    <p>The framework's central Zone 1 prediction was that high digital exposure would translate into high growth if — and only if — readiness was sufficient. <strong>Brazil's +14.1% music growth in 2025, propelling it from #9 to #8 globally, is the operational proxy.</strong> Atana's Readiness Index — re-derived for this primer directly from the UNCTAD 2024 corpus — ranks Brazil first in the region at 87/100; the empirical 2025 outturn is the test of that ranking, and it passed.</p>
-    <p>The framework's prediction about globalization in services was also explicit: as agentic systems collapse the cost of cross-border discovery and distribution, exposure to global markets concentrates in countries with cultural identity that travels. <strong>Spotify's 2026 report confirms that 85% of new $100,000-earning artists are based outside the United States, and songs in sixteen languages now appear in the Spotify Global Top 50 — double the 2020 count.</strong> This is not a forecast anymore. It is the present.</p>
-    <p>But the most consequential confirmation is qualitative. <strong>Brazilian Funk being the single fastest-growing $50-million-plus genre on Spotify globally</strong> — outpacing K-Pop, indie rock, and every other category — is precisely the kind of finding the framework's <em>authenticity paradox</em> clause predicted: as generic creative content commoditizes toward zero marginal cost, cultural specificity becomes more valuable, not less. A genre rooted in a specific territorial and linguistic community is, by construction, harder to synthesize. Zone 1's exposure is also Zone 1's protection.</p>
-    <p>The Atana data work behind the framework — eight published analyses on PNADC microdata, UNCTAD creative-trade flows, and Brazilian fiscal-incentive pipelines — already showed Brazil concentrating 84% of its creative exports in services, with a precarisation curve and an inequality structure that left workers exposed. The 2026 IFPI and Spotify cycles confirm that the upside potential the framework identified is now materialising — but the policy gap that determines whether <em>workers</em> capture it remains open.</p>
-
-    <h2>What it means for Zone 2</h2>
-    <p>The same agentic-era moment that creates upside for Brazilian Funk creates structural risk for Bolivian textile cooperatives and Peruvian jewelry workshops — not because their products will be substituted, but because they will become invisible. The Two Creative Time Zones framework names this risk concretely: when product discovery migrates from search engines to AI agents that curate, recommend, and negotiate autonomously, producers who are not digitally indexed and verifiable simply disappear from agent-mediated commerce. The Brazilian Funk artist on Spotify is indexed by 200+ metadata fields; the Bolivian artisan in Sucre is not in the index at all.</p>
-    <div class="callout">
-      <strong>The policy gap is not solved by content moderation, copyright reform, or training programs.</strong> It is solved by digital identity infrastructure for cultural goods — provenance certificates, structured metadata, agent-readable cultural designations of origin. The model exists already in agri-food (Champagne, Roquefort, Tequila). The transposition to cultural goods is overdue.
-    </div>
-
-    <h2>Implication for policy</h2>
-    <p>Three concrete moves emerge from the data, each mapped to a zone.</p>
-    <p><strong>For Zone 1 ministries (Brazil, Costa Rica, Uruguay, Colombia, Mexico when reclassified).</strong> Adoption and governance, in that order. The IFPI growth data shows the upside; the McKinsey 2026 data shows LATAM's responsible-AI governance maturity at 2.2 — and, on the specific dimension of AI-agent governance, only 23% of LATAM organizations reach level 3 or above, against 41% in Asia-Pacific. Productivity gains require domestic adoption; sustained gains require IP and creator-data protections that travel with the music to international markets.</p>
-    <p><strong>For Zone 2 ministries (Bolivia, Peru, Honduras, Guatemala, Paraguay, El Salvador, Dominican Republic).</strong> Digital identity infrastructure for cultural goods, before the agent-mediated commerce stack consolidates. The model is the geographic-indications registry, translated to handicraft, textile, and ritual production. Twelve-to-eighteen-month deployment timeline; estimated cost USD 3–8M depending on national scale.</p>
-    <p><strong>For all governments, across both zones.</strong> Explicit regulation of traditional cultural expressions in AI model-training, with compensation mechanisms for community holders of that knowledge. UNESCO and WIPO frameworks exist as starting points; transposition into binding national law has not happened in any LATAM country yet.</p>
-
-    <h2>What we are watching next</h2>
-    <ul>
-      <li><strong>PNADC Q1 2026 release</strong> (expected late May / early June): does Brazilian cultural-sector formality recover alongside the music-industry boom, or does the precarisation curve continue?</li>
-      <li><strong>OBITEL Anuario Iberoamericano 2026</strong> (release pending this month): does audiovisual show the same Zone 1 pattern as music, with co-production accelerating?</li>
-      <li><strong>Mexican Cuenta Satélite de Cultura 2025</strong> (mid-year release): does the dormant-giant thesis — Mexico's creative-services exports being structurally underreported in UNCTAD — find empirical support in INEGI's own national accounts?</li>
-    </ul>
-    <p>A second iteration of this primer is planned for October 2026, anchored on the UNCTAD master release. The framework will be tested with one additional year of trade data and, by then, the first OBITEL 2026 reading.</p>
-
-    <div class="citation-box">
-      <p style="margin:0 0 6px;"><strong>Cite as:</strong> Atana (2026). <em>Note #02 — The Two Creative Time Zones: a primer for the agentic era.</em> <code>atana.studio/notes/02/</code></p>
-      <p style="margin:0; color: var(--muted); font-size: 13px;">Readiness figures re-derived directly from the canonical UNCTAD 2024 corpus snapshot (<code>md:atana.unctad.*</code>).</p>
-    </div>
-
-    <div class="sources-section">
-      <h2>Sources</h2>
-      <ol>
-        <li><em>IFPI Global Music Report 2026</em>, International Federation of the Phonographic Industry, March 2026. <a href="https://www.ifpi.org/global-music-report-2026/">ifpi.org/global-music-report-2026</a></li>
-        <li><em>Spotify Loud &amp; Clear 2026</em>, Spotify Newsroom, 11 March 2026. <a href="https://newsroom.spotify.com/2026-03-11/loud-and-clear-music-economics-highlights/">newsroom.spotify.com</a></li>
-        <li><em>Atana Index Vol. 1 — Two Creative Time Zones: Latin America's Cultural Economies in the Agentic Era</em>, May 2026. Sections 3 (framework) and 6 (quadrant map). <a href="https://atana.studio">atana.studio</a></li>
-        <li>Filippucci, F. et al. (2026), "AI meets trade," OECD AI Papers No. 57. Adoption projections and three-channel transmission framework.</li>
-        <li>McKinsey &amp; Company (2026), <em>AI Trust Maturity Survey 2026</em> (n = 496; LATAM sub-sample = 43). Used for the regional responsible-AI maturity score.</li>
-        <li>UNCTADstat, Creative Goods and Creative Services flows, 2024 cycle. Underlying data for Atana's AI Exposure and Readiness indices — accessed via the <code>atana-data</code> corpus (<code>md:atana.unctad.*</code>).</li>
-        <li>Atana Análises 1–6 (2024–2026). Microdata foundation for cultural-workforce and trade analysis. Brazilian PNADC and UNCTAD-derived findings cited throughout.</li>
-      </ol>
-    </div>
+<p>Latin America was the fastest-growing recorded-music region on Earth in 2025, at <strong>+17.1%</strong> — for the sixteenth consecutive year. Streaming now accounts for <strong>88.1% of LATAM recorded-music revenue</strong>, the highest share of any region. Brazil moved from #9 to #8 in the global rankings; Mexico from #11 to #10. And on Spotify, the single fastest-growing $50-million-plus genre on the planet was Brazilian Funk, at <strong>+36% year-on-year</strong>, with Latin Trap (+29%), Latin Urban (+27%), and Reggaeton (+24%) close behind.</p>
+<p>These figures, from the <em>IFPI Global Music Report 2026</em> and <em>Spotify Loud &amp; Clear 2026</em>, did not surprise us. They are the empirical confirmation of a framework Atana published one year ago — the Two Creative Time Zones thesis — which predicted that Latin America's creative economy would split into two structurally distinct trajectories under the pressure of the agentic era, and that the digital-services bloc would accelerate before everyone else noticed. This primer explains the framework and shows what the data now says about where each LATAM country actually sits.</p>
+<hr>
+<h2>Why it matters for LATAM creative economies</h2>
+<p>The Two Creative Time Zones framework reads the region's fifteen mapped creative economies along two axes. <strong>AI Exposure</strong> measures how much of a country's creative-export basket sits in categories that AI agents can produce, distribute, or substitute — services, publications, digital goods. <strong>Readiness</strong> measures whether the country has the structural capacity to capture productivity gains from that same exposure — services share, scale, and diversification combined into a single index. Two indices, one map, four positions.</p>
+<p><strong>Zone 1 — High Digital Exposure.</strong> Brazil, Costa Rica, Uruguay, and Colombia. Services-led creative exports, high exposure, high readiness. The agentic era hits them first, but they have the capacity to convert exposure into capture.</p>
+<p><strong>Zone 2 — Concentrated Artisanal Goods.</strong> Bolivia, Peru, Honduras, Guatemala, El Salvador, Paraguay, the Dominican Republic. Physical-goods-led creative exports, low direct AI exposure, low readiness. A Bolivian silver necklace cannot be generated by an algorithm — but if global buyers use AI agents to discover, evaluate, and acquire cultural products, and those agents work from databases in which Bolivian artisans are not present, verified, or ranked, the physical product simply ceases to be findable.</p>
+<p>The same agentic-era event has opposite implications in each zone. That asymmetry is the diagnostic value of the framework.</p>
+<hr>
+<h2>What Atana data says</h2>
+<p>The IFPI and Spotify cycles validate Zone 1 with unusual precision.</p>
+<p>The framework's central Zone 1 prediction was that high digital exposure would translate into high growth if — and only if — readiness was sufficient. <strong>Brazil's +14.1% music growth in 2025, propelling it from #9 to #8 globally, is the operational proxy.</strong> Atana's Readiness Index — re-derived for this primer directly from the UNCTAD 2024 corpus — ranks Brazil first in the region at 87/100; the empirical 2025 outturn is the test of that ranking, and it passed.</p>
+<p>The framework's prediction about globalization in services was also explicit: as agentic systems collapse the cost of cross-border discovery and distribution, exposure to global markets concentrates in countries with cultural identity that travels. <strong>Spotify's 2026 report confirms that 85% of new $100,000-earning artists are based outside the United States, and songs in sixteen languages now appear in the Spotify Global Top 50 — double the 2020 count.</strong> This is not a forecast anymore. It is the present.</p>
+<p>But the most consequential confirmation is qualitative. <strong>Brazilian Funk being the single fastest-growing $50-million-plus genre on Spotify globally</strong> — outpacing K-Pop, indie rock, and every other category — is precisely the kind of finding the framework's <em>authenticity paradox</em> clause predicted: as generic creative content commoditizes toward zero marginal cost, cultural specificity becomes more valuable, not less. A genre rooted in a specific territorial and linguistic community is, by construction, harder to synthesize. Zone 1's exposure is also Zone 1's protection.</p>
+<p>The Atana data work behind the framework — eight published analyses on PNADC microdata, UNCTAD creative-trade flows, and Brazilian fiscal-incentive pipelines — already showed Brazil concentrating 84% of its creative exports in services, with a precarisation curve and an inequality structure that left workers exposed. The 2026 IFPI and Spotify cycles confirm that the upside potential the framework identified is now materialising — but the policy gap that determines whether <em>workers</em> capture it remains open.</p>
+<hr>
+<h2>What it means for Zone 2</h2>
+<p>The same agentic-era moment that creates upside for Brazilian Funk creates structural risk for Bolivian textile cooperatives and Peruvian jewelry workshops — not because their products will be substituted, but because they will become invisible. The Two Creative Time Zones framework names this risk concretely: when product discovery migrates from search engines to AI agents that curate, recommend, and negotiate autonomously, producers who are not digitally indexed and verifiable simply disappear from agent-mediated commerce. The Brazilian Funk artist on Spotify is indexed by 200+ metadata fields; the Bolivian artisan in Sucre is not in the index at all.</p>
+<p>This is the policy gap Zone 2 ministries must close. It is not solved by content moderation, copyright reform, or training programs. It is solved by <strong>digital identity infrastructure for cultural goods</strong> — provenance certificates, structured metadata, agent-readable cultural designations of origin. The model exists already in agri-food (Champagne, Roquefort, Tequila). The transposition to cultural goods is overdue.</p>
+<hr>
+<h2>Implication for policy</h2>
+<p>Three concrete moves emerge from the data, each mapped to a zone.</p>
+<p><strong>For Zone 1 ministries (Brazil, Costa Rica, Uruguay, Colombia, Mexico when reclassified).</strong> Adoption and governance, in that order. The IFPI growth data shows the upside; the McKinsey 2026 data shows LATAM's responsible-AI governance maturity at 2.2 — and, on the specific dimension of AI-agent governance, only 23% of LATAM organizations reach level 3 or above, against 41% in Asia-Pacific. Productivity gains require domestic adoption; sustained gains require IP and creator-data protections that travel with the music to international markets.</p>
+<p><strong>For Zone 2 ministries (Bolivia, Peru, Honduras, Guatemala, Paraguay, El Salvador, Dominican Republic).</strong> Digital identity infrastructure for cultural goods, before the agent-mediated commerce stack consolidates. The model is the geographic-indications registry, translated to handicraft, textile, and ritual production. Twelve-to-eighteen-month deployment timeline; estimated cost USD 3–8M depending on national scale.</p>
+<p><strong>For all governments, across both zones.</strong> Explicit regulation of traditional cultural expressions in AI model-training, with compensation mechanisms for community holders of that knowledge. UNESCO and WIPO frameworks exist as starting points; transposition into binding national law has not happened in any LATAM country yet.</p>
+<hr>
+<h2>What we are watching next</h2>
+<ul>
+<li><strong>PNADC Q1 2026 release</strong> (expected late May / early June): does Brazilian cultural-sector formality recover alongside the music-industry boom, or does the precarisation curve continue?</li>
+<li><strong>OBITEL Anuario Iberoamericano 2026</strong> (release pending this month): does audiovisual show the same Zone 1 pattern as music, with co-production accelerating?</li>
+<li><strong>Mexican Cuenta Satélite de Cultura 2025</strong> (mid-year release): does the dormant-giant thesis — Mexico's creative-services exports being structurally underreported in UNCTAD — find empirical support in INEGI's own national accounts?</li>
+</ul>
+<p>A second iteration of this primer is planned for October 2026, anchored on the UNCTAD master release. The framework will be tested with one additional year of trade data and, by then, the first OBITEL 2026 reading.</p>
+<hr>
+<h2>Sources</h2>
+<ol>
+<li><em>IFPI Global Music Report 2026</em>, International Federation of the Phonographic Industry, March 2026. <a href="https://www.ifpi.org/global-music-report-2026/">https://www.ifpi.org/global-music-report-2026/</a></li>
+<li><em>Spotify Loud &amp; Clear 2026</em>, Spotify Newsroom, 11 March 2026. <a href="https://newsroom.spotify.com/2026-03-11/loud-and-clear-music-economics-highlights/">https://newsroom.spotify.com/2026-03-11/loud-and-clear-music-economics-highlights/</a></li>
+<li><em>Atana Index Vol. 1 — Two Creative Time Zones: Latin America's Cultural Economies in the Agentic Era</em>, May 2026. Sections 3 (framework) and 6 (quadrant map). <a href="https://atana.studio">https://atana.studio</a></li>
+<li>Filippucci, F. et al. (2026), "AI meets trade," OECD AI Papers No. 57. Adoption projections and three-channel transmission framework.</li>
+<li>McKinsey &amp; Company (2026), <em>AI Trust Maturity Survey 2026</em> (n = 496; LATAM sub-sample = 43). Used for the regional responsible-AI maturity score.</li>
+<li>UNCTADstat, Creative Goods and Creative Services flows, 2024 cycle. Underlying data for Atana's AI Exposure and Readiness indices.</li>
+<li>Atana Análises 1–6 (2024–2026). Microdata foundation for cultural-workforce and trade analysis. Brazilian PNADC and UNCTAD-derived findings cited throughout.</li>
+</ol>
 
     <div class="footer-cta">
-      <h2>The framework in full</h2>
-      <p>This primer condenses the Atana Index Vol. 1 — the executive briefing on Latin America's creative economies in the agentic era.</p>
-      <a href="https://atana.studio" class="btn">Read the Atana Index →</a>
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
     </div>
   </div>
 </article>
 
+
 <footer class="site-footer">
   <div class="container">
-    <p>Atana — <a href="https://atana.studio">atana.studio</a> — <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a></p>
-    <p>Content licensed CC BY 4.0 · Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data</a></p>
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
   </div>
 </footer>
 

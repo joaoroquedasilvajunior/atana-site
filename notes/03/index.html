@@ -3,229 +3,378 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atana Note #03 — Quando 55,6% vira 5,0% | Atana</title>
-<meta name="description" content="A 'dependência sino-cultural' do Brasil em 2024 é 55,6% ou 5,0% — depende de qual definição de cultural você adota. Os dois números são corretos. Atana Note #03.">
-<meta property="og:title" content="Atana Note #03 — Quando 55,6% vira 5,0%">
-<meta property="og:description" content="A 'dependência sino-cultural' do Brasil depende de qual definição de cultural você adota. Atana Note #03.">
+<title>Atana Note #03 — Quando 55,6% vira 5,0%: a &#34;dependência da China&#34; do setor cultural brasileiro depende do que você chama de &#34;cultural&#34; | Atana</title>
+<meta name="description" content="Em 2024, a SECEX/IBGE diz 55,6%. O UNCTAD diz 5,0%. Os dois números são corretos — e a diferença entre eles enquadra dois debates de política pública completamente distintos.">
+<meta property="og:title" content="Atana Note #03 — Quando 55,6% vira 5,0%: a &#34;dependência da China&#34; do setor cultural brasileiro depende do que você chama de &#34;cultural&#34;">
+<meta property="og:description" content="Em 2024, a SECEX/IBGE diz 55,6%. O UNCTAD diz 5,0%. Os dois números são corretos — e a diferença entre eles enquadra dois debates de política pública completamente distintos.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://atana.studio/notes/03/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #1A1A1A;
-    --navy: #1F3A5F;
-    --olive: #6B7B3A;
-    --olive-dim: #8a9a52;
-    --brick: #8C2A2A;
-    --sand: #F4F1EB;
-    --sand-2: #E8DDC8;
-    --rule: #D6CFC0;
-    --muted: #5C5C5C;
-    --serif: 'Spectral', 'Georgia', serif;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--sand);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
 
-  .site-header {
-    border-bottom: 1px solid var(--rule);
-    padding: 18px 0;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(8px);
-    background: rgba(244, 241, 235, 0.95);
-  }
-  .site-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .brand {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--navy);
-    letter-spacing: 0.02em;
-    text-decoration: none;
-  }
-  .brand-suffix { color: var(--olive); margin-left: 6px; font-size: 14px; font-family: var(--sans); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: middle; }
-  .header-meta { font-size: 13px; color: var(--muted); letter-spacing: 0.04em; }
-  .header-meta a { color: var(--olive); text-decoration: none; margin-left: 18px; font-weight: 600; }
-  .header-meta a:hover { text-decoration: underline; }
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-  /* Note article */
-  article {
-    padding: 48px 0 80px;
-  }
-  .note-eyebrow {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--olive);
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  h1 {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: 38px;
-    line-height: 1.18;
-    color: var(--navy);
-    margin: 0 0 16px;
-  }
-  .deck {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 21px;
-    line-height: 1.45;
-    color: var(--muted);
-    margin: 0 0 28px;
-  }
-  .meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 24px;
-    padding: 14px 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 36px;
-  }
-  .meta strong { color: var(--ink); font-weight: 600; }
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
 
-  h2 {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: 26px;
-    color: var(--navy);
-    margin: 44px 0 16px;
-  }
-  p { margin: 0 0 18px; }
-  ul, ol { margin: 0 0 18px; padding-left: 22px; }
-  ul li, ol li { margin-bottom: 8px; }
-  strong { color: var(--ink); }
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
 
-  .callout {
-    background: var(--sand-2);
-    border-left: 4px solid var(--brick);
-    padding: 18px 22px;
-    margin: 28px 0;
-    font-family: var(--serif);
-    font-size: 19px;
-    line-height: 1.5;
-    color: var(--ink);
-  }
-  .callout strong { color: var(--brick); }
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
 
-  .compare {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    margin: 28px 0;
-    border: 1px solid var(--rule);
-  }
-  .compare-cell {
-    padding: 22px 24px;
-    background: white;
-  }
-  .compare-cell:first-child { border-right: 1px solid var(--rule); }
-  .compare-label {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-bottom: 6px;
-  }
-  .compare-number {
-    font-family: var(--serif);
-    font-size: 44px;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .compare-cell--brick .compare-number { color: var(--brick); }
-  .compare-cell--olive .compare-number { color: var(--olive); }
-  .compare-source {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 6px;
-  }
-  @media (max-width: 600px) {
-    .compare { grid-template-columns: 1fr; }
-    .compare-cell:first-child { border-right: 0; border-bottom: 1px solid var(--rule); }
-  }
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
 
-  .sources-section {
-    margin-top: 48px;
-    padding-top: 24px;
-    border-top: 1px solid var(--rule);
-    font-size: 15px;
-  }
-  .sources-section h2 { font-size: 18px; margin-top: 0; }
-  .sources-section ol li { font-size: 14px; color: var(--muted); }
-  .sources-section a { color: var(--olive); }
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
 
-  .footer-cta {
-    margin-top: 48px;
-    padding: 28px;
-    background: var(--navy);
-    color: var(--sand);
-    text-align: center;
-    border-radius: 2px;
-  }
-  .footer-cta h2 {
-    font-family: var(--serif);
-    color: var(--sand);
-    font-size: 22px;
-    margin: 0 0 8px;
-  }
-  .footer-cta p {
-    color: var(--sand-2);
-    margin: 0 0 16px;
-    font-size: 15px;
-  }
-  .btn {
-    display: inline-block;
-    padding: 10px 22px;
-    background: var(--olive);
-    color: var(--sand);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.03em;
-    border-radius: 2px;
-  }
-  .btn:hover { background: var(--olive-dim); }
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
 
-  .site-footer {
-    border-top: 1px solid var(--rule);
-    padding: 32px 0;
-    font-size: 13px;
-    color: var(--muted);
-    text-align: center;
-  }
-  .site-footer a { color: var(--olive); text-decoration: none; }
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
 
-  h1 { font-size: 32px; }
-  @media (min-width: 700px) { h1 { font-size: 38px; } }
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
 </style>
-<!-- atana:seo -->
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -241,10 +390,10 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Atana Note #03 — Quando 55,6% vira 5,0%">
-<meta name="twitter:description" content="A 'dependência sino-cultural' do Brasil em 2024 é 55,6% ou 5,0% — depende de qual definição de cultural você adota. Os dois números são corretos. Atana Note #03.">
+<meta name="twitter:title" content="Atana Note #03 — Quando 55,6% vira 5,0%: a &#34;dependência da China&#34; do setor cultural brasileiro depende do que você chama de &#34;cultural&#34;">
+<meta name="twitter:description" content="Em 2024, a SECEX/IBGE diz 55,6%. O UNCTAD diz 5,0%. Os dois números são corretos — e a diferença entre eles enquadra dois debates de política pública completamente distintos.">
 <meta name="twitter:image" content="https://atana.studio/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #03 — Quando 55,6% vira 5,0%","description":"A 'dependência sino-cultural' do Brasil em 2024 é 55,6% ou 5,0% — depende de qual definição de cultural você adota. Os dois números são corretos. Atana Note #03.","url":"https://atana.studio/notes/03/","mainEntityOfPage":"https://atana.studio/notes/03/","datePublished":"2026-05-16","dateModified":"2026-05-16","inLanguage":"pt","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #03 — Quando 55,6% vira 5,0%: a \"dependência da China\" do setor cultural brasileiro depende do que você chama de \"cultural\"","description":"Em 2024, a SECEX/IBGE diz 55,6%. O UNCTAD diz 5,0%. Os dois números são corretos — e a diferença entre eles enquadra dois debates de política pública completamente distintos.","url":"https://atana.studio/notes/03/","mainEntityOfPage":"https://atana.studio/notes/03/","datePublished":"2026-05-16","dateModified":"2026-05-16","inLanguage":"pt-br","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
 </head>
 <body>
 
@@ -252,99 +401,90 @@
   <div class="container">
     <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
     <div class="header-meta">
-      <a href="/">← Atana</a>
-      <a href="/notes/">Todas as notas</a>
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
     </div>
   </div>
 </header>
 
+
 <article>
   <div class="container">
-    <div class="note-eyebrow">Atana Note #03 · 16 May 2026 · 5 min read</div>
-    <h1>Quando 55,6% vira 5,0%: a "dependência da China" do setor cultural brasileiro depende do que você chama de "cultural"</h1>
+    <div class="note-eyebrow">Atana Note #03 · 16 May 2026 · 5 min read · PT</div>
+    <h1>Quando 55,6% vira 5,0%: a &#34;dependência da China&#34; do setor cultural brasileiro depende do que você chama de &#34;cultural&#34;</h1>
     <p class="deck">Em 2024, a SECEX/IBGE diz 55,6%. O UNCTAD diz 5,0%. Os dois números são corretos — e a diferença entre eles enquadra dois debates de política pública completamente distintos.</p>
-
     <div class="meta">
-      <div><strong>Autor:</strong> João Roque, Atana</div>
-      <div><strong>Tema:</strong> Comércio cultural, sino-dependência, metodologia</div>
-      <div><strong>Análises relacionadas:</strong> A4 §3.bis, A10</div>
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Cultural trade · Sino-dependence · Methodology</div>
+      <div><strong>Languages:</strong> PT · EN / ES to follow</div>
     </div>
 
-    <h2>O sinal</h2>
-    <p>Em maio de 2026, a publicação IBGE <em>Informações Culturais</em> atualizou suas tabelas de comércio exterior cultural (10.1–10.4), confirmando um achado já documentado na Análise 10 da Atana: em 2024, 55,6% das importações de bens culturais do Brasil vieram de uma única origem — a China. É mais que 2,3× a participação chinesa nas importações totais brasileiras (24,3%), e dobrou em oito anos (de 41,4% em 2014).</p>
-    <p>Mas quando rodamos a mesma consulta contra o banco do UNCTAD Creative Economy para o mesmo ano e o mesmo país, o número que voltou foi 5,0%.</p>
-
-    <div class="compare">
-      <div class="compare-cell compare-cell--brick">
-        <div class="compare-label">SECEX / IBGE</div>
-        <div class="compare-number">55,6%</div>
-        <div>importações culturais vindas da China (2024)</div>
-        <div class="compare-source">Definição ampla: inclui caps. NCM 84, 85, 95 (equipamento)</div>
-      </div>
-      <div class="compare-cell compare-cell--olive">
-        <div class="compare-label">UNCTAD CER000</div>
-        <div class="compare-number">5,0%</div>
-        <div>importações criativas vindas da China (2024)</div>
-        <div class="compare-source">Definição estreita: apenas bens criativos próprios</div>
-      </div>
-    </div>
-
-    <p>Os dois números são corretos. Eles medem coisas diferentes — e essa diferença importa mais do que qualquer um dos números isoladamente.</p>
-
-    <h2>Por que importa para as economias criativas da América Latina</h2>
-    <p>O gap de 50 pontos entre os 55,6% do SECEX/IBGE e os 5,0% do UNCTAD é metodológico, não erro de medida. A IBGE classifica como "cultural" porções substanciais dos capítulos NCM 84 (máquinas), 85 (equipamentos elétricos para som e imagem) e 95 (brinquedos e jogos) por causa de seu uso final em produção e consumo cultural — câmeras, projetores, equipamento de áudio, mídias gravadas, consoles. Juntos, esses três capítulos respondem por <strong>77% das importações "culturais" brasileiras</strong>, e a participação chinesa dentro deles passa de 60%.</p>
-    <p>A classificação do <em>Creative Economy Outlook</em> do UNCTAD é mais estreita. Inclui apenas as 13 categorias-folha de bens criativos propriamente ditos: artesanato, livros, música, design, joalheria, software/mídia gravada (CER060), patrimônio. Por essa definição — mais próxima do que um ministério das artes ou da cultura chamaria de "criativo" — a China é 5,0% dos bens criativos brasileiros, em linha com todos os pares LATAM relevantes (México 2,8%, Colômbia 4,8%, Argentina 4,7%).</p>
-
-    <div class="callout">
-      <strong>Isso não é um debate técnico obscuro.</strong> É a diferença entre dois debates de política pública distintos — que levam a respostas opostas.
-    </div>
-
-    <p>Sob a lente IBGE, o Brasil tem um problema de sino-dependência na <em>infraestrutura de produção cultural</em> — as máquinas e eletrônicos que viabilizam audiovisual, editorial, animação. O risco é real e similar ao de qualquer país construindo indústrias criativas sobre equipamento importado.</p>
-    <p>Sob a lente UNCTAD, o Brasil tem um perfil LATAM perfeitamente normal de importação de bens criativos, e a conversa migra para o lado da exportação — onde o Brasil é dramaticamente <em>diferente</em> dos pares (90,6% das exportações criativas brasileiras são serviços, segundo cruzamento Comex + UNCTAD).</p>
-    <p>Se você enquadra o debate público como "o setor cultural está capturado pela China", está implicitamente adotando a definição IBGE sem dizê-lo. E a resposta de política que se segue — onshoring, incentivo fiscal a fabricantes domésticos de equipamento, defesa comercial — é apropriada para os capítulos 84/85/95, mas irrelevante para os bens criativos próprios (livros, música, design).</p>
-
-    <h2>O que o dado Atana diz</h2>
-    <p>O gap metodológico existe porque as duas agências estatísticas respondem a perguntas diferentes. A IBGE desenhou sua classificação cultural em 2007, em consulta com o Ministério da Cultura, para sustentar política cultural rastreando a cadeia produtiva inteira. O UNCTAD desenhou sua taxonomia CER uma década antes, para sustentar política comercial rastreando o valor do conteúdo criativo internacional.</p>
-    <p>Quando cruzamos a mesma consulta contra 10 pares LATAM usando dados do UNCTAD, o resultado é uniforme: a China responde por 3–5% das importações de bens criativos em toda a região. Não há país LATAM em que o número UNCTAD para "bens criativos chineses" se aproxime dos 55,6% que a IBGE encontra para o Brasil. A "anomalia" é a inclusão da eletrônica de consumo; não é um fenômeno específico do setor criativo brasileiro.</p>
-    <p>Para a Atana, a implicação prática é que <em>devemos sempre declarar qual metodologia estamos usando</em>. A Análise 10 será atualizada para notar explicitamente essa divergência (uma correção parcial já foi feita em nosso repositório interno em 16 de maio de 2026).</p>
-
-    <h2>Implicações para a política</h2>
-    <p>Para estrategistas do Ministério da Cultura brasileiro, a definição operacional importa em três frentes:</p>
-    <ol>
-      <li><strong>Reformas regulatórias</strong> (como o proposto Marco da Economia Criativa) precisam ser específicas sobre qual definição de "cultural" cobrem. Um projeto de lei que incentive a produção doméstica de "bens culturais" terá impacto fiscal muito diferente dependendo de capturar câmeras de TV ou não.</li>
-      <li><strong>O debate da Lei do Audiovisual</strong> precisa ser acoplado ao debate da cadeia de fornecimento de equipamentos — elas estão mecanicamente ligadas pela contabilidade IBGE, mesmo sendo preocupações distintas pela contabilidade UNCTAD.</li>
-      <li><strong>Comparação internacional</strong> — ao comparar o Brasil a Argentina, Colômbia ou México em "sino-dependência cultural", o default é a metodologia UNCTAD, para evitar uma armadilha apples-to-oranges que infla o número brasileiro em uma ordem de magnitude.</li>
-    </ol>
-
-    <h2>O que estamos observando</h2>
-    <ul>
-      <li><strong>UNCTAD Creative Economy Outlook 2025 (outubro)</strong> — provavelmente refinará a taxonomia CER em resposta às discussões da era agêntica do <em>Technical Report 2024</em>.</li>
-      <li><strong>Próxima publicação anual da IBGE</strong> — observar se adiciona classificação secundária alinhada com UNCTAD.</li>
-      <li><strong>Documentos de política Bonn ou São Paulo</strong> que citem o número 55,6% sem ressalva metodológica — candidatos a Atana clarification reply.</li>
-    </ul>
-
-    <div class="sources-section">
-      <h2>Fontes</h2>
-      <ol>
-        <li>IBGE — <em>Sistema de Informações e Indicadores Culturais (SIIC) 2014–2024</em>, Tabela 10.3 (SECEX/MDIC). Disponível em <a href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/ibge_comex">md:atana.ibge_comex.tab_10_3</a>.</li>
-        <li>UNCTADstat — <em>Creative Economy</em>, tabela <code>creative_goods_value</code>. Disponível em <a href="https://github.com/joaoroquedasilvajunior/atana-data/tree/main/raw/unctad">md:atana.unctad.goods_value</a>.</li>
-        <li>UNCTAD — <em>Creative goods groups (HS 2022)</em>, documento de hierarquia da classificação, abril 2025. <a href="https://unctadstat.unctad.org/EN/Classifications/DimHS2022Products_Creatives_Hierarchy.pdf">PDF oficial</a>.</li>
-        <li>Atana — Análise 10 (<em>Comércio Exterior de Bens e Serviços Culturais — Brasil 2014–2024</em>) e Análise 4 §3.bis.</li>
-      </ol>
-    </div>
+    <h2>The signal</h2>
+<p>In May 2026, the IBGE publication <em>Informações Culturais</em> updated its cultural foreign trade tables (10.1–10.4), confirming a finding flagged in our Análise 10: in 2024, 55,6% of Brazil's cultural goods imports came from a single origin — China. This is more than 2,3× the China share of total Brazilian imports (24,3%), and it doubled in eight years (China was 41,4% in 2014).</p>
+<p>But when we ran the same query against the UNCTAD Creative Economy database for the same year and the same country, the number that came back was 5,0%.</p>
+<p>Both numbers are correct. They mean different things — and that difference matters more than either number alone.</p>
+<h2>Why it matters for LATAM creative economies</h2>
+<p>The 50-point gap between SECEX/IBGE's 55,6% and UNCTAD's 5,0% is methodological, not measurement error. IBGE classifies a portion of NCM chapters 84 (machinery), 85 (electrical equipment for sound and image), and 95 (toys and games) as "cultural" because of their end-use in cultural production and consumption — cameras, projectors, audio equipment, recording media, gaming consoles. Together, these three chapters account for <strong>77% of Brazil's "cultural" goods imports</strong>, and the China share within them runs upward of 60%.</p>
+<p>UNCTAD's Creative Economy Outlook classification is narrower. It includes only the 13 leaf categories of creative goods proper: art crafts, books, music, design, jewellery, software/recorded media (CER060), and so on. By that definition — closer to what an arts or culture ministry would call "creative" — China's share of Brazilian creative goods is 5,0%, in line with all major LATAM peers (Mexico 2,8%, Colombia 4,8%, Argentina 4,7%).</p>
+<p>This isn't an obscure data quibble. <strong>It's the difference between two policy debates:</strong></p>
+<ul>
+<li>
+<p>Under the IBGE lens, Brazil has a sino-dependence problem in its <em>cultural production infrastructure</em> — the machines and electronics that enable filmmaking, publishing, animation. The risk is real and similar to that of any country building creative industries on imported equipment.</p>
+</li>
+<li>
+<p>Under the UNCTAD lens, Brazil has a perfectly normal LATAM profile of imported creative goods, and the conversation moves to the export side, where Brazil is dramatically <em>unlike</em> its peers (90,6% of creative exports are services — see Análise 6).</p>
+</li>
+</ul>
+<p>If you frame the policy debate around "the cultural sector is captured by China," you're implicitly adopting the IBGE definition without saying so. And the policy response that follows — onshoring, tax incentives for domestic equipment makers, trade defense — is appropriate for cap. 84/85/95, but irrelevant for the actual creative goods themselves (books, music, design).</p>
+<h2>What Atana data says</h2>
+<p>The methodological gap exists because the two statistical offices answer different questions. Brazil's IBGE designed its cultural classification in 2007, in consultation with the <em>Ministério da Cultura</em> — to support cultural policy by tracking the entire production chain. UNCTAD designed its CER taxonomy a decade earlier, to support trade policy by tracking the value of creative content traded internationally.</p>
+<p>When we cross-checked the same query against 10 LATAM peers using UNCTAD data, the result was striking in its uniformity: China averages 3–5% of creative goods imports across the region. There is no LATAM country where UNCTAD's "creative goods" number for China approaches the 55,6% that IBGE finds for Brazil. The "anomaly" is the inclusion of consumer electronics; it isn't a Brazil-specific creative-sector phenomenon.</p>
+<p>For Atana, the practical implication is that <em>we should always state which methodology we are using</em>, and our Análise 10 will be updated to explicitly note this divergence (a partial correction was already merged in our internal repo on 2026-05-16).</p>
+<h2>Implication for policy</h2>
+<p>For Brazilian Ministério da Cultura strategists, the working definition matters in three ways:</p>
+<ol>
+<li>
+<p><strong>Reformas regulatórias</strong> (e.g., the proposed <em>Marco da Economia Criativa</em>) should be specific about which definition of "cultural" they cover. A bill that incentivizes domestic production of "cultural goods" will have very different fiscal impact depending on whether it captures TV cameras or not.</p>
+</li>
+<li>
+<p><strong>The Lei do Audiovisual debate</strong> should be coupled to the equipment-supply chain debate — they are mechanically linked under IBGE's accounting, even if they are separate concerns under UNCTAD's.</p>
+</li>
+<li>
+<p><strong>International comparison</strong> — when comparing Brazil to Argentina, Colombia, or México on "sino-dependence in cultural goods", default to UNCTAD's methodology to avoid an apples-to-oranges trap that inflates Brazil's number by an order of magnitude.</p>
+</li>
+</ol>
+<h2>What we are watching next</h2>
+<ul>
+<li><strong>UNCTAD Creative Economy Outlook 2025 (October)</strong> — will likely refine its CER taxonomy in response to the agentic-era discussions in the latest <em>Creative Economy Outlook 2024 Technical Report</em>.</li>
+<li><strong>The next IBGE <em>Informações Culturais</em> release (annual)</strong> — whether the publication adds a UNCTAD-aligned secondary classification.</li>
+<li><strong>Any Bonn or São Paulo policy paper</strong> that cites the 55,6% number without methodological disclosure — this is a candidate for an Atana clarification reply.</li>
+</ul>
+<hr>
+<h2>Sources</h2>
+<ol>
+<li>IBGE — <em>Sistema de Informações e Indicadores Culturais (SIIC) 2014–2024</em>, Tabela 10.3 (SECEX/MDIC). Live in <code>md:atana.ibge_comex.tab_10_3</code>.</li>
+<li>UNCTADstat — <em>Creative Economy</em>, table <code>creative_goods_value</code>. Live in <code>md:atana.unctad.goods_value</code>.</li>
+<li>UNCTAD — <em>Creative goods groups (HS 2022)</em>, classification hierarchy document, April 2025. https://unctadstat.unctad.org/EN/Classifications/DimHS2022Products_Creatives_Hierarchy.pdf</li>
+<li>Análise 10 — <em>Comércio Exterior de Bens e Serviços Culturais (Brasil 2014–2024)</em>, Atana.</li>
+<li>Análise 4 §3.bis — methodological ressalva on UNCTAD CER023 vs. IBGE NCM 94 (mobiliário/design), Atana.</li>
+<li>Notas de exploração cross-source 2026-05-16, §"Insight 1", Atana internal.</li>
+</ol>
 
     <div class="footer-cta">
-      <h2>Dados abertos. Análises reproduzíveis.</h2>
-      <p>Esta nota foi escrita inteiramente contra o <code>md:atana</code> — nossa infraestrutura aberta de dados sobre economias criativas da América Latina.</p>
-      <a href="https://github.com/joaoroquedasilvajunior/atana-data" class="btn">Explorar atana-data →</a>
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
     </div>
   </div>
 </article>
 
+
 <footer class="site-footer">
   <div class="container">
-    <p>Atana — <a href="https://atana.studio">atana.studio</a> — <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a></p>
-    <p>Conteúdo licenciado CC BY 4.0 · Código MIT</p>
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
   </div>
 </footer>
 
