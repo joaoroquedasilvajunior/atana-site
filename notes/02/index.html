@@ -162,6 +162,20 @@ article strong { color: var(--ink); }
 article a { color: var(--olive); }
 article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
 
+/* Note figures — responsive cap, centered, vertical breathing room.
+   PNG sources tend to be 2000+ px wide; without this they overflow the
+   720px text column or render at native pixel size. */
+article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
+  border-radius: 2px;
+}
+/* Markdown wraps ![alt](src) in a <p>; collapse that wrapper's vertical
+   margin so the figure's own margin governs spacing (avoids double gap). */
+article p:has(> img:only-child) { margin: 0; }
+
 /* leading epigraph / pull quotes inside a note body */
 article blockquote {
   margin: 24px 0;
