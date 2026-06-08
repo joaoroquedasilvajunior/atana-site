@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #09 — RAIS × PNADC: a década da erosão silenciosa do contrato cultural formal brasileiro | Atana</title>
+<meta name="description" content="Doze anos do registro administrativo do MTE leem o setor cultural formal: entre 2014 e 2025 o número de vínculos voltou ao nível inicial (+1,5%), mas o salário real médio caiu 7,3%. No recorte de vínculos em empresas culturais (Corte A), a queda mediana foi de 12,4% em três anos; no domínio Patrimônio cultural, perdeu-se um terço do salário real. A recuperação aconteceu onde o trabalho vale menos. Preprint citável; paper acadêmico em preparação para 2026Q4–2027Q1.">
+<meta property="og:title" content="Atana Note #09 — RAIS × PNADC: a década da erosão silenciosa do contrato cultural formal brasileiro">
+<meta property="og:description" content="Doze anos do registro administrativo do MTE leem o setor cultural formal: entre 2014 e 2025 o número de vínculos voltou ao nível inicial (+1,5%), mas o salário real médio caiu 7,3%. No recorte de vínculos em empresas culturais (Corte A), a queda mediana foi de 12,4% em três anos; no domínio Patrimônio cultural, perdeu-se um terço do salário real. A recuperação aconteceu onde o trabalho vale menos. Preprint citável; paper acadêmico em preparação para 2026Q4–2027Q1.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/09/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* Note figures — responsive cap, centered, vertical breathing room.
+   PNG sources tend to be 2000+ px wide; without this they overflow the
+   720px text column or render at native pixel size. */
+article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
+  border-radius: 2px;
+}
+/* Markdown wraps ![alt](src) in a <p>; collapse that wrapper's vertical
+   margin so the figure's own margin governs spacing (avoids double gap). */
+article p:has(> img:only-child) { margin: 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/09/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Note #09 — RAIS × PNADC: a década da erosão silenciosa do contrato cultural formal brasileiro">
+<meta name="twitter:description" content="Doze anos do registro administrativo do MTE leem o setor cultural formal: entre 2014 e 2025 o número de vínculos voltou ao nível inicial (+1,5%), mas o salário real médio caiu 7,3%. No recorte de vínculos em empresas culturais (Corte A), a queda mediana foi de 12,4% em três anos; no domínio Patrimônio cultural, perdeu-se um terço do salário real. A recuperação aconteceu onde o trabalho vale menos. Preprint citável; paper acadêmico em preparação para 2026Q4–2027Q1.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #09 — RAIS × PNADC: a década da erosão silenciosa do contrato cultural formal brasileiro","description":"Doze anos do registro administrativo do MTE leem o setor cultural formal: entre 2014 e 2025 o número de vínculos voltou ao nível inicial (+1,5%), mas o salário real médio caiu 7,3%. No recorte de vínculos em empresas culturais (Corte A), a queda mediana foi de 12,4% em três anos; no domínio Patrimônio cultural, perdeu-se um terço do salário real. A recuperação aconteceu onde o trabalho vale menos. Preprint citável; paper acadêmico em preparação para 2026Q4–2027Q1.","url":"https://atana.studio/notes/09/","mainEntityOfPage":"https://atana.studio/notes/09/","datePublished":"2026-06-08","dateModified":"2026-06-08","inLanguage":"pt-br","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #09 · 8 Jun 2026 · 14 min read · PT</div>
+    <h1>RAIS × PNADC: a década da erosão silenciosa do contrato cultural formal brasileiro</h1>
+    <p class="deck">Doze anos do registro administrativo do MTE leem o setor cultural formal: entre 2014 e 2025 o número de vínculos voltou ao nível inicial (+1,5%), mas o salário real médio caiu 7,3%. No recorte de vínculos em empresas culturais (Corte A), a queda mediana foi de 12,4% em três anos; no domínio Patrimônio cultural, perdeu-se um terço do salário real. A recuperação aconteceu onde o trabalho vale menos. Preprint citável; paper acadêmico em preparação para 2026Q4–2027Q1.</p>
+    <div class="meta">
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Cultural labor · RAIS administrative panel · Cultural employment · Brazil</div>
+      <div><strong>Languages:</strong> PT · EN / ES to follow</div>
+    </div>
+
+    <h2>Indicativo</h2>
+<p>Entre 2014 e 2025 o número de vínculos formais no setor cultural brasileiro praticamente não mudou: saiu de 1,07 milhão e terminou em 1,09 milhão (+1,5%). Pelo agregado, é uma história de estabilidade. Pelos números por dentro, é uma história muito diferente. <strong>O salário real médio do trabalhador cultural formal caiu 7,3% em doze anos. No Corte A — vínculos em empresas culturais —, a queda mediana foi de 12,4%. No domínio Patrimônio cultural, perdeu-se um terço do salário real. A recuperação do emprego cultural formal aconteceu, em larga medida, onde o trabalho vale menos.</strong></p>
+<p>Esse é o achado central que a extensão do painel <code>atana.rais.*</code> para 2014–2025, concluída em junho de 2026 com a ingestão das safras 2024 e 2025, tornou visível. A versão anterior desta análise (dados até 2023) havia chamado a recuperação pós-pandêmica de "oca". Com mais dois anos no painel, a descrição precisa de retoque para ser mais precisa: a recuperação em vínculos é real e ligeiramente positiva, mas convive com uma erosão do valor real do contrato que não tem paralelo na série pré-2023. </p>
+<hr>
+<h2>Por que importa</h2>
+<p>A economia cultural brasileira é discutida, há mais duas décadas, em torno de narrativas de crescimento, com números absolutos e com foco muitas vezes em um dado generalizante. A indústria criativa cresce, o streaming explode, o setor audiovisual exporta, etc. A Atana Note #08, com base em dados da IFPI e da CISAC, mostrou que, mesmo em meio ao boom da receita de gravadoras na América Latina (+17,1% YoY em 2025), a arrecadação autoral via gestão coletiva contraiu na mesma região (−0,6%), isto é, alguém entre as duas estações da cadeia ficou com a diferença. Esta nota acrescenta à leitura do trabalho: do lado brasileiro do gap, o emprego cultural formal não desapareceu, mas perdeu valor real de contrato em doze anos. O uso nesta análise do salário deflacionado em R\$ de 2024 é a unidade contábil que faltava para fechar o quadro distributivo do boom.</p>
+<p>A variedade de lentes importa para a política pública de cultura por três razões. <strong>Primeiro</strong>, o registro formal é o único universo sobre o qual a política trabalhista dispõe de instrumentos diretos: o salário mínimo, os pisos sindicais, o FGTS e a previdência. O que acontece aqui mede o que a política trabalhista entrega. <strong>Segundo</strong>, é a fração do trabalho cultural mais protegida da economia, portanto, se a erosão é forte aqui, a do trabalho informal (43% do setor, segundo a PNAD) é, por construção, ainda mais profunda. <strong>Terceiro</strong>, doze anos de painel administrativo permitem comparações estruturais que pesquisas amostrais não suportam: vale dizer com confiança que o setor cultural formal de 2025 tem aproximadamente o mesmo tamanho de 2014 em quantidade de contratos, mas é um setor com menos núcleo, mais borda, salário real menor e mais intermitência.</p>
+<hr>
+<h2>A lente formal e a lente domiciliar</h2>
+<p>Esta análise muda de fonte em relação às Análises 1–3 da série Economia Cultural. As três anteriores mediram o trabalho cultural pela <strong>PNAD Contínua</strong> — a pesquisa domiciliar que abrange o universo inteiro (formal e informal) e registrou 5,86 milhões de trabalhadores culturais em 2024. Esta análise muda para a <strong>RAIS</strong> (Relação Anual de Informações Sociais), o censo administrativo que o Ministério do Trabalho compila a partir das declarações anuais de cada empregador. A RAIS só reconhece o vínculo formal: o contrato assinado. É uma fração da economia cultural, cerca de um milhão de vínculos ativos contra os quase seis milhões da PNAD, mas é a fração sobre a qual o Estado tem instrumento direto de política, e é a fração que doze anos de registros administrativos permitem acompanhar com precisão que a pesquisa amostral não alcança.</p>
+<p>Para identificar o vínculo cultural, esta análise usa, seguindo a metodologia do SIIC/IBGE, dois recortes:</p>
+<ul>
+<li><strong>Corte A — empresa cultural:</strong> o vínculo está numa das 33 classes CNAE 2.0 consideradas culturais.</li>
+<li><strong>Corte B — ocupação cultural:</strong> a pessoa exerce uma das 62 famílias ocupacionais culturais da CBO 2002.</li>
+</ul>
+<p>A <strong>força de trabalho cultural formal</strong> é a união dos dois cortes (A∪B); a interseção (A∩B) é o que chamamos de <strong>núcleo especializado</strong> — o segmento menos ambíguo.</p>
+<hr>
+<h2>O que os dados dizem</h2>
+<h3>1. A queda anterior à pandemia</h3>
+<p>Entre 2014 e 2020, a força de trabalho cultural formal caiu de 1,07 milhão para 874 mil vínculos: uma contração de <strong>−18,4% em seis anos</strong>. O ponto decisivo é que a queda antecede a pandemia: 2014–2019 já havia eliminado 15% dos vínculos antes de a covid-19 chegar. A recessão de 2015–2016, a Reforma Trabalhista de 2017 e o desmonte do Ministério da Cultura entre 2019 e 2022 compõem o pano de fundo. O setor cultural formal não cresceu na década de 2010; encolheu de forma sustentada, e a pandemia apenas acelerou um movimento já em curso.</p>
+<p><img alt="Trajetória do emprego cultural formal brasileiro 2014-2025, por corte" src="figR1_trajetoria_emprego_formal.png"></p>
+<p><em>Figura 1 — Trajetória do emprego cultural formal brasileiro 2014–2025, por corte. A∪B = força cultural formal (união dos cortes); A = vínculos em empresa cultural; B = vínculos em ocupação cultural (em qualquer empresa); A∩B = núcleo especializado (ocupação cultural em empresa cultural). Vínculos ativos em 31 de dezembro de cada ano. Fonte: <code>atana.rais.vinculos_culturais</code> v41.</em></p>
+<h3>2. Recuperação em quantidade, colapso em valor</h3>
+<p>A partir de 2021 o total se recupera em número de vínculos, e em 2025 alcança 1,09 milhão, pela primeira vez em onze anos <em>acima</em> de 2014. O salário real médio, porém, caiu de R\$ 4.199 (2014) para R\$ 3.893 (2025) — <strong>−7,3% em doze anos</strong>, ou cerca de meio mês de salário perdido por ano. No Corte A, onde se concentra a recuperação de vínculos (+15,2%), a queda salarial mediana foi mais aguda: R\$ 4.711 → R\$ 4.127 = <strong>−12,4% em três anos</strong> (2022→2025). A maior queda anual em um único pulo aconteceu em 2022→2023 (−8,5% no salário médio agregado); as safras 2024 e 2025 estabilizaram nesse novo patamar inferior, em vez de recuperar.</p>
+<h3>3. A erosão é desigual e profunda</h3>
+<p>A queda média esconde uma heterogeneidade brutal entre domínios. Por domínio (Corte A, salário mediano real em R\$ de 2024):</p>
+<table>
+<thead>
+<tr>
+<th>Domínio</th>
+<th style="text-align: right;">2014</th>
+<th style="text-align: right;">2025</th>
+<th style="text-align: right;">Variação real</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apresentações e celebrações</td>
+<td style="text-align: right;">R\$ 2.229</td>
+<td style="text-align: right;">R\$ 2.389</td>
+<td style="text-align: right;">+7,2%</td>
+</tr>
+<tr>
+<td>Mídias audiovisuais</td>
+<td style="text-align: right;">R\$ 2.881</td>
+<td style="text-align: right;">R\$ 3.051</td>
+<td style="text-align: right;">+5,9%</td>
+</tr>
+<tr>
+<td>Artes visuais e artesanato</td>
+<td style="text-align: right;">R\$ 2.304</td>
+<td style="text-align: right;">R\$ 2.345</td>
+<td style="text-align: right;">+1,8%</td>
+</tr>
+<tr>
+<td>Livro e imprensa</td>
+<td style="text-align: right;">R\$ 3.106</td>
+<td style="text-align: right;">R\$ 3.035</td>
+<td style="text-align: right;">−2,3%</td>
+</tr>
+<tr>
+<td><strong>Design e serviços criativos</strong></td>
+<td style="text-align: right;">R\$ 2.374</td>
+<td style="text-align: right;">R\$ 1.951</td>
+<td style="text-align: right;"><strong>−17,8%</strong></td>
+</tr>
+<tr>
+<td><strong>Patrimônio cultural</strong></td>
+<td style="text-align: right;">R\$ 3.340</td>
+<td style="text-align: right;">R\$ 2.251</td>
+<td style="text-align: right;"><strong>−32,6%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>O domínio que mais cresceu em vínculos formais — Design e serviços criativos (+139%) — foi o que mais perdeu em salário real. O domínio Patrimônio cultural, em paralelo, quase dobrou de tamanho (+78,6%) e perdeu <strong>um terço do salário real</strong>. Os outros quatro domínios terminaram 2025 com salário real estável ou levemente positivo. O quadro é o seguinte: o crescimento do emprego cultural formal ocorreu sobretudo onde o salário real caiu acentuadamente. <strong>O emprego cultural formal cresceu na ponta em que o trabalho vale menos.</strong></p>
+<p><img alt="Salário mediano real por domínio cultural 2014 vs 2025" src="figR7_salario_real_dominio.png"></p>
+<p><em>Figura 2 — Salário mediano real por domínio cultural (Corte A), 2014 vs 2025, em R\$ de 2024 (deflação IPCA, BCB SGS série 433). Patrimônio cultural perdeu um terço do salário real em doze anos (−32,6%); Design e serviços criativos perdeu 18% (−17,8%). Os demais quatro domínios terminaram 2025 estáveis ou levemente positivos. Fonte: <code>atana.rais.vinculos_culturais</code> v41.</em></p>
+<h3>4. O boom do Design é um código catch-all</h3>
+<p>O Design cresceu 134 mil vínculos em doze anos. <strong>Mais de 92% desse crescimento (123 mil dos 134 mil) está numa única classe</strong>: a CNAE 73190 ("Atividades de publicidade não especificadas anteriormente"), um código residual que, pela análise interna de salários e porte, agrega operações de telemarketing, equipes de eventos promocionais e distribuição porta-a-porta. A 73190 passou de 48% do domínio Design em 2014 para <strong>74% em 2025</strong>, portanto, a concentração não se diluiu, mas consolidou-se. Retirado o 73190, o domínio Design cresceu modestos 21% em doze anos. Boa parte da "recuperação" do emprego cultural formal é a expansão de um código de classificação administrativa de baixa qualidade — não a expansão do emprego criativo qualificado.</p>
+<p><img alt="Inchaço do Design — CNAE 73190 catch-all vs demais classes" src="figR4_inchaco_design.png"></p>
+<p><em>Figura 3 — O "boom do Design" é, em 2025, ainda mais concentrado no código catch-all 73190 ("Atividades de publicidade não especificadas anteriormente"). A 73190 cresceu +267% em doze anos (46 mil → 169 mil vínculos); o restante do domínio cresceu modestos +21% (50 mil → 61 mil). Fonte: <code>atana.rais.vinculos_culturais</code> v41, domínio SIIC design_servicos_criativos, Corte A.</em></p>
+<h3>5. O núcleo especializado não voltou</h3>
+<p>O núcleo (A∩B) — trabalhadores em ocupação cultural dentro de empresa cultural — passou de 146.450 vínculos em 2014 para 114.661 em 2025: contração de <strong>−21,7%</strong>. O núcleo atingiu o vale em 2020 e recuperou apenas parcialmente até 2022; as duas safras novas (2024 e 2025) mostram que essa recuperação se interrompeu. Diferentemente do agregado, o núcleo especializado não reencontrou o nível de 2014; portanto, a sua estagnação recente não apresenta o problema de cobertura do eSocial. O setor cresceu na periferia de classificação incerta; o centro qualificado segue 22% abaixo do que há uma década.</p>
+<h3>6. Intermitência em nova fase</h3>
+<p>O contrato intermitente, criado pela Reforma Trabalhista de 2017, passou de inexistente (antes da Lei 13.467/2017) para <strong>3,4% dos vínculos culturais formais ativos em 2025</strong>. A versão anterior desta análise (até 2023) sugeriu que a adoção havia estabilizado em torno de 4,3%; a nova série mostra que, sob medida recomputada de forma defensiva, o intermitente passou por 1,7% (2023) → 2,4% (2024) → 3,4% (2025). A precarização dentro da moldura formal não terminou — está em nova fase, e parte do salto 2024–2025 acontece fora da janela do eSocial, então não pode ser atribuído a melhor captura administrativa. O tempo de emprego mediano, em paralelo, recuou de 34,8 meses (pico em 2020) para 25,9 meses em 2025: mais intermitência, vínculos mais curtos.</p>
+<p><img alt="Precarização dentro da moldura formal — intermitente e tempo de emprego mediano" src="figR6_precarizacao_formal.png"></p>
+<p><em>Figura 4 — Precarização dentro da moldura formal. Barras (eixo esquerdo) = contrato intermitente como porcentagem dos vínculos culturais formais ativos (A∪B): 0% antes da Reforma Trabalhista de 2017, 3,4% em 2025; o salto de 2024 → 2025 acontece fora da janela do eSocial, portanto não é artefato de melhor captura administrativa. Linha (eixo direito) = tempo de emprego mediano em meses: pico de 34,8 em 2020, recuou para 25,9 em 2025. Fonte: <code>atana.rais.vinculos_culturais</code> v41.</em></p>
+<hr>
+<h2>Dois hiatos, dois destinos</h2>
+<p>A Análise 1 mediu, na PNAD, um hiato salarial de gênero de 34% e um hiato racial de 41% no setor cultural, considerando o universo total, tanto formal quanto informal. A RAIS permite medir os mesmos hiatos dentro da moldura formal:</p>
+<table>
+<thead>
+<tr>
+<th>Ano</th>
+<th style="text-align: right;">Hiato de gênero (formal)</th>
+<th style="text-align: right;">Hiato racial (formal)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014</td>
+<td style="text-align: right;">3,8%</td>
+<td style="text-align: right;">30,0%</td>
+</tr>
+<tr>
+<td>2020</td>
+<td style="text-align: right;">1,2%</td>
+<td style="text-align: right;">29,8%</td>
+</tr>
+<tr>
+<td>2023</td>
+<td style="text-align: right;">1,5%</td>
+<td style="text-align: right;">26,4%</td>
+</tr>
+<tr>
+<td><strong>2025</strong></td>
+<td style="text-align: right;"><strong>−0,9%</strong></td>
+<td style="text-align: right;"><strong>27,3%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Dois fatos. <strong>Primeiro</strong>, a formalização reduz os dois hiatos: o de gênero cai de 34% (PNAD) para 4% ou menos (RAIS); o racial, de 41% para ~27–30%. O contrato formal, com piso, jornada e remuneração negociada, reduz a discricionariedade que amplia desigualdades no trabalho informal. <strong>Segundo</strong>, a compressão é racialmente seletiva. O hiato de gênero continuou se estreitando e virou levemente negativo em 2024–2025 (mulheres ganham, em média, ~1% mais nessa medida). O hiato racial caiu de 30,0% para 27,3%, uma redução de 2,7 pontos percentuais em doze anos, em comparação com os ~4–5 pontos do hiato de gênero. <strong>A penalidade racial sobrevive ao contrato assinado; a de gênero, em larga medida, não.</strong></p>
+<p><img alt="Hiatos salariais de gênero e raça na força de trabalho cultural formal 2014-2025" src="figR8_dois_hiatos.png"></p>
+<p><em>Figura 5 — Hiato salarial de gênero (homem/mulher) e racial (branco/preto-pardo) na força de trabalho cultural formal brasileira (A∪B), 2014–2025. O hiato racial caiu apenas 2,7 pontos percentuais em doze anos e segue acima de 27%; o hiato de gênero virou levemente negativo em 2024–2025 (mulheres ganham ~1% mais nesta medida). A formalização protege, mas protege de forma racialmente desigual. Caveat: a medida é sensível ao filtro (média de remuneração positiva sobre A∪B sem restrição de tempo integral); a Análise 11 v1 usava medida ligeiramente diferente — direção qualitativa robusta nas duas. Fonte: <code>atana.rais.vinculos_culturais</code> v41.</em></p>
+<p>A implicação para a política pública é bastante clara: formalizar o trabalho cultural - meta legítima e necessária — reduzirá a desigualdade de gênero quase automaticamente, mas não, ou apenas lentamente, reduzirá a desigualdade racial: esta exige instrumento próprio, dirigido, que a formalização sozinha não entrega.</p>
+<hr>
+<h2>A leitura cross-LATAM</h2>
+<p>A Atana Note #08 documentou em maio de 2026 um gap de +17,7 pontos percentuais entre o IFPI Global Music Report 2026 (receita de gravadora label-side, LATAM +17,1% em 2025) e o CISAC Global Collections Report 2025 (arrecadação autoral via CMO, LATAM −0,6% em 2024) — mesma região, mesma janela, direções opostas. O emprego cultural formal brasileiro, conforme esta nota, está posicionado entre essas duas estações da cadeia. Em doze anos, o estoque de vínculos cresceu apenas 1,5%, enquanto o salário real perdeu 7,3%; do lado audiovisual, especificamente, o emprego formal encolheu 20% no mesmo período em que a balança de serviços audiovisuais do Brasil registrou sete anos de superávit recorde (2016–2023).</p>
+<p><strong>As três medidas são compatíveis com uma cadeia em que o boom é capturado em moeda forte pelas estações 1–3 (plataforma, gravadora global, major) e o emprego formal local é o resíduo achatado.</strong> A Note #08 deduzia que o não, que o Brasil LATAM contraiu apesar do Brasil ter crescido em CISAC. Esta nota acrescenta uma dimensão que a #08 não enxergava: mesmo no mesmo país, do lado do trabalho formal, houve uma contração do valor real do contrato,que foi apenas mascarada pela manutenção do número de contratos.</p>
+<hr>
+<h2>Implicações para política</h2>
+<p>A discussão sobre a política trabalhista do setor cultural orbitou, na última década, em torno do número de empregos, muitas vezes inflado por CNAES expandidos do setor cultural. A leitura do painel administrativo sugere que esse indicador, sozinho, mascara o que importa: doze anos com o mesmo número de contratos e 7,3% a menos de salário real é menos política pública do que parece. Pisos setoriais, convenções coletivas com cláusula de reajuste real e acompanhamento explícito da remuneração mediana por domínio (não só do número de vínculos) devem entrar no painel de monitoramento da política cultural brasileira.</p>
+<p>A perda de um terço do salário real em um domínio que quase dobrou em vínculos é o maior sinal de alerta. O domínio que carrega no nome a herança cultural é o que registrou a maior queda no salário real. As causas plausíveis (mais MEIs, mais voluntários formalizados em ONGs com salário simbólico, dependência de editais sazonais, desmonte federal documentado na Análise 5) não são mutuamente exclusivas. Investigação dedicada, cruzando RAIS com Iphan, CEMPRE do Patrimônio e a série de financiamento federal, é prioridade analítica imediata.</p>
+<p>A diferença entre os dois hiatos sob a moldura formal é estrutural; não é ruído nos dados. Uma política que se limite a formalizar e esperar que as desigualdades caiam em proporção igual entregará apenas metade do que promete. Instrumentos dirigidos, como política de cotas em editais públicos do setor cultural, monitoramento racial da execução de pisos setoriais, financiamento ou incentivos à contratação racialmente diversa no Corte A, precisam compor o desenho.</p>
+<p>A trajetória 0% → 1,7% → 3,4% em três anos, em vínculos mais curtos e concentrados no Design, sugere que o intermitente está virando a porta de entrada do trabalho cultural formal em segmentos de baixa qualificação. A discussão pública sobre o intermitente foi dominada, em 2017–2020, pelos setores de comércio e serviços; o setor cultural, mais tarde para adotar, está hoje numa fase de aceleração que merece exame específico.</p>
+<hr>
+<h2>Fontes</h2>
+<ul>
+<li><strong>RAIS/MTE</strong> — Relação Anual de Informações Sociais, microdados desidentificados publicados pelo projeto Base dos Dados (<code>br_me_rais</code>, cobertura 1985–2025). Painel consolidado em <code>atana.rais.*</code> (~17,07 milhões de vínculos-ano).</li>
+<li><strong>IPCA</strong> — BCB SGS série 433, índice acumulado base jan/2014; deflator 2025 = 0,9522.</li>
+<li><strong>PNAD Contínua</strong> — IBGE, Pesquisa Nacional por Amostra de Domicílios Contínua, suplemento de informações culturais (SIIC).</li>
+<li><strong>IFPI Global Music Report 2026</strong> — Federação Internacional da Indústria Fonográfica, dados 2025.</li>
+<li><strong>CISAC Global Collections Report 2025</strong> — Confederação Internacional de Sociedades de Autores e Compositores, dados 2024.</li>
+<li><strong>Atana Note #08</strong> — <em>IFPI × CISAC: as duas lentes do dinheiro da música em LATAM</em>, maio de 2026.</li>
+</ul>
+<p>Metodologia detalhada (recortes CNAE/CBO, deflação, convenção de estoque, descontinuidade eSocial) em <code>atana-data/docs/rais_methodology</code>; reprodutibilidade via DuckDB sobre os Parquet de <code>atana-data/raw/rais/</code> (Hive-partitioned por ano, leitura com <code>union_by_name=true</code> para tolerar variação de tipo do <code>indicador_trabalho_intermitente</code>); scripts e dados intermediários em <code>gen_a11_v2_charts.py</code> (v41) → <code>a11_data_v2.json</code>.</p>
+<hr>
+<h2>Como citar</h2>
+<p><strong>ABNT.</strong>
+SILVA JUNIOR, João Roque. A década da erosão silenciosa: o emprego cultural brasileiro formal nos registros da RAIS (2014–2025). <strong>Atana Notes</strong>, n. 9, jun. 2026. Disponível em: <a href="https://atana.studio/notes/09/">https://atana.studio/notes/09/</a>. Acesso em: [data].</p>
+<p><strong>APA 7.</strong>
+Silva Junior, J. R. (2026, junho). <em>A década da erosão silenciosa: o emprego cultural brasileiro formal nos registros da RAIS (2014–2025)</em> (Atana Note No. 9). Atana. https://atana.studio/notes/09/</p>
+<p><strong>Chicago (author-date).</strong>
+Silva Junior, João Roque. 2026. "A década da erosão silenciosa: o emprego cultural brasileiro formal nos registros da RAIS (2014–2025)." <em>Atana Notes</em>, no. 9 (junho). https://atana.studio/notes/09/.</p>
+<p><strong>BibTeX.</strong></p>
+<pre><code class="language-bibtex">@techreport{silvajunior2026rais,
+  author      = {{Silva Junior}, Jo{\~a}o Roque},
+  title       = {A d{\'e}cada da eros{\~a}o silenciosa: o emprego cultural brasileiro formal nos registros da {RAIS} (2014--2025)},
+  institution = {Atana},
+  type        = {Atana Note},
+  number      = {9},
+  year        = {2026},
+  month       = {jun},
+  url         = {https://atana.studio/notes/09/},
+  note        = {Preprint cit{\'a}vel; paper acad{\^e}mico completo em prepara{\c{c}}{\~a}o.}
+}
+</code></pre>
+<p><strong>Cita-as (forma curta para texto corrido).</strong>
+Silva Junior (2026), Atana Note #09.</p>
+<hr>
+<p><em>Sobre a Atana.</em> A Atana é uma consultoria de políticas públicas voltada à economia criativa latino-americana na era agêntica. As Atana Notes são peças analíticas curtas, citáveis, baseadas no corpus <code>atana-data</code> (~17 fontes consolidadas, ~65 milhões de linhas) e publicadas em atana.studio/notes/. Esta nota é a versão <em>preprint</em> da análise correspondente; a versão estendida, com pacote de figuras completo, séries históricas e apêndice metodológico, será submetida a periódico de economia da cultura no final de 2026 / início de 2027.</p>
+<p><em>Versão 1.0 — junho de 2026. (RAIS 2024 + 2025 ingest, panel 2014–2025).</em></p>
+
+    <div class="footer-cta">
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
+    </div>
+  </div>
+</article>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
