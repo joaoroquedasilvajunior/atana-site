@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #10 — CEMPRE × MEIs: a formalização para baixo da economia cultural brasileira | Atana</title>
+<meta name="description" content="Os cadastros do IBGE mostram que duas em cada três empresas culturais fecham antes de cinco anos (coorte 2017: 36,8% de sobrevivência) e que o setor ganhou 395 mil microempreendedores individuais entre 2020 e 2022 (+39,7%) — 1,39 milhão de MEIs culturais hoje, contra 644 mil organizações no CEMPRE. Entre os MEIs culturais, 20,5% estão inscritos no CadÚnico e 9,2% recebem Bolsa Família. A economia cultural brasileira se formaliza, mas para baixo: o MEI é o ponto em que formalização e precarização se encontram. Preprint citável.">
+<meta property="og:title" content="Atana Note #10 — CEMPRE × MEIs: a formalização para baixo da economia cultural brasileira">
+<meta property="og:description" content="Os cadastros do IBGE mostram que duas em cada três empresas culturais fecham antes de cinco anos (coorte 2017: 36,8% de sobrevivência) e que o setor ganhou 395 mil microempreendedores individuais entre 2020 e 2022 (+39,7%) — 1,39 milhão de MEIs culturais hoje, contra 644 mil organizações no CEMPRE. Entre os MEIs culturais, 20,5% estão inscritos no CadÚnico e 9,2% recebem Bolsa Família. A economia cultural brasileira se formaliza, mas para baixo: o MEI é o ponto em que formalização e precarização se encontram. Preprint citável.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/10/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* Note figures — responsive cap, centered, vertical breathing room.
+   PNG sources tend to be 2000+ px wide; without this they overflow the
+   720px text column or render at native pixel size. */
+article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
+  border-radius: 2px;
+}
+/* Markdown wraps ![alt](src) in a <p>; collapse that wrapper's vertical
+   margin so the figure's own margin governs spacing (avoids double gap). */
+article p:has(> img:only-child) { margin: 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/10/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Note #10 — CEMPRE × MEIs: a formalização para baixo da economia cultural brasileira">
+<meta name="twitter:description" content="Os cadastros do IBGE mostram que duas em cada três empresas culturais fecham antes de cinco anos (coorte 2017: 36,8% de sobrevivência) e que o setor ganhou 395 mil microempreendedores individuais entre 2020 e 2022 (+39,7%) — 1,39 milhão de MEIs culturais hoje, contra 644 mil organizações no CEMPRE. Entre os MEIs culturais, 20,5% estão inscritos no CadÚnico e 9,2% recebem Bolsa Família. A economia cultural brasileira se formaliza, mas para baixo: o MEI é o ponto em que formalização e precarização se encontram. Preprint citável.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #10 — CEMPRE × MEIs: a formalização para baixo da economia cultural brasileira","description":"Os cadastros do IBGE mostram que duas em cada três empresas culturais fecham antes de cinco anos (coorte 2017: 36,8% de sobrevivência) e que o setor ganhou 395 mil microempreendedores individuais entre 2020 e 2022 (+39,7%) — 1,39 milhão de MEIs culturais hoje, contra 644 mil organizações no CEMPRE. Entre os MEIs culturais, 20,5% estão inscritos no CadÚnico e 9,2% recebem Bolsa Família. A economia cultural brasileira se formaliza, mas para baixo: o MEI é o ponto em que formalização e precarização se encontram. Preprint citável.","url":"https://atana.studio/notes/10/","mainEntityOfPage":"https://atana.studio/notes/10/","datePublished":"2026-06-08","dateModified":"2026-06-08","inLanguage":"pt-br","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #10 · 8 Jun 2026 · 16 min read · PT</div>
+    <h1>CEMPRE × MEIs: a formalização para baixo da economia cultural brasileira</h1>
+    <p class="deck">Os cadastros do IBGE mostram que duas em cada três empresas culturais fecham antes de cinco anos (coorte 2017: 36,8% de sobrevivência) e que o setor ganhou 395 mil microempreendedores individuais entre 2020 e 2022 (+39,7%) — 1,39 milhão de MEIs culturais hoje, contra 644 mil organizações no CEMPRE. Entre os MEIs culturais, 20,5% estão inscritos no CadÚnico e 9,2% recebem Bolsa Família. A economia cultural brasileira se formaliza, mas para baixo: o MEI é o ponto em que formalização e precarização se encontram. Preprint citável.</p>
+    <div class="meta">
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Cultural firms · MEI · Brazilian economic informality · CEMPRE</div>
+      <div><strong>Languages:</strong> PT · EN / ES to follow</div>
+    </div>
+
+    <h2>Indicativo</h2>
+<p>A economia cultural brasileira tem hoje cerca de 644 mil organizações formalmente constituídas no Cadastro Central de Empresas (CEMPRE) e <strong>1,39 milhão de microempreendedores individuais</strong> no Cadastro dos MEIs; isso representa duas vezes mais MEIs do que empresas. Dos dois universos, o que cresce é o segundo: os MEIs culturais saltaram de 992,9 mil (2020) para 1.387,5 mil (2022) — <strong>+39,7% em apenas dois anos</strong>. Das empresas culturais empregadoras nascidas em 2017, <strong>apenas 36,8% ainda estavam ativas em 2022</strong>: duas em cada três fecharam antes de cinco anos. E entre os MEIs culturais, <strong>20,5% estão inscritos no CadÚnico, 9,2% recebem Bolsa Família</strong>.</p>
+<p>O retrato que emerge da leitura combinada desses três cadastros (CEMPRE, Demografia das Empresas e Cadastro dos MEIs, todos publicados pelo IBGE no capítulo 1 do Sistema de Informações e Indicadores Culturais) é desconfortável e coerente. A economia cultural brasileira está, de fato, se formalizando. Mas a formalização acontece para baixo: na direção do MEI unipessoal, da microempresa frágil, do CNPJ que coexiste com a inscrição em programa de transferência de renda. "Formalização" e "precarização" não são opostas no setor cultural brasileiro; o MEI é exatamente o ponto em que ambos se encontram.</p>
+<hr>
+<h2>Por que importa</h2>
+<p>A política cultural brasileira de fomento — Lei Rouanet, editais, prêmios — é desenhada em torno do <em>projeto</em> e da <em>produção</em>. Os dados do CEMPRE e dos MEIs sugerem que ela protege o elo errado da cadeia, ainda que o fomento seja fundamental. O gargalo do setor não é a falta de produção, é a falta de <strong>durabilidade da estrutura empresarial</strong> e de <strong>base econômica do trabalhador formalizado como MEI</strong>.</p>
+<p>A leitura importa por três razões. <strong>Primeiro</strong>, é a primeira lente do corpus Atana que conta <em>organizações</em>, e não pessoas (PNADC) nem vínculos (RAIS), mas em que estrutura empresarial o trabalho cultural acontece e por quanto tempo essa estrutura dura. É a pergunta que faltava para fechar o quadro do setor formal do Br. <strong>Segundo</strong>, o MEI é hoje a figura jurídica numericamente dominante do trabalho cultural brasileiro e não é tratado como categoria de política cultural por nenhum instrumento, pois fica entre o vão da política cultural (que pensa em projetos) e o da política de microempreendedorismo (que pensa em geral, não em cultura). <strong>Terceiro</strong>, o cadastro administrativo permite identificar com precisão o gradiente entre domínios culturais, e este gradiente é exatamente o inverso do discurso celebratório: os domínios mais próximos da criação artística são os que menos sobrevivem como negócios.</p>
+<hr>
+<h2>As duas lentes — CEMPRE e Cadastro dos MEIs</h2>
+<p>Esta análise lê o setor cultural por meio de dois cadastros administrativos distintos, ambos compilados pelo IBGE no capítulo 1 do SIIC e que não compõem o mesmo universo.</p>
+<ul>
+<li>
+<p><strong>CEMPRE — Cadastro Central de Empresas + Demografia das Empresas.</strong> Registra o estoque de empresas e outras organizações formalmente constituídas, o que inclui administração pública, entidades sem fins lucrativos e empresas empregadoras. As séries de natalidade, mortalidade e sobrevivência referem-se ao subconjunto de empresas empregadoras de natureza jurídica empresarial, que constitui o recorte mais estreito do cadastro, mas o único para o qual o IBGE calcula a demografia. Total cultural 2022: <strong>644.050 organizações no CEMPRE, 140.848 empresas empregadoras na Demografia</strong>.</p>
+</li>
+<li>
+<p><strong>Cadastro dos MEIs.</strong> Registra os microempreendedores individuais, figura jurídica unipessoal criada pela Lei Complementar 128/2008. O MEI é, por definição, uma firma de uma pessoa só, com teto de faturamento e direito a CNPJ, previdência e nota fiscal. Total cultural 2022: <strong>1.387.480 MEIs</strong>, que sustentavam coletivamente apenas 8.586 empregados, confirmando que o MEI cultural é, em larguíssima maioria, formalização do trabalho de uma pessoa só.</p>
+</li>
+</ul>
+<p>Os totais dos dois cadastros não se somam, pois são universos distintos, com critérios de elegibilidade e naturezas jurídicas diferentes. A comparação entre eles é indicativa de <em>escala relativa</em> da figura jurídica, não adição contábil. Mas a comparação é eloquente, pois o principal veículo formal do trabalho cultural brasileiro, hoje, não é a empresa, mas sim o MEI.</p>
+<hr>
+<h2>O que os dados dizem</h2>
+<h3>1. Duas em cada três fecham em cinco anos</h3>
+<p>Das empresas culturais empregadoras nascidas em 2017, <strong>apenas 36,8% ainda estavam ativas em 2022</strong>. A mortalidade é precoce e implacável: 23,5% não chegam ao primeiro aniversário; ao final do segundo ano, 40% já fecharam; entre o segundo e o terceiro ano a geração cruza a marca de 50%. O que sobra ao fim de cinco anos é pouco mais de um terço da geração original.</p>
+<p><img alt="Curva de sobrevivência da coorte de empresas culturais nascida em 2017" src="figC1_sobrevivencia_coorte_2017.png"></p>
+<p><em>Figura 1 — Curva de sobrevivência da coorte de empresas culturais empregadoras nascidas em 2017, ano a ano até 2022. Cinco anos depois, 36,8% seguem ativas; a queda é mais íngreme entre o 2º e o 3º ano, quando a geração cruza a marca de 50%. Universo: empresas empregadoras de natureza jurídica empresarial. Fonte: IBGE, Demografia das Empresas, Tabela 1.2.3.</em></p>
+<h3>2. Quanto mais artístico o domínio, mais frágil a empresa</h3>
+<p>A fragilidade não se distribui por igual. Há um gradiente nítido e ele é desconfortável para importantes setores: <strong>os domínios mais próximos da criação artística são os que menos sobrevivem como negócio</strong>. No topo da durabilidade está <strong>E. Mídias audiovisuais e interativas</strong> (44,4% de sobrevivência em cinco anos), o domínio mais industrializado e capitalizado da cultura. Logo abaixo, Educação e capacitação (41,2%) e Equipamentos e materiais de apoio (38,9%) — atividades de infraestrutura e ensino, mais próximas de um negócio convencional. No fundo da tabela estão <strong>B. Apresentações artísticas e celebrações (28,7%)</strong>, H. Esportes e recreação (30,5%), F. Design e serviços criativos (31,8%) e C. Artes visuais e artesanato (32,7%) — todos abaixo da média do setor.</p>
+<p><img alt="Sobrevivência em 5 anos por domínio cultural — coorte 2017" src="figC2_sobrevivencia_por_dominio.png"></p>
+<p><em>Figura 2 — Vê-se aqui a sobrevivência em cinco anos das empresas culturais empregadoras nascidas em 2017, caracterizadas por domínio. Apresentações artísticas (28,7%) é o domínio mais frágil; Mídias audiovisuais (44,4%) é o mais durável. A política cultural costuma celebrar exatamente os domínios que esta tabela identifica como os mais instáveis para se manter um negócio aberto. Caveat: o domínio Patrimônio aparece em 40,9% mas com coorte de apenas 22 empresas — número frágil demais para sustentar conclusão. Fonte: IBGE, Demografia das Empresas, Tabela 1.2.7.</em></p>
+<p>Apresentações artísticas, que é o domínio mais emblematicamente cultural, o do palco e do espetáculo, é o que pior sobrevive como empresa. A leitura é direta: a política cultural costuma celebrar exatamente os domínios que esta tabela identifica como os mais instáveis para manter um negócio aberto e vender a imagem da diversidade.</p>
+<h3>3. Um setor de alta rotatividade</h3>
+<p>A contrapartida da mortalidade alta é a natalidade alta. Em 2022, a taxa de natalidade de empresas culturais empregadoras foi de <strong>15,5%</strong> — uma em cada sete empresas ativas tinha menos de um ano. A taxa vinha subindo: 10,8% em 2017, 13,0% em 2019, 15,5% em 2022. A mortalidade, na janela disponível (2017–2020), caiu de 13,1% para 9,9%.</p>
+<p>O resultado não é um setor em colapso, mas sim um setor em <strong>rotatividade alta</strong>. Muita empresa abre, muita empresa fecha, e o estoque se renova continuamente sem acumular durabilidade. A natalidade é mais intensa justamente nos domínios mais frágeis: F. Design lidera a criação de empresas, com taxa de natalidade de 24,6% em 2022. Cria-se muito, e o que se cria é, em boa parte, o que menos dura. Um setor assim é dinâmico nas estatísticas de fluxo e precário nas de estoque; e é por isso que medir só o crescimento esconde metade da história. Temos falado correntemente sobre a necessidade de muitas lentes. </p>
+<h3>4. O salto dos MEIs: mais 395 mil em dois anos</h3>
+<p>Se a empresa cultural é frágil, o que vem crescendo em seu lugar é o microempreendedor individual. Os MEIs culturais saltaram de <strong>992.882 em 2020 para 1.387.480 em 2022</strong>, o que representa um crescimento de <strong>+39,7% em apenas dois anos</strong>. No mesmo movimento, a participação dos MEIs culturais no total de MEIs do país subiu de 8,96% para 9,52%.</p>
+<p><img alt="Estoque de MEIs culturais 2020–2022 vs CEMPRE de referência" src="figC4_salto_dos_meis.png"></p>
+<p><em>Figura 3 — Estoque de MEIs culturais, 2020–2022, em milhares. Crescimento de 39,7% em dois anos (992,9 mil → 1.387,5 mil), comparado ao estoque de referência do CEMPRE em 2022 (644 mil organizações culturais formalmente constituídas — universo distinto). O MEI cultural já é o dobro do CEMPRE em número de cadastros, mas sustenta apenas 8.586 empregados — confirmando que é, em larguíssima maioria, formalização do trabalho de uma pessoa só. Fonte: IBGE, Cadastro dos MEIs, Tabela 1.3.1; CEMPRE, Tabela 1.1.3.</em></p>
+<p>A escala dessa figura jurídica é o ponto. O CEMPRE registra 644 mil organizações culturais; o Cadastro dos MEIs registra 1,39 milhão, ou seja, mais do que o dobro. Mesmo lembrando que são cadastros distintos e não somáveis, a comparação é totalmente factível: <strong>o principal veículo formal do trabalho cultural brasileiro hoje não é a empresa, mas sim o MEI unipessoal.</strong> E é um veículo que quase não emprega. O MEI não é uma empresa pequena; é a formalização jurídica do trabalho de uma pessoa só.</p>
+<h3>5. O boom é, sobretudo, de Design</h3>
+<p>Quase metade dos MEIs culturais — <strong>622.734, ou 44,9%</strong> — está concentrada em um único domínio: F. Design e serviços criativos. Nenhum outro chega perto: C. Artes visuais e artesanato vem em segundo, com 13,0%, e Equipamentos/periféricas em terceiro, com 11,2%. O domínio A. Patrimônio não registra um único MEI.</p>
+<p><img alt="Composição dos MEIs culturais por domínio — 2022" src="figC5_meis_por_dominio.png"></p>
+<p><em>Figura 4 — Composição dos MEIs culturais por domínio, 2022. F. Design e serviços criativos concentra 44,9% (622.734 MEIs); A. Patrimônio cultural não registra um único MEI. A concentração espelha o "boom do Design" que a Atana Note #09 documentou na RAIS (90% concentrado no CNAE 73190 catch-all de publicidade), em dois cadastros administrativos independentes. Fonte: IBGE, Cadastro dos MEIs, Tabela 1.3.2.</em></p>
+<p>Essa concentração conversa diretamente com a Atana Note #09. Lá, nos registros da RAIS, o domínio Design havia crescido 139% em doze anos, mas 92% desse crescimento estava na CNAE 73190, o código guarda-chuva de publicidade de baixo salário. Aqui, no cadastro dos MEIs, o mesmo domínio Design é o que mais concentra microempreendedores individuais. As duas leituras, em cadastros administrativos independentes, apontam para a mesma coisa: <strong>o "boom do Design" da economia criativa brasileira é, em boa medida, um boom de trabalho unipessoal formalizado como MEI.</strong> É expansão de número de cadastros, não necessariamente de atividade econômica robusta ou de emprego.</p>
+<h3>6. Um em cada cinco no registro de pobreza</h3>
+<p>A formalização como MEI costuma ser apresentada como uma conquista, como algo do tipo "saída da informalidade", "acesso a CNPJ", "previdência" e "emissão de nota". O capítulo 1 do SIIC traz um indicador que complica essa leitura. <strong>20,5% dos MEIs culturais — um em cada cinco — estão inscritos no CadÚnico</strong>, o Cadastro Único para Programas Sociais do governo federal; e <strong>9,2% são beneficiários da Bolsa Família</strong>.</p>
+<p><img alt="MEIs culturais no CadÚnico e na Bolsa Família por domínio — 2022" src="figC6_meis_cadunico.png"></p>
+<p><em>Figura 5 — Inscrição em CadÚnico e Bolsa Família entre MEIs culturais por domínio, 2022. Média setorial: 20,5% no CadÚnico, 9,2% na Bolsa Família. O sinal é mais forte exatamente onde o boom é maior: Design 23,1% / 11,1%; Esportes 27,9% / —. Os domínios menos pobres são os mesmos que sobrevivem melhor como empresa: Mídias audiovisuais (13,6%) e Livro e imprensa (14,7%). Fonte: IBGE, Cadastro dos MEIs, Tabela 1.3.2.</em></p>
+<p>O CadÚnico é o instrumento que identifica famílias de baixa renda elegíveis a programas de transferência. Que um quinto dos microempreendedores culturais esteja nele indica que, para uma parcela expressiva, o MEI não é o degrau de uma trajetória de ascensão. Trata-se, na verdade, da face formal de uma renda que continua baixa o bastante para qualificar a família à assistência social. A formalização aconteceu; a prosperidade, não necessariamente.</p>
+<p>O indicador é mais forte exatamente onde o boom é maior. Em F. Design e serviços criativos — o domínio de 45% dos MEIs — 23,1% estão no CadÚnico e 11,1% recebem Bolsa Família, ambos acima da média do setor. Em H. Esportes e recreação a inscrição no CadÚnico chega a 27,9%. Os domínios de cadastro mais baixo são E. Mídias audiovisuais (13,6%) e D. Livro e imprensa (14,7%) — os mesmos que, na Seção 2, sobreviviam melhor como empresa. <strong>O gradiente é coerente de ponta a ponta: os domínios onde a estrutura empresarial é mais frágil são também aqueles onde o microempreendedor individual é mais pobre.</strong></p>
+<hr>
+<h2>A formalização para baixo</h2>
+<p>Lidos juntos, os dois cadastros (CEMPRE de empresas que duram pouco, Cadastro de MEIs que multiplicam) descrevem a mesma reconfiguração estrutural por dois ângulos. A empresa cultural empregadora típica nasce e morre em ciclo curto; o trabalhador cultural típico formaliza-se como MEI unipessoal de baixa renda. Os dois fatos coexistem no mesmo setor, frequentemente no mesmo domínio, e em alguns casos no mesmo trabalhador, isto é, quem fechou uma firma empregadora pode reaparecer no ano seguinte como MEI.</p>
+<p>O trabalho cultural brasileiro está, de fato, se formalizando, mas <strong>se formalizando para baixo</strong>: na direção do MEI, da unidade de uma pessoa só, da microempresa frágil, e não na direção do emprego assalariado estável dentro de empresas duráveis. "Formalização" e "precarização" não são opostos no setor cultural brasileiro; o MEI é exatamente o ponto onde os dois se encontram. Um trabalhador que troca o trabalho informal por um CNPJ de MEI aparece nas estatísticas como um ganho de formalidade, mas pode, ao mesmo tempo, continuar inscrito no CadÚnico. Os dois fatos são verdadeiros simultaneamente, e é a leitura conjunta que os reconcilia.</p>
+<hr>
+<h2>Cruzamento com a Atana Note #09 (RAIS)</h2>
+<p>A Atana Note #09 documentou, no âmbito dos vínculos formais de emprego (RAIS, 2014–2025), uma década de erosão silenciosa: o número de contratos voltou ao nível de 2014, mas o salário real caiu 7,3%, com Patrimônio cultural perdendo um terço e Design perdendo 18%. A Note #09 mostrou também que 92% do crescimento de vínculos do domínio Design se concentra na CNAE 73190, o catch-all de publicidade de baixo salário.</p>
+<p>Esta Note #10 acrescenta a face empresarial do mesmo processo. <strong>O "boom do Design" que a RAIS captura como inchaço do catch-all 73190 é, no Cadastro dos MEIs, 622.734 microempreendedores individuais: 44,9% do total de MEIs culturais.</strong> Dois cadastros administrativos independentes (RAIS e Cadastro dos MEIs), com critérios e universos diferentes, apontam para a mesma fronteira estrutural: o domínio onde o setor formal mais cresceu é também o mais precarizado.</p>
+<p>A pergunta que a Note #09 deixou em aberto: por que tantos MEIs culturais são frágeis e por que o domínio que mais cresce em vínculos formais é o que mais perde em salário real, encontra aqui a resposta complementar. A economia cultural brasileira não está em colapso: ela está, em larga medida, <em>trocando de figura jurídica</em>. Sai da CLT empregadora durável (que tinha 1,07 milhão de vínculos em 2014 e tem 1,09 milhão em 2025 com salário real 7% menor) e entra no MEI unipessoal (que saltou 40% em dois anos e tem um em cada cinco no CadÚnico). As duas pontas se encontram no MEI.</p>
+<hr>
+<h2>Implicações para política</h2>
+<p><strong>1. Instrumentos de sustentação da empresa, não apenas de financiamento de projetos.</strong> Se a empresa cultural típica não sobrevive cinco anos, a Lei Rouanet, o Fundo Nacional de Cultura, e os outros programas existentes, os quais foram desenhados para financiar produção de projeto pontual, estão protegendo o elo errado da cadeia. O financiamento é necessário, obviamente. A curva de sobrevivência da Figura 1 é mais íngreme entre o 1º e o 3º ano; é nessa janela que apoio a fluxo de caixa, crédito subsidiado e capacitação em gestão teriam maior efeito marginal. Modelos como o BNDES Procult e linhas de crédito setoriais subutilizadas precisam ser dimensionados e divulgados.</p>
+<p><strong>2. O MEI cultural como categoria de política pública.</strong> O MEI é hoje o principal veículo formal do setor e não é reconhecido como tal por nenhum instrumento de política cultural. Fica no vão entre a política de cultura (que pensa em projetos) e a do microempreendedorismo (que pensa em geral, não em cultura). O dado do CadÚnico — 20,5% dos MEIs culturais — recomenda olhar o MEI cultural pela lente da proteção social, não só do empreendedorismo. Acesso facilitado a microcrédito, isenção temporária de taxa MEI para domínios com alta incidência de Bolsa Família, e canal de transição entre MEI e MEI Empresário (com até um empregado) são instrumentos disponíveis e não acionados.</p>
+<p><strong>3. Foco nos domínios frágeis.</strong> Apresentações artísticas, Artes visuais e Design combinam a pior sobrevivência empresarial com a maior incidência de MEIs em registro de pobreza. São os domínios onde a distância entre o discurso celebratório da economia criativa e a condição material de quem a sustenta é mais larga e onde a política bem desenhada teria o maior retorno. Editais com cláusula de continuidade plurianual, residências artísticas de longa duração com piso de remuneração e fomento à estruturação cooperativa (modelo de cooperativa cultural, sindicato setorial, agência coletiva de gestão de carreira) são frentes pouco exploradas.</p>
+<p><strong>4. Acompanhamento estatístico do MEI cultural.</strong> O Cadastro dos MEIs do SIIC só tem série de três anos (2020–2022). Para política pública responsiva, é necessário acompanhamento anual contínuo da escala, da composição por domínio e da incidência de CadÚnico/Bolsa Família. A extensão da série para 2023–2024–2025 já existe no Cadastro Nacional de MEIs (Receita Federal) e na Plataforma Empresarial Brasileira, mas falta apenas a tabulação cultural específica, que pode ser produzida pelo IBGE ou pelo MinC com baixo custo.</p>
+<hr>
+<h2>Fontes</h2>
+<ul>
+<li><strong>IBGE — Sistema de Informações e Indicadores Culturais (SIIC)</strong> — capítulo 1, <em>Atividades culturais formalmente constituídas</em>, arquivo <code>1_atividades_formalmente_constituidas.xlsx</code>, edição 2024 (ano-base 2022). Consolida três cadastros administrativos:</li>
+<li><strong>CEMPRE</strong> — Cadastro Central de Empresas, IBGE (Tabela 1.1.3 — total cultural 644.050 organizações em 2022).</li>
+<li><strong>Demografia das Empresas</strong> — IBGE (Tabelas 1.2.1, 1.2.2, 1.2.3, 1.2.7 — natalidade, mortalidade, sobrevivência por coorte e por domínio).</li>
+<li><strong>Cadastro dos MEIs</strong> — Receita Federal / IBGE (Tabelas 1.3.1, 1.3.2, 1.3.4 — série 2020–2022, composição por domínio, indicadores socioeconômicos).</li>
+<li><strong>Atana Note #09</strong> — <em>RAIS × PNADC: a década da erosão silenciosa do contrato cultural formal brasileiro</em>, junho de 2026.</li>
+</ul>
+<p>Metodologia detalhada e verificação de identidades contábeis (Centrais + Periféricas = Total, todas conferem) em <code>analise_12_cempre_setor_formal.md</code> §7. Reprodutibilidade via leitura openpyxl da xlsx original; gráficos figC1–figC6 gerados por <code>gen_a12_charts.py</code> a partir de valores transcritos do xlsx.</p>
+<p><strong>Caveats centrais.</strong> (i) Os três cadastros são universos distintos — CEMPRE, Demografia e Cadastro dos MEIs — e seus totais não se somam. Comparações entre eles indicam escala relativa, não adição contábil. (ii) Taxas de sobrevivência referem-se apenas a <em>empresas empregadoras de natureza jurídica empresarial</em> (Demografia das Empresas), recorte mais estreito que o CEMPRE. (iii) Série de mortalidade encerra em 2020 por exigir defasagem de observação. (iv) O domínio Patrimônio aparece com coortes muito pequenas (22 empresas nascidas em 2017; nenhum MEI registrado) — percentuais são indicativos, não conclusivos. (v) Cadastro administrativo: sem coeficiente de variação.</p>
+<hr>
+<h2>Como citar</h2>
+<p><strong>ABNT.</strong>
+SILVA JUNIOR, João Roque da. CEMPRE × MEIs: a formalização para baixo da economia cultural brasileira. <strong>Atana Notes</strong>, n. 10, jun. 2026. Disponível em: <a href="https://atana.studio/notes/10/">https://atana.studio/notes/10/</a>. Acesso em: [data].</p>
+<p><strong>APA 7.</strong>
+Silva Junior, J. R. da. (2026, junho). <em>CEMPRE × MEIs: a formalização para baixo da economia cultural brasileira</em> (Atana Note No. 10). Atana. https://atana.studio/notes/10/</p>
+<p><strong>Chicago (author-date).</strong>
+Silva Junior, João Roque da. 2026. "CEMPRE × MEIs: a formalização para baixo da economia cultural brasileira." <em>Atana Notes</em>, no. 10 (junho). https://atana.studio/notes/10/.</p>
+<p><strong>BibTeX.</strong></p>
+<pre><code class="language-bibtex">@techreport{silvajunior2026cempre,
+  author      = {{Silva Junior}, Jo{\~a}o Roque da},
+  title       = {{CEMPRE} {\texttimes} {MEIs}: a formaliza{\c{c}}{\~a}o para baixo da economia cultural brasileira},
+  institution = {Atana},
+  type        = {Atana Note},
+  number      = {10},
+  year        = {2026},
+  month       = {jun},
+  url         = {https://atana.studio/notes/10/},
+  note        = {Preprint cit{\'a}vel; paper acad{\^e}mico completo em prepara{\c{c}}{\~a}o.}
+}
+</code></pre>
+<p><strong>Cita-as (forma curta para texto corrido).</strong>
+Silva Junior (2026), Atana Note #10.</p>
+<hr>
+<p><em>Sobre a Atana.</em> A Atana é uma consultoria de políticas públicas voltada à economia criativa latino-americana na era agêntica. As Atana Notes são peças analíticas curtas, citáveis, baseadas no corpus <code>atana-data</code> (~17 fontes consolidadas, ~65 milhões de linhas) e publicadas em atana.studio/notes/. Esta nota é a versão <em>preprint</em> da análise correspondente; a versão estendida, com pacote de figuras completo, séries históricas e apêndice metodológico, será submetida a periódico de economia da cultura no final de 2026 / início de 2027.</p>
+<p><em>Versão 1.0 — junho de 2026. Companheira da Atana Note #09 (RAIS × PNADC).</em></p>
+
+    <div class="footer-cta">
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
+    </div>
+  </div>
+</article>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
