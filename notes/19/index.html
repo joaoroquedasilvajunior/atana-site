@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atana Note #19 — INPI × RAIS × CEMPRE × IBGE Estruturais: o boom brasileiro de Design e Software em quatro lentes | Atana</title>
+<meta name="description" content="Quatro registros administrativos brasileiros independentes concordam que Design e Software é o segmento mais dinâmico da economia cultural na última década. INPI ×8 em software / ×22 em Classe Nice 41; RAIS Design +133 % (mas 89 % em uma CNAE catch-all de publicidade); CEMPRE 44,9 % dos MEIs culturais em F. Design; IBGE estruturais software ≈ telecom no empate técnico do topo da economia cultural por valor adicionado. A convergência é o achado positivo. A divergência metodológica entre as quatro — cada uma medindo uma coisa distinta sob o mesmo nome — é o achado analítico. Preprint citável; versão estendida em Análise 26.">
+<meta property="og:title" content="Atana Note #19 — INPI × RAIS × CEMPRE × IBGE Estruturais: o boom brasileiro de Design e Software em quatro lentes">
+<meta property="og:description" content="Quatro registros administrativos brasileiros independentes concordam que Design e Software é o segmento mais dinâmico da economia cultural na última década. INPI ×8 em software / ×22 em Classe Nice 41; RAIS Design +133 % (mas 89 % em uma CNAE catch-all de publicidade); CEMPRE 44,9 % dos MEIs culturais em F. Design; IBGE estruturais software ≈ telecom no empate técnico do topo da economia cultural por valor adicionado. A convergência é o achado positivo. A divergência metodológica entre as quatro — cada uma medindo uma coisa distinta sob o mesmo nome — é o achado analítico. Preprint citável; versão estendida em Análise 26.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://atana.studio/notes/19/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (notes pages + index)
+   build_site.py inlines this into a <style> block in every generated page,
+   so output pages stay self-contained while the design lives in ONE file.
+   Edit here, then run: python3 atana_site/build_site.py
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #1A1A1A;
+  --navy: #1F3A5F;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --brick: #8C2A2A;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Site header ───────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 241, 235, 0.95);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--olive);
+  font-weight: 500;
+  margin-left: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--olive);
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--olive); text-decoration: none; }
+.header-meta a:hover { text-decoration: underline; }
+
+/* ── Note page ─────────────────────────────────────────────────────────── */
+article { padding: 48px 0 80px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (min-width: 700px) { article h1 { font-size: 38px; } }
+article .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.meta strong { color: var(--ink); font-weight: 600; }
+
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+/* Note figures — responsive cap, centered, vertical breathing room.
+   PNG sources tend to be 2000+ px wide; without this they overflow the
+   720px text column or render at native pixel size. */
+article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
+  border-radius: 2px;
+}
+/* Markdown wraps ![alt](src) in a <p>; collapse that wrapper's vertical
+   margin so the figure's own margin governs spacing (avoids double gap). */
+article p:has(> img:only-child) { margin: 0; }
+
+/* leading epigraph / pull quotes inside a note body */
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+/* tables rendered from markdown */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th {
+  background: var(--sand-2);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-radius: 2px;
+}
+.footer-cta h2 {
+  font-family: var(--serif);
+  color: var(--sand);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.footer-cta p { color: var(--sand-2); margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--olive);
+  color: var(--sand);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--olive-dim); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.page-hero {
+  padding: 64px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) { .page-hero h1 { font-size: 32px; } }
+.page-hero .deck {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.rule { width: 56px; height: 3px; background: var(--olive); margin: 22px 0 0; }
+.meta-row {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 600; }
+.meta-row a { color: var(--olive); }
+
+.notes-list { padding: 40px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.note-card:last-of-type { border-bottom: none; }
+.note-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--navy);
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 16px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-radius: 3px; }
+.subscribe-card h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 10px;
+}
+.subscribe-card p { color: var(--sand-2); font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #3a5170;
+  border-radius: 2px;
+  background: #16293f;
+  color: var(--sand);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px;
+  background: var(--olive);
+  color: var(--sand);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--olive-dim); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Site footer ───────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer a { color: var(--olive); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  article h1 { font-size: 28px; }
+  .note-title { font-size: 20px; }
+  .page-hero { padding: 40px 0 24px; }
+  .subscribe-card { padding: 32px 24px; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/notes/19/">
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atana Note #19 — INPI × RAIS × CEMPRE × IBGE Estruturais: o boom brasileiro de Design e Software em quatro lentes">
+<meta name="twitter:description" content="Quatro registros administrativos brasileiros independentes concordam que Design e Software é o segmento mais dinâmico da economia cultural na última década. INPI ×8 em software / ×22 em Classe Nice 41; RAIS Design +133 % (mas 89 % em uma CNAE catch-all de publicidade); CEMPRE 44,9 % dos MEIs culturais em F. Design; IBGE estruturais software ≈ telecom no empate técnico do topo da economia cultural por valor adicionado. A convergência é o achado positivo. A divergência metodológica entre as quatro — cada uma medindo uma coisa distinta sob o mesmo nome — é o achado analítico. Preprint citável; versão estendida em Análise 26.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Atana Note #19 — INPI × RAIS × CEMPRE × IBGE Estruturais: o boom brasileiro de Design e Software em quatro lentes","description":"Quatro registros administrativos brasileiros independentes concordam que Design e Software é o segmento mais dinâmico da economia cultural na última década. INPI ×8 em software / ×22 em Classe Nice 41; RAIS Design +133 % (mas 89 % em uma CNAE catch-all de publicidade); CEMPRE 44,9 % dos MEIs culturais em F. Design; IBGE estruturais software ≈ telecom no empate técnico do topo da economia cultural por valor adicionado. A convergência é o achado positivo. A divergência metodológica entre as quatro — cada uma medindo uma coisa distinta sob o mesmo nome — é o achado analítico. Preprint citável; versão estendida em Análise 26.","url":"https://atana.studio/notes/19/","mainEntityOfPage":"https://atana.studio/notes/19/","datePublished":"2026-06-09","dateModified":"2026-06-09","inLanguage":"pt-br","image":"https://atana.studio/og-image.png","author":{"@type":"Person","name":"João Roque"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}}}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Notes</span></a>
+    <div class="header-meta">
+      <a href="/">← Atana Index</a>
+      <a href="/notes/">All notes</a>
+      <a href="/data/">Data</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container">
+    <div class="note-eyebrow">Atana Note #19 · 9 Jun 2026 · 13 min read · PT</div>
+    <h1>INPI × RAIS × CEMPRE × IBGE Estruturais: o boom brasileiro de Design e Software em quatro lentes</h1>
+    <p class="deck">Quatro registros administrativos brasileiros independentes concordam que Design e Software é o segmento mais dinâmico da economia cultural na última década. INPI ×8 em software / ×22 em Classe Nice 41; RAIS Design +133 % (mas 89 % em uma CNAE catch-all de publicidade); CEMPRE 44,9 % dos MEIs culturais em F. Design; IBGE estruturais software ≈ telecom no empate técnico do topo da economia cultural por valor adicionado. A convergência é o achado positivo. A divergência metodológica entre as quatro — cada uma medindo uma coisa distinta sob o mesmo nome — é o achado analítico. Preprint citável; versão estendida em Análise 26.</p>
+    <div class="meta">
+      <div><strong>Author:</strong> João Roque · Atana</div>
+      <div><strong>Topic:</strong> Methodological pluralism · Design · Software · Brazil · 4 lenses</div>
+      <div><strong>Languages:</strong> PT · EN / ES to follow</div>
+    </div>
+
+    <h2>Sinal</h2>
+<p>Em algum momento entre 2014 e 2024, quatro fontes administrativas brasileiras independentes começaram a registrar a mesma coisa: o segmento Design e Software como a face mais dinâmica da economia cultural do país. <strong>INPI</strong> vê os depósitos anuais de programas de computador saltando de 661 (2000) para 5.312 (2024) — <strong>×8,0</strong>; e os registros de marca da Classe Nice 41 (educação, atividades culturais) saltando de 889 para 19.447 — <strong>×21,9</strong>. <strong>RAIS</strong> vê os vínculos formais ativos no domínio F. Design e serviços criativos passando de 103 mil (2014) a 241 mil (2025) — <strong>+133 %</strong>. <strong>Cadastro dos MEIs</strong> vê 622 mil microempreendedores culturais individuais nesse mesmo domínio em 2022 — <strong>44,9 %</strong> de todos os MEIs culturais brasileiros. E a <strong>conta de produção do IBGE</strong> mostra a atividade "desenvolvimento e licenciamento de programas de computador" como a segunda maior atividade cultural por valor adicionado, <strong>R$ 84,3 bi em 2023</strong> — praticamente empatada com telecomunicações (R$ 87,3 bi), e juntas as duas atividades respondem por 44 % do valor adicionado da economia cultural brasileira inteira.</p>
+<p>Quatro fontes oficiais, quatro registros independentes, mesmo sinal estrutural. É o caso mais limpo no corpus <code>atana-data</code> até hoje de convergência empírica entre lentes administrativas brasileiras sobre um único cluster setorial. <strong>O boom é real e está bem documentado.</strong></p>
+<p>E está sendo medido por quatro instrumentos que nunca foram desenhados para conversar entre si.</p>
+<hr>
+<h2>Por que importa</h2>
+<p>A política cultural brasileira tem hoje, na conversa pública, uma narrativa de transformação digital. A indústria criativa cresce, design escala, software vira atividade cultural reconhecida. Esta Nota tem um propósito duplo: dar suporte empírico à parte dessa narrativa que é defensável (todas as quatro lentes concordam: o boom é estrutural), e ao mesmo tempo dar nome ao que a narrativa esconde — <em>cada lente está medindo uma coisa diferente sob o mesmo rótulo</em>. O "Design" da RAIS é, em 89 % do seu crescimento, vínculos numa única CNAE catch-all de publicidade. O "Design" dos MEIs é o microempreendedor unipessoal de baixa renda (23 % no CadÚnico). O "Software" do INPI é o ato administrativo de depositar um programa, não a empresa que o desenvolve. O "Software" do IBGE estruturais é uma atividade econômica formal que, por convenção SIIC, é classificada como cultural-periférica e não cultural-central.</p>
+<p>Três das quatro lentes têm sido lidas em isolamento em pesquisas anteriores; nenhuma análise prévia, até onde se sabe, juntou as quatro. Esta Nota faz essa junção — e usa o resultado para tornar visível o que a Nota #03 chamou de pluralismo metodológico: a escolha da classificação é a escolha da conclusão.</p>
+<hr>
+<h2>As quatro lentes em uma frase</h2>
+<ul>
+<li><strong>INPI Indicadores 2024.</strong> Quantos atos de registro de propriedade industrial culturalmente relevantes são feitos por ano no Brasil. Atos.</li>
+<li><strong>RAIS 2014–2025.</strong> Quantos contratos formais ativos em 31/12 existem no domínio F. da classificação SIIC. Contratos.</li>
+<li><strong>Cadastro dos MEIs 2022.</strong> Quantos microempreendedores individuais culturais existem, sob qual CNAE, com qual perfil socioeconômico. Pessoas-firma.</li>
+<li><strong>IBGE estruturais 2013/2019–2023.</strong> Quanto valor adicionado é gerado pelas empresas culturais formalmente constituídas, por atividade. Reais.</li>
+</ul>
+<p>Nenhuma das quatro é melhor que as outras. Cada uma mede um fato distinto, mensurável e relevante para a política pública. A pergunta interessante é o que acontece quando se olha as quatro juntas.</p>
+<hr>
+<h2>O que os dados dizem</h2>
+<h3>1. INPI: a economia se importa com propriedade industrial cultural</h3>
+<p>Os depósitos anuais de programas de computador no INPI seguem uma curva de aceleração contínua: 661 em 2000, ~1.500 em 2013 (×2,3), ~3.000 entre 2018 e 2021 (×4,5), e 5.312 em 2024 (×8,0). Não há um ano de inflexão único; é crescimento estrutural sustentado por 24 anos. Os registros de marca da Classe Nice 41 — que cobre "Educação, atividades desportivas e culturais" e é a classe Nice mais próxima de mensurar registro cultural-criativo — saíram de 889 (2000) para 19.447 (2024), ×21,9. O Brasil hoje registra mais marcas culturais por ano do que registrava ao longo de cinco anos no início dos 2000.</p>
+<p><strong>O que essa lente vê.</strong> O ato administrativo de proteger PI cultural se generalizou no Brasil. Pessoas físicas e jurídicas reconhecem o ativo intangível como digno de registro formal. O INPI não diz nada sobre se o ativo gera renda, apenas que o titular o tratou como digno de existir formalmente. É o sinal mais antigo (porque a série começa em 2000) e mais robusto: mudança de regime de informalidade quase total para uma economia que se importa com propriedade industrial.</p>
+<h3>2. RAIS: os contratos formais em Design dobraram — e quase tudo aconteceu em uma única CNAE</h3>
+<p>Os vínculos formais ativos em 31/12 no domínio F. Design e serviços criativos cresceram <strong>+133 % entre 2014 e 2025</strong> (103.345 → 241.079). Confirma e amplia em ritmo o sinal +98 % reportado em análises anteriores até 2023 — a extensão recente do painel RAIS para 2024 e 2025 mostra que o setor continuou acelerando após a pandemia, não desacelerou.</p>
+<p>A composição desse crescimento, porém, é diferente do que o agregado sugere. A família CNAE 73190 — subclasses 7319001 a 7319099, todas variantes de "Outras atividades de publicidade não especificadas anteriormente" — saiu de 46.214 vínculos no domínio em 2014 para 169.400 em 2025. Foram <strong>+123.186 vínculos novos numa única família de CNAE</strong>, ou <strong>89 % do crescimento total</strong> da força de trabalho do domínio F. Mais granular ainda: a subclasse única 7319002 ("publicidade outras-não-especificadas") sozinha respondeu por <strong>+109.779 vínculos</strong>, ou <strong>80 % do crescimento total</strong>.</p>
+<p><img alt="Vínculos formais culturais ativos no domínio F. Design 2014–2025, estratificado por família CNAE 73190 (vermelho) vs outras classes (areia)" src="figDS3_rais_design_73190.png"></p>
+<p><em>Figura 1 — Vínculos formais culturais ativos em 31/12 no domínio F. Design e serviços criativos, Brasil, 2014–2025. A família CNAE 73190 (publicidade catch-all) responde por 89 % do crescimento total no período. O "boom de Design" da RAIS é, empiricamente, em larga medida um boom de publicidade-catch-all. Fonte: RAIS via Base dos Dados, <code>atana.rais.vinculos_culturais</code> 2014–2025.</em></p>
+<p><strong>O que essa lente vê.</strong> A RAIS vê emprego dobrando no domínio F. Mas a quase totalidade do que ela conta como crescimento aconteceu em uma única CNAE de propósito amplo. Duas leituras são igualmente compatíveis com os dados: (a) houve mudança classificatória — empresas migraram para a catch-all 73190 talvez por incentivo do eSocial; ou (b) o crescimento é real, mas é crescimento em micro-agências de publicidade digital, marketing de redes sociais, design para influência — atividades novas que não tinham CNAE óbvia e foram catalogadas na catch-all. As duas hipóteses não são excludentes. O ponto importante é que o agregado +133 % é fortemente sensível à inclusão de uma única classe.</p>
+<h3>3. CEMPRE: 45 % dos microempreendedores culturais individuais são Design</h3>
+<p>Dos 1.387.480 MEIs culturais registrados no Cadastro dos MEIs em 2022, <strong>622.734 estão no domínio F. Design</strong> — <strong>44,88 %</strong> do total. É a maior concentração de qualquer domínio cultural, e por larga margem: o segundo é Artes visuais e artesanato (179.914 MEIs, 13 %); o terceiro, Livro e imprensa (109 mil, 8 %). Combinado com o achado da Atana Note #10 de que <strong>20,5 % dos MEIs culturais estão inscritos no CadÚnico e 9,2 % recebem Bolsa Família</strong> — e que em F. Design especificamente essas taxas sobem para 23,1 % CadÚnico e 11,1 % PBF — o retrato é claro: o "boom de Design" da Lente 2 tem como contraparte sociológica uma base de trabalhadores formais-mas-precários sob a figura unipessoal MEI.</p>
+<h3>4. IBGE estruturais: software é a segunda maior atividade cultural por valor adicionado</h3>
+<p>A conta de produção das pesquisas estruturais do IBGE mede o valor adicionado por atividade econômica. Em 2023, dentre as atividades culturais individuais (excluindo agregados de domínio):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Pos.</th>
+<th>Atividade</th>
+<th style="text-align: right;">VA 2023 (R$ bi)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Telecomunicações por fio, sem fio e por satélite</td>
+<td style="text-align: right;">87,3</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>Desenvolvimento e licenciamento de programas de computador</strong></td>
+<td style="text-align: right;"><strong>84,3</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Agências e atividades de publicidade</td>
+<td style="text-align: right;">22,9</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Tratamento de dados e hospedagem na internet</td>
+<td style="text-align: right;">21,6</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Outras atividades de telecomunicações</td>
+<td style="text-align: right;">18,8</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Top 10 atividades culturais por VA 2023" src="figDS5_va_top10_atividades.png"></p>
+<p><em>Figura 2 — As 10 maiores atividades culturais por valor adicionado, Brasil, 2023, em R$ bilhões nominais. Software (R$ 84,3 bi) está praticamente empatado com telecomunicações (R$ 87,3 bi) na primeira posição; as duas juntas representam 44,3 % do valor adicionado total da economia cultural brasileira (R$ 387,9 bi). Fonte: IBGE SIIC capítulo 2 (pesquisas estruturais PIA/PAS/PAC), tabela 2.8.</em></p>
+<p>Em nominal não-deflacionado, o VA de Software passou de R$ 26,9 bi em 2013 para R$ 84,3 bi em 2023 — <strong>×3,1 em uma década</strong> —, o ritmo mais rápido entre as 10 maiores atividades. Telecom no mesmo período cresceu ×1,6, F. Design (sem software) ×2,2, e o total cultural ×1,95. Software cresceu praticamente o dobro do total do setor cultural. Em termos reais, deflacionado a R$ de 2023, o ritmo é mais modesto (cf. Análise 14 — total cultural +9,7 % real em uma década), mas software permanece a atividade que mais cresceu em ambos os regimes.</p>
+<p><strong>O que essa lente vê.</strong> Dentro do que o IBGE chama de "economia cultural", a atividade economicamente mais densa e a que mais cresce é o software. Software é tecnicamente classificado como atividade cultural <em>periférica</em> pela SIIC, parte de TIC, não atividade cultural <em>central</em>. Mas isso é convenção, não medição empírica: operacionalmente, software é o setor central da economia cultural brasileira por valor.</p>
+<hr>
+<h2>Onde as quatro lentes concordam — o boom é estrutural</h2>
+<p>A figura 3 normaliza as quatro séries para base 2014 = 100 (ou base mais próxima por série). As quatro curvas crescem; as três que têm base 2014 (INPI Classe 41, INPI software, RAIS Design) crescem em ritmo similar; o Software VA cresce mais devagar em índice porque sua base 2013 já era elevada.</p>
+<p><img alt="Quatro lentes — índice base 2014=100" src="figDS6_quatro_lentes_indice.png"></p>
+<p><em>Figura 3 — As quatro lentes do boom de Design e Software brasileiro, indexadas a 100 em 2014 (ou base mais próxima por série). As quatro fontes administrativas independentes convergem na direção de crescimento — no intervalo 2014–2023 onde existem dados em todas as quatro: INPI software ×3,3, INPI Classe 41 ×2,5, RAIS Design ×2,3, IBGE estruturais Software VA ×2,2. Fontes: INPI Indicadores 2024 · RAIS 2014–2025 · IBGE SIIC capítulo 2 tab_2_8.</em></p>
+<p>A consensualidade do sinal é o achado positivo. <strong>As quatro categorias administrativas brasileiras que mais frequentemente desempatam medições do setor cultural — registro, emprego, empresa e valor — concordam que Design e Software é a parte mais dinâmica da economia cultural brasileira na última década.</strong> Nenhuma outra agregação setorial do corpus tem confirmação quádrupla equivalente: música tem divergência label-side × author-side (Note #08); audiovisual tem o choque AV 2024 (Análise 10); livro e patrimônio retraem ou estabilizam (Note #09). Design e Software é o único cluster em que as quatro lentes convergem na direção positiva e em ritmo similar.</p>
+<hr>
+<h2>Onde divergem — o pluralismo metodológico em ação</h2>
+<p>A convergência da seção anterior é o achado principal. Seu valor analítico, porém, depende da divergência metodológica que cada fonte traz consigo. <strong>Cada uma das quatro está medindo uma coisa diferente sob o nome "Design e Software".</strong></p>
+<p><strong>(a)</strong> A RAIS conta vínculos CLT no domínio F.; mas 89 % do crescimento recente nesse domínio aconteceu em uma única família CNAE de publicidade catch-all. Quando essa lente diz "Design dobrou", o que ela empiricamente mede é "vínculos com CNAE publicidade-outras dobraram". Pode ou não corresponder a um boom de design no sentido editorial-cultural; provavelmente corresponde a um boom de prestação de serviço de marketing-publicidade-redes-sociais.</p>
+<p><strong>(b)</strong> O Cadastro dos MEIs conta uma figura jurídica fundamentalmente distinta — o microempreendedor individual unipessoal, com teto de faturamento. As populações da RAIS Design e da MEIs Design não se somam: um MEI Design só aparece nos vínculos RAIS se ele tiver sido contratado por outra empresa, caso em que é o vínculo CLT (e não a atividade MEI) que é contado.</p>
+<p><strong>(c)</strong> Os depósitos do INPI são <em>atos administrativos</em>, não fluxo econômico. Um indivíduo pode depositar um programa sem ter atividade econômica alguma; uma empresa pode operar por anos gerando VA sem depositar nada novo. Apesar disso, as duas séries — INPI software e IBGE software VA — crescem juntas, o que sugere que sob a divergência conceitual há um processo subjacente comum: a expansão da economia brasileira de software como tal.</p>
+<p><strong>(d)</strong> O domínio F. Design da SIIC é, na lente RAIS, dominado por publicidade-catch-all; é, na lente MEIs, dominado por microempreendedorismo unipessoal de baixa renda; e é, na lente VA, excluído (software fica em periferia, F. central tem apenas 8 % do VA cultural total). <strong>As três versões de "F. Design" têm perfis sociais, condições contratuais, capacidade de captura de renda e relação com a IA generativa fundamentalmente distintos.</strong> O agregado "Design e Software cresceu" oculta essa heterogeneidade.</p>
+<hr>
+<h2>Implicações</h2>
+<p><strong>(i) Política cultural setorial.</strong> Editais e instrumentos de fomento desenhados em torno do conceito de "Design e indústrias criativas" precisam ser explícitos sobre qual das três populações são alvo. Um edital orientado para MEI cultural design (a maior, 622 mil pessoas, baixa renda) é fundamentalmente diferente de um edital orientado para empresas de software (a mais densa em valor adicionado) ou para micro-agências de publicidade-CLT (a maior em vínculos formais). Hoje, a homogeneidade aparente do agregado mascara essa decisão.</p>
+<p><strong>(ii) Política regulatória sobre IA generativa.</strong> O dado de que software é a segunda maior atividade cultural brasileira por VA (R$ 84,3 bi em 2023) e cresce mais rápido do que qualquer outra atividade cultural posiciona o tema da regulação de IA treinada em código como um tema <em>de política cultural</em>, não apenas de propriedade intelectual ou de mercado de trabalho TI. Esse enquadramento ainda não está na conversa brasileira. O fato de que os depósitos no INPI cresceram ×8 em 24 anos sugere que o setor já se vê como titular de PI relevante; a próxima rodada regulatória precisa reconhecer isso.</p>
+<p><strong>(iii) Política de mensuração.</strong> O domínio F. Design da classificação SIIC precisa ser desagregado — em pelo menos três sub-populações: publicidade catch-all, design especializado (artes visuais, gráfico, arquitetura, fotografia), e software-como-atividade-cultural-central (que hoje cai em periferia, não em F.). Sem essa desagregação, qualquer leitura agregada do domínio gera erro sistemático que se acumula em cada nova safra de pesquisa.</p>
+<hr>
+<h2>Próximas pesquisas</h2>
+<p>A Nota suscita três próximos passos imediatos: <strong>(1)</strong> uma sondagem qualitativa da CNAE 7319002 — extrair uma amostra de razões sociais para entender o que de fato está sendo classificado nessa catch-all que absorveu 110 mil vínculos novos em uma década; <strong>(2)</strong> uma comparação cross-source comparável com México (INEGI CSCM), Argentina (SInCA) e Colômbia (DANE CSECC), todos no corpus, para testar se a estrutura "publicidade-catch-all + MEI + software-periferia" é específica brasileira ou é regional; e <strong>(3)</strong> cruzamento com a Análise 25 (AI Exposure × VA) para testar a hipótese de que as atividades de maior VA são também as de maior exposição à IA generativa — primeira intuição: software sim, publicidade-catch-all sim, design especializado parcialmente.</p>
+<hr>
+<h2>Fontes</h2>
+<ul>
+<li><strong>INPI</strong> — Indicadores de Propriedade Industrial, anuário 2024. Tabelas <code>prg_total_geral</code> e <code>mrc_registro_mrc_diret_ano_classe</code>. Cobertura <code>atana.inpi.*</code>.</li>
+<li><strong>RAIS</strong> — Relação Anual de Informações Sociais (MTE), via Base dos Dados (<code>br_me_rais</code>). Painel 2014–2025 em <code>atana.rais.vinculos_culturais</code> (~17M vínculos-ano).</li>
+<li><strong>Cadastro dos MEIs</strong> — IBGE-RFB, ano-base 2022. SIIC capítulo 1, tabela 1.3.2. <code>atana.ibge_cempre.tab_1_3_2.parquet</code>.</li>
+<li><strong>Pesquisas estruturais IBGE</strong> — PIA + PAS + PAC, SIIC capítulo 2. Tabela 2.8 (Valor Adicionado). <code>atana.ibge_estruturais.tab_2_8.parquet</code>. Anos 2013 + 2019–2023.</li>
+<li><strong>Atana Análise 26</strong> — <em>O boom brasileiro de Design e Software em quatro lentes</em> (<code>analise_26_design_software_4_lentes.md</code>), versão estendida com 6 figuras, 19 checagens reprodutíveis (<code>verify_a26.py</code>), e apêndice metodológico completo.</li>
+<li><strong>Companion notes:</strong> Note #03 (sino-dependência, pluralismo metodológico em dois lentes); Note #08 (música em quatro lentes — divergência); Note #09 (RAIS panel — erosão silenciosa); Note #10 (CEMPRE × MEIs — formalização para baixo); Note #18 (OECD AI × IBGE — pluralismo aplicado à IA).</li>
+</ul>
+<hr>
+<h2>Como citar</h2>
+<p><strong>ABNT.</strong> SILVA JUNIOR, João Roque da. INPI × RAIS × CEMPRE × IBGE Estruturais: o boom brasileiro de Design e Software em quatro lentes. <strong>Atana Notes</strong>, n. 19, jun. 2026. Disponível em: <a href="https://atana.studio/notes/19/">https://atana.studio/notes/19/</a>. Acesso em: [data].</p>
+<p><strong>APA 7.</strong> Silva Junior, J. R. (2026, junho). <em>INPI × RAIS × CEMPRE × IBGE Estruturais: o boom brasileiro de Design e Software em quatro lentes</em> (Atana Note No. 19). Atana. https://atana.studio/notes/19/</p>
+<p><strong>Chicago (author-date).</strong> Silva Junior, João Roque da. 2026. "INPI × RAIS × CEMPRE × IBGE Estruturais: o boom brasileiro de Design e Software em quatro lentes." <em>Atana Notes</em>, no. 19 (junho). https://atana.studio/notes/19/.</p>
+<p><strong>BibTeX.</strong></p>
+<pre><code class="language-bibtex">@techreport{silvajunior2026design,
+  author      = {{Silva Junior}, Jo{\~a}o Roque da},
+  title       = {{INPI} {\texttimes} {RAIS} {\texttimes} {CEMPRE} {\texttimes} {IBGE} {E}struturais: o boom brasileiro de {D}esign e {S}oftware em quatro lentes},
+  institution = {Atana},
+  type        = {Atana Note},
+  number      = {19},
+  year        = {2026},
+  month       = {jun},
+  url         = {https://atana.studio/notes/19/},
+  note        = {Preprint cit{\'a}vel; vers{\~a}o estendida em An{\'a}lise 26.}
+}
+</code></pre>
+<p><strong>Cita-as curta.</strong> Silva Junior (2026), Atana Note #19.</p>
+<hr>
+<p><em>Sobre a Atana.</em> A Atana é uma consultoria de políticas públicas voltada à economia criativa latino-americana na era agêntica. As Atana Notes são peças analíticas curtas, citáveis, baseadas no corpus <code>atana-data</code> (~23 esquemas, ~195 tabelas, cobertura 13/14 dos domínios FCS 2025 da UNESCO) e publicadas em atana.studio/notes/.</p>
+<p><em>Versão 1.0 — junho de 2026. Companheira da Análise 26 (versão estendida) e da Atana Note #10 (CEMPRE × MEIs).</em></p>
+
+    <div class="footer-cta">
+      <h2>Receive the Atana Notes</h2>
+      <p>Concise reads on creative-economy policy, AI, and cultural trade in Latin America — roughly two a month, in PT / EN / ES.</p>
+      <a href="/notes/#subscribe" class="btn">Subscribe →</a>
+    </div>
+  </div>
+</article>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Atana — evidence-based AI policy for creative economies in Latin America.</p>
+    <p>Contact: <a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a>  ·  <a href="/">atana.studio</a>  ·  Data: <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data (GitHub)</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
