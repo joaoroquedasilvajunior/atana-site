@@ -523,50 +523,6 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
   .container.container--data { max-width: 1200px; padding: 0 32px; }
   .container.container--data-narrow { max-width: 900px; margin: 0 auto; padding: 0 32px; }
 
-  /* Hero */
-  .data-hero {
-    padding: 48px 0 32px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-  }
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-  }
-  .hero-eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--olive);
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-  .hero-claim {
-    font-family: var(--serif);
-    font-size: 30px;
-    line-height: 1.2;
-    color: var(--navy);
-    font-weight: 700;
-    margin: 0 0 16px;
-    letter-spacing: -0.005em;
-  }
-  @media (min-width: 900px) {
-    .hero-claim { font-size: 34px; }
-  }
-  .hero-source { font-size: 13px; color: var(--muted); }
-  .hero-source a { color: var(--olive); }
-  .hero-chart {
-    background: white;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    min-height: 480px;
-    padding: 8px;
-  }
-  #fig8-plot { width: 100%; height: 460px; }
 
   /* Sub-hero strip */
   .sub-hero-strip {
@@ -830,7 +786,6 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 </style>
 
 
-<script src="https://cdn.plot.ly/plotly-basic-2.35.2.min.js" defer></script>
 
 
 <section class="lang-bar">
@@ -840,41 +795,6 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
       <button data-lang="en">EN</button>
       <button data-lang="es">ES</button>
     </span>
-  </div>
-</section>
-
-
-<section class="data-hero">
-  <div class="container container--data">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="hero-eyebrow" id="hero-eyebrow">Atana · Data Explorer</div>
-        <h1 class="hero-claim" id="hero-claim">&hellip;</h1>
-        <p class="hero-source" id="hero-source">&hellip;</p>
-      </div>
-      <div class="hero-chart">
-        <div id="fig8-plot"></div>
-        <noscript>
-          <div class="noscript-fallback">
-            Interactive chart requires JavaScript. <a href="/" style="color: var(--olive);">View the static version in the Atana Index →</a>
-          </div>
-        </noscript>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="sub-hero-strip">
-  <div class="container container--data">
-    <div class="corpus-stats">
-      <strong>23 schemas</strong> · <strong>~195 tables</strong> · <strong>FCS 2025 13 / 14</strong>
-    </div>
-    <div class="refresh-badge" id="refresh-badge">Dados atualizados em junho de 2026 — próximo ciclo UNCTAD outubro de 2026</div>
-    <div class="corpus-badges">
-      <a class="corpus-badge github" href="https://github.com/joaoroquedasilvajunior/atana-data" target="_blank" rel="noopener">github.com/atana-data</a>
-      <span class="corpus-badge" title="Creative Commons Attribution 4.0 / MIT for code">CC BY 4.0 · MIT</span>
-    </div>
   </div>
 </section>
 
@@ -918,6 +838,20 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
       </div>
     </div>
     
+  </div>
+</section>
+
+
+<section class="sub-hero-strip">
+  <div class="container container--data">
+    <div class="corpus-stats">
+      <strong>23 schemas</strong> · <strong>~195 tables</strong> · <strong>FCS 2025 13 / 14</strong>
+    </div>
+    <div class="refresh-badge" id="refresh-badge">Dados atualizados em junho de 2026 — próximo ciclo UNCTAD outubro de 2026</div>
+    <div class="corpus-badges">
+      <a class="corpus-badge github" href="https://github.com/joaoroquedasilvajunior/atana-data" target="_blank" rel="noopener">github.com/atana-data</a>
+      <span class="corpus-badge" title="Creative Commons Attribution 4.0 / MIT for code">CC BY 4.0 · MIT</span>
+    </div>
   </div>
 </section>
 
@@ -1702,179 +1636,9 @@ window.addEventListener('load', function () {
 </section>
 
 
-<script id="atana-data" type="application/json">
-{
-  "Argentina": {
-    "display": "Argentina†",
-    "exposure_pct": 59.09,
-    "total_creative": 24.2,
-    "services": null,
-    "svc_share_pct": null,
-    "hhi": 0.413,
-    "has_services": false,
-    "dom_label": "Publications"
-  },
-  "Bolivia (Plurinational State of)": {
-    "display": "Bolivia",
-    "exposure_pct": 9.94,
-    "total_creative": 213.0,
-    "services": 22.0,
-    "svc_share_pct": 10.33,
-    "hhi": 0.952,
-    "has_services": true,
-    "dom_label": "Jewelry"
-  },
-  "Brazil": {
-    "display": "Brazil",
-    "exposure_pct": 85.83,
-    "total_creative": 8546.0,
-    "services": 7186.0,
-    "svc_share_pct": 84.08,
-    "hhi": 0.312,
-    "has_services": true,
-    "dom_label": "Interior (furniture)"
-  },
-  "Chile": {
-    "display": "Chile†",
-    "exposure_pct": 9.39,
-    "total_creative": 125.7,
-    "services": null,
-    "svc_share_pct": null,
-    "hhi": 0.214,
-    "has_services": false,
-    "dom_label": "Toys"
-  },
-  "Colombia": {
-    "display": "Colombia",
-    "exposure_pct": 82.59,
-    "total_creative": 1697.0,
-    "services": 1276.0,
-    "svc_share_pct": 75.19,
-    "hhi": 0.211,
-    "has_services": true,
-    "dom_label": "Interior"
-  },
-  "Costa Rica": {
-    "display": "Costa Rica",
-    "exposure_pct": 96.87,
-    "total_creative": 1650.0,
-    "services": 1584.0,
-    "svc_share_pct": 96.0,
-    "hhi": 0.275,
-    "has_services": true,
-    "dom_label": "Interior"
-  },
-  "Dominican Republic": {
-    "display": "Dominican Rep.",
-    "exposure_pct": 20.41,
-    "total_creative": 912.0,
-    "services": 182.0,
-    "svc_share_pct": 19.96,
-    "hhi": 0.822,
-    "has_services": true,
-    "dom_label": "Jewelry"
-  },
-  "Ecuador": {
-    "display": "Ecuador",
-    "exposure_pct": 44.06,
-    "total_creative": 53.4,
-    "services": 14.0,
-    "svc_share_pct": 26.22,
-    "hhi": 0.263,
-    "has_services": true,
-    "dom_label": "Interior"
-  },
-  "El Salvador": {
-    "display": "El Salvador",
-    "exposure_pct": 21.66,
-    "total_creative": 182.0,
-    "services": 2.0,
-    "svc_share_pct": 1.1,
-    "hhi": 0.226,
-    "has_services": true,
-    "dom_label": "Yarns/Textiles"
-  },
-  "Guatemala": {
-    "display": "Guatemala",
-    "exposure_pct": 48.51,
-    "total_creative": 218.0,
-    "services": 72.0,
-    "svc_share_pct": 33.03,
-    "hhi": 0.208,
-    "has_services": true,
-    "dom_label": "Fashion accessories"
-  },
-  "Honduras": {
-    "display": "Honduras",
-    "exposure_pct": 57.46,
-    "total_creative": 51.4,
-    "services": 7.0,
-    "svc_share_pct": 13.62,
-    "hhi": 0.325,
-    "has_services": true,
-    "dom_label": "Interior"
-  },
-  "Mexico": {
-    "display": "Mexico†",
-    "exposure_pct": 21.13,
-    "total_creative": 6451.0,
-    "services": null,
-    "svc_share_pct": null,
-    "hhi": 0.182,
-    "has_services": false,
-    "dom_label": "Interior"
-  },
-  "Paraguay": {
-    "display": "Paraguay",
-    "exposure_pct": 3.46,
-    "total_creative": 52.6,
-    "services": 0.5,
-    "svc_share_pct": 0.95,
-    "hhi": 0.309,
-    "has_services": true,
-    "dom_label": "Carpets"
-  },
-  "Peru": {
-    "display": "Peru",
-    "exposure_pct": 21.39,
-    "total_creative": 345.0,
-    "services": 38.0,
-    "svc_share_pct": 11.01,
-    "hhi": 0.443,
-    "has_services": true,
-    "dom_label": "Jewelry"
-  },
-  "Uruguay": {
-    "display": "Uruguay",
-    "exposure_pct": 98.5,
-    "total_creative": 615.0,
-    "services": 602.0,
-    "svc_share_pct": 97.89,
-    "hhi": 0.174,
-    "has_services": true,
-    "dom_label": "Jewelry"
-  }
-}
-</script>
-
-
-<script id="atana-claims" type="application/json">
-[{"pt": {"eyebrow": "Quantificação metodológica · Nota #18", "claim": "O OECD AI Capability Gap (No. 59, mai/2026) deveria ter resolvido a pergunta sobre exposição cultural à IA. Não resolveu — e o porquê está no Anexo 3, página 49 do próprio paper.", "source": "Fonte: <a href=\"/notes/18/\">Atana Note #18</a> · OECD AI Papers No. 59 × IBGE Estruturais × IBGE Comex"}, "en": {"eyebrow": "Methodological quantification · Note #18", "claim": "OECD AI Capability Gap (No. 59, May 2026) should have settled the question of cultural exposure to AI. It didn't — and the reason sits in Annex 3, page 49 of the paper itself.", "source": "Source: <a href=\"/notes/18/\">Atana Note #18</a> · OECD AI Papers No. 59 × IBGE Estruturais × IBGE Comex"}, "es": {"eyebrow": "Cuantificación metodológica · Nota #18", "claim": "El OECD AI Capability Gap (No. 59, may/2026) debería haber resuelto la pregunta sobre la exposición cultural a la IA. No lo hizo — y la razón está en el Anexo 3, página 49 del propio paper.", "source": "Fuente: <a href=\"/notes/18/\">Atana Note #18</a> · OECD AI Papers No. 59 × IBGE Estruturais × IBGE Comex"}}, {"pt": {"eyebrow": "Pluralismo metodológico · Nota #07", "claim": "UNCTAD não vê o México em serviços criativos. A Cuenta Satélite da Cultura mexicana sim — e o reposiciona de \"Data Gap Zone\" para \"Transformation Race\". Quatro países LATAM corrigidos.", "source": "Fonte: <a href=\"/notes/07/\">Atana Note #07</a> · UNCTAD 2024 × CSCM (MX) × SInCA (AR) × DANE (CO) × CSCCR (CR)"}, "en": {"eyebrow": "Methodological pluralism · Note #07", "claim": "UNCTAD does not see Mexico in creative services. Mexico's own Satellite Account of Culture does — and reposiciones it from \"Data Gap Zone\" to \"Transformation Race.\" Four LATAM countries corrected.", "source": "Source: <a href=\"/notes/07/\">Atana Note #07</a> · UNCTAD 2024 × CSCM (MX) × SInCA (AR) × DANE (CO) × CSCCR (CR)"}, "es": {"eyebrow": "Pluralismo metodológico · Nota #07", "claim": "UNCTAD no ve a México en servicios creativos. La Cuenta Satélite de la Cultura mexicana sí — y lo reposiciona de \"Data Gap Zone\" a \"Transformation Race.\" Cuatro países LATAM corregidos.", "source": "Fuente: <a href=\"/notes/07/\">Atana Note #07</a> · UNCTAD 2024 × CSCM (MX) × SInCA (AR) × DANE (CO) × CSCCR (CR)"}}]
-</script>
 
 <script>
 (function() {
-  // ── Hero rotating claims (one picked at random per page load) ──
-  const claims = JSON.parse(document.getElementById('atana-claims').textContent);
-  const heroIndex = Math.floor(Math.random() * claims.length);
-
-  function applyHero(lang) {
-    const c = claims[heroIndex][lang];
-    document.getElementById('hero-eyebrow').textContent = c.eyebrow;
-    document.getElementById('hero-claim').innerHTML = c.claim;
-    document.getElementById('hero-source').innerHTML = c.source;
-  }
-
   // ── Refresh-badge i18n ──
   const refreshBadges = {
     pt: "Dados atualizados em junho de 2026 \u2014 pr\u00f3ximo ciclo UNCTAD outubro de 2026",
@@ -1892,7 +1656,6 @@ window.addEventListener('load', function () {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
     document.getElementById('refresh-badge').textContent = refreshBadges[lang];
-    applyHero(lang);
     try { localStorage.setItem('atana_lang', lang); } catch(e) {}
   }
   document.querySelectorAll('.lang-switcher button').forEach(btn => {
@@ -1905,119 +1668,6 @@ window.addEventListener('load', function () {
     if (stored && ['pt','en','es'].includes(stored)) initialLang = stored;
   } catch(e) {}
   setLang(initialLang);
-
-  // ── Interactive fig8 ──
-  function buildFig8() {
-    if (typeof Plotly === 'undefined') {
-      document.getElementById('fig8-plot').innerHTML =
-        '<div class="noscript-fallback">Chart library unavailable. Static version at <a href="/" style="color: var(--olive);">atana.studio</a>.</div>';
-      return;
-    }
-    const data = JSON.parse(document.getElementById('atana-data').textContent);
-
-    const totals = Object.values(data).map(d => d.total_creative);
-    const minScale = Math.min(...totals);
-    const maxScale = Math.max(...totals);
-    function logNorm(v) {
-      return 100 * (Math.log(v) - Math.log(minScale)) / (Math.log(maxScale) - Math.log(minScale));
-    }
-    Object.keys(data).forEach(k => {
-      const d = data[k];
-      const scale = logNorm(d.total_creative);
-      const div = (1 - d.hhi) * 100;
-      d.readiness = d.has_services
-        ? (0.40 * d.svc_share_pct + 0.40 * scale + 0.20 * div)
-        : (0.50 * scale + 0.50 * div);
-    });
-
-    const NAVY = '#1F3A5F', OLIVE = '#6B7B3A', BRICK = '#8C2A2A',
-          SAND = '#F4F1EB', RULE = '#D6CFC0';
-
-    const fullData = Object.values(data).filter(d => d.has_services);
-    const goodsOnly = Object.values(data).filter(d => !d.has_services);
-
-    function trace(rows, name, markerSymbol) {
-      return {
-        x: rows.map(d => d.exposure_pct),
-        y: rows.map(d => d.readiness),
-        text: rows.map(d => d.display),
-        mode: 'markers+text',
-        type: 'scatter',
-        name: name,
-        textposition: 'top center',
-        textfont: { family: 'Inter, sans-serif', size: 10, color: NAVY },
-        marker: {
-          symbol: markerSymbol,
-          size: rows.map(d => Math.max(10, Math.sqrt(d.total_creative) * 1.2)),
-          sizemode: 'diameter',
-          color: rows.map(d => {
-            const e = d.exposure_pct, r = d.readiness;
-            if (e >= 40 && r >= 40) return OLIVE;
-            if (e >= 40 && r < 40)  return BRICK;
-            if (e < 40  && r >= 40) return '#C9B27A';
-            return '#8C7A8C';
-          }),
-          opacity: 0.85,
-          line: { color: 'rgba(255,255,255,0.6)', width: 1 }
-        },
-        customdata: rows.map(d => [
-          d.total_creative,
-          d.svc_share_pct === null ? 'n/a' : d.svc_share_pct.toFixed(1) + '%',
-          (d.hhi).toFixed(3),
-          d.dom_label,
-          d.has_services ? 'reported' : 'NOT REPORTED — lower bound'
-        ]),
-        hovertemplate:
-          '<b>%{text}</b><br>' +
-          'AI Exposure: <b>%{x:.1f}%</b><br>' +
-          'Readiness: <b>%{y:.1f}</b><br>' +
-          'Total creative exports: <b>US$ %{customdata[0]:.0f} M</b><br>' +
-          'Services share: <b>%{customdata[1]}</b> (%{customdata[4]})<br>' +
-          'HHI (goods): <b>%{customdata[2]}</b><br>' +
-          'Dominant category: <b>%{customdata[3]}</b>' +
-          '<extra></extra>'
-      };
-    }
-
-    const layout = {
-      shapes: [
-        { type: 'rect', x0: 40, y0: 40, x1: 100, y1: 100, fillcolor: OLIVE,   opacity: 0.06, line: { width: 0 }, layer: 'below' },
-        { type: 'rect', x0: 40, y0: 0,  x1: 100, y1: 40,  fillcolor: BRICK,   opacity: 0.06, line: { width: 0 }, layer: 'below' },
-        { type: 'rect', x0: 0,  y0: 40, x1: 40,  y1: 100, fillcolor: '#C9B27A', opacity: 0.10, line: { width: 0 }, layer: 'below' },
-        { type: 'rect', x0: 0,  y0: 0,  x1: 40,  y1: 40,  fillcolor: '#8C7A8C', opacity: 0.06, line: { width: 0 }, layer: 'below' },
-        { type: 'line', x0: 40, y0: 0,  x1: 40,  y1: 100, line: { color: RULE, width: 1, dash: 'dot' } },
-        { type: 'line', x0: 0,  y0: 40, x1: 100, y1: 40,  line: { color: RULE, width: 1, dash: 'dot' } }
-      ],
-      annotations: [
-        { x: 98, y: 97, text: '<b>Q1 — Transformation Race</b>',          showarrow: false, font: { size: 10, color: OLIVE },     xanchor: 'right' },
-        { x: 98, y: 3,  text: '<b>Q2 — Digital Fracture</b>',             showarrow: false, font: { size: 10, color: BRICK },     xanchor: 'right' },
-        { x: 2,  y: 97, text: '<b>Q3 — Data Gap Zone</b>',                showarrow: false, font: { size: 10, color: '#9C7E1B' }, xanchor: 'left'  },
-        { x: 2,  y: 3,  text: '<b>Q4 — Specialized Tangible Cluster</b>', showarrow: false, font: { size: 10, color: '#5C4D5C' }, xanchor: 'left'  }
-      ],
-      xaxis: { title: { text: 'AI Exposure Index (%)', font: { size: 11, color: '#555' } }, range: [-3, 103], showgrid: false, zeroline: false, tickfont: { size: 10, color: '#666' } },
-      yaxis: { title: { text: 'Readiness Index',      font: { size: 11, color: '#555' } }, range: [-3, 103], showgrid: false, zeroline: false, tickfont: { size: 10, color: '#666' } },
-      paper_bgcolor: 'white',
-      plot_bgcolor: 'white',
-      margin: { l: 60, r: 30, t: 30, b: 60 },
-      hoverlabel: { bgcolor: SAND, bordercolor: NAVY, font: { family: 'Inter, sans-serif', size: 12, color: NAVY } },
-      showlegend: false,
-      autosize: true
-    };
-
-    Plotly.newPlot('fig8-plot',
-      [trace(fullData, 'Full services data', 'circle'),
-       trace(goodsOnly, 'Goods-only (lower bound)', 'square')],
-      layout,
-      { responsive: true, displaylogo: false, modeBarButtonsToRemove: ['lasso2d','select2d','autoScale2d'] }
-    );
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', buildFig8);
-  } else {
-    buildFig8();
-  }
-  window.addEventListener('load', () => setTimeout(buildFig8, 500));
 })();
 </script>
 
