@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Latin America&#39;s creative economy talks to the machine — Atana</title>
+<meta name="description" content="Interactive map of Claude use across Latin America, and the creative work people hand the model, from the Anthropic Economic Index in the open atana-data corpus.">
+<meta property="og:title" content="How Latin America&#39;s creative economy talks to the machine">
+<meta property="og:description" content="Where Latin America uses Claude, and what creative work it hands the model.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://atana.studio/data/creative-ai/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────────────────
+   atana.css — single design source for the Atana site (home + notes + data)
+   v2 "Arrival" design system, 2026-06-11. build_site.py inlines this into
+   every generated page. Edit here, then run: python3 atana_site/build_site.py
+
+   Design language: deep-navy arrival bands with the three-waveform mark
+   drawing itself in; paper body; Spectral serif display; sharp corners;
+   reveal-on-scroll (.rise/.on, JS in base template); reduced-motion safe.
+   Content classes from v1 (article body, tables, figures, subscribe) are
+   preserved so existing note bodies render unchanged.
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ink: #22303f;
+  --navy: #1F3A5F;
+  --navy-deep: #16293f;
+  --navy-deeper: #101e30;
+  --olive: #6B7B3A;
+  --olive-dim: #8a9a52;
+  --olive-light: #8a9b55;
+  --brick: #8C2A2A;
+  --brick-light: #c97f6f;
+  --sand: #F4F1EB;
+  --sand-2: #E8DDC8;
+  --paper: #F4EDDE;
+  --rule: #D6CFC0;
+  --muted: #5C5C5C;
+  --serif: 'Spectral', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.container-wide { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+::selection { background: var(--olive); color: var(--paper); }
+
+code {
+  background: var(--sand-2);
+  padding: 1px 6px;
+  font-size: 13px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  color: var(--navy);
+}
+
+/* ── Motion system ─────────────────────────────────────────────────────── */
+@keyframes drawWave { from { stroke-dashoffset: 600; } to { stroke-dashoffset: 0; } }
+@keyframes floatWave { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes riseIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes tickSlide { from { transform: translateX(-12px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes pulseDown { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+.wave path { stroke-dasharray: 600; stroke-dashoffset: 600; animation: drawWave 2.2s ease-out forwards; }
+.wave.w2 path { animation-delay: .25s; }
+.wave.w3 path { animation-delay: .5s; }
+.wave { animation: floatWave 6s ease-in-out infinite; }
+.wave.w2 { animation-delay: 1.2s; }
+.wave.w3 { animation-delay: 2.4s; }
+.rise { opacity: 0; }
+.rise.on { animation: riseIn .9s cubic-bezier(.2,.7,.2,1) forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .wave, .wave path, .rise, .rise.on, .hero-ruler-value { animation: none !important; }
+  .rise { opacity: 1; }
+  .wave path { stroke-dashoffset: 0; }
+}
+
+/* ── Site header (dark, fixed over hero bands) ─────────────────────────── */
+.site-header {
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(16, 30, 48, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(232, 221, 200, 0.14);
+}
+.site-header .container, .site-header .container-wide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--sand-2);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.brand-suffix {
+  color: var(--olive-light);
+  font-weight: 500;
+  margin-left: 6px;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.header-meta {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 13.5px;
+  flex-wrap: wrap;
+}
+.header-meta a { color: var(--sand-2); text-decoration: none; opacity: .85; letter-spacing: .02em; }
+.header-meta a:hover { opacity: 1; border-bottom: 1px solid var(--olive-light); }
+
+/* ── Arrival hero band (notes index, home) ─────────────────────────────── */
+.hero-band {
+  background: radial-gradient(1100px 620px at 70% -12%, var(--navy), var(--navy-deep) 55%, var(--navy-deeper));
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+.hero-band::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(232,221,200,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,221,200,.05) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+}
+.hero-band > * { position: relative; }
+.hero-band .eyebrow { color: var(--olive-light); }
+.hero-band h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+.hero-band .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  color: rgba(232,221,200,.85);
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.hero-band a { color: var(--sand-2); }
+
+/* home hero (full height) vs page hero (band) */
+.hero-home { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding: 110px 0 70px; }
+.hero-home h1 { font-size: clamp(40px, 7vw, 80px); line-height: 1.03; }
+.hero-home h1 em { font-style: italic; color: var(--sand-2); }
+.hero-page { padding: 84px 0 56px; }
+.hero-page h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.1; }
+.hero-sub { max-width: 620px; font-size: 17px; line-height: 1.6; color: rgba(232,221,200,.87); margin-top: 24px; }
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brick);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* rotating ruler (home hero) */
+.hero-ruler { margin-top: 42px; border-top: 1px solid rgba(232,221,200,.22); padding-top: 24px; max-width: 620px; }
+.hero-ruler-q { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: rgba(232,221,200,.6); }
+.hero-ruler-row { display: flex; align-items: baseline; gap: 16px; margin-top: 8px; animation: tickSlide .5s ease-out; }
+.hero-ruler-value { font-family: var(--serif); font-size: clamp(32px, 4.6vw, 52px); font-weight: 700; }
+.hero-ruler-label { font-size: 13px; color: rgba(232,221,200,.65); }
+.hero-ruler-dots { display: flex; gap: 6px; margin-top: 14px; }
+.hero-ruler-dots span { width: 26px; height: 3px; background: rgba(232,221,200,.2); transition: background .4s; }
+.hero-ruler-dots span.on { background: var(--sand-2); }
+.hero-ruler-note { font-size: 13.5px; color: rgba(232,221,200,.6); margin-top: 16px; line-height: 1.55; }
+.hero-scroll-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(232,221,200,.4); font-size: 20px; animation: pulseDown 2.4s infinite; }
+
+/* hero stats strip (notes index / home) */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: rgba(232,221,200,.16);
+  border: 1px solid rgba(232,221,200,.16);
+  margin-top: 36px;
+}
+.hero-stats > div { background: rgba(16,30,48,.6); padding: 16px 18px; }
+.hero-stats .n { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--sand-2); }
+.hero-stats .l { font-size: 11.5px; color: rgba(232,221,200,.6); margin-top: 2px; letter-spacing: .02em; }
+
+/* ── Note article ──────────────────────────────────────────────────────── */
+.article-hero { padding: 64px 0 40px; }
+.article-hero .note-eyebrow { color: var(--olive-light); }
+.article-hero h1 { font-size: clamp(30px, 4.4vw, 42px); line-height: 1.14; }
+.article-hero .deck { font-size: 20px; margin-top: 14px; }
+.article-hero .meta {
+  display: flex; flex-wrap: wrap; gap: 12px 24px;
+  margin-top: 26px; padding-top: 16px;
+  border-top: 1px solid rgba(232,221,200,.2);
+  font-size: 13.5px; color: rgba(232,221,200,.7);
+}
+.article-hero .meta strong { color: var(--sand-2); font-weight: 600; }
+
+article { padding: 0 0 80px; }
+article .container > *:first-child { margin-top: 0; }
+.article-body { padding-top: 44px; }
+.note-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+article h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 32px 0 12px;
+}
+article p { margin: 0 0 18px; }
+article ul, article ol { margin: 0 0 18px; padding-left: 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--ink); }
+article a { color: var(--olive); }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
+  box-shadow: 0 1px 0 rgba(31,58,95,.18);
+}
+article p:has(> img:only-child) { margin: 0; }
+
+article blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--olive);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+article blockquote p { margin: 0 0 8px; }
+article blockquote p:last-child { margin: 0; }
+
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14.5px;
+  background: white;
+}
+article th, article td {
+  border: 1px solid var(--rule);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
+
+.footer-cta {
+  margin-top: 48px;
+  padding: 30px;
+  background: var(--navy);
+  color: var(--sand);
+  text-align: center;
+  border-top: 4px solid var(--olive);
+}
+.footer-cta h2 { font-family: var(--serif); color: var(--sand-2); font-size: 22px; margin: 0 0 8px; }
+.footer-cta p { color: var(--sand-2); opacity: .85; margin: 0 0 16px; font-size: 15px; }
+.btn {
+  display: inline-block;
+  padding: 11px 24px;
+  background: var(--sand-2);
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+}
+.btn:hover { background: var(--paper); }
+
+/* ── Notes index ───────────────────────────────────────────────────────── */
+.notes-list { padding: 56px 0 80px; }
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brick);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.note-card {
+  background: #fff;
+  border-top: 3px solid var(--navy);
+  box-shadow: 0 1px 0 rgba(31,58,95,.15);
+  padding: 26px 28px;
+  margin-bottom: 18px;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+}
+.note-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(31,58,95,.14); }
+.note-card:nth-of-type(3n+2) { border-top-color: var(--olive); }
+.note-card:nth-of-type(3n) { border-top-color: var(--brick); }
+.note-title {
+  font-family: var(--serif);
+  font-size: 23px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 8px 0 10px;
+  letter-spacing: -0.005em;
+}
+.note-title a { color: var(--navy); text-decoration: none; }
+.note-title a:hover { color: var(--olive); }
+.note-deck { font-size: 15.5px; color: var(--muted); margin: 0 0 12px; line-height: 1.55; }
+.note-tags { font-size: 13px; color: var(--muted); margin: 0; }
+.note-tags strong { color: var(--ink); font-weight: 600; }
+.note-tags a { color: var(--olive); }
+
+.upcoming {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--sand-2);
+  border-left: 4px solid var(--olive);
+}
+.upcoming h3 {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.upcoming p { margin: 0 0 8px; font-size: 15px; color: var(--ink); }
+.upcoming p:last-child { margin-bottom: 0; }
+.upcoming em { color: var(--muted); font-style: italic; }
+
+/* ── Subscribe block ───────────────────────────────────────────────────── */
+.subscribe { padding: 8px 0 64px; }
+.subscribe-card { background: var(--navy); color: var(--sand); padding: 40px 36px; border-top: 4px solid var(--olive); }
+.subscribe-card h2 { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--sand-2); margin: 0 0 10px; }
+.subscribe-card p { color: var(--sand-2); opacity: .9; font-size: 16px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+.subscribe-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-form input[type="email"] {
+  flex: 1 1 280px; min-width: 0; padding: 13px 16px;
+  border: 1px solid #3a5170; background: var(--navy-deep);
+  color: var(--sand); font-family: var(--sans); font-size: 15px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #8a99ad; }
+.subscribe-form input[type="email"]:focus { outline: 2px solid var(--olive); outline-offset: 1px; }
+.subscribe-form button {
+  padding: 13px 28px; background: var(--sand-2); color: var(--navy);
+  border: 0; font-family: var(--sans); font-weight: 700; font-size: 15px;
+  letter-spacing: 0.02em; cursor: pointer;
+}
+.subscribe-form button:hover { background: var(--paper); }
+.subscribe-fine { margin: 16px 0 0; font-size: 13px; color: #8a99ad; letter-spacing: 0.03em; }
+
+/* ── Home sections ─────────────────────────────────────────────────────── */
+.home-section { padding: 100px 0; }
+.home-section.alt { background: var(--navy); color: var(--paper); }
+.home-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4.2vw, 46px);
+  color: var(--navy);
+  margin: 10px 0 14px;
+  font-weight: 700;
+}
+.home-section.alt h2 { color: var(--paper); }
+.home-section .lead { max-width: 620px; font-size: 16px; line-height: 1.6; color: #4a4a42; }
+.home-section.alt .lead { color: rgba(232,221,200,.8); }
+.home-section.alt .eyebrow { color: var(--olive-light); }
+
+/* lenses */
+.lenses { display: flex; justify-content: center; align-items: center; min-height: 300px; margin: 28px 0 4px; }
+.lens {
+  width: 260px; height: 260px; border-radius: 50%;
+  mix-blend-mode: multiply;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--paper); text-align: center;
+  opacity: 0; transition: all 1.1s cubic-bezier(.2,.7,.2,1);
+}
+.lens .lens-label { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; max-width: 170px; }
+.lens .lens-value { font-family: var(--serif); font-size: 48px; font-weight: 700; }
+.lens-a { background: rgba(107,123,58,.84); transform: translateX(-150px); margin-right: -64px; z-index: 2; }
+.lens-b { background: rgba(140,42,42,.84); transform: translateX(150px); margin-left: -64px; }
+.lenses.on .lens { opacity: .94; transform: translateX(0); }
+.lens-cap { max-width: 560px; margin: 0 auto; font-size: 14.5px; line-height: 1.6; color: #4a4a42; font-style: italic; text-align: center; }
+
+/* crosswalk grid */
+.xwalk { display: grid; grid-template-columns: repeat(24, 1fr); gap: 4px; margin-top: 36px; }
+.xwalk div { height: 15px; background: transparent; transition: background .6s ease; }
+.xwalk.on div.c1 { background: var(--olive); }
+.xwalk.on div.c2 { background: rgba(107,123,58,.5); }
+.xwalk.on div.c3 { background: rgba(232,221,200,.22); }
+.xwalk div.gap { border: 1px dashed rgba(201,127,111,.7); }
+.xwalk-cap { font-size: 13px; color: rgba(232,221,200,.65); margin-top: 18px; max-width: 680px; line-height: 1.55; }
+.xwalk-cap .gap-note { color: var(--brick-light); }
+
+/* work cards */
+.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 24px; }
+.work-card {
+  background: #fff; border-top: 4px solid var(--navy);
+  box-shadow: 0 1px 0 rgba(31,58,95,.18);
+  padding: 26px 24px; display: flex; flex-direction: column; gap: 10px;
+}
+.work-card:nth-child(2) { border-top-color: var(--olive); }
+.work-card:nth-child(3) { border-top-color: var(--brick); }
+.work-card h3 { font-family: var(--serif); font-size: 23px; color: var(--navy); margin: 0; }
+.work-card p { font-size: 14.5px; line-height: 1.55; color: #4a4a42; margin: 0; flex: 1; }
+.work-card a { align-self: flex-start; font-size: 13px; font-weight: 700; color: var(--navy); text-decoration: none; border-bottom: 2px solid var(--navy); }
+.work-card:nth-child(2) a { color: var(--olive); border-color: var(--olive); }
+.work-card:nth-child(3) a { color: var(--brick); border-color: var(--brick); }
+
+/* CTA band */
+.cta-band {
+  background: linear-gradient(180deg, var(--navy-deep), var(--navy-deeper));
+  color: var(--paper); text-align: center; padding: 104px 24px;
+  position: relative; overflow: hidden;
+}
+.cta-band .waves-ghost { position: absolute; inset: 0; display: flex; justify-content: center; opacity: .14; pointer-events: none; }
+.cta-band h2 { font-family: var(--serif); font-size: clamp(28px, 4.4vw, 48px); max-width: 760px; margin: 0 auto 18px; line-height: 1.12; color: var(--paper); position: relative; }
+.cta-band p { max-width: 560px; margin: 0 auto 30px; font-size: 15.5px; line-height: 1.6; color: rgba(232,221,200,.75); position: relative; }
+.cta-band .btn { position: relative; padding: 15px 34px; font-size: 15px; }
+
+/* ── Site footer (dark) ────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--navy-deeper);
+  color: rgba(232,221,200,.55);
+  padding: 28px 0 36px;
+  font-size: 13px;
+}
+.site-footer .container, .site-footer .container-wide {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: baseline;
+}
+.site-footer .foot-brand { font-family: var(--serif); font-weight: 700; color: var(--sand-2); font-size: 16px; }
+.site-footer a { color: var(--sand-2); text-decoration: none; }
+.site-footer a:hover { border-bottom: 1px solid var(--olive-light); }
+.site-footer p { margin: 4px 0; }
+.foot-etym { max-width: 520px; }
+
+@media (max-width: 640px) {
+  .hero-page { padding: 56px 0 40px; }
+  .lenses { transform: scale(.78); min-height: 240px; }
+  .note-card { padding: 20px 18px; }
+  .home-section { padding: 64px 0; }
+}
+
+</style>
+<!-- atana:seo — generated by atana_site/build_site.py, do not hand-edit -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="author" content="João Roque · Atana">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://atana.studio/data/creative-ai/">
+
+<meta property="og:site_name" content="Atana">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://atana.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Latin America&#39;s creative economy talks to the machine">
+<meta name="twitter:description" content="Where Latin America uses Claude, and what creative work it hands the model.">
+<meta name="twitter:image" content="https://atana.studio/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"How Latin America's creative economy talks to the machine","description":"Interactive map of Claude use across Latin America and, for five countries, the creative tasks people hand the model and whether they lean on it to do or to learn.","url":"https://atana.studio/data/creative-ai/","isPartOf":{"@id":"https://atana.studio/#website"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}},"license":"https://creativecommons.org/licenses/by/4.0/"}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container-wide">
+    <a href="/" class="brand">Atana <span class="brand-suffix">Data</span></a>
+    <div class="header-meta">
+      <a href="/vol1/">Index Vol 1</a>
+      <a href="/notes/">Notes</a>
+      <a href="/data/">Data</a>
+      <a href="/data-room/">Data Room</a>
+      <a href="/notes/#subscribe">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+
+<style>
+.aimap{--navy:#1F3A5F;--navy2:#36567f;--olive:#6B7B3A;--olive2:#93a35f;--brick:#8C2A2A;
+  --sand:#E8DDC8;--sand2:#f3ecdc;--gold:#C8A53A;--ink:#22262b;--grey:#8A8A8A;--line:#d9cfb8;--paper:#fbf8f1;
+  background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5}
+.aimap *{box-sizing:border-box}
+.aimap a{color:var(--olive)}
+.aimap-wrap{max-width:1240px;margin:0 auto;padding:34px 26px 50px}
+.aimap .amhead h1{font-family:Spectral,serif;font-weight:700;color:var(--navy);
+  font-size:clamp(26px,3.4vw,40px);line-height:1.08;margin:0 0 8px;letter-spacing:-.01em}
+.aimap .amsub{font-size:15px;color:#4a525b;max-width:780px;margin:0 0 4px}
+.aimap .src{font-size:12.5px;color:var(--grey);margin-top:8px}
+.aimap .ameyebrow{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--olive);margin-bottom:10px}
+.aimap .stats{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 6px}
+.aimap .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 16px;min-width:150px;flex:1}
+.aimap .stat b{font-family:Spectral,serif;font-size:24px;color:var(--navy);display:block;line-height:1}
+.aimap .stat span{font-size:12px;color:#5a626b}
+.aimap .viewtoggle{display:flex;align-items:center;gap:10px;margin:18px 0 0;flex-wrap:wrap}
+.aimap .vt-lbl{font-size:12px;color:#5a626b;font-weight:600;letter-spacing:.04em}
+.aimap .vt-btn{font-family:Inter;font-size:13px;font-weight:600;color:var(--navy);background:#fff;
+  border:1px solid var(--line);border-radius:20px;padding:7px 15px;cursor:pointer;transition:all .15s}
+.aimap .vt-btn:hover{border-color:var(--olive)}
+.aimap .vt-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.aimap .barlean{height:9px;width:180px;border-radius:5px;background:linear-gradient(90deg,#6B7B3A,#efe7d4,#1F3A5F)}
+.aimap .grid{display:grid;grid-template-columns:1.35fr .95fr;gap:22px;margin-top:18px}
+@media(max-width:900px){.aimap .grid{grid-template-columns:1fr}}
+.aimap .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px}
+.aimap .mapwrap{position:relative}
+.aimap svg.map{width:100%;height:auto;display:block;border-radius:12px}
+.aimap .country{stroke:#fff;stroke-width:.5px;cursor:pointer;transition:opacity .15s,filter .15s}
+.aimap .country.nodata{cursor:default}
+.aimap .country:hover{filter:brightness(1.06)}
+.aimap .country.sel{stroke:var(--brick);stroke-width:2px}
+.aimap .ctx{fill:#efe7d4;stroke:#e3d9c2;stroke-width:.5px;pointer-events:none}
+.aimap .legend{position:absolute;left:16px;bottom:14px;background:rgba(255,255,255,.92);
+  border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:11px;color:#444}
+.aimap .legend .lt{font-weight:600;color:var(--navy);margin-bottom:6px;font-size:11px}
+.aimap .legend .bar{height:9px;width:170px;border-radius:5px;
+  background:linear-gradient(90deg,#efe7d4,#c9cfa0,#93a35f,#4f6b54,#1F3A5F)}
+.aimap .legend .lbl{display:flex;justify-content:space-between;margin-top:3px;color:var(--grey)}
+.aimap .tip{position:fixed;pointer-events:none;z-index:60;background:var(--navy);color:#fff;
+  padding:8px 11px;border-radius:9px;font-size:12.5px;opacity:0;transition:opacity .12s;max-width:230px;
+  box-shadow:0 8px 26px rgba(20,30,50,.28)}
+.aimap .tip b{font-family:Spectral,serif;font-size:14px}
+.aimap .tip .u{color:var(--gold);font-weight:600}
+.aimap .tip .hint{display:block;margin-top:4px;color:#cdd6e4;font-size:11px}
+.aimap .panel{padding:20px 20px 22px}
+.aimap .panel .ph{font-family:Spectral,serif;font-size:26px;color:var(--navy);margin:0;line-height:1.05}
+.aimap .panel .pmeta{font-size:13px;color:#5a626b;margin:6px 0 2px}
+.aimap .panel .pmeta b{color:var(--brick)}
+.aimap .sectlbl{font-weight:700;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--olive);margin:20px 0 9px}
+.aimap .collab{display:flex;height:26px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.aimap .collab .seg{height:100%}
+.aimap .collab.ref{height:16px;opacity:.55;margin-top:7px}
+.aimap .ckey{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#5a626b;margin-top:9px}
+.aimap .ckey i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.aimap .lean{font-size:13px;color:#3a424b;margin-top:11px;background:var(--sand2);border-radius:9px;padding:10px 12px}
+.aimap .lean b{color:var(--navy)}
+.aimap .task{margin:9px 0}
+.aimap .task .tl{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:3px}
+.aimap .task .tl span:first-child{color:#3a424b}
+.aimap .task .tl span:last-child{color:var(--navy);font-weight:600;font-family:Spectral,serif}
+.aimap .task .tb{height:8px;background:#eee6d4;border-radius:5px;overflow:hidden}
+.aimap .task .tf{height:100%;background:linear-gradient(90deg,var(--olive2),var(--navy));border-radius:5px}
+.aimap .empty{font-size:13.5px;color:#5a626b}
+.aimap .empty .big{font-family:Spectral,serif;font-size:17px;color:var(--navy);display:block;margin-bottom:8px}
+.aimap .amnote{font-size:11.5px;color:var(--grey);margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+.aimap .amfoot{margin-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+  border-top:1px solid var(--line);padding-top:14px}
+.aimap .amfoot .a{font-family:Spectral,serif;font-weight:700;color:var(--navy);font-size:18px}
+.aimap .amfoot .s{font-size:11.5px;color:var(--grey);max-width:780px}
+.aimap .pill{display:inline-block;background:var(--navy);color:#fff;font-size:11px;border-radius:20px;padding:3px 10px;margin-left:8px;vertical-align:middle}
+.aimap .loadmsg{padding:60px;text-align:center;color:var(--grey);font-size:14px}
+</style>
+
+<div class="aimap">
+ <div class="aimap-wrap">
+  <div class="amhead">
+    <div class="ameyebrow">Atana · Creative economy × AI</div>
+    <h1>How Latin America's creative economy talks to the machine</h1>
+    <p class="amsub">Where people use Claude across Latin America, and for the countries the data lets us see in detail,
+      <em>what creative work</em> they hand it and whether they lean on it to <b>do</b> the task or to <b>learn</b> to do it.
+      Hover a country for its usage; click Brazil, Mexico, Colombia, Argentina or Costa Rica for the full profile.</p>
+    <p class="src">Source: Anthropic Economic Index (revealed AI use), in the open <strong>atana-data</strong> corpus (CC BY 4.0).
+      Usage = share of global Claude.ai use. Read one lens: revealed use is not exposure and is not risk.</p>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="viewtoggle" id="viewtoggle">
+    <span class="vt-lbl">Colour the map by</span>
+    <button class="vt-btn active" data-view="usage">Share of use</button>
+    <button class="vt-btn" data-view="lean">Do vs learn lean</button>
+  </div>
+
+  <div class="grid">
+    <div class="card mapwrap">
+      <svg class="map" id="map" viewBox="0 0 720 720" aria-label="Map of Latin America"></svg>
+      <div class="loadmsg" id="loadmsg">Drawing the map…</div>
+      <div class="legend" id="legend" style="display:none">
+        <div class="lt">Share of global Claude.ai use</div>
+        <div class="bar"></div>
+        <div class="lbl"><span>0.004%</span><span>2.55%</span></div>
+        <div style="margin-top:6px;color:#9a9a9a">▦ no data (Cuba, Venezuela, Nicaragua)</div>
+      </div>
+      <div class="legend" id="legend-lean" style="display:none">
+        <div class="lt">Do vs learn lean (vs the world)</div>
+        <div class="barlean"></div>
+        <div class="lbl"><span>learn</span><span>world</span><span>do</span></div>
+        <div style="margin-top:6px;color:#9a9a9a">only BR · MX · CO · AR · CR carry this data</div>
+      </div>
+    </div>
+    <div class="card panel" id="panel"></div>
+  </div>
+
+  <div class="amfoot">
+    <div class="a">Atana</div>
+    <div class="s">Anthropic Economic Index (release 2026-03) · usage by country, task usage by country, collaboration mode by country.
+      Task and collaboration detail exists for BR, MX, CO, AR, CR; other countries shown at usage level.
+      Costa Rica's classified use is overwhelmingly non-creative (84% unclassified), so it carries a collaboration lean but no creative-task fingerprint.
+      <strong>atana.studio</strong></div>
+  </div>
+
+  <div class="tip" id="tip"></div>
+ </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="container-wide">
+    <span class="foot-brand">Atana</span>
+    <span class="foot-etym">Evidence-based AI policy for creative economies in Latin America. The name is older than Athens: <em>a-ta-na</em>, Linear B, Knossos, c.&nbsp;1400&nbsp;BCE.</span>
+    <span><a href="mailto:joaoroquer@gmail.com">joaoroquer@gmail.com</a> · <a href="https://github.com/joaoroquedasilvajunior/atana-data">atana-data</a> · CC BY 4.0</span>
+  </div>
+</footer>
+
+<script>
+/* reveal-on-scroll — pairs with .rise/.on, .lenses, .xwalk in atana.css */
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.rise, .lenses, .xwalk').forEach(function (el) { el.classList.add('on'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.22 });
+  document.querySelectorAll('.rise, .lenses, .xwalk').forEach(function (el) { obs.observe(el); });
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+const DATA = {
+  meta:{global:{directive:32.6,iteration:25.6,learning:22.4,feedback:11.5,validation:4.9,none:3.0,auto:44.1,aug:52.9}},
+  c:{
+    BR:{name:"Brazil",flag:"🇧🇷",usage:2.5548,rank:1,world:"2nd worldwide",
+        collab:{directive:35.0,iteration:29.9,learning:16.7,feedback:11.6,validation:4.1,none:2.7,auto:46.6,aug:50.7},
+        lean:"The most <b>automation-leaning</b> of the five. Brazilians lean on Claude to <b>do</b> the task (46.6%) more than the global average, and to <b>learn</b> less (16.7% vs 22.4%).",
+        tasks:[["Copy editing",2.52],["Developing themes & plots",1.64],["Advertising copy",1.55],["Web & content design",1.51],["Writing for drama & narration",1.32]]},
+    MX:{name:"Mexico",flag:"🇲🇽",usage:0.9757,rank:2,world:"",
+        collab:{directive:33.3,iteration:28.3,learning:20.5,feedback:10.8,validation:3.9,none:3.2,auto:44.1,aug:52.7},
+        lean:"Almost exactly on the global balance of <b>doing</b> (44.1%) vs <b>learning</b> (52.7% augmentation). A measured, mainstream profile.",
+        tasks:[["Web & content design",1.60],["Developing themes & plots",1.59],["Copy editing",1.24],["Editing others' material",0.78],["Writing for drama & narration",0.74]]},
+    CO:{name:"Colombia",flag:"🇨🇴",usage:0.6908,rank:3,world:"",
+        collab:{directive:33.4,iteration:29.6,learning:18.7,feedback:11.9,validation:3.6,none:2.6,auto:45.3,aug:51.9},
+        lean:"Slightly <b>automation-leaning</b> (45.3% vs 44.1% global) and a touch below the global rate of using AI to learn.",
+        tasks:[["Copy editing",1.62],["Web & content design",1.61],["Advertising copy",1.22],["Developing themes & plots",0.74],["Advertising & promo planning",0.64]]},
+    AR:{name:"Argentina",flag:"🇦🇷",usage:0.4985,rank:4,world:"",
+        collab:{directive:28.5,iteration:26.4,learning:22.2,feedback:15.7,validation:4.7,none:2.6,auto:44.2,aug:53.3},
+        lean:"The most <b>creative-led</b> mix: developing themes and plots is the single most common task. On the do-vs-learn balance it sits right at the global average.",
+        tasks:[["Developing themes & plots",1.69],["Web & content design",1.62],["Copy editing",1.40],["Editing others' material",1.10],["Advertising copy",0.90]]},
+    CR:{name:"Costa Rica",flag:"🇨🇷",usage:0.0772,rank:9,world:"",
+        collab:{directive:31.0,iteration:26.7,learning:25.0,feedback:11.0,validation:3.5,none:2.8,auto:42.0,aug:55.2},
+        lean:"The most <b>augmentation-leaning</b> of the five: Costa Ricans use Claude to <b>learn</b> more than anyone here (25.0% vs 22.4% global), and to automate the least.",
+        tasks:[],
+        empty:"Costa Rica's classified use is overwhelmingly non-creative (84% of its use is unclassified, the rest skews to software and tutoring), so the corpus carries its collaboration lean but no creative-task fingerprint."}
+  },
+  u:{PE:["Peru",0.3354,5],CL:["Chile",0.272,6],DO:["Dominican Rep.",0.1244,7],EC:["Ecuador",0.1187,8],
+     GT:["Guatemala",0.0734,10],BO:["Bolivia",0.0728,11],UY:["Uruguay",0.0593,12],PR:["Puerto Rico",0.0587,13],
+     PA:["Panama",0.0559,14],PY:["Paraguay",0.0515,15],SV:["El Salvador",0.0475,16],HN:["Honduras",0.0367,17],
+     HT:["Haiti",0.0237,18],GY:["Guyana",0.0045,19],SR:["Suriname",0.0038,20]},
+  nodata:{CU:"Cuba",VE:"Venezuela",NI:"Nicaragua"}
+};
+const ID2A2={"032":"AR","068":"BO","076":"BR","152":"CL","170":"CO","188":"CR","192":"CU","214":"DO",
+  "218":"EC","320":"GT","340":"HN","484":"MX","558":"NI","591":"PA","600":"PY","604":"PE","222":"SV",
+  "858":"UY","862":"VE","328":"GY","740":"SR","332":"HT","630":"PR","084":"BZ"};
+
+function usageOf(a2){ if(DATA.c[a2])return DATA.c[a2].usage; if(DATA.u[a2])return DATA.u[a2][1]; return null; }
+function nameOf(a2){ if(DATA.c[a2])return DATA.c[a2].name; if(DATA.u[a2])return DATA.u[a2][0]; if(DATA.nodata[a2])return DATA.nodata[a2]; return a2; }
+function rankOf(a2){ if(DATA.c[a2])return DATA.c[a2].rank; if(DATA.u[a2])return DATA.u[a2][2]; return null; }
+
+const color = d3.scaleSequentialLog(d3.interpolateRgbBasis(["#efe7d4","#c9cfa0","#93a35f","#4f6b54","#1F3A5F"]))
+  .domain([0.0038,2.5548]);
+
+const pad = id => String(id).padStart(3,"0");
+let view = "usage", countrySel = null;
+const GLEAN = +(DATA.meta.global.auto - DATA.meta.global.aug).toFixed(1);
+function leanOf(a2){ const c=DATA.c[a2]; return c ? +(c.collab.auto - c.collab.aug).toFixed(1) : null; }
+const leanColor = d3.scaleDiverging()
+  .domain([-13.2, GLEAN, -4.1])
+  .interpolator(d3.interpolateRgbBasis(["#6B7B3A","#efe7d4","#1F3A5F"]));
+function fillFor(a2){
+  if(view==="usage"){ const u=usageOf(a2); return u==null ? "url(#hatch)" : color(u); }
+  const l=leanOf(a2); return l==null ? "#ece4d2" : leanColor(l);
+}
+function leanWord(a2){ const l=leanOf(a2); if(l==null) return ""; return l>GLEAN
+  ? `<span class="hint">leans to <b>do</b> vs the world ▸ click for profile</span>`
+  : `<span class="hint">leans to <b>learn</b> vs the world ▸ click for profile</span>`; }
+function applyView(v){
+  view=v;
+  document.querySelectorAll(".vt-btn").forEach(b=>b.classList.toggle("active", b.dataset.view===v));
+  document.getElementById("legend").style.display      = (v==="usage") ? "block":"none";
+  document.getElementById("legend-lean").style.display = (v==="lean")  ? "block":"none";
+  if(countrySel) countrySel.transition().duration(450).attr("fill", d=>fillFor(ID2A2[pad(d.id)]));
+}
+document.querySelectorAll(".vt-btn").forEach(b=>b.addEventListener("click",()=>applyView(b.dataset.view)));
+
+const stats=[["20","Latin American countries with measured use"],
+  ["2.55%","Brazil's share of global Claude use · 2nd worldwide"],
+  ["5","countries with task-level detail"],
+  ["Copy + plots + ads","the creative work most handed to the machine"]];
+d3.select("#stats").selectAll(".stat").data(stats).join("div").attr("class","stat")
+  .html(d=>`<b>${d[0]}</b><span>${d[1]}</span>`);
+
+const svg=d3.select("#map"), W=720,H=720;
+const tip=d3.select("#tip");
+const cmodes=[["directive","#1F3A5F","do"],["feedback","#36567f","do"],
+  ["iteration","#6B7B3A","learn"],["learning","#93a35f","learn"],["validation","#bcc795","learn"],["none","#cfc6b0","—"]];
+
+d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json").then(world=>{
+  d3.select("#loadmsg").remove();
+  d3.select("#legend").style("display","block");
+  const countries=topojson.feature(world,world.objects.countries).features;
+  const latam=countries.filter(f=>ID2A2[pad(f.id)] && ID2A2[pad(f.id)]!=="BZ");
+  const ctx=countries.filter(f=>!latam.includes(f));
+  const proj=d3.geoMercator().fitExtent([[16,16],[W-16,H-16]],{type:"FeatureCollection",features:latam});
+  const path=d3.geoPath(proj);
+
+  svg.append("g").selectAll("path.ctx").data(ctx).join("path").attr("class","ctx").attr("d",path);
+
+  countrySel = svg.append("g").selectAll("path.country").data(latam).join("path")
+    .attr("class",d=>{const a2=ID2A2[pad(d.id)];return "country"+(usageOf(a2)==null?" nodata":"");})
+    .attr("d",path)
+    .attr("fill",d=>fillFor(ID2A2[pad(d.id)]))
+    .attr("data-a2",d=>ID2A2[pad(d.id)])
+    .on("mousemove",function(ev,d){
+      const a2=ID2A2[pad(d.id)], nm=nameOf(a2);
+      let body;
+      if(view==="usage"){
+        const u=usageOf(a2), rk=rankOf(a2);
+        body = u==null ? `<span class="hint">no usage data</span>`
+          : `<br><span class="u">${u.toFixed(u<0.1?3:2)}%</span> of global use · #${rk} in LATAM`+
+            (DATA.c[a2]?`<span class="hint">click for creative profile ▸</span>`:`<span class="hint">usage level only</span>`);
+      } else {
+        const c=DATA.c[a2];
+        body = !c ? `<span class="hint">no collaboration data</span>`
+          : `<br><span class="u">${c.collab.auto.toFixed(1)}% do</span> · ${c.collab.aug.toFixed(1)}% learn`+leanWord(a2);
+      }
+      tip.style("opacity",1).style("left",(ev.clientX+15)+"px").style("top",(ev.clientY+15)+"px")
+        .html(`<b>${nm}</b>`+body);
+    })
+    .on("mouseout",()=>tip.style("opacity",0))
+    .on("click",function(ev,d){
+      const a2=ID2A2[pad(d.id)];
+      if(!DATA.c[a2])return;
+      svg.selectAll(".country").classed("sel",false);
+      d3.select(this).classed("sel",true);
+      renderPanel(a2);
+    });
+
+  const defs=svg.append("defs");
+  const p=defs.append("pattern").attr("id","hatch").attr("width",6).attr("height",6)
+    .attr("patternUnits","userSpaceOnUse").attr("patternTransform","rotate(45)");
+  p.append("rect").attr("width",6).attr("height",6).attr("fill","#e7ddc8");
+  p.append("rect").attr("width",2).attr("height",6).attr("fill","#cfc4ab");
+
+  renderPanel(null);
+}).catch(e=>{
+  d3.select("#loadmsg").html("The base map needs an internet connection to load. The data on the right is still complete.");
+  renderPanel("BR");
+});
+
+function collabBar(o,ref){
+  let s='<div class="collab'+(ref?' ref':'')+'">';
+  cmodes.forEach(m=>{ s+=`<div class="seg" style="width:${o[m[0]]}%;background:${m[1]}"></div>`; });
+  return s+'</div>';
+}
+
+function renderPanel(a2){
+  const P=d3.select("#panel");
+  if(!a2){
+    P.html(`<div class="empty">
+      <span class="big">Read the map</span>
+      Colour is how much of all global Claude.ai use comes from each country (a log scale: Brazil is in a league of its own).
+      <br><br>Across the four countries the data lets us see in detail, creative users hand the machine the
+      <b>same</b> work first: copy editing, developing themes and plots, advertising copy, and web/content design.
+      The difference is the <b>lean</b>: Costa Rica leans most on AI to <b>learn</b>; Brazil leans most to <b>do</b>.
+      <div class="amnote">Click Brazil, Mexico, Colombia, Argentina or Costa Rica to open a profile. Switch the toggle above to colour by do-vs-learn lean.
+      Revealed use is one lens of three (use × demand × wages); it is not exposure and not risk.</div></div>`);
+    return;
+  }
+  const c=DATA.c[a2], g=DATA.meta.global;
+  let h=`<div class="ph">${c.flag} ${c.name}<span class="pill">#${c.rank} in LATAM</span></div>
+    <div class="pmeta"><b>${c.usage.toFixed(c.usage<0.1?3:2)}%</b> of global Claude.ai use${c.world?` · ${c.world}`:""}</div>`;
+  h+=`<div class="sectlbl">How they collaborate · do vs learn</div>${collabBar(c.collab,false)}`;
+  h+=`<div style="font-size:11px;color:#8a8a8a;margin-top:4px">global average for comparison</div>${collabBar(g,true)}`;
+  h+=`<div class="ckey">
+      <span><i style="background:#1F3A5F"></i>directive</span>
+      <span><i style="background:#36567f"></i>feedback loop</span>
+      <span><i style="background:#6B7B3A"></i>task iteration</span>
+      <span><i style="background:#93a35f"></i>learning</span>
+      <span><i style="background:#bcc795"></i>validation</span></div>`;
+  h+=`<div style="font-size:11px;color:#8a8a8a;margin-top:7px">navy = automation (do) · olive = augmentation (learn)</div>`;
+  h+=`<div class="lean">${c.lean}</div>`;
+  h+=`<div class="sectlbl">What creative work they hand the machine</div>`;
+  if(c.tasks.length){
+    const mx=Math.max(...c.tasks.map(t=>t[1]));
+    c.tasks.forEach(t=>{
+      h+=`<div class="task"><div class="tl"><span>${t[0]}</span><span>${t[1].toFixed(2)}%</span></div>
+          <div class="tb"><div class="tf" style="width:${(t[1]/mx*100).toFixed(1)}%"></div></div></div>`;
+    });
+    h+=`<div class="amnote">% = share of this country's classified Claude use on that O*NET task (creative tasks shown).</div>`;
+  } else {
+    h+=`<div class="empty">${c.empty}</div>`;
+  }
+  P.html(h);
+}
+</script>
+
+
+</body>
+</html>
