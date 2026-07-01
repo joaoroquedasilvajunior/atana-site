@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How Latin America&#39;s creative economy talks to the machine — Atana</title>
-<meta name="description" content="Interactive map of Claude use across Latin America, and the creative work people hand the model, from the Anthropic Economic Index in the open atana-data corpus.">
-<meta property="og:title" content="How Latin America&#39;s creative economy talks to the machine">
-<meta property="og:description" content="Where Latin America uses Claude, and what creative work it hands the model.">
+<title>O que o Brasil pede à IA, por estado — Atana</title>
+<meta name="description" content="Mapa interativo do uso de IA por estado no Brasil, cruzado com o fomento federal e o salário cultural. O uso de IA segue a geografia do dinheiro (Rouanet), não a da população (PNAB).">
+<meta property="og:title" content="O que o Brasil pede à IA, por estado">
+<meta property="og:description" content="Onde o Brasil usa a IA, e como isso se cruza com o fomento e o salário cultural.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://atana.studio/data/creative-ai/">
+<meta property="og:url" content="https://atana.studio/data/brasil-ia/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -487,19 +487,19 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <meta name="theme-color" content="#1F3A5F">
 <meta name="author" content="João Roque · Atana">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://atana.studio/data/creative-ai/">
+<link rel="canonical" href="https://atana.studio/data/brasil-ia/">
 
 <meta property="og:site_name" content="Atana">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://atana.studio/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Atana — evidence-based AI policy for creative economies in Latin America">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How Latin America&#39;s creative economy talks to the machine">
-<meta name="twitter:description" content="Where Latin America uses Claude, and what creative work it hands the model.">
+<meta name="twitter:title" content="O que o Brasil pede à IA, por estado">
+<meta name="twitter:description" content="Onde o Brasil usa a IA, e como isso se cruza com o fomento e o salário cultural.">
 <meta name="twitter:image" content="https://atana.studio/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"How Latin America's creative economy talks to the machine","description":"Interactive map of Claude use across Latin America and, for five countries, the creative tasks people hand the model and whether they lean on it to do or to learn.","url":"https://atana.studio/data/creative-ai/","isPartOf":{"@id":"https://atana.studio/#website"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}},"license":"https://creativecommons.org/licenses/by/4.0/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"O que o Brasil pede à IA, por estado","description":"Mapa interativo do uso do Claude em cada estado do Brasil, cruzado com o fomento federal por habitante (Rouanet, PNAB) e o salário cultural real, a partir do Anthropic Economic Index e do corpus aberto atana-data.","url":"https://atana.studio/data/brasil-ia/","isPartOf":{"@id":"https://atana.studio/#website"},"publisher":{"@type":"Organization","@id":"https://atana.studio/#org","name":"Atana","url":"https://atana.studio","logo":"https://atana.studio/icon-512.png","description":"Evidence-based AI policy for creative economies in Latin America.","founder":{"@type":"Person","name":"João Roque"}},"license":"https://creativecommons.org/licenses/by/4.0/"}</script>
 </head>
 <body>
 
@@ -518,114 +518,94 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 
 
 <style>
-.aimap{--navy:#1F3A5F;--navy2:#36567f;--olive:#6B7B3A;--olive2:#93a35f;--brick:#8C2A2A;
-  --sand:#E8DDC8;--sand2:#f3ecdc;--gold:#C8A53A;--ink:#22262b;--grey:#8A8A8A;--line:#d9cfb8;--paper:#fbf8f1;
+.aimap{--navy:#1F3A5F;--olive:#6B7B3A;--olive2:#93a35f;--brick:#8C2A2A;--sand:#E8DDC8;--sand2:#f3ecdc;
+  --gold:#C8A53A;--ink:#22262b;--grey:#8A8A8A;--line:#d9cfb8;--paper:#fbf8f1;
   background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5}
 .aimap *{box-sizing:border-box}
-.aimap a{color:var(--olive)}
 .aimap-wrap{max-width:1240px;margin:0 auto;padding:34px 26px 50px}
 .aimap .amhead h1{font-family:Spectral,serif;font-weight:700;color:var(--navy);
   font-size:clamp(26px,3.4vw,40px);line-height:1.08;margin:0 0 8px;letter-spacing:-.01em}
-.aimap .amsub{font-size:15px;color:#4a525b;max-width:780px;margin:0 0 4px}
+.aimap .amsub{font-size:15px;color:#4a525b;max-width:790px;margin:0 0 4px}
 .aimap .src{font-size:12.5px;color:var(--grey);margin-top:8px}
 .aimap .ameyebrow{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--olive);margin-bottom:10px}
 .aimap .stats{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 6px}
 .aimap .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 16px;min-width:150px;flex:1}
 .aimap .stat b{font-family:Spectral,serif;font-size:24px;color:var(--navy);display:block;line-height:1}
 .aimap .stat span{font-size:12px;color:#5a626b}
-.aimap .viewtoggle{display:flex;align-items:center;gap:10px;margin:18px 0 0;flex-wrap:wrap}
-.aimap .vt-lbl{font-size:12px;color:#5a626b;font-weight:600;letter-spacing:.04em}
+.aimap .viewtoggle{display:flex;align-items:center;gap:8px;margin:18px 0 0;flex-wrap:wrap}
+.aimap .vt-lbl{font-size:12px;color:#5a626b;font-weight:600;letter-spacing:.04em;margin-right:4px}
 .aimap .vt-btn{font-family:Inter;font-size:13px;font-weight:600;color:var(--navy);background:#fff;
-  border:1px solid var(--line);border-radius:20px;padding:7px 15px;cursor:pointer;transition:all .15s}
+  border:1px solid var(--line);border-radius:20px;padding:7px 14px;cursor:pointer;transition:all .15s}
 .aimap .vt-btn:hover{border-color:var(--olive)}
 .aimap .vt-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
-.aimap .barlean{height:9px;width:180px;border-radius:5px;background:linear-gradient(90deg,#6B7B3A,#efe7d4,#1F3A5F)}
-.aimap .grid{display:grid;grid-template-columns:1.35fr .95fr;gap:22px;margin-top:18px}
+.aimap .grid{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;margin-top:18px}
 @media(max-width:900px){.aimap .grid{grid-template-columns:1fr}}
 .aimap .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px}
 .aimap .mapwrap{position:relative}
 .aimap svg.map{width:100%;height:auto;display:block;border-radius:12px}
-.aimap .country{stroke:#fff;stroke-width:.5px;cursor:pointer;transition:opacity .15s,filter .15s}
-.aimap .country.nodata{cursor:default}
-.aimap .country:hover{filter:brightness(1.06)}
-.aimap .country.sel{stroke:var(--brick);stroke-width:2px}
-.aimap .ctx{fill:#efe7d4;stroke:#e3d9c2;stroke-width:.5px;pointer-events:none}
-.aimap .legend{position:absolute;left:16px;bottom:14px;background:rgba(255,255,255,.92);
-  border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:11px;color:#444}
-.aimap .legend .lt{font-weight:600;color:var(--navy);margin-bottom:6px;font-size:11px}
-.aimap .legend .bar{height:9px;width:170px;border-radius:5px;
-  background:linear-gradient(90deg,#efe7d4,#c9cfa0,#93a35f,#4f6b54,#1F3A5F)}
+.aimap .uf{stroke:#fff;stroke-width:.6px;cursor:pointer;transition:filter .15s}
+.aimap .uf:hover{filter:brightness(1.07)}
+.aimap .uf.sel{stroke:var(--brick);stroke-width:2px}
+.aimap .legend{position:absolute;left:16px;bottom:14px;background:rgba(255,255,255,.93);
+  border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:11px;color:#444;max-width:210px}
+.aimap .legend .lt{font-weight:600;color:var(--navy);margin-bottom:6px}
+.aimap .legend .bar{height:9px;width:180px;border-radius:5px}
 .aimap .legend .lbl{display:flex;justify-content:space-between;margin-top:3px;color:var(--grey)}
 .aimap .tip{position:fixed;pointer-events:none;z-index:60;background:var(--navy);color:#fff;
-  padding:8px 11px;border-radius:9px;font-size:12.5px;opacity:0;transition:opacity .12s;max-width:230px;
-  box-shadow:0 8px 26px rgba(20,30,50,.28)}
+  padding:8px 11px;border-radius:9px;font-size:12.5px;opacity:0;transition:opacity .12s;max-width:230px;box-shadow:0 8px 26px rgba(20,30,50,.28)}
 .aimap .tip b{font-family:Spectral,serif;font-size:14px}
 .aimap .tip .u{color:var(--gold);font-weight:600}
 .aimap .tip .hint{display:block;margin-top:4px;color:#cdd6e4;font-size:11px}
 .aimap .panel{padding:20px 20px 22px}
 .aimap .panel .ph{font-family:Spectral,serif;font-size:26px;color:var(--navy);margin:0;line-height:1.05}
 .aimap .panel .pmeta{font-size:13px;color:#5a626b;margin:6px 0 2px}
-.aimap .panel .pmeta b{color:var(--brick)}
-.aimap .sectlbl{font-weight:700;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--olive);margin:20px 0 9px}
-.aimap .collab{display:flex;height:26px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
-.aimap .collab .seg{height:100%}
-.aimap .collab.ref{height:16px;opacity:.55;margin-top:7px}
-.aimap .ckey{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#5a626b;margin-top:9px}
-.aimap .ckey i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.aimap .sectlbl{font-weight:700;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--olive);margin:18px 0 8px}
+.aimap .row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-bottom:1px solid #f0ead9}
+.aimap .row b{color:var(--navy);font-family:Spectral,serif}
 .aimap .lean{font-size:13px;color:#3a424b;margin-top:11px;background:var(--sand2);border-radius:9px;padding:10px 12px}
 .aimap .lean b{color:var(--navy)}
-.aimap .task{margin:9px 0}
-.aimap .task .tl{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:3px}
-.aimap .task .tl span:first-child{color:#3a424b}
-.aimap .task .tl span:last-child{color:var(--navy);font-weight:600;font-family:Spectral,serif}
-.aimap .task .tb{height:8px;background:#eee6d4;border-radius:5px;overflow:hidden}
-.aimap .task .tf{height:100%;background:linear-gradient(90deg,var(--olive2),var(--navy));border-radius:5px}
 .aimap .empty{font-size:13.5px;color:#5a626b}
 .aimap .empty .big{font-family:Spectral,serif;font-size:17px;color:var(--navy);display:block;margin-bottom:8px}
 .aimap .amnote{font-size:11.5px;color:var(--grey);margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
-.aimap .amfoot{margin-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
-  border-top:1px solid var(--line);padding-top:14px}
+.aimap .amfoot{margin-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-top:1px solid var(--line);padding-top:14px}
 .aimap .amfoot .a{font-family:Spectral,serif;font-weight:700;color:var(--navy);font-size:18px}
-.aimap .amfoot .s{font-size:11.5px;color:var(--grey);max-width:780px}
+.aimap .amfoot .s{font-size:11.5px;color:var(--grey);max-width:800px}
 .aimap .pill{display:inline-block;background:var(--navy);color:#fff;font-size:11px;border-radius:20px;padding:3px 10px;margin-left:8px;vertical-align:middle}
-.aimap .loadmsg{padding:60px;text-align:center;color:var(--grey);font-size:14px}
+.aimap .loadmsg{padding:70px 20px;text-align:center;color:var(--grey);font-size:14px}
 </style>
 
 <div class="aimap">
  <div class="aimap-wrap">
   <div class="amhead">
     <div class="ameyebrow">Atana · Creative economy × AI</div>
-    <h1>How Latin America's creative economy talks to the machine</h1>
-    <p class="amsub">Where people use Claude across Latin America, and for the countries the data lets us see in detail,
-      <em>what creative work</em> they hand it and whether they lean on it to <b>do</b> the task or to <b>learn</b> to do it.
-      Hover a country for its usage; click Brazil, Mexico, Colombia, Argentina or Costa Rica for the full profile.</p>
-    <p class="src">Source: Anthropic Economic Index (revealed AI use), in the open <strong>atana-data</strong> corpus (CC BY 4.0).
-      Usage = share of global Claude.ai use. Read one lens: revealed use is not exposure and is not risk.</p>
+    <h1>O que o Brasil pede à IA, por estado</h1>
+    <p class="amsub">O uso revelado do Claude em cada UF, cruzado com as duas geografias que já mapeamos: o
+      fomento federal (Rouanet, PNAB) e o salário cultural. A pergunta que o mapa responde: o uso de IA segue a
+      geografia do <b>dinheiro</b> (concentrada, como a Rouanet) ou a da <b>população</b> (espalhada, como a PNAB)?
+      Troque a camada nos botões; clique num estado para o perfil completo.</p>
+    <p class="src">Fontes: Anthropic Economic Index (junho 2026, uso por sub-região) · SALIC/PNAB/LPG (2022–2024) ·
+      RAIS (salário cultural real) · Censo 2022. Uso revelado é uma lente, não exposição nem risco.</p>
   </div>
 
   <div class="stats" id="stats"></div>
 
   <div class="viewtoggle" id="viewtoggle">
-    <span class="vt-lbl">Colour the map by</span>
-    <button class="vt-btn active" data-view="usage">Share of use</button>
-    <button class="vt-btn" data-view="lean">Do vs learn lean</button>
+    <span class="vt-lbl">Colorir por</span>
+    <button class="vt-btn active" data-view="ai">Uso de IA</button>
+    <button class="vt-btn" data-view="lean">IA: fazer vs aprender</button>
+    <button class="vt-btn" data-view="rouanet">Rouanet por habitante</button>
+    <button class="vt-btn" data-view="wage">Salário cultural</button>
   </div>
 
   <div class="grid">
     <div class="card mapwrap">
-      <svg class="map" id="map" viewBox="0 0 720 720" aria-label="Map of Latin America"></svg>
-      <div class="loadmsg" id="loadmsg">Drawing the map…</div>
+      <svg class="map" id="map" viewBox="0 0 640 640" aria-label="Mapa do Brasil por UF"></svg>
+      <div class="loadmsg" id="loadmsg">Desenhando o mapa…</div>
       <div class="legend" id="legend" style="display:none">
-        <div class="lt">Share of global Claude.ai use</div>
-        <div class="bar"></div>
-        <div class="lbl"><span>0.13%</span><span>3.33%</span></div>
-        <div style="margin-top:6px;color:#9a9a9a">▨ below June threshold (14 countries) · ▦ no data (CU, VE, NI)</div>
-      </div>
-      <div class="legend" id="legend-lean" style="display:none">
-        <div class="lt">Do vs learn lean (vs the world)</div>
-        <div class="barlean"></div>
-        <div class="lbl"><span>learn</span><span>world</span><span>do</span></div>
-        <div style="margin-top:6px;color:#9a9a9a">only BR · MX · CO · AR · CR carry this data</div>
+        <div class="lt" id="leg-lt">Uso de IA</div>
+        <div class="bar" id="leg-bar"></div>
+        <div class="lbl" id="leg-lbl"><span></span><span></span></div>
+        <div style="margin-top:6px;color:#9a9a9a">▨ sem dado de IA em junho (AC, AP, RR)</div>
       </div>
     </div>
     <div class="card panel" id="panel"></div>
@@ -633,9 +613,9 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 
   <div class="amfoot">
     <div class="a">Atana</div>
-    <div class="s">Anthropic Economic Index (release 2026-06, "Cadences") · usage by country, task usage by country, collaboration mode (automation vs augmentation) by country.
-      In the June vintage only six Latin American countries clear the reporting threshold; the other fourteen are shown muted (below threshold), distinct from Cuba, Venezuela and Nicaragua (no data). Task and collaboration detail exists for BR, MX, CO, AR, CR.
-      <strong>atana.studio</strong></div>
+    <div class="s">Uso de IA = fatia de cada UF no uso do Claude no Brasil (EEI junho 2026, 24 UFs; AC, AP e RR abaixo do
+      limiar de amostragem). Fomento por habitante = valor captado/recebido 2022–2024 ÷ população. Salário cultural =
+      variação real do vínculo cultural A∪B 2014→2023 (RAIS). <strong>atana.studio</strong></div>
   </div>
 
   <div class="tip" id="tip"></div>
@@ -668,176 +648,118 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>const UF_ROWS = [{"uf":"AC","name":"Acre","pop":830018,"ai_usage_share":null,"ai_automation":null,"ai_augmentation":null,"ai_creative_artifact":null,"rouanet_percap":1.33,"pnab_percap":28.31,"lpg_percap":37.23,"rouanet_mi":1.1,"pnab_mi":23.5,"lpg_mi":30.9,"wage_2023":3194,"wage_chg":1.7,"workers":1690},{"uf":"AL","name":"Alagoas","pop":3127683,"ai_usage_share":0.69,"ai_automation":53.0,"ai_augmentation":47.0,"ai_creative_artifact":8.64,"rouanet_percap":1.6,"pnab_percap":18.61,"lpg_percap":24.17,"rouanet_mi":5,"pnab_mi":58.2,"lpg_mi":75.6,"wage_2023":2833,"wage_chg":4.9,"workers":6096},{"uf":"AM","name":"Amazonas","pop":3941613,"ai_usage_share":1.23,"ai_automation":50.22,"ai_augmentation":49.78,"ai_creative_artifact":7.72,"rouanet_percap":4.41,"pnab_percap":17.35,"lpg_percap":22.15,"rouanet_mi":17.4,"pnab_mi":68.4,"lpg_mi":87.3,"wage_2023":3261,"wage_chg":-4,"workers":9498},{"uf":"AP","name":"Amapá","pop":733759,"ai_usage_share":null,"ai_automation":null,"ai_augmentation":null,"ai_creative_artifact":null,"rouanet_percap":3.68,"pnab_percap":30.66,"lpg_percap":41.16,"rouanet_mi":2.7,"pnab_mi":22.5,"lpg_mi":30.2,"wage_2023":3581,"wage_chg":29.8,"workers":1843},{"uf":"BA","name":"Bahia","pop":14141626,"ai_usage_share":3.64,"ai_automation":51.05,"ai_augmentation":48.95,"ai_creative_artifact":9.28,"rouanet_percap":5.93,"pnab_percap":15.68,"lpg_percap":20.2,"rouanet_mi":83.9,"pnab_mi":221.7,"lpg_mi":285.6,"wage_2023":2817,"wage_chg":-7,"workers":39014},{"uf":"CE","name":"Ceará","pop":8794957,"ai_usage_share":3.55,"ai_automation":49.88,"ai_augmentation":50.12,"ai_creative_artifact":8.17,"rouanet_percap":15.61,"pnab_percap":15.74,"lpg_percap":20.22,"rouanet_mi":137.3,"pnab_mi":138.4,"lpg_mi":177.8,"wage_2023":2444,"wage_chg":-6,"workers":33420},{"uf":"DF","name":"Distrito Federal","pop":2817381,"ai_usage_share":3.02,"ai_automation":50.83,"ai_augmentation":49.17,"ai_creative_artifact":7.28,"rouanet_percap":48.45,"pnab_percap":13.03,"lpg_percap":17.07,"rouanet_mi":136.5,"pnab_mi":36.7,"lpg_mi":48.1,"wage_2023":6647,"wage_chg":0.8,"workers":23806},{"uf":"ES","name":"Espírito Santo","pop":3833712,"ai_usage_share":1.51,"ai_automation":52.4,"ai_augmentation":47.6,"ai_creative_artifact":9.24,"rouanet_percap":32.84,"pnab_percap":15.26,"lpg_percap":19.77,"rouanet_mi":125.9,"pnab_mi":58.5,"lpg_mi":75.8,"wage_2023":2985,"wage_chg":-17.2,"workers":14277},{"uf":"GO","name":"Goiás","pop":7056495,"ai_usage_share":2.64,"ai_automation":51.95,"ai_augmentation":48.05,"ai_creative_artifact":8.11,"rouanet_percap":9.61,"pnab_percap":14.48,"lpg_percap":18.62,"rouanet_mi":67.8,"pnab_mi":102.2,"lpg_mi":131.4,"wage_2023":3025,"wage_chg":1.2,"workers":23127},{"uf":"MA","name":"Maranhão","pop":6776699,"ai_usage_share":1.02,"ai_automation":49.93,"ai_augmentation":50.07,"ai_creative_artifact":8.67,"rouanet_percap":11.79,"pnab_percap":16.75,"lpg_percap":21.62,"rouanet_mi":79.9,"pnab_mi":113.5,"lpg_mi":146.5,"wage_2023":2659,"wage_chg":-6.2,"workers":8785},{"uf":"MG","name":"Minas Gerais","pop":20538718,"ai_usage_share":7.9,"ai_automation":51.71,"ai_augmentation":48.29,"ai_creative_artifact":8.75,"rouanet_percap":36.61,"pnab_percap":14.35,"lpg_percap":18.42,"rouanet_mi":752,"pnab_mi":294.8,"lpg_mi":378.3,"wage_2023":2930,"wage_chg":-15.6,"workers":89374},{"uf":"MS","name":"Mato Grosso do Sul","pop":2757013,"ai_usage_share":0.85,"ai_automation":52.96,"ai_augmentation":47.04,"ai_creative_artifact":7.51,"rouanet_percap":4.06,"pnab_percap":14.87,"lpg_percap":18.97,"rouanet_mi":11.2,"pnab_mi":41,"lpg_mi":52.3,"wage_2023":2906,"wage_chg":-4.9,"workers":10453},{"uf":"MT","name":"Mato Grosso","pop":3658649,"ai_usage_share":1.09,"ai_automation":51.57,"ai_augmentation":48.43,"ai_creative_artifact":7.78,"rouanet_percap":5.77,"pnab_percap":14.32,"lpg_percap":18.18,"rouanet_mi":21.1,"pnab_mi":52.4,"lpg_mi":66.5,"wage_2023":2816,"wage_chg":-7.4,"workers":11749},{"uf":"PA","name":"Pará","pop":8120131,"ai_usage_share":1.14,"ai_automation":54.36,"ai_augmentation":45.64,"ai_creative_artifact":9.31,"rouanet_percap":16.13,"pnab_percap":15.55,"lpg_percap":20.38,"rouanet_mi":131,"pnab_mi":126.3,"lpg_mi":165.5,"wage_2023":2968,"wage_chg":-10.2,"workers":14123},{"uf":"PB","name":"Paraíba","pop":3974687,"ai_usage_share":1.05,"ai_automation":51.7,"ai_augmentation":48.3,"ai_creative_artifact":10.12,"rouanet_percap":2.74,"pnab_percap":17.49,"lpg_percap":22.24,"rouanet_mi":10.9,"pnab_mi":69.5,"lpg_mi":88.4,"wage_2023":2564,"wage_chg":3.1,"workers":11530},{"uf":"PE","name":"Pernambuco","pop":9058931,"ai_usage_share":2.94,"ai_automation":50.99,"ai_augmentation":49.01,"ai_creative_artifact":7.95,"rouanet_percap":14.15,"pnab_percap":15.82,"lpg_percap":20.42,"rouanet_mi":128.2,"pnab_mi":143.3,"lpg_mi":185,"wage_2023":3100,"wage_chg":-4.1,"workers":26806},{"uf":"PI","name":"Piauí","pop":3271199,"ai_usage_share":0.57,"ai_automation":51.86,"ai_augmentation":48.14,"ai_creative_artifact":7.67,"rouanet_percap":3.39,"pnab_percap":17.85,"lpg_percap":22.87,"rouanet_mi":11.1,"pnab_mi":58.4,"lpg_mi":74.8,"wage_2023":2654,"wage_chg":1.8,"workers":7573},{"uf":"PR","name":"Paraná","pop":11444380,"ai_usage_share":6.29,"ai_automation":52.04,"ai_augmentation":47.96,"ai_creative_artifact":9.01,"rouanet_percap":25.1,"pnab_percap":14.07,"lpg_percap":17.78,"rouanet_mi":287.2,"pnab_mi":161,"lpg_mi":203.5,"wage_2023":3264,"wage_chg":-10.4,"workers":57307},{"uf":"RJ","name":"Rio de Janeiro","pop":16055174,"ai_usage_share":9.39,"ai_automation":49.84,"ai_augmentation":50.16,"ai_creative_artifact":9.53,"rouanet_percap":82.04,"pnab_percap":12.96,"lpg_percap":16.89,"rouanet_mi":1317.2,"pnab_mi":208.1,"lpg_mi":271.2,"wage_2023":4886,"wage_chg":-18,"workers":84525},{"uf":"RN","name":"Rio Grande do Norte","pop":3302729,"ai_usage_share":0.98,"ai_automation":51.12,"ai_augmentation":48.88,"ai_creative_artifact":8.36,"rouanet_percap":2.09,"pnab_percap":17.2,"lpg_percap":22.28,"rouanet_mi":6.9,"pnab_mi":56.8,"lpg_mi":73.6,"wage_2023":2360,"wage_chg":-6.5,"workers":10295},{"uf":"RO","name":"Rondônia","pop":1581196,"ai_usage_share":0.42,"ai_automation":56.44,"ai_augmentation":43.56,"ai_creative_artifact":7.25,"rouanet_percap":5.12,"pnab_percap":19.98,"lpg_percap":27.0,"rouanet_mi":8.1,"pnab_mi":31.6,"lpg_mi":42.7,"wage_2023":2602,"wage_chg":-6.3,"workers":4222},{"uf":"RR","name":"Roraima","pop":636707,"ai_usage_share":null,"ai_automation":null,"ai_augmentation":null,"ai_creative_artifact":null,"rouanet_percap":0.79,"pnab_percap":31.1,"lpg_percap":40.52,"rouanet_mi":0.5,"pnab_mi":19.8,"lpg_mi":25.8,"wage_2023":3076,"wage_chg":5,"workers":1424},{"uf":"RS","name":"Rio Grande do Sul","pop":10882965,"ai_usage_share":5.03,"ai_automation":50.57,"ai_augmentation":49.43,"ai_creative_artifact":8.95,"rouanet_percap":39.46,"pnab_percap":13.92,"lpg_percap":17.94,"rouanet_mi":429.4,"pnab_mi":151.5,"lpg_mi":195.2,"wage_2023":3388,"wage_chg":-2.3,"workers":51701},{"uf":"SC","name":"Santa Catarina","pop":7610361,"ai_usage_share":5.63,"ai_automation":51.96,"ai_augmentation":48.04,"ai_creative_artifact":9.79,"rouanet_percap":32.1,"pnab_percap":13.28,"lpg_percap":16.44,"rouanet_mi":244.3,"pnab_mi":101.1,"lpg_mi":125.1,"wage_2023":3348,"wage_chg":-0.9,"workers":60050},{"uf":"SE","name":"Sergipe","pop":2210004,"ai_usage_share":0.56,"ai_automation":52.79,"ai_augmentation":47.21,"ai_creative_artifact":8.73,"rouanet_percap":5.16,"pnab_percap":19.05,"lpg_percap":24.66,"rouanet_mi":11.4,"pnab_mi":42.1,"lpg_mi":54.5,"wage_2023":3013,"wage_chg":13.1,"workers":7672},{"uf":"SP","name":"São Paulo","pop":44411238,"ai_usage_share":37.76,"ai_automation":51.14,"ai_augmentation":48.86,"ai_creative_artifact":8.16,"rouanet_percap":65.12,"pnab_percap":12.75,"lpg_percap":16.41,"rouanet_mi":2892,"pnab_mi":566.2,"lpg_mi":728.7,"wage_2023":4861,"wage_chg":-2.2,"workers":320511},{"uf":"TO","name":"Tocantins","pop":1511460,"ai_usage_share":0.81,"ai_automation":48.18,"ai_augmentation":51.82,"ai_creative_artifact":9.46,"rouanet_percap":2.32,"pnab_percap":21.3,"lpg_percap":27.66,"rouanet_mi":3.5,"pnab_mi":32.2,"lpg_mi":41.8,"wage_2023":3191,"wage_chg":7.1,"workers":3459}];</script>
 <script>
-const DATA = {
-  meta:{global:{automation:48.6,augmentation:51.4}},
-  c:{
-    BR:{name:"Brazil",flag:"🇧🇷",usage:3.33,rank:5,world:"5th worldwide",
-        collab:{automation:51.2,augmentation:48.8},
-        lean:"The most <b>automation-leaning</b> of the five: 51.2% of Brazilian use is automation (the model does the task) vs 48.6% globally. Brazilians lean on Claude to <b>do</b> more, and to <b>learn</b> less.",
-        tasks:[["Copy writing & editing",1.04],["Editing others' material",1.01],["Communications & ad material",0.88],["Rewriting written material",0.81],["Revising written material",0.64]]},
-    MX:{name:"Mexico",flag:"🇲🇽",usage:1.32,rank:14,world:"14th worldwide",
-        collab:{automation:50.4,augmentation:49.6},
-        lean:"Slightly <b>automation-leaning</b> (50.4% vs 48.6% global). A measured, mainstream profile.",
-        tasks:[["Writing text (articles, stories)",1.07],["Editing others' material",0.84],["Rewriting written material",0.75],["Copy writing & editing",0.73],["Developing themes & plots",0.67]]},
-    CO:{name:"Colombia",flag:"🇨🇴",usage:1.03,rank:18,world:"18th worldwide",
-        collab:{automation:50.0,augmentation:50.0},
-        lean:"Right on the do-vs-learn balance: 50/50 automation and augmentation, a touch more automation than the world.",
-        tasks:[["Editing others' material",1.10],["Writing text (articles, stories)",1.00],["Rewriting written material",0.88],["Organizing writing assignments",0.81],["Copy writing & editing",0.75]]},
-    AR:{name:"Argentina",flag:"🇦🇷",usage:1.05,rank:17,world:"17th worldwide",
-        collab:{automation:47.9,augmentation:52.1},
-        lean:"The most <b>augmentation-leaning</b> of the five: 52.1% augmentation vs 51.4% global, and the only one below the world on automation. Argentines lean most to <b>learn</b>.",
-        tasks:[["Copy writing & editing",0.82],["Communications & ad material",0.77],["Editing others' material",0.76],["Writing text (articles, stories)",0.69],["Marketing strategy",0.63]]},
-    CR:{name:"Costa Rica",flag:"🇨🇷",usage:0.13,rank:63,world:"63rd worldwide",
-        collab:{automation:48.9,augmentation:51.1},
-        lean:"Right at the global balance: 48.9% automation, a hair above the world's 48.6%.",
-        tasks:[],
-        empty:"Costa Rica's classified use is overwhelmingly non-creative (mostly unclassified, then software and tutoring), so the corpus carries its collaboration lean but no creative-task fingerprint."}
-  },
-  u:{CL:["Chile",0.59,31]},
-  below:{PE:"Peru",EC:"Ecuador",UY:"Uruguay",BO:"Bolivia",PY:"Paraguay",DO:"Dominican Rep.",
-     GT:"Guatemala",PA:"Panama",SV:"El Salvador",HN:"Honduras",HT:"Haiti",GY:"Guyana",SR:"Suriname",PR:"Puerto Rico"},
-  nodata:{CU:"Cuba",VE:"Venezuela",NI:"Nicaragua"}
-};
-const ID2A2={"032":"AR","068":"BO","076":"BR","152":"CL","170":"CO","188":"CR","192":"CU","214":"DO",
-  "218":"EC","320":"GT","340":"HN","484":"MX","558":"NI","591":"PA","600":"PY","604":"PE","222":"SV",
-  "858":"UY","862":"VE","328":"GY","740":"SR","332":"HT","630":"PR","084":"BZ"};
-
-function usageOf(a2){ if(DATA.c[a2])return DATA.c[a2].usage; if(DATA.u[a2])return DATA.u[a2][1]; return null; }
-function nameOf(a2){ if(DATA.c[a2])return DATA.c[a2].name; if(DATA.u[a2])return DATA.u[a2][0]; if(DATA.below[a2])return DATA.below[a2]; if(DATA.nodata[a2])return DATA.nodata[a2]; return a2; }
-function rankOf(a2){ if(DATA.c[a2])return DATA.c[a2].rank; if(DATA.u[a2])return DATA.u[a2][2]; return null; }
-function isBelow(a2){ return !!DATA.below[a2]; }
-
-const color = d3.scaleSequentialLog(d3.interpolateRgbBasis(["#efe7d4","#c9cfa0","#93a35f","#4f6b54","#1F3A5F"]))
-  .domain([0.13,3.33]);
-
-const pad = id => String(id).padStart(3,"0");
-let view = "usage", countrySel = null;
-const GLEAN = +(DATA.meta.global.automation - DATA.meta.global.augmentation).toFixed(1);
-function leanOf(a2){ const c=DATA.c[a2]; return c ? +(c.collab.automation - c.collab.augmentation).toFixed(1) : null; }
-const leanColor = d3.scaleDiverging()
-  .domain([-4.2, GLEAN, 2.4])
-  .interpolator(d3.interpolateRgbBasis(["#6B7B3A","#efe7d4","#1F3A5F"]));
-function fillFor(a2){
-  if(view==="usage"){ const u=usageOf(a2); if(u!=null) return color(u); return isBelow(a2) ? "#ded3ba" : "url(#hatch)"; }
-  const l=leanOf(a2); return l==null ? "#ece4d2" : leanColor(l);
+const byUF = {}; UF_ROWS.forEach(r=>byUF[r.uf]=r);
+const UFSET = new Set(Object.keys(byUF));
+const norm = s => (s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
+const NAME2UF = {};
+[["sao paulo","SP"],["rio de janeiro","RJ"],["minas gerais","MG"],["bahia","BA"],["parana","PR"],
+ ["rio grande do sul","RS"],["pernambuco","PE"],["ceara","CE"],["para","PA"],["santa catarina","SC"],
+ ["maranhao","MA"],["goias","GO"],["amazonas","AM"],["paraiba","PB"],["espirito santo","ES"],
+ ["rio grande do norte","RN"],["mato grosso","MT"],["alagoas","AL"],["piaui","PI"],["distrito federal","DF"],
+ ["mato grosso do sul","MS"],["sergipe","SE"],["rondonia","RO"],["tocantins","TO"],["acre","AC"],
+ ["amapa","AP"],["roraima","RR"]].forEach(([n,u])=>NAME2UF[n]=u);
+function deriveUF(p){
+  for(const k of ["sigla","SIGLA","uf","UF","abbrev","id"]){const v=p[k];
+    if(typeof v==="string" && UFSET.has(v.toUpperCase())) return v.toUpperCase();}
+  for(const k of ["name","NAME","nome","Nome","NAME_1","estado","Estado"]){const v=p[k];
+    if(v && NAME2UF[norm(v)]) return NAME2UF[norm(v)];}
+  return null;
 }
-function leanWord(a2){ const l=leanOf(a2); if(l==null) return ""; return l>GLEAN
-  ? `<span class="hint">leans to <b>do</b> vs the world ▸ click for profile</span>`
-  : `<span class="hint">leans to <b>learn</b> vs the world ▸ click for profile</span>`; }
-function applyView(v){
-  view=v;
-  document.querySelectorAll(".vt-btn").forEach(b=>b.classList.toggle("active", b.dataset.view===v));
-  document.getElementById("legend").style.display      = (v==="usage") ? "block":"none";
-  document.getElementById("legend-lean").style.display = (v==="lean")  ? "block":"none";
-  if(countrySel) countrySel.transition().duration(450).attr("fill", d=>fillFor(ID2A2[pad(d.id)]));
+
+// ── layers ──────────────────────────────────────────────────────────
+const RGB = d3.interpolateRgbBasis;
+const LAYERS = {
+  ai:     {lt:"Uso de IA (% do uso do Brasil)", acc:d=>d.ai_usage_share, fmt:v=>v.toFixed(1)+"%",
+           lo:"0,4%", hi:"37,8%", grad:"linear-gradient(90deg,#efe7d4,#93a35f,#1F3A5F)",
+           scale:d3.scaleSequentialLog(RGB(["#efe7d4","#93a35f","#1F3A5F"])).domain([0.4,38])},
+  lean:   {lt:"IA: fazer (navy) vs aprender (olive)", acc:d=>d.ai_automation, fmt:v=>v.toFixed(1)+"% automação",
+           lo:"aprender", hi:"fazer", grad:"linear-gradient(90deg,#6B7B3A,#efe7d4,#1F3A5F)",
+           scale:d3.scaleDiverging(RGB(["#6B7B3A","#efe7d4","#1F3A5F"])).domain([48.5,51.0,53.7])},
+  rouanet:{lt:"Rouanet por habitante (R$)", acc:d=>d.rouanet_percap, fmt:v=>"R$ "+v.toFixed(1),
+           lo:"R$ 0,8", hi:"R$ 82", grad:"linear-gradient(90deg,#efe7d4,#c9cfa0,#1F3A5F)",
+           scale:d3.scaleSequentialLog(RGB(["#efe7d4","#c9cfa0","#1F3A5F"])).domain([0.7,85])},
+  wage:   {lt:"Salário cultural real (2014→2023)", acc:d=>d.wage_chg, fmt:v=>(v>0?"+":"")+v.toFixed(0)+"%",
+           lo:"−18%", hi:"+15%", grad:"linear-gradient(90deg,#8C2A2A,#efe7d4,#6B7B3A)",
+           scale:d3.scaleDiverging(RGB(["#8C2A2A","#efe7d4","#6B7B3A"])).domain([-18,0,15])}
+};
+let view="ai", ufSel=null;
+function valOf(uf){ const d=byUF[uf]; if(!d) return null; const v=LAYERS[view].acc(d); return (v==null)?null:v; }
+function fillFor(uf){ const v=valOf(uf); return v==null ? "#e0d6bf" : LAYERS[view].scale(v); }
+function rankOf(uf){ const L=LAYERS[view];
+  const vals=UF_ROWS.map(r=>L.acc(r)).filter(v=>v!=null).sort((a,b)=>b-a);
+  const v=L.acc(byUF[uf]); return v==null?null:(vals.indexOf(v)+1)+"/"+vals.length; }
+
+// stat strip
+[["24","UFs com dado de uso de IA (junho 2026)"],
+ ["37,8%","SP: fatia do uso de IA do Brasil (21,9% da população)"],
+ ["Sudeste","onde a IA se concentra — como a Rouanet, não como a PNAB"],
+ ["Escrita","o trabalho criativo que o Brasil mais entrega à máquina"]]
+ .forEach(s=>{const d=document.createElement("div");d.className="stat";d.innerHTML=`<b>${s[0]}</b><span>${s[1]}</span>`;document.getElementById("stats").appendChild(d);});
+
+const svg=d3.select("#map"), W=640,H=640, tip=d3.select("#tip");
+let ufPaths=null;
+
+function updateLegend(){ const L=LAYERS[view];
+  document.getElementById("leg-lt").textContent=L.lt;
+  document.getElementById("leg-bar").style.background=L.grad;
+  const lbl=document.getElementById("leg-lbl"); lbl.children[0].textContent=L.lo; lbl.children[1].textContent=L.hi;
+}
+function applyView(v){ view=v;
+  document.querySelectorAll(".vt-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===v));
+  updateLegend();
+  if(ufPaths) ufPaths.transition().duration(450).attr("fill",d=>fillFor(d.__uf));
+  if(ufSel) renderPanel(ufSel);
 }
 document.querySelectorAll(".vt-btn").forEach(b=>b.addEventListener("click",()=>applyView(b.dataset.view)));
 
-const stats=[["6","LATAM countries above the June reporting threshold"],
-  ["3.33%","Brazil's share of global Claude use · 5th worldwide"],
-  ["5","countries with task-level detail"],
-  ["Writing & editing","the creative work most handed to the machine"]];
-d3.select("#stats").selectAll(".stat").data(stats).join("div").attr("class","stat")
-  .html(d=>`<b>${d[0]}</b><span>${d[1]}</span>`);
-
-const svg=d3.select("#map"), W=720,H=720;
-const tip=d3.select("#tip");
-const cmodes=[["automation","#1F3A5F","do"],["augmentation","#6B7B3A","learn"]];
-
-d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json").then(world=>{
+d3.json("https://cdn.jsdelivr.net/gh/codeforgermany/click_that_hood@main/public/data/brazil-states.geojson")
+ .then(geo=>{
   d3.select("#loadmsg").remove();
-  d3.select("#legend").style("display","block");
-  const countries=topojson.feature(world,world.objects.countries).features;
-  const latam=countries.filter(f=>ID2A2[pad(f.id)] && ID2A2[pad(f.id)]!=="BZ");
-  const ctx=countries.filter(f=>!latam.includes(f));
-  const proj=d3.geoMercator().fitExtent([[16,16],[W-16,H-16]],{type:"FeatureCollection",features:latam});
+  d3.select("#legend").style("display","block"); updateLegend();
+  const feats=geo.features.filter(f=>{f.__uf=deriveUF(f.properties||{}); return f.__uf;});
+  const proj=d3.geoMercator().fitExtent([[14,14],[W-14,H-14]],{type:"FeatureCollection",features:feats});
   const path=d3.geoPath(proj);
-
-  svg.append("g").selectAll("path.ctx").data(ctx).join("path").attr("class","ctx").attr("d",path);
-
-  countrySel = svg.append("g").selectAll("path.country").data(latam).join("path")
-    .attr("class",d=>{const a2=ID2A2[pad(d.id)];return "country"+(usageOf(a2)==null?" nodata":"");})
-    .attr("d",path)
-    .attr("fill",d=>fillFor(ID2A2[pad(d.id)]))
-    .attr("data-a2",d=>ID2A2[pad(d.id)])
-    .on("mousemove",function(ev,d){
-      const a2=ID2A2[pad(d.id)], nm=nameOf(a2);
-      let body;
-      if(view==="usage"){
-        const u=usageOf(a2), rk=rankOf(a2);
-        body = u==null ? (isBelow(a2)?`<span class="hint">below the June reporting threshold</span>`:`<span class="hint">no usage data</span>`)
-          : `<br><span class="u">${u.toFixed(2)}%</span> of global use · #${rk} worldwide`+
-            (DATA.c[a2]?`<span class="hint">click for creative profile ▸</span>`:`<span class="hint">usage level only</span>`);
-      } else {
-        const c=DATA.c[a2];
-        body = !c ? `<span class="hint">no collaboration data</span>`
-          : `<br><span class="u">${c.collab.automation.toFixed(1)}% do</span> · ${c.collab.augmentation.toFixed(1)}% learn`+leanWord(a2);
-      }
+  ufPaths=svg.append("g").selectAll("path.uf").data(feats).join("path")
+    .attr("class","uf").attr("d",path).attr("fill",d=>fillFor(d.__uf))
+    .on("mousemove",function(ev,d){const uf=d.__uf,r=byUF[uf]; const v=valOf(uf);
+      const body = v==null ? `<span class="hint">sem dado de IA em junho</span>`
+        : `<br><span class="u">${LAYERS[view].fmt(v)}</span> · #${rankOf(uf)}`+
+          `<span class="hint">clique para o perfil ▸</span>`;
       tip.style("opacity",1).style("left",(ev.clientX+15)+"px").style("top",(ev.clientY+15)+"px")
-        .html(`<b>${nm}</b>`+body);
-    })
+        .html(`<b>${r?r.name:uf}</b>`+body);})
     .on("mouseout",()=>tip.style("opacity",0))
-    .on("click",function(ev,d){
-      const a2=ID2A2[pad(d.id)];
-      if(!DATA.c[a2])return;
-      svg.selectAll(".country").classed("sel",false);
-      d3.select(this).classed("sel",true);
-      renderPanel(a2);
-    });
-
-  const defs=svg.append("defs");
-  const p=defs.append("pattern").attr("id","hatch").attr("width",6).attr("height",6)
-    .attr("patternUnits","userSpaceOnUse").attr("patternTransform","rotate(45)");
-  p.append("rect").attr("width",6).attr("height",6).attr("fill","#e7ddc8");
-  p.append("rect").attr("width",2).attr("height",6).attr("fill","#cfc4ab");
-
+    .on("click",function(ev,d){ ufSel=d.__uf; svg.selectAll(".uf").classed("sel",false);
+      d3.select(this).classed("sel",true); renderPanel(d.__uf);});
   renderPanel(null);
-}).catch(e=>{
-  d3.select("#loadmsg").html("The base map needs an internet connection to load. The data on the right is still complete.");
-  renderPanel("BR");
-});
+ }).catch(e=>{ d3.select("#loadmsg").html("O mapa base precisa de conexão para carregar a geometria dos estados. Os dados no painel continuam completos.<br><br>SP concentra 37,8% do uso de IA do Brasil; a IA segue a geografia da Rouanet, não a da PNAB."); renderPanel("SP");});
 
-function collabBar(o,ref){
-  let s='<div class="collab'+(ref?' ref':'')+'">';
-  cmodes.forEach(m=>{ s+=`<div class="seg" style="width:${o[m[0]]}%;background:${m[1]}"></div>`; });
-  return s+'</div>';
-}
-
-function renderPanel(a2){
-  const P=d3.select("#panel");
-  if(!a2){
-    P.html(`<div class="empty">
-      <span class="big">Read the map</span>
-      Colour is each country's share of all global Claude.ai use (a log scale). In the June 2026 vintage only <b>six</b> Latin American countries clear the reporting threshold; the rest are shown muted.
-      <br><br>Across the four countries with task detail, creative users hand the machine the
-      <b>same</b> work first: writing and editing copy, editing others' material, and communications and advertising material.
-      The difference is the <b>lean</b>: Argentina leans most on AI to <b>learn</b>; Brazil leans most to <b>do</b>.
-      <div class="amnote">Click Brazil, Mexico, Colombia, Argentina or Costa Rica to open a profile. Switch the toggle above to colour by do-vs-learn lean.
-      Revealed use is one lens of three (use × demand × wages); it is not exposure and not risk.</div></div>`);
-    return;
-  }
-  const c=DATA.c[a2], g=DATA.meta.global;
-  let h=`<div class="ph">${c.flag} ${c.name}<span class="pill">#${c.rank} worldwide</span></div>
-    <div class="pmeta"><b>${c.usage.toFixed(c.usage<0.1?3:2)}%</b> of global Claude.ai use${c.world?` · ${c.world}`:""}</div>`;
-  h+=`<div class="sectlbl">How they collaborate · do vs learn</div>${collabBar(c.collab,false)}`;
-  h+=`<div style="font-size:11px;color:#8a8a8a;margin-top:4px">global average for comparison</div>${collabBar(g,true)}`;
-  h+=`<div class="ckey">
-      <span><i style="background:#1F3A5F"></i>automation (do the task)</span>
-      <span><i style="background:#6B7B3A"></i>augmentation (collaborate, learn)</span></div>`;
-  h+=`<div class="lean">${c.lean}</div>`;
-  h+=`<div class="sectlbl">What creative work they hand the machine</div>`;
-  if(c.tasks.length){
-    const mx=Math.max(...c.tasks.map(t=>t[1]));
-    c.tasks.forEach(t=>{
-      h+=`<div class="task"><div class="tl"><span>${t[0]}</span><span>${t[1].toFixed(2)}%</span></div>
-          <div class="tb"><div class="tf" style="width:${(t[1]/mx*100).toFixed(1)}%"></div></div></div>`;
-    });
-    h+=`<div class="amnote">% = share of this country's classified Claude use on that O*NET task (creative tasks shown).</div>`;
-  } else {
-    h+=`<div class="empty">${c.empty}</div>`;
-  }
+function renderPanel(uf){ const P=d3.select("#panel");
+  if(!uf){ P.html(`<div class="empty"><span class="big">Leia o mapa</span>
+    Quatro camadas sobre os mesmos 24 estados. A de <b>Uso de IA</b> mostra o achado central: o uso do Claude
+    é fortemente concentrado no Sudeste (SP sozinho = 37,8%), como a Rouanet, e o oposto da PNAB, que espalha o
+    dinheiro pela federação. As camadas de fomento e salário deixam a comparação visível: onde a IA se usa mais,
+    onde o dinheiro federal chega, e onde o salário cultural caiu.
+    <div class="amnote">Clique num estado para o perfil completo. Uso revelado é uma de três lentes
+    (uso × demanda × salário); não é exposição nem risco.</div></div>`); return; }
+  const d=byUF[uf];
+  let h=`<div class="ph">${d.name}<span class="pill">${uf}</span></div>`;
+  h+=`<div class="pmeta">${d.workers?d.workers.toLocaleString("pt-BR"):"—"} vínculos culturais formais · ${(d.pop/1e6).toFixed(1)} mi hab.</div>`;
+  h+=`<div class="sectlbl">Uso de IA</div>`;
+  if(d.ai_usage_share!=null){
+    h+=`<div class="row"><span>Fatia do uso do Brasil</span><b>${d.ai_usage_share.toFixed(1)}%</b></div>`;
+    h+=`<div class="row"><span>Modo automação (fazer)</span><b>${d.ai_automation.toFixed(1)}%</b></div>`;
+    h+=`<div class="row"><span>Modo augmentação (aprender)</span><b>${d.ai_augmentation.toFixed(1)}%</b></div>`;
+    h+=`<div class="lean">${d.ai_automation>48.6?"Mais <b>automation-leaning</b> que a média mundial (48,6%): usa a IA mais para <b>fazer</b>.":"Mais <b>augmentation-leaning</b>: usa a IA mais para <b>aprender/colaborar</b>."}</div>`;
+  } else { h+=`<div class="empty">Sem dado de uso de IA em junho de 2026 (abaixo do limiar de amostragem).</div>`; }
+  h+=`<div class="sectlbl">Fomento federal por habitante (2022–2024)</div>`;
+  h+=`<div class="row"><span>Rouanet</span><b>R$ ${d.rouanet_percap.toFixed(1)}</b></div>`;
+  h+=`<div class="row"><span>PNAB</span><b>R$ ${d.pnab_percap.toFixed(1)}</b></div>`;
+  h+=`<div class="row"><span>Lei Paulo Gustavo</span><b>R$ ${d.lpg_percap.toFixed(1)}</b></div>`;
+  h+=`<div class="sectlbl">Salário cultural (RAIS)</div>`;
+  h+=`<div class="row"><span>Salário real 2023</span><b>R$ ${d.wage_2023?d.wage_2023.toLocaleString("pt-BR"):"—"}</b></div>`;
+  h+=`<div class="row"><span>Variação real 2014→2023</span><b style="color:${d.wage_chg<0?'#8C2A2A':'#6B7B3A'}">${d.wage_chg>0?'+':''}${d.wage_chg.toFixed(0)}%</b></div>`;
   P.html(h);
 }
 </script>
