@@ -194,6 +194,53 @@ code {
 .hero-ruler-note { font-size: 13.5px; color: rgba(232,221,200,.6); margin-top: 16px; line-height: 1.55; }
 .hero-scroll-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(232,221,200,.4); font-size: 20px; animation: pulseDown 2.4s infinite; }
 
+/* ── "Continent being measured" hero canvas (home) ─────────────────────── */
+.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero-scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(16,30,48,.88) 0%, rgba(16,30,48,.5) 40%, rgba(16,30,48,0) 64%);
+}
+.hero-ctas { display: flex; align-items: center; gap: 24px; margin-top: 40px; flex-wrap: wrap; }
+.btn-hero {
+  font-size: 14px; font-weight: 600; letter-spacing: .02em;
+  color: var(--navy) !important; background: var(--sand-2);
+  padding: 13px 26px; text-decoration: none; transition: background .3s;
+}
+.btn-hero:hover { background: var(--paper); }
+.link-hero {
+  font-size: 14px; letter-spacing: .02em; color: rgba(232,221,200,.75) !important;
+  text-decoration: none; border-bottom: 1px solid rgba(232,221,200,.35); padding-bottom: 3px;
+  transition: color .3s, border-color .3s;
+}
+.link-hero:hover { color: var(--paper) !important; border-bottom-color: var(--paper); }
+.hero-method-hint {
+  position: absolute; bottom: 24px; left: 0; right: 0;
+  display: flex; gap: 10px; align-items: center;
+  padding: 0 clamp(22px, 5vw, 64px);
+  font-family: 'Menlo', 'Monaco', monospace; font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase; color: rgba(138,155,185,.75);
+}
+.hero-method-hint span:first-child { animation: pulseDown 2.4s infinite; }
+@media (max-width: 720px) {
+  .hero-canvas { opacity: .55; }
+  .hero-scrim { background: linear-gradient(180deg, rgba(16,30,48,.55), rgba(16,30,48,.8)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-method-hint span:first-child { animation: none; }
+}
+
+/* ── living-lines hero layer (v3, shared) ─────────────────────────────── */
+.hero-lines-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; filter: blur(3px); opacity: .7; }
+.hero-lines-scrim { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 65% 100% at 40% 40%, rgba(16,30,48,.85) 0%, rgba(16,30,48,.45) 60%, rgba(16,30,48,.1) 100%); }
+.eyebrow-mono { font-family: 'Menlo', 'Monaco', monospace; font-weight: 400; }
+@media (prefers-reduced-motion: reduce) { .hero-lines-canvas { opacity: .4; } }
+
+/* subscribe upsell line (Data Room individual tier) */
+.subscribe-upsell { margin-top: 18px; font-size: 13.5px; color: rgba(232,221,200,.75); }
+.subscribe-upsell a { color: var(--sand-2); text-decoration: none; border-bottom: 1px solid rgba(232,221,200,.4); padding-bottom: 2px; }
+.subscribe-upsell a:hover { color: var(--paper); border-bottom-color: var(--paper); }
+
 /* hero stats strip (notes index / home) */
 .hero-stats {
   display: grid;
@@ -210,6 +257,7 @@ code {
 /* ── Note article ──────────────────────────────────────────────────────── */
 .article-hero { padding: 64px 0 40px; }
 .article-hero .note-eyebrow { color: var(--olive-light); }
+.note-eyebrow { font-family: 'Menlo', 'Monaco', monospace; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
 .article-hero h1 { font-size: clamp(30px, 4.4vw, 42px); line-height: 1.14; }
 .article-hero .deck { font-size: 20px; margin-top: 14px; }
 .article-hero .meta {
@@ -520,8 +568,13 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 
 <style>
   /* ── Data Room page-local styles (the Vault) ─────────────────────────── */
-  .dr-hero { padding: 92px 0 64px; }
+  .dr-hero { padding: 92px 0 64px; position: relative; overflow: hidden; }
   .dr-hero h1 { font-size: clamp(38px, 6vw, 68px); }
+  /* living lines behind glass (hero canvas, v3) */
+  #dr-hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; filter: blur(3px); }
+  .dr-hero-scrim { position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 65% 100% at 40% 40%, rgba(16,30,48,.85) 0%, rgba(16,30,48,.45) 60%, rgba(16,30,48,.1) 100%); }
+  @media (prefers-reduced-motion: reduce) { #dr-hero-canvas { opacity: .5; } }
   .dr-lang { display: inline-flex; border: 1px solid rgba(232,221,200,.4); margin-bottom: 26px; }
   .dr-lang button { background: transparent; border: 0; color: #E8DDC8; padding: 4px 14px; font-size: 12px; letter-spacing: .12em; cursor: pointer; }
   .dr-lang button.on { background: #E8DDC8; color: #1F3A5F; }
@@ -546,7 +599,11 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
   .vault-card { background: rgba(244,237,222,.04); border: 1px solid rgba(232,221,200,.18); position: relative; overflow: hidden; transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s; }
   .vault-card:hover { transform: translateY(-4px); border-color: rgba(232,221,200,.45); }
   .vault-card .vc-head { padding: 18px 20px 4px; position: relative; z-index: 2; }
-  .vault-card .vc-n { font-family: var(--serif); font-size: 30px; font-weight: 700; color: #c97f6f; }
+  .vault-card .vc-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .vault-card .vc-schema { font-family: 'Menlo', 'Monaco', monospace; font-size: 11px; letter-spacing: .04em; color: #c8d4a8; }
+  .vault-card .vc-lock { font-size: 12px; opacity: .8; }
+  .vault-card .vc-n { font-family: var(--serif); font-size: 32px; font-weight: 300; line-height: 1; }
+  .vault-card .vc-d.vc-blur { filter: blur(3.5px); user-select: none; }
   .vault-card h4 { font-family: var(--serif); font-size: 16.5px; color: #E8DDC8; margin: 6px 0; }
   .vault-card .vc-d { font-size: 13px; line-height: 1.5; color: rgba(232,221,200,.65); margin: 0 0 12px; }
   .vault-spark { height: 92px; position: relative; }
@@ -555,8 +612,10 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
   .vault-spark svg path { stroke-dasharray: 6 5; animation: vaultFlow 9s linear infinite; }
   @keyframes vaultFlow { to { stroke-dashoffset: -220; } }
   .vault-veil { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(180deg, transparent, rgba(16,30,48,.55)); }
-  .vault-veil a { font-size: 12px; font-weight: 700; color: #1F3A5F; background: #E8DDC8; padding: 7px 14px; text-decoration: none; letter-spacing: .04em; }
-  .vault-veil a:hover { background: #F4EDDE; }
+  .vault-veil a.vv-sub { font-size: 12px; font-weight: 700; color: #1F3A5F; background: #E8DDC8; padding: 7px 14px; text-decoration: none; letter-spacing: .04em; }
+  .vault-veil a.vv-sub:hover { background: #F4EDDE; }
+  .vault-veil a.vv-inst { font-size: 11.5px; color: rgba(232,221,200,.85); text-decoration: none; border-bottom: 1px solid rgba(232,221,200,.4); padding-bottom: 2px; }
+  .vault-veil a.vv-inst:hover { color: #F4EDDE; border-bottom-color: #F4EDDE; }
   .vault-tag { background: rgba(232,221,200,.12); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #c8d4a8; padding: 6px 20px; }
   @media (prefers-reduced-motion: reduce) { .vault-spark svg path { animation: none; } }
 
@@ -567,20 +626,23 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
   .tier { background: #fff; border: 1px solid rgba(31,58,95,.32); padding: 26px 24px; display: flex; flex-direction: column; gap: 10px; }
   .tier.feat { background: var(--navy); color: #F4EDDE; transform: translateY(-8px); box-shadow: 0 10px 26px rgba(31,58,95,.25); }
   .tier h3 { font-family: var(--serif); font-size: 23px; margin: 0; color: var(--olive); }
-  .tier:first-child h3 { color: var(--olive); }
+  .tier.ind h3 { color: var(--navy); }
   .tier.feat h3 { color: #F4EDDE; }
-  .tier:last-child h3 { color: var(--brick); }
+  .tier.eng h3 { color: var(--brick); }
   .tier .price { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: #888; }
   .tier.feat .price { color: #E8DDC8; }
   .tier p { font-size: 14px; line-height: 1.55; margin: 0; flex: 1; }
   .tier a { align-self: flex-start; margin-top: 8px; font-size: 13px; font-weight: 700; text-decoration: none; padding: 10px 18px; background: var(--olive); color: #fff; }
   .tier.feat a { background: #E8DDC8; color: var(--navy); }
-  .tier:last-child a { background: var(--brick); }
+  .tier.eng a { background: var(--brick); }
+  .tier.ind a { background: var(--navy); }
   .tier .feat-tag { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #E8DDC8; }
 </style>
 
 
 <section class="hero-band dr-hero">
+  <canvas id="dr-hero-canvas" aria-hidden="true"></canvas>
+  <div class="dr-hero-scrim" aria-hidden="true"></div>
   <div class="container-wide">
     
 <svg class="waves-mark" width="110" height="100" viewBox="0 0 110 100" fill="none" aria-hidden="true">
@@ -655,13 +717,18 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
         <p data-i18n="t1d">The atana-data corpus (CC BY 4.0), the public Notes, and the live demonstrations above. Cite freely.</p>
         <a href="/notes/" data-i18n="t1c">Browse the Notes →</a>
       </div>
+      <div class="tier ind rise">
+        <h3 data-i18n="tInd">Individual</h3><div class="price" data-i18n="tIndP">US$ 12/month · US$ 120/year</div>
+        <p data-i18n="tIndD">One full vault reading a month — chart, data annex, and the SQL query that reproduces it — plus the growing subscriber archive and early English editions of the Notes. For researchers, consultants, journalists.</p>
+        <a href="https://buttondown.com/atana" data-i18n="tIndC">Subscribe →</a>
+      </div>
       <div class="tier feat rise">
         <div class="feat-tag" data-i18n="featTag">Most institutions start here</div>
         <h3>Data Subscription</h3><div class="price" data-i18n="t2p">Annual retainer</div>
         <p data-i18n="t2d">The full vault with quarterly refreshes, a private corpus slice integrated with your institution's own data, and a standing line to the analyst.</p>
         <a href="mailto:joaoroquer@gmail.com?subject=Atana%20Data%20Subscription%20—%20request%20a%20conversation" data-i18n="t2c">Request a conversation →</a>
       </div>
-      <div class="tier rise">
+      <div class="tier eng rise">
         <h3 data-i18n="t3">Engagements</h3><div class="price" data-i18n="t3p">Scoped projects</div>
         <p data-i18n="t3d">AI Exposure Diagnostic · Public Funding Architecture Review · Creative Workforce Equity Audit · Trade Positioning Brief. Each begins where a vault card ends.</p>
         <a href="mailto:joaoroquer@gmail.com?subject=Atana%20engagement%20—%20discuss%20a%20brief" data-i18n="t3c">Discuss a brief →</a>
@@ -719,8 +786,11 @@ window.addEventListener('load', function () {
       t1: 'Aberto', t1p: 'Grátis, para sempre', t1d: 'O corpus atana-data (CC BY 4.0), as Notes públicas e as demonstrações ao vivo acima. Cite à vontade.', t1c: 'Ver as Notes →',
       featTag: 'A maioria das instituições começa aqui', t2p: 'Retainer anual',
       t2d: 'O cofre completo com refreshes trimestrais, uma fatia privada do corpus integrada aos dados da sua instituição e uma linha direta com o analista.', t2c: 'Solicitar uma conversa →',
+      tInd: 'Individual', tIndP: 'US$ 12/mês · US$ 120/ano',
+      tIndD: 'Uma leitura completa do cofre por mês — gráfico, anexo de dados e a query SQL que a reproduz — mais o arquivo crescente de assinantes e as edições EN antecipadas das Notes. Para pesquisadores, consultores, jornalistas.',
+      tIndC: 'Assinar →',
       t3: 'Engajamentos', t3p: 'Projetos escopados', t3d: 'AI Exposure Diagnostic · Public Funding Architecture Review · Creative Workforce Equity Audit · Trade Positioning Brief. Cada um começa onde um card do cofre termina.', t3c: 'Discutir um brief →',
-      reqAccess: 'Solicitar acesso', inSub: 'Na assinatura'
+      vvSub: 'Assinar — US$ 12/mês', vvInst: 'Acesso institucional', inSub: 'Na assinatura'
     }
   };
   var EN = {}; document.querySelectorAll('[data-i18n]').forEach(function (el) { EN[el.dataset.i18n] = el.innerHTML; });
@@ -732,12 +802,54 @@ window.addEventListener('load', function () {
       var v = I18N[l][el.dataset.i18n]; if (v != null) el.innerHTML = v;
     });
     document.querySelectorAll('.dr-lang button').forEach(function (b) { b.classList.toggle('on', b.dataset.l === l); });
-    document.querySelectorAll('.vault-veil a').forEach(function (a) { a.textContent = l === 'pt' ? I18N.pt.reqAccess : 'Request access'; });
+    document.querySelectorAll('.vault-veil a.vv-sub').forEach(function (a) { a.textContent = l === 'pt' ? I18N.pt.vvSub : 'Subscribe — US$ 12/mo'; });
+    document.querySelectorAll('.vault-veil a.vv-inst').forEach(function (a) { a.textContent = l === 'pt' ? I18N.pt.vvInst : 'Institutional access'; });
     document.querySelectorAll('.vault-tag').forEach(function (t) { t.textContent = l === 'pt' ? I18N.pt.inSub : 'In subscription'; });
   }
   document.querySelectorAll('.dr-lang button').forEach(function (b) {
     b.addEventListener('click', function () { setLang(b.dataset.l); });
   });
+
+  /* ── living lines behind glass (hero canvas) ──────────────────────── */
+  var hcv = document.getElementById('dr-hero-canvas');
+  if (hcv) {
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hctx = hcv.getContext('2d'), hW = 0, hH = 0, rows = [];
+    var HCOLS = ['170,198,232', '242,179,66', '63,176,126', '232,106,78', '214,92,138'];
+    function hfit() {
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      hW = hcv.clientWidth; hH = hcv.clientHeight;
+      hcv.width = hW * dpr; hcv.height = hH * dpr;
+      hctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      rows = [];
+      for (var i = 0; i < 14; i++) rows.push({ y: (i + 0.5) * (hH / 14), ph: Math.random() * 10, amp: 8 + Math.random() * 18, sp: 0.3 + Math.random() * 0.8, hue: i % 5 });
+    }
+    function hdraw(t) {
+      hctx.clearRect(0, 0, hW, hH);
+      for (var j = 0; j < rows.length; j++) {
+        var r = rows[j];
+        hctx.strokeStyle = 'rgba(' + HCOLS[r.hue] + ',0.22)';
+        hctx.lineWidth = 1.2;
+        hctx.beginPath();
+        for (var x = 0; x <= hW; x += 8) {
+          var y = r.y + Math.sin(x * 0.012 + t * r.sp + r.ph) * r.amp + Math.sin(x * 0.031 - t * r.sp * 1.7) * r.amp * 0.4;
+          if (x === 0) hctx.moveTo(x, y); else hctx.lineTo(x, y);
+        }
+        hctx.stroke();
+      }
+    }
+    hfit();
+    window.addEventListener('resize', hfit);
+    if (reduced) { hdraw(0); }
+    else {
+      var hraf = null, ht0 = performance.now();
+      var hframe = function (now) { hdraw((now - ht0) / 1000); hraf = requestAnimationFrame(hframe); };
+      new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { if (!hraf) hraf = requestAnimationFrame(hframe); }
+        else if (hraf) { cancelAnimationFrame(hraf); hraf = null; }
+      }, { threshold: 0.05 }).observe(hcv);
+    }
+  }
 
   /* ── hero counters ─────────────────────────────────────────────────── */
   var strip = document.getElementById('dr-stats'), ran = false;
@@ -755,15 +867,15 @@ window.addEventListener('load', function () {
 
   /* ── vault cards (animated sparklines behind blur) ─────────────────── */
   var VAULT = [
-    { n: '−15.4%', t: 'The silent erosion of the cultural contract', d: 'Real wages of Brazil’s formal cultural workforce, 2014–2025 — twelve years of RAIS, eight charts.', k: 'down' },
-    { n: '+17.7 pp', t: 'Music money in four lenses', d: 'IFPI grows while CISAC shrinks in the same region, same year. Luminate and ECAD complete the chain.', k: 'split' },
-    { n: '0% vs 49.9%', t: 'Who the funding law actually pays', d: 'Funk captures zero private sponsorship; classical music captures half. 26,000 projects, by genre.', k: 'steps' },
-    { n: '26% → 33.6%', t: 'The streaming dividend, traced', d: 'Where digital money enters the Brazilian music economy — and where it stops before reaching musicians.', k: 'up' },
-    { n: '~11%', t: 'Brazil’s structural IP deficit', d: 'Thirty years of royalty flows: the coverage ratio that never moves, in three independent lenses.', k: 'flat' },
-    { n: '1 in 5', t: 'Formalisation, downward', d: '1.39M cultural micro-entrepreneurs — 20.5% of them in the low-income registry. The MEI paradox.', k: 'up' },
-    { n: '×4.2', t: 'Colombia’s invisible AV boom', d: 'Audiovisual exports quadrupled in three years — in the national account only. UNCTAD’s goods lens cannot see it.', k: 'up' },
-    { n: '18.3%', t: 'What Brazil asks of AI', d: 'The most cultural AI usage measured anywhere — landing on the very occupations the registry watched erode.', k: 'split' },
-    { n: '36.8%', t: 'Two of three cultural firms fold', d: 'Five-year survival of the 2017 cohort — and the more artistic the domain, the worse the odds.', k: 'down' }
+    { tag: 'atana.rais × pnadc', col: '#c97f6f', n: '−15.4%', t: 'The silent erosion of the cultural contract', d: 'Real wages of Brazil’s formal cultural workforce, 2014–2025 — twelve years of RAIS, eight charts.', k: 'down' },
+    { tag: 'ifpi × cisac × luminate × ecad', col: '#d9b96a', n: '+17.7 pp', t: 'Music money in four lenses', d: 'IFPI grows while CISAC shrinks in the same region, same year. Luminate and ECAD complete the chain.', k: 'split' },
+    { tag: 'atana.salic', col: '#c97fa5', n: '0% vs 49.9%', t: 'Who the funding law actually pays', d: 'Funk captures zero private sponsorship; classical music captures half. 26,000 projects, by genre.', k: 'steps' },
+    { tag: 'atana.ecad', col: '#7fb08a', n: '26% → 33.6%', t: 'The streaming dividend, traced', d: 'Where digital money enters the Brazilian music economy — and where it stops before reaching musicians.', k: 'up' },
+    { tag: 'atana.bcb × inpi × ecad', col: '#6fb3b8', n: '~11%', t: 'Brazil’s structural IP deficit', d: 'Thirty years of royalty flows: the coverage ratio that never moves, in three independent lenses.', k: 'flat' },
+    { tag: 'atana.ibge_cempre', col: '#E8DDC8', n: '1 in 5', t: 'Formalisation, downward', d: '1.39M cultural micro-entrepreneurs — 20.5% of them in the low-income registry. The MEI paradox.', k: 'up' },
+    { tag: 'atana.dane × unctad', col: '#7fb08a', n: '×4.2', t: 'Colombia’s invisible AV boom', d: 'Audiovisual exports quadrupled in three years — in the national account only. UNCTAD’s goods lens cannot see it.', k: 'up' },
+    { tag: 'anthropic_eei × rais', col: '#6fb3b8', n: '18.3%', t: 'What Brazil asks of AI', d: 'The most cultural AI usage measured anywhere — landing on the very occupations the registry watched erode.', k: 'split' },
+    { tag: 'atana.ibge_cempre', col: '#c97f6f', n: '36.8%', t: 'Two of three cultural firms fold', d: 'Five-year survival of the 2017 cohort — and the more artistic the domain, the worse the odds.', k: 'down' }
   ];
   var SPARK = {
     down:  'M0,16 L20,20 L40,18 L60,26 L80,24 L100,32 L120,30 L140,36',
@@ -777,11 +889,13 @@ window.addEventListener('load', function () {
     var card = document.createElement('article');
     card.className = 'vault-card';
     card.innerHTML =
-      '<div class="vc-head"><div class="vc-n">' + c.n + '</div><h4>' + c.t + '</h4><p class="vc-d">' + c.d + '</p></div>' +
+      '<div class="vc-head"><div class="vc-row"><span class="vc-schema">' + c.tag + '</span><span class="vc-lock">🔒</span></div>' +
+      '<div class="vc-n" style="color:' + c.col + ';">' + c.n + '</div><h4>' + c.t + '</h4><p class="vc-d vc-blur">' + c.d + '</p></div>' +
       '<div class="vault-spark"><svg viewBox="0 0 140 40" preserveAspectRatio="none">' +
-      '<path d="' + SPARK[c.k] + '" fill="none" stroke="' + (i % 3 === 0 ? OLIVE_L : i % 3 === 1 ? SAND : BRICK_L) + '" stroke-width="2.2"/></svg>' +
-      '<div class="vault-veil"><span style="font-size:15px;">🔒</span>' +
-      '<a href="mailto:joaoroquer@gmail.com?subject=' + encodeURIComponent('Atana Data Room — access request: ' + c.t) + '">Request access</a></div></div>' +
+      '<path d="' + SPARK[c.k] + '" fill="none" stroke="' + c.col + '" stroke-width="2.2"/></svg>' +
+      '<div class="vault-veil">' +
+      '<a class="vv-sub" href="https://buttondown.com/atana">Subscribe — US$ 12/mo</a>' +
+      '<a class="vv-inst" href="mailto:joaoroquer@gmail.com?subject=' + encodeURIComponent('Atana Data Room — institutional access: ' + c.t) + '">Institutional access</a></div></div>' +
       '<div class="vault-tag">In subscription</div>';
     grid.appendChild(card);
   });

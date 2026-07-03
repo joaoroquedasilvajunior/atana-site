@@ -229,6 +229,18 @@ code {
   .hero-method-hint span:first-child { animation: none; }
 }
 
+/* ── living-lines hero layer (v3, shared) ─────────────────────────────── */
+.hero-lines-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; filter: blur(3px); opacity: .7; }
+.hero-lines-scrim { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 65% 100% at 40% 40%, rgba(16,30,48,.85) 0%, rgba(16,30,48,.45) 60%, rgba(16,30,48,.1) 100%); }
+.eyebrow-mono { font-family: 'Menlo', 'Monaco', monospace; font-weight: 400; }
+@media (prefers-reduced-motion: reduce) { .hero-lines-canvas { opacity: .4; } }
+
+/* subscribe upsell line (Data Room individual tier) */
+.subscribe-upsell { margin-top: 18px; font-size: 13.5px; color: rgba(232,221,200,.75); }
+.subscribe-upsell a { color: var(--sand-2); text-decoration: none; border-bottom: 1px solid rgba(232,221,200,.4); padding-bottom: 2px; }
+.subscribe-upsell a:hover { color: var(--paper); border-bottom-color: var(--paper); }
+
 /* hero stats strip (notes index / home) */
 .hero-stats {
   display: grid;
@@ -245,6 +257,7 @@ code {
 /* ── Note article ──────────────────────────────────────────────────────── */
 .article-hero { padding: 64px 0 40px; }
 .article-hero .note-eyebrow { color: var(--olive-light); }
+.note-eyebrow { font-family: 'Menlo', 'Monaco', monospace; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
 .article-hero h1 { font-size: clamp(30px, 4.4vw, 42px); line-height: 1.14; }
 .article-hero .deck { font-size: 20px; margin-top: 14px; }
 .article-hero .meta {
@@ -552,7 +565,9 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 </header>
 
 
-<section class="hero-band hero-page">
+<section class="hero-band hero-page" style="position:relative;overflow:hidden;">
+  <canvas id="ni-hero-canvas" class="hero-lines-canvas" aria-hidden="true"></canvas>
+  <div class="hero-lines-scrim" aria-hidden="true"></div>
   <div class="container-wide">
     
 <svg class="waves-mark" width="110" height="96" viewBox="0 0 110 96" fill="none" aria-hidden="true">
@@ -574,7 +589,7 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
   
 </svg>
 
-    <div class="eyebrow" style="margin-top:22px;">Atana Notes</div>
+    <div class="eyebrow eyebrow-mono" style="margin-top:22px;">Atana Notes — verified, methodologically plural</div>
     <h1>Short readings where the<br><em style="font-style:italic;">rulers disagree</em>.</h1>
     <p class="deck">Concise, script-verified analyses of Latin America's creative economies — each one reading a question through more than one measurement system, and treating the divergence as the finding. Published in Portuguese, English, and Spanish.</p>
     <div class="hero-stats">
@@ -735,6 +750,7 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
         <button type="submit">Subscribe</button>
       </form>
       <p class="subscribe-fine">Free · Unsubscribe anytime · Published in PT / EN / ES</p>
+      <p class="subscribe-upsell">Prefer the full library? <a href="/data-room/">Data Room Individual — US$ 12/month, one full vault reading a month →</a></p>
     </div>
   </div>
 </section>
@@ -761,6 +777,47 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
     });
   }, { threshold: 0.22 });
   document.querySelectorAll('.rise, .lenses, .xwalk').forEach(function (el) { obs.observe(el); });
+})();
+</script>
+
+<script>
+(function () {
+  var cv = document.getElementById('ni-hero-canvas');
+  if (!cv) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ctx = cv.getContext('2d'), W = 0, H = 0, rows = [];
+  var COLS = ['170,198,232', '242,179,66', '63,176,126', '232,106,78', '214,92,138'];
+  function fit() {
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    rows = [];
+    for (var i = 0; i < 10; i++) rows.push({ y: (i + 0.5) * (H / 10), ph: Math.random() * 10, amp: 6 + Math.random() * 14, sp: 0.3 + Math.random() * 0.7, hue: i % 5 });
+  }
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    for (var j = 0; j < rows.length; j++) {
+      var r = rows[j];
+      ctx.strokeStyle = 'rgba(' + COLS[r.hue] + ',0.20)';
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      for (var x = 0; x <= W; x += 8) {
+        var y = r.y + Math.sin(x * 0.012 + t * r.sp + r.ph) * r.amp + Math.sin(x * 0.031 - t * r.sp * 1.7) * r.amp * 0.4;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  if (reduced) { draw(0); return; }
+  var raf = null, t0 = performance.now();
+  function frame(now) { draw((now - t0) / 1000); raf = requestAnimationFrame(frame); }
+  new IntersectionObserver(function (es) {
+    if (es[0].isIntersecting) { if (!raf) raf = requestAnimationFrame(frame); }
+    else if (raf) { cancelAnimationFrame(raf); raf = null; }
+  }, { threshold: 0.05 }).observe(cv);
 })();
 </script>
 

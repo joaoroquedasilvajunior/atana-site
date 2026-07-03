@@ -229,6 +229,18 @@ code {
   .hero-method-hint span:first-child { animation: none; }
 }
 
+/* ── living-lines hero layer (v3, shared) ─────────────────────────────── */
+.hero-lines-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; filter: blur(3px); opacity: .7; }
+.hero-lines-scrim { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 65% 100% at 40% 40%, rgba(16,30,48,.85) 0%, rgba(16,30,48,.45) 60%, rgba(16,30,48,.1) 100%); }
+.eyebrow-mono { font-family: 'Menlo', 'Monaco', monospace; font-weight: 400; }
+@media (prefers-reduced-motion: reduce) { .hero-lines-canvas { opacity: .4; } }
+
+/* subscribe upsell line (Data Room individual tier) */
+.subscribe-upsell { margin-top: 18px; font-size: 13.5px; color: rgba(232,221,200,.75); }
+.subscribe-upsell a { color: var(--sand-2); text-decoration: none; border-bottom: 1px solid rgba(232,221,200,.4); padding-bottom: 2px; }
+.subscribe-upsell a:hover { color: var(--paper); border-bottom-color: var(--paper); }
+
 /* hero stats strip (notes index / home) */
 .hero-stats {
   display: grid;
@@ -245,6 +257,7 @@ code {
 /* ── Note article ──────────────────────────────────────────────────────── */
 .article-hero { padding: 64px 0 40px; }
 .article-hero .note-eyebrow { color: var(--olive-light); }
+.note-eyebrow { font-family: 'Menlo', 'Monaco', monospace; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
 .article-hero h1 { font-size: clamp(30px, 4.4vw, 42px); line-height: 1.14; }
 .article-hero .deck { font-size: 20px; margin-top: 14px; }
 .article-hero .meta {
