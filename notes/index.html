@@ -194,6 +194,41 @@ code {
 .hero-ruler-note { font-size: 13.5px; color: rgba(232,221,200,.6); margin-top: 16px; line-height: 1.55; }
 .hero-scroll-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(232,221,200,.4); font-size: 20px; animation: pulseDown 2.4s infinite; }
 
+/* ── "Continent being measured" hero canvas (home) ─────────────────────── */
+.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero-scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(16,30,48,.88) 0%, rgba(16,30,48,.5) 40%, rgba(16,30,48,0) 64%);
+}
+.hero-ctas { display: flex; align-items: center; gap: 24px; margin-top: 40px; flex-wrap: wrap; }
+.btn-hero {
+  font-size: 14px; font-weight: 600; letter-spacing: .02em;
+  color: var(--navy) !important; background: var(--sand-2);
+  padding: 13px 26px; text-decoration: none; transition: background .3s;
+}
+.btn-hero:hover { background: var(--paper); }
+.link-hero {
+  font-size: 14px; letter-spacing: .02em; color: rgba(232,221,200,.75) !important;
+  text-decoration: none; border-bottom: 1px solid rgba(232,221,200,.35); padding-bottom: 3px;
+  transition: color .3s, border-color .3s;
+}
+.link-hero:hover { color: var(--paper) !important; border-bottom-color: var(--paper); }
+.hero-method-hint {
+  position: absolute; bottom: 24px; left: 0; right: 0;
+  display: flex; gap: 10px; align-items: center;
+  padding: 0 clamp(22px, 5vw, 64px);
+  font-family: 'Menlo', 'Monaco', monospace; font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase; color: rgba(138,155,185,.75);
+}
+.hero-method-hint span:first-child { animation: pulseDown 2.4s infinite; }
+@media (max-width: 720px) {
+  .hero-canvas { opacity: .55; }
+  .hero-scrim { background: linear-gradient(180deg, rgba(16,30,48,.55), rgba(16,30,48,.8)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-method-hint span:first-child { animation: none; }
+}
+
 /* hero stats strip (notes index / home) */
 .hero-stats {
   display: grid;
@@ -665,6 +700,12 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 
     <div class="upcoming rise">
       <h3>Coming next</h3>
+      
+      <p><strong>Note #23 — A originalidade em três réguas: o mercado pede mais, o Brasil pede à IA, o salário paga menos.</strong> <em>22 Jun 2026.</em> Three rulers on one question, is creativity winning under AI? OECD vacancy demand for originality rises 25% to 33%; Anthropic&#39;s revealed-use data shows Brazil aiming AI at exactly those creative tasks (and using it to do, not to learn); Brazilian formal cultural real wages fall 16% over the decade. Demand for a skill is not income to the worker who has it.</p>
+      
+      <p><strong>Note #27 — Os mesmos dados, dois marcos: a economia cultural brasileira é 8% ou 1%, depende de quem conta.</strong> <em>24 Jun 2026.</em> The same IBGE value-added data, re-read line by line through UNESCO&#39;s 2025 Framework for Cultural Statistics, resizes the sector by a factor of eight: culture is 8% of the structural-survey economy (SIIC) or about 1% of GDP (FCS cultural core). Telecom and software move to &#34;infrastructure&#34;, sports disappears, and Design overtakes audiovisual. The methodological-pluralism companion to Análise 14 and Note #05.</p>
+      
+      <p><strong>Note #28 — A IA tem endereço: o uso brasileiro segue a geografia da Rouanet, não a da PNAB.</strong> <em>01 Jul 2026.</em> The June Anthropic Economic Index opened AI use by Brazilian state: São Paulo alone is 37.8% of the country&#39;s Claude use. Against the two maps of federal cultural funding, AI use correlates +0.83 with Rouanet per capita (which follows installed capacity) and −0.84 with PNAB (which follows a redistributive formula), and is blind to where cultural wages fell (−0.07). The territorial face of the Authenticity Paradox; pairs the /data/brasil-ia interactive map with Notes #11, #21 and #23.</p>
       
       <p><strong>Note #11 — O que o Brasil pede à IA: Anthropic Economic Index × RAIS.</strong> <em>13 Jun 2026.</em> The revealed-use companion to Note #18: of every geography measured, Brazil is the most culturally-AI-using country (18.3% vs 10.4% global) — and that use lands on the occupations whose real wages have fallen for a decade. Anthropic Economic Index × RAIS.</p>
       
