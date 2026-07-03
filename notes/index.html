@@ -236,6 +236,14 @@ code {
 .eyebrow-mono { font-family: 'Menlo', 'Monaco', monospace; font-weight: 400; }
 @media (prefers-reduced-motion: reduce) { .hero-lines-canvas { opacity: .4; } }
 
+/* typesetting hero canvas (notes index) + coming-next grid */
+.hero-type-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.upcoming-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 18px 0; }
+.upcoming-card { background: #fff; padding: 22px 20px; }
+.upcoming-card .uc-meta { font-family: 'Menlo', 'Monaco', monospace; font-size: 11px; letter-spacing: .06em; color: var(--muted); margin-bottom: 10px; }
+.upcoming-card h4 { font-family: var(--serif); font-weight: 400; font-size: 16.5px; line-height: 1.4; color: var(--navy); margin: 0; }
+.uc-footer { margin-top: 16px; }
+
 /* subscribe upsell line (Data Room individual tier) */
 .subscribe-upsell { margin-top: 18px; font-size: 13.5px; color: rgba(232,221,200,.75); }
 .subscribe-upsell a { color: var(--sand-2); text-decoration: none; border-bottom: 1px solid rgba(232,221,200,.4); padding-bottom: 2px; }
@@ -566,8 +574,7 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 
 
 <section class="hero-band hero-page" style="position:relative;overflow:hidden;">
-  <canvas id="ni-hero-canvas" class="hero-lines-canvas" aria-hidden="true"></canvas>
-  <div class="hero-lines-scrim" aria-hidden="true"></div>
+  <canvas id="ni-hero-canvas" class="hero-type-canvas" aria-hidden="true"></canvas>
   <div class="container-wide">
     
 <svg class="waves-mark" width="110" height="96" viewBox="0 0 110 96" fill="none" aria-hidden="true">
@@ -715,20 +722,40 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 
     <div class="upcoming rise">
       <h3>Coming next</h3>
+      <div class="upcoming-grid">
       
-      <p><strong>Note #23 — A originalidade em três réguas: o mercado pede mais, o Brasil pede à IA, o salário paga menos.</strong> <em>22 Jun 2026.</em> Three rulers on one question, is creativity winning under AI? OECD vacancy demand for originality rises 25% to 33%; Anthropic&#39;s revealed-use data shows Brazil aiming AI at exactly those creative tasks (and using it to do, not to learn); Brazilian formal cultural real wages fall 16% over the decade. Demand for a skill is not income to the worker who has it.</p>
+        <div class="upcoming-card">
+          <div class="uc-meta">#23 · 22 Jun 2026</div>
+          <h4>A originalidade em três réguas: o mercado pede mais, o Brasil pede à IA, o salário paga menos</h4>
+        </div>
       
-      <p><strong>Note #27 — Os mesmos dados, dois marcos: a economia cultural brasileira é 8% ou 1%, depende de quem conta.</strong> <em>24 Jun 2026.</em> The same IBGE value-added data, re-read line by line through UNESCO&#39;s 2025 Framework for Cultural Statistics, resizes the sector by a factor of eight: culture is 8% of the structural-survey economy (SIIC) or about 1% of GDP (FCS cultural core). Telecom and software move to &#34;infrastructure&#34;, sports disappears, and Design overtakes audiovisual. The methodological-pluralism companion to Análise 14 and Note #05.</p>
+        <div class="upcoming-card">
+          <div class="uc-meta">#27 · 24 Jun 2026</div>
+          <h4>Os mesmos dados, dois marcos: a economia cultural brasileira é 8% ou 1%, depende de quem conta</h4>
+        </div>
       
-      <p><strong>Note #28 — A IA tem endereço: o uso brasileiro segue a geografia da Rouanet, não a da PNAB.</strong> <em>01 Jul 2026.</em> The June Anthropic Economic Index opened AI use by Brazilian state: São Paulo alone is 37.8% of the country&#39;s Claude use. Against the two maps of federal cultural funding, AI use correlates +0.83 with Rouanet per capita (which follows installed capacity) and −0.84 with PNAB (which follows a redistributive formula), and is blind to where cultural wages fell (−0.07). The territorial face of the Authenticity Paradox; pairs the /data/brasil-ia interactive map with Notes #11, #21 and #23.</p>
+        <div class="upcoming-card">
+          <div class="uc-meta">#28 · 01 Jul 2026</div>
+          <h4>A IA tem endereço: o uso brasileiro segue a geografia da Rouanet, não a da PNAB</h4>
+        </div>
       
-      <p><strong>Note #11 — O que o Brasil pede à IA: Anthropic Economic Index × RAIS.</strong> <em>13 Jun 2026.</em> The revealed-use companion to Note #18: of every geography measured, Brazil is the most culturally-AI-using country (18.3% vs 10.4% global) — and that use lands on the occupations whose real wages have fallen for a decade. Anthropic Economic Index × RAIS.</p>
+        <div class="upcoming-card">
+          <div class="uc-meta">#11 · 13 Jun 2026</div>
+          <h4>O que o Brasil pede à IA: Anthropic Economic Index × RAIS</h4>
+        </div>
       
-      <p><strong>Note #20 — TCU × RAIS × SALIC: a PNAB sob auditoria e a força de trabalho que ela deveria proteger.</strong> <em>16 Jun 2026.</em> Brazil&#39;s federal audit court scored the country&#39;s largest-ever cultural fund 1.75 of 3 — while the formal cultural contract grew in number and shrank in value. The first governance × administrative-record reading of the corpus, timed to PNAB&#39;s second funding cycle.</p>
+        <div class="upcoming-card">
+          <div class="uc-meta">#20 · 16 Jun 2026</div>
+          <h4>TCU × RAIS × SALIC: a PNAB sob auditoria e a força de trabalho que ela deveria proteger</h4>
+        </div>
       
-      <p><strong>Note #20-EN — TCU × RAIS × SALIC: Brazil&#39;s flagship cultural fund under audit, and the workforce it was built to protect.</strong> <em>16 Jun 2026.</em> The first governance × administrative-record reading of the corpus — English edition, published simultaneously with the PT canonical.</p>
+        <div class="upcoming-card">
+          <div class="uc-meta">#20-EN · 16 Jun 2026</div>
+          <h4>TCU × RAIS × SALIC: Brazil&#39;s flagship cultural fund under audit, and the workforce it was built to protect</h4>
+        </div>
       
-      <p><em>More notes follow as the corpus grows — including English editions of the flagship pieces and Atana Index Vol. 2, due Q4 2026.</em></p>
+      </div>
+      <p class="uc-footer"><em>More notes follow as the corpus grows — including English editions of the flagship pieces and Atana Index Vol. 2, due Q4 2026.</em></p>
     </div>
 
   </div>
@@ -782,31 +809,58 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 
 <script>
 (function () {
+  /* typesetting motif — word-blocks set, hold and unset against a margin
+     rule; a page being composed forever. Design: Atana Notes.dc (2026-07). */
   var cv = document.getElementById('ni-hero-canvas');
   if (!cv) return;
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var ctx = cv.getContext('2d'), W = 0, H = 0, rows = [];
-  var COLS = ['170,198,232', '242,179,66', '63,176,126', '232,106,78', '214,92,138'];
+  var ctx = cv.getContext('2d'), W = 0, H = 0, lines = [];
   function fit() {
     var dpr = Math.min(2, window.devicePixelRatio || 1);
     W = cv.clientWidth; H = cv.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    rows = [];
-    for (var i = 0; i < 10; i++) rows.push({ y: (i + 0.5) * (H / 10), ph: Math.random() * 10, amp: 6 + Math.random() * 14, sp: 0.3 + Math.random() * 0.7, hue: i % 5 });
+    lines = [];
+    var rows = Math.floor(H / 34);
+    for (var r = 0; r < rows; r++) {
+      var words = [], x = 0;
+      while (x < W * 0.42) {
+        var w = 18 + Math.random() * 60;
+        words.push({ x: x, w: w, delay: Math.random() * 14 });
+        x += w + 12;
+      }
+      lines.push({ y: 30 + r * 34, words: words, xoff: W * 0.55 });
+    }
   }
   function draw(t) {
     ctx.clearRect(0, 0, W, H);
-    for (var j = 0; j < rows.length; j++) {
-      var r = rows[j];
-      ctx.strokeStyle = 'rgba(' + COLS[r.hue] + ',0.20)';
-      ctx.lineWidth = 1.2;
-      ctx.beginPath();
-      for (var x = 0; x <= W; x += 8) {
-        var y = r.y + Math.sin(x * 0.012 + t * r.sp + r.ph) * r.amp + Math.sin(x * 0.031 - t * r.sp * 1.7) * r.amp * 0.4;
-        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    ctx.strokeStyle = 'rgba(200,212,168,0.14)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(W * 0.53, 0); ctx.lineTo(W * 0.53, H); ctx.stroke();
+    for (var i = 0; i < lines.length; i++) {
+      var ln = lines[i];
+      for (var j = 0; j < ln.words.length; j++) {
+        var wd = ln.words[j];
+        var a;
+        if (reduced) { a = 1; }
+        else {
+          var cyc = (t - wd.delay) % 16;
+          a = 0;
+          if (cyc > 0 && cyc < 1.2) a = cyc / 1.2;
+          else if (cyc >= 1.2 && cyc < 12) a = 1;
+          else if (cyc >= 12 && cyc < 14) a = 1 - (cyc - 12) / 2;
+          if (a <= 0.01) continue;
+        }
+        ctx.fillStyle = 'rgba(232,221,200,' + (a * 0.14).toFixed(3) + ')';
+        ctx.fillRect(ln.xoff + wd.x, ln.y, wd.w, 7);
       }
-      ctx.stroke();
+    }
+    if (!reduced) {
+      var cy = 30 + (Math.floor(t * 0.8) % Math.max(1, lines.length)) * 34;
+      if (Math.sin(t * 6) > 0) {
+        ctx.fillStyle = 'rgba(232,221,200,0.45)';
+        ctx.fillRect(W * 0.55 + ((t * 60) % (W * 0.4)), cy - 3, 1.6, 13);
+      }
     }
   }
   fit();

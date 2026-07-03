@@ -236,6 +236,14 @@ code {
 .eyebrow-mono { font-family: 'Menlo', 'Monaco', monospace; font-weight: 400; }
 @media (prefers-reduced-motion: reduce) { .hero-lines-canvas { opacity: .4; } }
 
+/* typesetting hero canvas (notes index) + coming-next grid */
+.hero-type-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.upcoming-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 18px 0; }
+.upcoming-card { background: #fff; padding: 22px 20px; }
+.upcoming-card .uc-meta { font-family: 'Menlo', 'Monaco', monospace; font-size: 11px; letter-spacing: .06em; color: var(--muted); margin-bottom: 10px; }
+.upcoming-card h4 { font-family: var(--serif); font-weight: 400; font-size: 16.5px; line-height: 1.4; color: var(--navy); margin: 0; }
+.uc-footer { margin-top: 16px; }
+
 /* subscribe upsell line (Data Room individual tier) */
 .subscribe-upsell { margin-top: 18px; font-size: 13.5px; color: rgba(232,221,200,.75); }
 .subscribe-upsell a { color: var(--sand-2); text-decoration: none; border-bottom: 1px solid rgba(232,221,200,.4); padding-bottom: 2px; }

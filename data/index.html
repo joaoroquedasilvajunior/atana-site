@@ -236,6 +236,14 @@ code {
 .eyebrow-mono { font-family: 'Menlo', 'Monaco', monospace; font-weight: 400; }
 @media (prefers-reduced-motion: reduce) { .hero-lines-canvas { opacity: .4; } }
 
+/* typesetting hero canvas (notes index) + coming-next grid */
+.hero-type-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.upcoming-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 18px 0; }
+.upcoming-card { background: #fff; padding: 22px 20px; }
+.upcoming-card .uc-meta { font-family: 'Menlo', 'Monaco', monospace; font-size: 11px; letter-spacing: .06em; color: var(--muted); margin-bottom: 10px; }
+.upcoming-card h4 { font-family: var(--serif); font-weight: 400; font-size: 16.5px; line-height: 1.4; color: var(--navy); margin: 0; }
+.uc-footer { margin-top: 16px; }
+
 /* subscribe upsell line (Data Room individual tier) */
 .subscribe-upsell { margin-top: 18px; font-size: 13.5px; color: rgba(232,221,200,.75); }
 .subscribe-upsell a { color: var(--sand-2); text-decoration: none; border-bottom: 1px solid rgba(232,221,200,.4); padding-bottom: 2px; }
@@ -855,6 +863,26 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 
 
 
+
+<section class="hero-band" style="position:relative;overflow:hidden;min-height:74vh;display:flex;align-items:center;">
+  <canvas id="dp-hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="container-wide" style="position:relative;z-index:2;">
+    <div class="eyebrow eyebrow-mono" style="color:#8a9b55;">Atana · Data Explorer</div>
+    <h1 style="font-family:var(--serif);font-weight:300;font-size:clamp(40px,4.6vw,62px);line-height:1.12;margin:0 0 24px;">Every published number is an <em style="font-style:italic;color:var(--sand-2);">auditable query</em>.</h1>
+    <p style="font-size:16px;line-height:1.65;max-width:560px;margin:0 0 34px;color:rgba(232,221,200,.85);"><strong style="color:var(--paper);font-weight:500;">atana-data</strong> is the first integrated, reproducible, public corpus of Latin America's creative economies — 24 official sources, from UNCTAD and five national statistical systems to administrative registries and the first revealed-AI-usage data, unified in a single SQL layer.</p>
+    <div id="dp-stats" style="display:flex;gap:44px;margin-bottom:38px;flex-wrap:wrap;">
+      <div><div class="dp-n" data-count="24" style="font-family:var(--serif);font-weight:300;font-size:44px;color:var(--paper);line-height:1;">0</div><div style="font-family:'Menlo','Monaco',monospace;font-size:11.5px;letter-spacing:.08em;color:rgba(138,155,185,.9);margin-top:8px;">SCHEMAS</div></div>
+      <div><div class="dp-n" data-count="200" data-suffix="+" style="font-family:var(--serif);font-weight:300;font-size:44px;color:var(--paper);line-height:1;">0</div><div style="font-family:'Menlo','Monaco',monospace;font-size:11.5px;letter-spacing:.08em;color:rgba(138,155,185,.9);margin-top:8px;">TABLES</div></div>
+      <div><div class="dp-n" data-count="65" data-prefix="~" data-suffix="M" style="font-family:var(--serif);font-weight:300;font-size:44px;color:var(--paper);line-height:1;">0</div><div style="font-family:'Menlo','Monaco',monospace;font-size:11.5px;letter-spacing:.08em;color:rgba(138,155,185,.9);margin-top:8px;">ROWS</div></div>
+    </div>
+    <div class="hero-ctas" style="margin-top:0;">
+      <a class="btn-hero" href="https://github.com/joaoroquedasilvajunior/atana-data">↗ GitHub repository</a>
+      <a class="link-hero" href="#corpus-live">The corpus, drawn live ↓</a>
+    </div>
+    <div style="font-family:'Menlo','Monaco',monospace;font-size:11.5px;color:rgba(138,155,185,.85);margin-top:30px;">Corpus refreshed continuously · next UNCTAD cycle October 2026 · CC BY 4.0 · MIT</div>
+  </div>
+</section>
 
 <section class="lang-bar">
   <div class="container container--data">
@@ -1860,6 +1888,110 @@ window.addEventListener('load', function () {
     });
   }, { threshold: 0.22 });
   document.querySelectorAll('.rise, .lenses, .xwalk').forEach(function (el) { obs.observe(el); });
+})();
+</script>
+
+<script>
+(function () {
+  /* six-into-one SQL hub — schema nodes streaming row-particles into the
+     SQL layer. Design: Atana Data.dc (2026-07); nodes = 8 marquee schemas
+     of the real 24-schema corpus. */
+  var cv = document.getElementById('dp-hero-canvas');
+  if (cv) {
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ctx = cv.getContext('2d'), W = 0, H = 0, nodes = [], parts = [];
+    var COLORS = ['#40BEC4', '#3FB07E', '#F2B342', '#D65C8A', '#E86A4E', '#9FB3CC', '#c8d4a8', '#B9CCE6'];
+    var NAMES = ['unctad', 'ibge_pnadc', 'rais', 'salic', 'inegi', 'cisac', 'anthropic_eei', 'pnab'];
+    function spawn() {
+      return { nd: nodes[(Math.random() * nodes.length) | 0], k: Math.random() * 0.2, sp: 0.0025 + Math.random() * 0.005 };
+    }
+    function fit() {
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = cv.clientWidth; H = cv.clientHeight;
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      nodes = [];
+      for (var i = 0; i < NAMES.length; i++) {
+        nodes.push({ n: NAMES[i], c: COLORS[i],
+          x: W * 0.58 + (i % 2) * W * 0.30,
+          y: H * (0.12 + Math.floor(i / 2) * 0.24) + (i % 2) * 22 });
+      }
+      parts = [];
+      for (var j = 0; j < 140; j++) parts.push(spawn());
+    }
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      var hub = { x: W * 0.76, y: H * 0.5 };
+      var pr = 26 + Math.sin(t * 1.2) * 2.5;
+      ctx.strokeStyle = 'rgba(232,221,200,0.5)'; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(hub.x, hub.y, pr, 0, 6.2832); ctx.stroke();
+      ctx.strokeStyle = 'rgba(232,221,200,0.14)';
+      ctx.beginPath(); ctx.arc(hub.x, hub.y, pr + 12 + Math.sin(t * 0.8) * 3, 0, 6.2832); ctx.stroke();
+      ctx.fillStyle = 'rgba(244,237,222,0.9)';
+      ctx.font = "500 11px 'Menlo', 'Monaco', monospace";
+      ctx.textAlign = 'center'; ctx.fillText('SQL', hub.x, hub.y + 4); ctx.textAlign = 'left';
+      var i, nd;
+      for (i = 0; i < nodes.length; i++) {
+        nd = nodes[i];
+        ctx.fillStyle = nd.c;
+        ctx.beginPath(); ctx.arc(nd.x, nd.y, 4.5, 0, 6.2832); ctx.fill();
+        ctx.strokeStyle = nd.c + '40';
+        ctx.beginPath(); ctx.arc(nd.x, nd.y, 10 + Math.sin(t * 1.5 + nd.x) * 2, 0, 6.2832); ctx.stroke();
+        ctx.fillStyle = 'rgba(232,221,200,0.75)';
+        ctx.font = "11px 'Menlo', 'Monaco', monospace";
+        ctx.fillText(nd.n, nd.x + 16, nd.y + 4);
+        ctx.strokeStyle = nd.c + '18';
+        ctx.beginPath(); ctx.moveTo(nd.x, nd.y);
+        ctx.quadraticCurveTo((nd.x + hub.x) / 2, (nd.y + hub.y) / 2 + 30, hub.x, hub.y);
+        ctx.stroke();
+      }
+      if (reduced) return;
+      for (i = 0; i < parts.length; i++) {
+        var p = parts[i];
+        p.k += p.sp;
+        if (p.k >= 1) { parts[i] = spawn(); continue; }
+        nd = p.nd;
+        var mx = (nd.x + hub.x) / 2, my = (nd.y + hub.y) / 2 + 30, u = 1 - p.k;
+        var x = u * u * nd.x + 2 * u * p.k * mx + p.k * p.k * hub.x;
+        var y = u * u * nd.y + 2 * u * p.k * my + p.k * p.k * hub.y;
+        ctx.globalAlpha = Math.sin(p.k * Math.PI) * 0.75;
+        ctx.fillStyle = nd.c;
+        ctx.fillRect(x - 2, y - 0.8, 4, 1.6);
+        ctx.globalAlpha = 1;
+      }
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    if (reduced) { draw(0); }
+    else {
+      var raf = null, t0 = performance.now();
+      var fr = function (now) { draw((now - t0) / 1000); raf = requestAnimationFrame(fr); };
+      new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { if (!raf) raf = requestAnimationFrame(fr); }
+        else if (raf) { cancelAnimationFrame(raf); raf = null; }
+      }, { threshold: 0.05 }).observe(cv);
+    }
+  }
+  /* hero counters */
+  var strip = document.getElementById('dp-stats');
+  if (strip) {
+    var reduced2 = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ran = false;
+    new IntersectionObserver(function (es, o) {
+      if (!es[0].isIntersecting || ran) return;
+      ran = true; o.disconnect();
+      strip.querySelectorAll('.dp-n').forEach(function (el) {
+        var t = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+        if (reduced2) { el.textContent = pre + t + suf; return; }
+        var t0 = performance.now();
+        (function step(now) {
+          var k = Math.min(1, (now - t0) / 1500);
+          el.textContent = pre + Math.round(t * (1 - Math.pow(1 - k, 3))) + suf;
+          if (k < 1) requestAnimationFrame(step);
+        })(t0);
+      });
+    }, { threshold: .4 }).observe(strip);
+  }
 })();
 </script>
 
