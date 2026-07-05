@@ -742,7 +742,7 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
       val = document.getElementById('ruler-value'),
       lab = document.getElementById('ruler-label'),
       dots = document.getElementById('ruler-dots');
-  if (row && !reduced) {
+  if (row && val && lab && dots && !reduced) {
     setInterval(function () {
       ri = (ri + 1) % 3;
       val.textContent = rulers[ri][0]; lab.textContent = rulers[ri][1];
