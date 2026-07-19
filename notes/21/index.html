@@ -698,6 +698,19 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <p>Para reforço quantitativo da troca: a razão R$/hab entre a maior e a menor UF é de <strong>80,8 ×</strong> se calculada só sobre a Rouanet, <strong>2,4 ×</strong> sobre a PNAB, <strong>2,5 ×</strong> sobre a LPG, e <strong>2,1 ×</strong> sobre a soma dos três programas. A passagem de uma razão de 80× para 2× é a versão quantitativa da mesma troca que a Figura 3 mostra em forma de cruzamento de linhas. Não é hipérbole — é a relação entre dois números reais.</p>
 <p><strong>Cross-validação independente.</strong> A tabela 3.15 do IBGE SIIC (Gastos tributários federais com Cultura, série Receita Federal do Brasil, 2023) coloca <strong>77,8 %</strong> dos gastos tributários no Sudeste — confirmando, por uma fonte administrativa completamente distinta, a concentração que nossa medição via SALIC dá como 61 % em SP+RJ. Duas fontes independentes (microdados SALIC + agregados Receita Federal) descrevem a mesma geografia da renúncia.</p>
 <hr>
+<h2>O que os dados dizem (4) — o número por agente-beneficiário (extensão v3, julho 2026)</h2>
+<p>Em <strong>30 de junho e 1º de julho de 2026</strong>, MinC/SNIIC apresentaram três estudos inéditos no <em>I Seminário de Avaliação de Resultados da Política Nacional Aldir Blanc</em> — a primeira avaliação oficial do Ciclo 1. Um número dominou a leitura: <strong>167.817 agentes culturais assistidos pela PNAB entre 2023 e 2025</strong>. Desses, 145.235 vieram de iniciativas municipais e 22.582 de ações estaduais.</p>
+<p>Dois recortes da distribuição desses agentes são particularmente úteis para a leitura desta Nota:</p>
+<ul>
+<li><strong>58 % dos agentes assistidos residem em municípios do interior</strong> — fora das capitais.</li>
+<li><strong>40 % residem em municípios de até 20 mil habitantes.</strong></li>
+</ul>
+<p>Essas duas frações são o <strong>backing quantitativo direto</strong> ao argumento territorial das seções anteriores. Onde as figuras 2 e 3 mostraram <em>para onde o dinheiro vai por UF</em>, esta seção mostra <em>onde os beneficiários efetivamente moram por tamanho de município</em>. <strong>A PNAB não apenas transfere o dinheiro para todo o mapa federativo — ela alcança pessoas em municípios que a Rouanet nunca alcançou de forma sistemática.</strong> Dado o padrão histórico da Rouanet (40,9 % SP + 82,4 % top-5 UFs), a probabilidade de que 40 % dos beneficiários de qualquer PRONAC vivam em cidades de até 20 mil habitantes é vanishingly small; não é uma inversão marginal, é uma inversão categórica.</p>
+<p>Complementarmente: <strong>as três lentes de execução da PNAB Ciclo 1 são 97,1 % (estados), 94,4 % (municípios) e 95,8 % (nacional)</strong> — próximas do teto para uma política de fomento em seu primeiro ciclo. Um programa nascido em 2022 e desenhado para chegar em 5.596 entes federados atingiu execução quase-universal em três anos.</p>
+<p><strong>Cross-source byte-a-byte:</strong> o valor total mobilizado que os estudos SNIIC declararam — <strong>R$ 3 bilhões</strong> — bate exatamente com o valor recebido registrado em <code>atana.pnab.execucao_financeira</code> (também R$ 3,00 bi). A validação de duas fontes administrativas independentes (o portal da PNAB e o estudo do SNIIC) sobre o mesmo programa é o tipo de correspondência que uma peça baseada em dados pode reivindicar.</p>
+<p>O que a PNAB ainda <strong>não publicou</strong> é o dado agente-a-agente. Os 167.817 estão como número agregado; a microdata (agente × município × UF × valor × gênero × raça × faixa etária) sairá em prazo não anunciado. Quando sair, um refino desta Nota será publicado como v4 com as distribuições completas. Watchpoints ativos em <code>_atana_intel/sources.yaml</code> (SNIIC + PNAB Ciclo 1 landing + CULTBR + Aferição).</p>
+<p><strong>Paradoxo em aberto para explorar depois:</strong> o TCU (Acórdão 1709/2025) avaliou a maturidade de governança da PNAB em <strong>1,75 / 3</strong>, com Gestão de riscos = 1 (o menor da escala). O mesmo programa entregou 95,8 % de execução em três anos. Um instrumento formalmente classificado como "não institucionalizado" na dimensão de riscos entregou execução quase-perfeita. Note #24 candidato — "O paradoxo da execução: como o pior escore do TCU chegou ao maior recall federativo".</p>
+<hr>
 <h2>Implicações</h2>
 <p>A nota documenta um achado distributivo limpo. Quatro implicações imediatas:</p>
 <p><strong>(i) Para o desenho do orçamento federal de cultura.</strong> A escolha entre arquitetura indireta (Rouanet) e direta (PNAB/LPG) é o lever distributivo mais relevante da política cultural federal hoje. O ministério tem evidência de que o redesenho funciona — não apenas em intenção, mas em onde o dinheiro pousa.</p>
@@ -725,7 +738,7 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <tbody>
 <tr>
 <td>W1</td>
-<td><strong>Cobertura SALIC ≈ 46 % do universo Rouanet</strong> (per caveat documentado da fonte). A cross-validação IBGE T3.11 (Rouanet 2022 captação nominal R$ 2,12 bi vs nossa medição deflacionada R$ 1,43 bi BRL-2024) é consistente com essa cobertura parcial. Tendência preservada, magnitude pode subestimar.</td>
+<td><strong>Esta Nota mede sobre o subset <code>atana.salic.projetos_v2</code> — 26.203 PRONACs, ≈46 % do universo Rouanet 2019–2026</strong> — para preservar consistência com Análise 7 (Sondagem SALIC) e demais publicações anteriores. A <strong>auditoria de cobertura de 2026-07-05 (Phase 9a)</strong> revelou que a tabela canônica <code>atana.salic.projetos</code> está em <strong>48.189 PRONACs (~85 % do universo)</strong> — foi o número documentacional que estava defasado, não o corpus. A re-execução da análise de concentração sobre a tabela canônica completa produz frações praticamente idênticas às aqui apresentadas: SP 40,9 % → 40,8 %, top-5 82,4 % → 82,6 %. <strong>O padrão distributivo é insensível à cobertura; o achado da Nota permanece robusto</strong> — a re-medição sobre o corpus completo será um item de rodapé, não uma revisão substantiva. Cf. <code>docs/methodology/salic_api.md</code> §1.1 para a reframing completa. Cross-validação IBGE T3.11 (Rouanet 2022 captação nominal R$ 2,12 bi vs nossa medição deflacionada R$ 1,43 bi BRL-2024) permanece consistente.</td>
 </tr>
 <tr>
 <td>W2</td>
@@ -760,7 +773,7 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <tr>
 <td>MinC SALIC API (Lei Rouanet)</td>
 <td><code>atana.salic</code></td>
-<td><code>projetos_v2</code> (26.203 PRONACs)</td>
+<td><code>projetos_v2</code> (26.203 PRONACs; corpus canônico <code>projetos</code> a 48.189, cf. W1)</td>
 <td>2022–2024</td>
 </tr>
 <tr>
@@ -768,6 +781,12 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <td><code>atana.pnab</code></td>
 <td><code>execucao_financeira</code> (5.425 entes)</td>
 <td>2022–2024</td>
+</tr>
+<tr>
+<td><strong>MinC/SNIIC — I Seminário PNAB (extensão v3)</strong></td>
+<td><strong><code>atana.pnab</code></strong></td>
+<td><strong><code>ciclo1_avaliacao_headlines</code> (12 métricas × 6 dimensões, Phase 10 Move A)</strong></td>
+<td><strong>2023–2025</strong></td>
 </tr>
 <tr>
 <td>MinC LPG execução</td>
@@ -793,14 +812,44 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <hr>
 <h2>Como citar</h2>
 <blockquote>
-<p>Roque da Silva Junior, J. (2026). <em>Três programas, três geografias: Rouanet × PNAB × LPG, 2022–2024</em>. Atana Note #21. atana.studio/notes/21/.</p>
+<p>Roque da Silva Junior, J. (2026). <em>Três programas, três geografias: Rouanet × PNAB × LPG, 2022–2024</em> (v3.0). Atana Note #21. atana.studio/notes/21/.</p>
 </blockquote>
+<h2>Histórico de versões</h2>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Mudança</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>jun/2026</td>
+<td>Publicação inicial. Análise de concentração + per capita + rank-swap com 3 charts.</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>jun/2026</td>
+<td>Correção de colisões de rótulo (Fig. 3), refino do achado RJ-exceção e do vão MS/MT/GO/BA/RN. Post LinkedIn PT em ~1.500 palavras. Sync EN.</td>
+</tr>
+<tr>
+<td><strong>3.0</strong></td>
+<td><strong>jul/2026</strong></td>
+<td><strong>Extensão v3 no §"O que os dados dizem (4)"</strong> — backing quantitativo agente-a-agente da PNAB Ciclo 1 (167.817 agentes, 58 % interior, 40 % ≤20k hab, execução 95,8 %, cross-source byte-a-byte com <code>execucao_financeira</code>). Nota de calibração da cobertura SALIC (48.189 canônico vs 26.203 usado). Fila de continuação com Notes #22, #23, #24. Charts inalterados; os achados novos são textuais + tabela.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2>Próximas extensões previstas</h2>
 <ul>
-<li><strong>Análise 26 candidata (Vol. 1):</strong> versão estendida com Gini per capita por programa, decomposição por Grande Região, série anual 2019–2024 da Rouanet (Período Lula), e probabilidades autorais do que acontece em 2025 se a LPG não for prorrogada novamente.</li>
+<li><strong>v4 (quando MinC/SNIIC publicar microdados agente-a-agente do Ciclo 1):</strong> distribuições completas agente × UF × município × gênero × raça × faixa etária × valor. Watchpoints ativos em <code>_atana_intel/sources.yaml</code> (SNIIC + PNAB Ciclo 1 landing + CULTBR + Aferição). Trigger imediato para uma v4 assim que a microdata cair.</li>
+<li><strong>Note #22 candidata — "A pergunta dos 4,2×":</strong> os projetos Rouanet cresceram de 3.150 (2019) para 13.197 (2025) = <strong>4,2× em seis anos</strong>. Agora mensurável no nível do microdado com o corpus canônico completo (48.189 PRONACs, Phase 9a). Decompor estrutural (rampa Lula) vs distributivo (a concentração mudou?). Sequência: publicar após v3 desta Nota.</li>
+<li><strong>Note #23 candidata — "O Quarto Pipe":</strong> Emendas Parlamentares Cultura como quarta arquitetura federal, ao lado de Rouanet (indireta), PNAB (direta generalista) e LPG (direta AV). Scoping completo em <code>_atana_intel/phase11_emendas_scoping.md</code>. Sequência: Phase 11 Tier 1 (headlines) → Note #23.</li>
+<li><strong>Note #24 candidata — "O paradoxo da execução":</strong> TCU (Acórdão 1709/2025) deu <strong>1,75 / 3</strong> à maturidade de governança da PNAB, com Gestão de riscos = 1 (o menor da escala). O mesmo programa entregou <strong>95,8 %</strong> de execução em três anos. Terceira lente — accountability vs distribuição — apontada em §"(4)" acima.</li>
+<li><strong>Análise 26 candidata (Vol. 1):</strong> versão estendida com Gini per capita por programa, decomposição por Grande Região, série anual 2019–2024 da Rouanet (Período Lula), e probabilidades autorais do que acontece em 2025 se a LPG não for prorrogada novamente. <strong>Uso do corpus canônico completo (<code>atana.salic.projetos</code> a 48.189)</strong>.</li>
 <li><strong>Vol. 2 do paper SALIC:</strong> seção de federalismo cultural — comparação Brasil × outros países LATAM com transferências culturais diretas (Argentina FONCA, México FONCA — escopo Phase 7 do <code>atana-data</code>).</li>
-<li><strong>Cruzamento com TCU 1709/2025 (Acórdão PNAB):</strong> a auditoria do TCU avalia governança e execução do mesmo programa que esta Nota descreve geograficamente. Uma terceira lente — accountability vs distribuição.</li>
 </ul>
 
     <div class="footer-cta rise">
