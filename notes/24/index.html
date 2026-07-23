@@ -621,11 +621,27 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <p>Na Cultura, <strong>78%</strong> do dinheiro sai pela porta mais especificada (individual com finalidade) e menos de 8% pela comissão. No Turismo, a proporção <strong>se inverte</strong>: <strong>64% sai pela comissão</strong> e apenas 23% pela individual. Duas funções, o mesmo tipo de gasto com eventos, portas opostas.</p>
 <h3>3. Poucas linhas, muito dinheiro</h3>
 <p><img alt="Sete linhas de comissão concentram 63% do Turismo" src="fig24_3_concentracao.png"></p>
-<p>A marca da baixa transparência é a concentração. <strong>Sete emendas de comissão</strong> — quatro da Comissão de Turismo e três da Comissão de Desenvolvimento Regional e Turismo — concentram <strong>R$ 2,41 bilhões, 63% de todo o Turismo</strong>. (Cada linha da base é uma linha de execução no Portal — uma por alocação de execução da emenda; aqui as sete linhas são sete emendas distintas, sete <code>codigo_emenda</code>, cada uma uma alocação de bloco única de R$ 62 mi a R$ 668 mi, concentradas em 2023–2025.) Não são 1.030 parlamentares espalhando dinheiro; são duas comissões do Congresso movimentando quase dois terços do dinheiro por sete atos. As outras mil linhas dividem o terço restante.</p>
+<p>A marca da baixa transparência é a concentração. <strong>Sete emendas de comissão</strong> (quatro da Comissão de Turismo e três da Comissão de Desenvolvimento Regional e Turismo) concentram <strong>R$ 2,41 bilhões, 63% de todo o Turismo</strong>. (Cada linha da base é uma linha de execução no Portal, uma por alocação de execução da emenda; aqui as sete linhas são sete emendas distintas, sete <code>codigo_emenda</code>, cada uma uma alocação de bloco única de R$ 62 mi a R$ 668 mi, concentradas em 2023–2025.) Não são 1.030 parlamentares espalhando dinheiro; são duas comissões do Congresso movimentando quase dois terços do dinheiro por sete atos. As outras mil linhas dividem o terço restante.</p>
 <p>O restante dos direcionadores confirma que se trata de outra coalizão: bancadas do Nordeste e de estados regionais (Bahia, Sergipe, Alagoas, Paraíba) e nomes de centro-direita, com Paulo Paim como presença isolada da esquerda — um contraste nítido com a esquerda cultural que direciona a Função 13. (Para não idealizar o outro lado: a maior linha isolada da própria Cultura é a do Relator-Geral, R$ 206 mi, também de baixo controle. A diferença entre as duas funções é de proporção, não de pureza.)</p>
 <hr>
 <h2>Um dado que ainda não fecha, e que não vamos forçar</h2>
-<p>O Turismo também <strong>executa mal</strong>: das emendas de comissão (63% do dinheiro), só 25,5% foram efetivamente pagas; o Turismo no agregado paga 38%, contra 84% da Cultura. Isso pode ser (a) efeito de recência — coortes recentes ainda dentro do prazo de pagamento — ou (b) estrutural: a "reserva" de comissão, que empenha muito e realiza pouco. O corpus atual não separa as duas hipóteses; falta o campo de situação por linha, a ser acrescentado numa próxima extração. Registramos o número e a dúvida, sem escolher a resposta.</p>
+<p>O Turismo também <strong>executa mal</strong>: das emendas de comissão (63% do dinheiro), só 25,5% foram efetivamente pagas; o Turismo no agregado paga 38%, contra 84% da Cultura. Isso pode ser (a) efeito de recência — coortes recentes ainda dentro do prazo de pagamento — ou (b) estrutural: a "reserva" de comissão, que empenha muito e realiza pouco. O corpus atual não separa as duas hipóteses; falta o campo de situação por linha, a ser acrescentado numa próxima extração. Registramos o número e a dúvida, sem escolher a resposta. <strong>(Extensão v2, abaixo: parte dessa baixa execução é dinheiro estacionado em contas de repasse da Caixa — empenhado, ainda não desembolsado ao recebedor final.)</strong></p>
+<hr>
+<h2>O muro da rastreabilidade (extensão v2, julho 2026)</h2>
+<p>A v1 marcou uma fronteira: mapeamos o <em>canal</em>, não o <em>destinatário</em>. A pergunta seguinte — quem recebeu — foi então testada, seguindo o rastro federal de cada emenda até o favorecido do pagamento (emenda → documento de despesa → favorecido, via API do Portal). O resultado fecha o argumento da Nota de um jeito que não esperávamos.</p>
+<p><img alt="O muro da rastreabilidade: onde o rastro federal termina" src="fig24_4_muro_rastreabilidade.png"></p>
+<p>Peguei as 7 emendas de comissão do Turismo (os R$ 2,41 bi) e 10 emendas individuais de Cultura com finalidade definida, e classifiquei o favorecido federal de cada pagamento em três tipos: <strong>empresa</strong> (um CNPJ privado — rastreável até o recebedor), <strong>ente</strong> (prefeitura, fundo, secretaria — o rastro para no município) e <strong>operador</strong> (Caixa Econômica, Banco do Brasil — o rastro para no banco que opera o repasse).</p>
+<p>O resultado é uma inversão total, medida:</p>
+<ul>
+<li><strong>Dinheiro de comissão do Turismo:</strong> 51% para no operador (Caixa/BB), 49% para no ente. <strong>0% chega a uma empresa privada rastreável.</strong> Cada uma das sete emendas de comissão termina, no nível federal, na Caixa ou num município.</li>
+<li><strong>Dinheiro individual de Cultura:</strong> <strong>100% chega a uma empresa privada.</strong> Cada uma das dez emendas individuais tem um CNPJ de recebedor no rastro federal.</li>
+</ul>
+<p><strong>Rastreabilidade e controle são o mesmo eixo.</strong> O dinheiro que você <em>consegue</em> seguir até uma empresa é o dinheiro cultural especificado e bem controlado. O dinheiro de que o debate trata — o grande, de comissão, de baixo controle — sai da transparência federal no operador de repasse (a Caixa) <em>antes</em> que se possa ver onde ele aterrissa. Para chegar ao artista seria preciso atravessar mais dois saltos (Caixa → ente → contrato municipal), e o contrato municipal está em 5.568 portais de prefeitura, fora do alcance federal.</p>
+<p>Isso não é uma falha da nossa medição — é a arquitetura. A emenda de comissão de baixo controle é, <em>por construção</em>, de baixa rastreabilidade: o instrumento menos especificado é também o menos auditável. A "menos controle" que o debate intui tem uma forma concreta e mensurável: o rastro federal termina no banco.</p>
+<p>E isso reilumina o enigma da execução acima: parte dos 38% de execução do Turismo é dinheiro empenhado em contas de repasse da Caixa — comprometido no papel, ainda não desembolsado ao recebedor final. Baixo controle, baixa execução aparente e baixa rastreabilidade são três faces da mesma escolha de instrumento.</p>
+<blockquote>
+<p><strong>Fronteira mantida.</strong> Este achado é sobre <em>rastreabilidade</em>, não sobre conduta. Não afirma que houve desvio — afirma que, para a maior parte do dinheiro de eventos, a transparência federal não permite verificar o recebedor final. Nenhum nome é publicado. A investigação de "quem recebeu o cachê", para o dinheiro que importa, é trabalho jornalístico caso a caso nos portais municipais — que estes dados agora mostram ser necessário, e por quê.</p>
+</blockquote>
 <hr>
 <h2>O que estes dados NÃO dizem (fronteira explícita)</h2>
 <p>Esta Nota mapeia o <strong>canal</strong>: quem direcionou a emenda, por qual instrumento, para qual território. Ela <strong>não</strong> identifica o <strong>destinatário</strong> — a empresa ou o artista que recebeu o pagamento. Portanto:</p>
@@ -715,6 +731,16 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <td>1.0</td>
 <td>jul 2026</td>
 <td>Publicação inicial. Achado de duas funções (Cultura fn13 × Turismo fn23); inversão do instrumento; concentração de comissão; 3 gráficos.</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>jul 2026</td>
+<td>Esclarecimento: "7 linhas" = 7 emendas de comissão distintas.</td>
+</tr>
+<tr>
+<td><strong>2.0</strong></td>
+<td><strong>jul 2026</strong></td>
+<td><strong>Extensão "O muro da rastreabilidade"</strong> — rastro emenda → documento → favorecido (Tier 2b certificado). Dinheiro de comissão do Turismo: 0% chega a empresa privada rastreável (51% para na Caixa/BB, 49% no ente); Cultura individual: 100% chega a empresa. Rastreabilidade = controle. +1 gráfico (fig24_4). Nenhum recebedor nomeado.</td>
 </tr>
 <tr>
 <td>1.1</td>

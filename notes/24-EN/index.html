@@ -620,11 +620,27 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <p>In Culture, <strong>78%</strong> of the money leaves through the more-controlled door (defined-purpose individual) and only 8% through committee. In Tourism, the proportion <strong>inverts</strong>: <strong>64% leaves through committee</strong> and only 23% through individual. Two functions, the same kind of cultural-events spending, opposite doors.</p>
 <h2>What the data say (3) — few lines, much money</h2>
 <p><img alt="7 committee lines hold 63% of Tourism" src="fig24_3_concentracao.png"></p>
-<p>The signature of low transparency is concentration. <strong>Seven committee amendments</strong> — four from the Tourism Committee, three from the Regional Development and Tourism Committee — hold <strong>R$ 2.41 billion, 63% of the entire Tourism pipe</strong>. (Each table row is one execution line in the Portal — one per amendment execution allocation; here the seven lines are seven distinct amendments, seven <code>codigo_emenda</code>, each a single block allocation of R$ 62 mn to R$ 668 mn, concentrated in 2023–2025.) It's not 1,030 deputies spreading money; it's two Congressional committees moving nearly two-thirds of the money through seven acts. The rest of the pipe — over a thousand lines — splits the remaining third.</p>
+<p>The signature of low transparency is concentration. <strong>Seven committee amendments</strong> (four from the Tourism Committee, three from the Regional Development and Tourism Committee) hold <strong>R$ 2.41 billion, 63% of the entire Tourism channel</strong>. (Each table row is one execution line in the Portal, one per amendment execution allocation; here the seven lines are seven distinct amendments, seven <code>codigo_emenda</code>, each a single block allocation of R$ 62 mn to R$ 668 mn, concentrated in 2023–2025.) It's not 1,030 deputies spreading money; it's two Congressional committees moving nearly two-thirds of the money through seven acts. The rest of the channel, over a thousand lines, splits the remaining third.</p>
 <p>The rest of the Tourism director roster confirms it's a different coalition: Northeast and regional state delegations (Bahia, Sergipe, Alagoas, Rio Grande do Norte, Paraíba, Piauí — the heartland of São João and regional music) and centre-right individuals (Soraya Santos, Arthur Lira, Magno Malta, Marcel Van Hattem), with Paulo Paim as the lone left presence. A sharp contrast with the cultural left that directs Função 13.</p>
 <hr>
 <h2>One number that doesn't yet close — and that we won't force</h2>
-<p>The Tourism pipe also <strong>executes poorly</strong>: of the committee amendments (63% of the money), only 25.5% was actually paid; Tourism overall pays 38%, against Culture's 84%. This may be (a) censoring — recent cohorts still inside their payment window — or (b) structural: the committee "reserve" that commits much and realizes little. The current corpus does not separate the two — it lacks the per-line status field, to be added in a later pass. We record the number and the doubt, without picking the answer.</p>
+<p>The Tourism pipe also <strong>executes poorly</strong>: of the committee amendments (63% of the money), only 25.5% was actually paid; Tourism overall pays 38%, against Culture's 84%. This may be (a) censoring — recent cohorts still inside their payment window — or (b) structural: the committee "reserve" that commits much and realizes little. The current corpus does not separate the two — it lacks the per-line status field, to be added in a later pass. We record the number and the doubt, without picking the answer. <strong>(v2 extension, below: part of this low execution is money parked in Caixa transfer accounts — committed, not yet disbursed to the final recipient.)</strong></p>
+<hr>
+<h2>The traceability wall (v2 extension, July 2026)</h2>
+<p>v1 drew a boundary: we mapped the <em>channel</em>, not the <em>recipient</em>. The next question — who got paid — was then tested, following each amendment's federal trail to the payment's favorecido (amendment → expense document → favorecido, via the Portal API). The result closes the Note's argument in a way we did not expect.</p>
+<p><img alt="The traceability wall: where the federal trail ends" src="fig24_4_muro_rastreabilidade.png"></p>
+<p>I took the 7 Tourism committee amendments (the R$ 2.41 bn) and 10 individual finalidade-definida Culture amendments, and classified each payment's federal favorecido into three types: <strong>empresa</strong> (a private CNPJ — traceable to the recipient), <strong>ente</strong> (a município, fund, secretariat — the trail stops at the municipality), and <strong>operador</strong> (Caixa Econômica, Banco do Brasil — the trail stops at the bank operating the transfer).</p>
+<p>The result is a total, measured inversion:</p>
+<ul>
+<li><strong>Tourism committee money:</strong> 51% stops at the operador (Caixa/BB), 49% at the ente. <strong>0% reaches a traceable private company.</strong> Every one of the seven committee amendments ends, at federal level, at Caixa or a município.</li>
+<li><strong>Individual Culture money:</strong> <strong>100% reaches a private company.</strong> Every one of the ten individual amendments has a recipient CNPJ in the federal trail.</li>
+</ul>
+<p><strong>Traceability and control are the same axis.</strong> The money you <em>can</em> follow to a company is the specified, well-controlled cultural money. The money the debate is about — the big, committee-directed, low-control money — leaves federal transparency at the transfer operator (Caixa) <em>before</em> you can see where it lands. Reaching the artist would take two more hops (Caixa → ente → municipal contract), and the municipal contract lives in 5,568 prefeitura portals, outside federal reach.</p>
+<p>This is not a failure of our measurement — it is the architecture. The low-control committee amendment is, <em>by construction</em>, low-traceability: the least-specified instrument is also the least-auditable. The "less control" the debate intuits has a concrete, measurable shape: the federal trail ends at the bank.</p>
+<p>And it re-lights the execution puzzle above: part of Tourism's 38% execution is money committed into Caixa transfer accounts — obligated on paper, not yet disbursed to the final recipient. Low control, low apparent execution and low traceability are three faces of the same instrument choice.</p>
+<blockquote>
+<p><strong>Boundary held.</strong> This finding is about <em>traceability</em>, not conduct. It does not claim misappropriation — it claims that, for most of the events money, federal transparency does not allow verifying the final recipient. No name is published. The "who got the fee" investigation, for the money that matters, is case-by-case journalism in municipal portals — which these data now show to be necessary, and why.</p>
+</blockquote>
 <hr>
 <h2>What these data do NOT say (explicit boundary)</h2>
 <p>This Note maps the <strong>channel</strong>: who directed, which instrument, where. It does <strong>not</strong> identify the <strong>recipient</strong> — the company or artist that received the payment. Therefore:</p>
@@ -714,6 +730,16 @@ article th { background: var(--sand-2); color: var(--navy); font-weight: 700; }
 <td>1.0</td>
 <td>Jul 2026</td>
 <td>Initial publication. Two-function structural finding (Culture fn13 × Tourism fn23); the instrument inversion; committee concentration; 3 charts. Channel scope (no recipient); boundary and political sensitivity foregrounded.</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>Jul 2026</td>
+<td>Clarification: "7 lines" = 7 distinct committee amendments.</td>
+</tr>
+<tr>
+<td><strong>2.0</strong></td>
+<td><strong>Jul 2026</strong></td>
+<td><strong>"The traceability wall" extension</strong> — amendment → document → favorecido trail (certified Tier 2b). Tourism committee money: 0% reaches a traceable private company (51% stops at Caixa/BB, 49% at the ente); individual Culture: 100% reaches a company. Traceability = control. +1 chart (fig24_4). No recipient named.</td>
 </tr>
 </tbody>
 </table>
